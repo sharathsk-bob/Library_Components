@@ -6,6 +6,7 @@ import { AppContext } from "../app-context";
 
 function Cards() {
   //const { title,description,actionBtn,btn1,btn2,img }=newCard;
+  //just check
   const { newCard }=useContext(AppContext);
   
   const objectUrl = URL.createObjectURL(newCard.image)
