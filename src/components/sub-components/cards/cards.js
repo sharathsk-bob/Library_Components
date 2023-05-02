@@ -35,7 +35,7 @@ function Cards() {
           class="card__content-spaced card__actions"
           title="Occurs Every 4th  Wednesday  of each month effective 10 Mar 2023 until 30 Apr 2023"
         >
-          <span class="singledate">
+          <span class="card-description">
           {newCard.description}
           </span>
         </div>

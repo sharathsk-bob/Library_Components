@@ -60,14 +60,23 @@ function Form(props) {
   const validateForm = () => {
     let errors = {};
     let isValid = true;
-
+    const isTitleValid = title.length <= 10;
+    const isDescriptionValid = description.split(" ").length <= 100;
     if (title.trim() === "") {
       errors.title = "Title is required";
+      isValid = false;
+    }
+    if (!isTitleValid) {
+      errors.title = "Title should have only 10 characters";
       isValid = false;
     }
 
     if (description.trim() === "") {
       errors.description = "Description is required";
+      isValid = false;
+    }
+    if (!isDescriptionValid) {
+      errors.description = "Description should have only 100 words";
       isValid = false;
     }
     if (addButton == null) {
@@ -131,12 +140,13 @@ function Form(props) {
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
             <div className="Form-field">
-              <label htmlFor="title">Title:</label>
+              <label htmlFor="title" >Title:</label>
               <input
                 type="text"
                 id="title"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
+                //maxlength="10" required
               />
               {errors.title && <span className="error">{errors.title}</span>}
             </div>
@@ -147,6 +157,7 @@ function Form(props) {
                 id="description"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
+                //maxlength="500" rows="5" required
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>
