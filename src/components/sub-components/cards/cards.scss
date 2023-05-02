@@ -1,0 +1,131 @@
+.App{
+    text-align: center;
+}
+.card {
+	background-color: white!important;
+	// border-radius: var(--border-radius);
+	box-shadow: 0 0.3px 0.9px rgba(0,0,0,0.1),0 1.6px 3.6px rgba(0,0,0,0.14);
+	margin: 32px 16px;
+	max-width: calc(35% - 32px);
+	width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+    .card__img-container {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        max-height: 142px;
+        position: relative;
+    }
+
+    .by {
+        height: auto;
+    }
+    .bx {
+        vertical-align: middle;
+    }
+    .bw {
+        display: inline-block;
+    }
+    .bv {
+        box-sizing: border-box;
+    }
+    .card__img {
+        max-width: 100%;
+        object-fit: cover;
+        padding: 0 0 8px;
+        width: 100%;
+    }
+    img {
+        border-style: none;
+    }
+    .card__content {
+        padding: 10px;
+        padding-top: 0;
+        flex-grow: 1;
+        display: block;
+        grid-template-columns: minmax(0, 1fr) max-content max-content;
+        grid-template-rows: min-content min-content minmax(0, 1fr);
+        grid-template-areas:
+            "title   flag    more"
+            "avatars avatars avatars"
+            "actions actions actions";
+    }
+    .heading_title {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0px;
+    }
+    .card__title {
+        grid-area: title;
+        font-size: medium;
+        font-weight: 700;
+        margin: 0;
+    }
+    .my_title {
+        //width: 70%;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        text-overflow: ellipsis;
+    }
+    .card__actions {
+        grid-area: actions;
+        align-items: center;
+        align-self: flex-start;
+    }
+    .card__content-spaced {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    .singledate {
+        font-size: 1rem;
+        text-align: initial;
+    }
+    .card-footer-new{
+        display: flex;
+        justify-content: end;
+    }
+    .button {
+        background-color: transparent;
+        align-items: center;
+        border: 1px solid transparent;
+        display: flex;
+        font-weight: 600;
+        justify-content: center;
+        padding: 8px;
+        width: auto;
+    }
+    .button--primary {
+        background-color: #0070ad;
+        border-color: #0070ad;
+        border-radius: 4px;
+        box-shadow:  0 0.3px 0.9px rgba(0,0,0,0.1),0 1.6px 3.6px rgba(0,0,0,0.14);
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .card__cta {
+        display: flex;
+        align-self: flex-end;
+    }
+    .card__cta, .card__cta:hover {
+        background-color: #12abdb !important;
+        border-color: #12abdb !important;
+    }
+    .library-add-button{
+        margin-left: 20px;
+    }
+    
+
+}
+
+
+@media screen and (max-width: 1280px){
+.card {
+    max-width: calc(33.33333% + 150px);
+}
+}

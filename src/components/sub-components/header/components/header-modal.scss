@@ -1,0 +1,116 @@
+.form-modalcontainer{
+  
+    .form-header{
+        display: flex;
+       justify-content: space-between;
+       background-color: #12ABDB;
+       padding: 0.5em 2em;
+       color: #fff;
+        .close-button{
+            border: none;
+        background: transparent;
+        float: right;
+        }
+        p{
+            font-size: 18px!important;
+            margin: 0px;
+        }
+    }
+    .modal-container{
+        font-size: 13px;
+        .logo-field{
+            p{
+                margin-bottom: 0px;
+            }
+        }
+.text_modal__input{
+    input{
+        background-color: #ffff;
+        // border-color:#3a3a3a !important;
+        
+        // border-width: 2px;
+        color: var(--color-black);
+        margin-top: 10px;
+        min-height: 30px;
+        width: 60%;
+    }
+}
+
+.input-field-container{
+    margin-top: 8px;
+}
+
+[type=radio] {
+	appearance: none;
+}
+input[type=radio]:checked + .tag {
+    background-color: #0070AD;
+    color: #ffff;
+}
+label {
+	outline: none !important;
+}
+.tag{
+    align-items: center;
+    background-color:#ffff;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    justify-content: center;
+    margin-right: 8px;
+    padding: 0px 8px;
+    font-size:16px;
+    line-height: 20px;
+    color: var(--color-black);
+    text-transform: capitalize;
+    border-radius: 4px;
+    box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.14);
+    min-height: 30px;
+}
+.header-heading{
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+.modal-checkbox{
+    display: flex;
+.modal-content-checkbox{
+    width: 50px;
+    .modal-label{
+        align-items: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: normal;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    position: relative;
+    .modal-input{
+        // height: 33px;
+    left: 39%; 
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 49%;
+    cursor: pointer;
+    }
+    }
+}
+}
+.button-section{
+    .link-button{
+        float: right;
+    // margin-top: 20px;
+      a{
+    background-color: #0070AD;
+    border-color: #0070AD;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px;
+    text-decoration: none;
+    }
+}
+}
+    }
+}
+
