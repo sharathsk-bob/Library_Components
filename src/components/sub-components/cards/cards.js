@@ -6,19 +6,26 @@ import { AppContext } from "../app-context";
 
 function Cards() {
   //const { title,description,actionBtn,btn1,btn2,img }=newCard;
-  //just check
+  //just
   const { newCard }=useContext(AppContext);
-  
-  const objectUrl = URL.createObjectURL(newCard.image)
+  let objectUrl;
+  if(newCard.image!==null && newCard.image!=='' && newCard.image!==undefined){
+    objectUrl = URL.createObjectURL(newCard.image)
+  }
   console.log(newCard);
   return (
-    <div class="card">
+    <div class="card" style={{ width:newCard.width }}>
       <div className="card__img-container">
-        <img
+        {objectUrl?<img
           src={objectUrl}
           class="ui-image bv bw bx by card__img"
           alt="myimage"
-        />
+        />:
+        <img
+          src="https://azwelzdevappwbh.azurewebsites.net/assets/7FE422D6-6C37-4E3D-A5B7-8D1085281553"
+          class="ui-image bv bw bx by card__img"
+          alt="myimage"
+        />}
       </div>
       <div class="card__content">
         <div className="heading_title">
