@@ -1,6 +1,31 @@
 .App{
     text-align: center;
 }
+.card-component{
+    display: flex;
+    justify-content: space-between;
+  }
+  .edit-card{
+    background-color: #0070AD;
+    border-color: #0070AD;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px;
+    text-decoration: none;
+    margin: 8px;
+  }
+  .backToHome{
+    background-color: #0070AD;
+    border-color: #0070AD;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px;
+    text-decoration: none;
+  }
 .card {
 	background-color: white!important;
 	// border-radius: var(--border-radius);
@@ -140,7 +165,7 @@
         left: 400px;
       }
       
-
+     
 }
 
 

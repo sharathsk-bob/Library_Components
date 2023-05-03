@@ -3,17 +3,33 @@ import "./cards.scss";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../app-context";
+import { useNavigate } from "react-router-dom";
+import useModal from "../use-modal/use-modal";
+import EditCard from "./edit-card";
 
 function Cards() {
   //const { title,description,actionBtn,btn1,btn2,img }=newCard;
   //just
   const { newCard }=useContext(AppContext);
+  const { open: openEditCards, close: closeEditCards, ModalWrapper: ModalWrapperEditCards } = useModal();
   let objectUrl;
   if(newCard.image!==null && newCard.image!=='' && newCard.image!==undefined){
     objectUrl = URL.createObjectURL(newCard.image)
   }
+  const history = useNavigate();
   console.log(newCard);
   return (
+    <>
+    <ModalWrapperEditCards>
+      <EditCard close={closeEditCards} newCard={newCard}/>
+    </ModalWrapperEditCards>
+    <div className="card-component">
+      <h1>Card component</h1>
+      <div>
+      <button className="backToHome" onClick={()=>{history("/");window.location.reload();}}>Back</button>
+      <button className="edit-card" onClick={openEditCards}>Edit</button>
+      </div>
+    </div>
     <div class="card" style={{ width:newCard.width }}>
       <div className="card__img-container">
         {objectUrl?<img
@@ -67,6 +83,7 @@ function Cards() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

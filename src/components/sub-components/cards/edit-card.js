@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
 
-function Form(props) {
-  const { close } = props;
+function EditCard(props) {
+  const { close,newCard } = props;
   const {
     title,
     description,
@@ -30,9 +30,11 @@ function Form(props) {
     setImage,
     setAddImage,
     setWidth,
-    newCard,
+   
 
   } = useContext(AppContext);
+  const initialValues={title:title,description:description,addButton:addButton,numButtons:numButtons,button1Text:button1Text,button2Text:button2Text,image:image,addImage:addImage,width:width};
+  const [formValues,setFormValues]=useState(initialValues);
   const [errors, setErrors] = useState({});
   //const navigate=useNavigate();
   const [activate, setActivate] = useState(false);
@@ -44,25 +46,34 @@ function Form(props) {
     event.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      setActivate(true);
-      history({
-        pathname: "/cards",
-      });
+      //setActivate(true);
+      close();
+      setTitle(formValues.title);
+    setDescription(formValues.description);
+    setAddButton(formValues.addButton);
+    setNumButtons(formValues.numButtons);
+    setButton1Text(formValues.button1Text);
+    setButton2Text(formValues.button2Text);
+    setImage(formValues.image);
+    setAddImage(formValues.addImage);
+    setWidth(formValues.width);
     }
   };
   console.log(newCard);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setImage(file);
+    setFormValues({ ...formValues, image: file });
   };
   // if(activate==true){
-  //   return(
-  //     //close(),
-  //   <Cards {...newCard}/>
-  //   //close()
-  //   );
+  //   close();
 
   // }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log("change");
+    setFormValues({ ...formValues, [name]: value });
+    console.log(formValues);
+  };
   const validateForm = () => {
     let errors = {};
     let isValid = true;
@@ -128,7 +139,7 @@ function Form(props) {
 
     return isValid;
   };
-  console.log(errors);
+  console.log(formValues);
   return (
     <div className="modal_wapper">
       <div className="modal-content header-modalcontainer">
@@ -150,8 +161,9 @@ function Form(props) {
               <input
                 type="text"
                 id="title"
-                //value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                name="title"
+                value={formValues.title}
+                onChange={handleChange}
                 //maxlength="10" required
               />
               {errors.title && <span className="error">{errors.title}</span>}
@@ -161,8 +173,9 @@ function Form(props) {
               <label htmlFor="description">Description:</label>
               <textarea
                 id="description"
-                //value={description}
-                onChange={(event) => setDescription(event.target.value)}
+                name="description"
+                value={formValues.description}
+                onChange={handleChange}
                 //maxlength="500" rows="5" required
               />
               {errors.description && (
@@ -179,9 +192,8 @@ function Form(props) {
                       id="addButton1"
                       name="addButton"
                       value="1"
-                      //checked={addButton === true}
-                      onChange={(event) =>
-                        setAddButton(parseInt(event.target.value))
+                      checked={formValues.addButton ==1}
+                      onChange={handleChange
                       }
                     />
                     Yes
@@ -194,9 +206,8 @@ function Form(props) {
                       id="addButton0"
                       name="addButton"
                       value="0"
-                      //checked={addButton === false}
-                      onChange={(event) =>
-                        setAddButton(parseInt(event.target.value))
+                      checked={formValues.addButton ==0}
+                      onChange={handleChange
                       }
                     />
                     No
@@ -210,13 +221,14 @@ function Form(props) {
 
             <div
               className="Form-field"
-              style={{ display: addButton == 1 ? "block" : "none" }}
+              style={{ display: formValues.addButton == 1 ? "block" : "none" }}
             >
               <label htmlFor="numButtons">Number of Buttons:</label>
               <select
                 id="numButtons"
-                value={numButtons}
-                onChange={(event) => setNumButtons(event.target.value)}
+                name="numButtons"
+                value={formValues.numButtons}
+                onChange={handleChange}
               >
                 <option value="0">Select</option>
                 <option value="1">1</option>
@@ -229,14 +241,15 @@ function Form(props) {
 
             <div
               className="Form-field"
-              style={{ display: numButtons >= 1 ? "block" : "none" }}
+              style={{ display: formValues.numButtons >= 1 ? "block" : "none" }}
             >
               <label htmlFor="button1Text">Button 1 text:</label>
               <input
                 type="text"
                 id="button1Text"
-                value={button1Text}
-                onChange={(event) => setButton1Text(event.target.value)}
+                name="button1Text"
+                value={formValues.button1Text}
+                onChange={handleChange}
               />
               {errors.buttons && (
                 <span className="error">{errors.buttons}</span>
@@ -245,14 +258,15 @@ function Form(props) {
 
             <div
               className="Form-field"
-              style={{ display: numButtons == 2 ? "block" : "none" }}
+              style={{ display: formValues.numButtons == 2 ? "block" : "none" }}
             >
               <label htmlFor="button2Text">Button 2 text:</label>
               <input
                 type="text"
                 id="button2Text"
-                value={button2Text}
-                onChange={(event) => setButton2Text(event.target.value)}
+                name="button2Text"
+                value={formValues.button2Text}
+                onChange={handleChange}
               />
               {errors.buttons && (
                 <span className="error">{errors.buttons}</span>
@@ -268,9 +282,8 @@ function Form(props) {
                       id="addImage1"
                       name="addImage"
                       value="1"
-                      //checked={addButton === true}
-                      onChange={(event) =>
-                        setAddImage(parseInt(event.target.value))
+                      checked={formValues.addImage == 1}
+                      onChange={handleChange
                       }
                     />
                     Yes
@@ -283,9 +296,8 @@ function Form(props) {
                       id="addImage0"
                       name="addImage"
                       value="0"
-                      //checked={addButton === false}
-                      onChange={(event) =>
-                        setAddImage(parseInt(event.target.value))
+                      checked={formValues.addImage ==0}
+                      onChange={handleChange
                       }
                     />
                     No
@@ -298,20 +310,21 @@ function Form(props) {
             </div>
             <div
               className="Form-field"
-              style={{ display: addImage == 1 ? "block" : "none" }}
+              style={{ display: formValues.addImage == 1 ? "block" : "none" }}
             >
               <label htmlFor="button2Text"> Image:</label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
+               // value={formValues.image.name}
                 required
               />
               {errors.buttons && <span className="error">{errors.image}</span>}
             </div>
             <div className="Form-field">
               <label for="card-width">Card Width:</label>
-              <select id="card-width" name="cardWidth" onChange={(event) => setWidth(event.target.value)}>
+              <select id="card-width" name="width" onChange={handleChange} value={formValues.width}>
                 <option value="">Select</option>
                 <option value="100%">100%</option>
                 <option value="75%">75%</option>
@@ -339,4 +352,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default EditCard;

@@ -8,11 +8,16 @@ const AppProvider=props=>{
   const [description, setDescription] = useState('');
   const [button1Text, setButton1Text] = useState('');
   const [button2Text, setButton2Text] = useState('');
+  const [addButton, setAddButton] = useState(null);
+  const [numButtons, setNumButtons] = useState(null);
+  const [addImage, setAddImage] = useState(null);
   const [width, setWidth] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
     const newCard = {
         title,
         description,
+        addButton,
+        numButtons,
         buttons: [
           {
             text: button1Text,
@@ -28,10 +33,11 @@ const AppProvider=props=>{
           },
         ].filter((button) => button.text !== ''),
         image,
+        addImage,
         width
       };
     return(
-    <AppContext.Provider value={{ newCard,title,description,button1Text,button2Text,image,width,setTitle,setDescription,setButton1Text,setButton2Text,setImage,setWidth }}>
+    <AppContext.Provider value={{ newCard,title,description,addButton,numButtons,button1Text,button2Text,image,addImage,width,setTitle,setDescription,setAddButton,setNumButtons,setButton1Text,setButton2Text,setImage,setAddImage,setWidth }}>
           {children}
     </AppContext.Provider>
     );
