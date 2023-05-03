@@ -10,8 +10,10 @@ const HeaderComponent = ( ) => {
   const location = useLocation();
   const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
   const props = location.state;
+  // console.log(props, "props in header");
   const titleName = props.titleValue.toUpperCase();
   const  profileName = props.profileValue.charAt(0).toUpperCase() + props.profileValue.slice(1);;
+  // const themeClass = {props.themeValue?}
   return (
     <>
     <ModalWrapperEditHeader>
@@ -40,22 +42,22 @@ const HeaderComponent = ( ) => {
               </div>
         </div>
       </div>
-    <div className="header-content">
+    <div className= {`header-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
         <div class="header-left">
-          <img src={appIcon} alt="logo" class="logo-new" />
+         {props.imageValue ==="Yes"? <img  src={appIcon} alt="logo" class="logo-new" />: ""}
           <p class="heading-text">{titleName}</p>
         </div>
         <div class="header-right">
               <ul>
-             {props.profileValue ? <li class="profile">
+              <li class="profile">
               
-                  <img src={profileImage} />
+              {props.profileLogo === "Yes" ?  <img src={profileImage} />  :""}
                   <span>{profileName}</span>
               </li>
-             :""}
+           
             
             {props.cgLogoValue ==="Yes" ?  <li>
-                  <img src={cgLogo} />
+                  <img  className="cg-logo" src={cgLogo} />
               </li> : ""}
               </ul>
             </div>

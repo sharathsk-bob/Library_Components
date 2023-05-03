@@ -3,7 +3,7 @@ import { BrowserRouter, Route,Routes, Switch } from 'react-router-dom';
 import Presentation from "../src/components/presentation/presentation"
 import HeaderComponent from "../src/components/sub-components/header/header";
 import { AppProvider } from './components/sub-components/app-context';
-import Cards from '../../../Documents/react-components-project/src/components/sub-components/cards/cards';
+import Cards from "./components/sub-components/cards/cards";
 function App() {
   return (
     <div className="App">

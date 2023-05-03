@@ -21,19 +21,20 @@
     flex-direction: column;
     height: auto;
     margin: 20px auto;
-    max-width: 50vw;
+    // max-width: 50vw;
     // min-height: 400px;
-    min-width: 36vw;
+    // min-width: 45vw;
     // padding: 30px;
     position: relative;
-    width: auto;
+    width: 50vw;
 }
 .modal-container{
-    padding: 0.5em 2em;
-    height: 44vh;
-    min-height: 240px;
+    padding: 0 1em;
+    height: 55vh;
+    min-height: 280px;
     overflow-x: auto;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
+    margin: 20px;
     // max-height: 300px;
 }
    

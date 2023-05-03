@@ -8,7 +8,7 @@ const Presentation = () => {
     <>
     <div className="presentation">
       <div className="header-container">
-      <h1>Components Library</h1>
+      <h1>Components  </h1><span> Library</span>
       </div>
       <Modal />
     </div>

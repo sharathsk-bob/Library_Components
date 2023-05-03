@@ -1,15 +1,17 @@
 .form-modalcontainer{
+    color:#2b0a3d;
   
     .form-header{
         display: flex;
        justify-content: space-between;
-       background-color: #12ABDB;
-       padding: 0.5em 2em;
+       background-color: #0070AD;
+       padding: 0.5em 1em 0.52em;
        color: #fff;
         .close-button{
             border: none;
         background: transparent;
         float: right;
+         color: #ffff;
         }
         p{
             font-size: 18px!important;
@@ -18,21 +20,24 @@
     }
     .modal-container{
         font-size: 13px;
+        font-weight: 600;
         .logo-field{
             p{
                 margin-bottom: 0px;
             }
         }
+        .asterik{
+            color: red;
+        }
 .text_modal__input{
     input{
-        background-color: #ffff;
-        // border-color:#3a3a3a !important;
-        
-        // border-width: 2px;
-        color: var(--color-black);
-        margin-top: 10px;
-        min-height: 30px;
-        width: 60%;
+        background-color: white;
+    color: var(--color-black);
+    margin-top: 10px;
+    min-height: 26px;
+    width: 84%;
+    border: 1.5px solid black;
+    border-radius: 4px;
     }
 }
 
@@ -64,7 +69,7 @@ label {
     text-transform: capitalize;
     border-radius: 4px;
     box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.14);
-    min-height: 30px;
+    min-height: 26px;
 }
 .header-heading{
     margin-bottom: 0px;
@@ -95,10 +100,21 @@ label {
     }
 }
 }
+.modal-content-theme{
+    display: block;
+    p{
+        margin-top: 0px;
+    }
+    select{
+        width: 250px;
+    /* line-height: 2; */
+    min-height: 30px;
+    }
+}
 .button-section{
     .link-button{
         float: right;
-    // margin-top: 20px;
+    margin-top: 20px;
       a{
     background-color: #0070AD;
     border-color: #0070AD;

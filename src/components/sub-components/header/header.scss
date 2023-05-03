@@ -1,9 +1,9 @@
 .header-content{
     display: flex;
-    background-color: #f1f4f8;
+    // background-color: #f1f4f8;
     padding: 16px 32px 8px;
     justify-content: space-between;
-    color: #0070ad !important;
+    // color: #0070ad !important;
     align-items: center;  
     .header-left{
         display: flex;
@@ -27,7 +27,39 @@
   }
       
 }
-
+.Normal{
+    background-color: #f1f4f8;
+    
+   
+    color: #0070ad !important;
+    
+}
+.Dark{
+    background-color: black;
+    
+   
+    color: #ffff !important;
+}
+.cg1{
+    background-color:#0070ad;
+    
+   
+    color: #ffff !important; 
+    .cg-logo{
+        background-color: white;
+        padding: 4px;
+    } 
+}
+.cg2{
+    background-color:#2b0a3d;
+    
+   
+    color: #ffff !important;  
+    .cg-logo{
+        background-color: white;
+        padding: 4px;
+    }  
+}
 .header-right ul{display: flex;align-items: center;margin-left: auto; list-style: none;}
 .header-right li + li{margin-left: 30px;}
 .header-right {margin-left: auto;}

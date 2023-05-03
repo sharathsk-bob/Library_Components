@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 
 import { FormField, Input, Alert, TextArea, SplitButton, itemLayoutSlotClassNames } from "@fluentui/react-northstar";
 
-import closeIcon from "../../../asset/images/cross-icon.png";
+import closeIcon from "../../../asset/images/cross-white.png";
 import "./header-modal.scss";
 
 const HeaderModal =(props)=>{
 	const [titleValue, setTitleValue] = useState();
   const [profileValue, setProfileValue] = useState();
   const [cgLogoValue, setCgLogoValue] = useState("");
-  const [imageValue, setImageValue] = useState(null);
+  const [imageValue, setImageValue] = useState("");
+  const [profileLogo, setProfileLogo] = useState("");
   const [errorMsg, setErrorMsg] = useState({});
   const [isValid, setIsValid] = useState(false);
+  const [themeValue, setThemeValue] = useState();
 	const{close} = props;
 	
 
@@ -20,14 +22,13 @@ const HeaderModal =(props)=>{
    titleValue,
    profileValue,
    cgLogoValue,
-   imageValue 
+   imageValue,
+   profileLogo,
+   themeValue
   };
 
 
-  // const handleImageValue = (event) => {
-  //   const file = event.target.files[0];
-  //   setImageValue(file);
-  // };
+  
   let errors = {};
 
 
@@ -40,12 +41,20 @@ const HeaderModal =(props)=>{
      }
      if (cgLogoValue === "") {
        errors.logoValue = "Please select the above field";
-     } else {
+     }if(imageValue === ""){
+      errors.appLogo = "Please select the above field";
+     }if(profileLogo === ""){
+      errors.profileLogovalue = "Please select the above field";
+     }if(themeValue === undefined){
+      errors.theme = "Please select the value from the dropdown";
+     }
+      else {
        setIsValid(true);
      }
 
      setErrorMsg(errors);
    };
+  //  console.log(headerProps, "props value");
   
 return (
   <div className="modal_wapper">
@@ -54,6 +63,7 @@ return (
         <p>Header</p>
         <button className="close-button" onClick={close}>
           <img src={closeIcon}></img>
+          
         </button>
       </div>
 
@@ -65,14 +75,14 @@ return (
               aria-label="Title for Asterik-Required"
               for="title"
             >
-             Application Title *
+              Title: <span className="asterik">*</span> 
               <Input
                 id="title"
                 className="text_modal__input"
                 autoComplete="off"
                 name="title"
                 aria-required="true"
-                maxLength="25"
+                maxLength="20"
                 aria-describedby="name-err-title"
                 value={titleValue}
                 onChange={(event) => setTitleValue(event.target.value)}
@@ -89,7 +99,7 @@ return (
               aria-label="Title for Asterik-Required"
               for="profile name"
             >
-              Profile Name *
+              Profile Name:<span className="asterik">*</span> 
               <Input
                 id="profile name"
                 className=" text_modal__input"
@@ -107,7 +117,7 @@ return (
           </FormField>
         </div>
         <div className="input-field-container logo-field">
-          <p>Will you like to have Capgemini logo in the header section</p>
+          <p>Would you like to have Capgemini logo in the header section <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label">
@@ -147,25 +157,111 @@ return (
           </div>
           {errorMsg.logoValue ? <span className="error">{errorMsg.logoValue}</span>: ""}
         </div>
-        
-        {/* <div className="input-field-container">
-			<p>Would you like to have App logo in the header section. If Yes please add the image.</p>
-      <FormField className="form-modal__content">
-            <label
-              className="wbh-modal__label"
-              aria-label="Title for Asterik-Required"
-              for="img"
-            >
-              <Input
-          type="file"
-          accept="image/*"
-          id="img"
-          onChange={handleImageValue}
+        <div className="input-field-container logo-field">
+          <p>Would you like to have App logo in the header section<span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="applogo"
+                  checked={imageValue === "Yes"}
+                  onChange={(e) => {
+                    setImageValue("Yes");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="applogo"
+                  checked={imageValue === "No"}
+                  onChange={(e) => {
+                    setImageValue("No");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
           
-        />
-            </label>
-          </FormField>
-        </div> */}
+          </div>
+          {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""}
+        </div>
+        <div className="input-field-container logo-field">
+          <p>Would you like to have profile logo in the header section <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="profilelogo"
+                  checked={profileLogo === "Yes"}
+                  onChange={(e) => {
+                    setProfileLogo("Yes");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="profilelogo"
+                  checked={profileLogo === "No"}
+                  onChange={(e) => {
+                    setProfileLogo("No");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {errorMsg.profileLogovalue ? <span className="error">{errorMsg.profileLogovalue}</span>: ""}
+        </div>
+        <div className="input-field-container theme-field">
+          
+          <div className="modal-checkbox">
+            <FormField className="modal-content-theme">
+             
+            <label for="theme"> 
+            <p>Please select the theme colour.<span className="asterik">*</span> </p>
+  <select name="theme" id="theme"  value={themeValue}
+                onChange={(event) => setThemeValue(event.target.value)}>
+        <option value=""></option>         
+    <option value="Normal">Normal</option>
+    <option value="Dark">Dark</option>
+    <option value="cg1">Capgemini-blue</option>
+    <option value="cg2">Capgemini-purple</option>
+   
+  </select>
+  </label>
+            </FormField>
+          
+          </div>
+          {errorMsg.theme ? <span className="error">{errorMsg.theme}</span>: ""}
+        </div>
+       
         <div className="button-section">
           <div className="link-button">
             {isValid == true ?
