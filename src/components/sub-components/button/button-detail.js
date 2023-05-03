@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import closeIcon from "../../asset/images/cross-icon.png";
-import "../header/components/header-modal.scss";
+import closeIcon from "../../asset/images/cross-white.png";
+import "../header/components/header-details.scss";
 
 const ButtonDetail =(props)=>{
 
@@ -9,12 +9,15 @@ const ButtonDetail =(props)=>{
  
     return (
       <div className="modal_wapper">
-        <div className="modal-content header-modalcontainer detail-container">
-        <button className="close-button" onClick={close}>
-            <img src={closeIcon}></img>
-        </button>
+        <div className="modal-content detail-container">
+            <div className="detail-header">
+            <p>Buttons</p>
+                <button className="close-button" onClick={close}>
+                    <img src={closeIcon}></img>
+                </button>
+            </div>
     
-        <div className="modal-container ">
+        <div className="modal-container details-section">
             <h1>
             Details for the Button Section are Below:
             </h1>
