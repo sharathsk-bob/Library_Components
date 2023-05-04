@@ -345,11 +345,16 @@ function Form(props) {
             >
               <label htmlFor="button2Text"> Image:</label>
               <input
+              id="file-upload"
                 type="file"
+                name="input-file"
                 accept="image/*"
                 onChange={handleImageChange}
+                //value=" "
                 required
               />
+              <button className="upload-btn"><label  for="file-upload">Upload Image</label></button>
+              {image?<span>{image.name}</span>:<span>No File Choosen</span>}
               {errors.buttons && <span className="error">{errors.image}</span>}
             </div>
             <div className="Form-field">

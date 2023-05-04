@@ -21,6 +21,7 @@ function EditCard(props) {
     image,
     addImage,
     width,
+    theme,
     setTitle,
     setDescription,
     setAddButton,
@@ -30,10 +31,11 @@ function EditCard(props) {
     setImage,
     setAddImage,
     setWidth,
+    setTheme
    
 
   } = useContext(AppContext);
-  const initialValues={title:title,description:description,addButton:addButton,numButtons:numButtons,button1Text:button1Text,button2Text:button2Text,image:image,addImage:addImage,width:width};
+  const initialValues={title:title,description:description,addButton:addButton,numButtons:numButtons,button1Text:button1Text,button2Text:button2Text,image:image,addImage:addImage,width:width,theme:theme};
   const [formValues,setFormValues]=useState(initialValues);
   const [errors, setErrors] = useState({});
   //const navigate=useNavigate();
@@ -57,12 +59,14 @@ function EditCard(props) {
     setImage(formValues.image);
     setAddImage(formValues.addImage);
     setWidth(formValues.width);
+    setTheme(formValues.theme);
     }
   };
   console.log(newCard);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setFormValues({ ...formValues, image: file });
+    
   };
   // if(activate==true){
   //   close();
@@ -77,9 +81,9 @@ function EditCard(props) {
   const validateForm = () => {
     let errors = {};
     let isValid = true;
-    const isTitleValid = title.length <= 10;
-    const isDescriptionValid = description.split(" ").length <= 100;
-    if (title.trim() === "") {
+    const isTitleValid = formValues.title.length <= 10;
+    const isDescriptionValid = formValues.description.split(" ").length <= 100;
+    if (formValues.title.trim() === "") {
       errors.title = "Title is required";
       isValid = false;
     }
@@ -88,7 +92,7 @@ function EditCard(props) {
       isValid = false;
     }
 
-    if (description.trim() === "") {
+    if (formValues.description.trim() === "") {
       errors.description = "Description is required";
       isValid = false;
     }
@@ -96,42 +100,46 @@ function EditCard(props) {
       errors.description = "Description should have only 100 words";
       isValid = false;
     }
-    if (addButton == null) {
+    if (formValues.addButton == null) {
       errors.buttonsAdd = "Please Select an option";
       isValid = false;
     }
-    if (addButton == 1 && numButtons == null) {
+    if (formValues.addButton == 1 && formValues.numButtons == null) {
       errors.buttonsSelect = "Please Select an option";
       isValid = false;
     }
-    if (numButtons == 1 && button1Text.trim() === "") {
+    if (formValues.numButtons == 1 && formValues.button1Text.trim() === "") {
       errors.buttons = "Button 1 text is required";
       isValid = false;
     }
 
-    if (numButtons == 2 && button1Text.trim() === "") {
+    if (formValues.numButtons == 2 && formValues.button1Text.trim() === "") {
       errors.buttons = "Button 2 text is required";
       isValid = false;
     }
 
     if (
-      numButtons == 2 &&
-      button1Text.trim() === "" &&
-      button2Text.trim() === ""
+      formValues.numButtons == 2 &&
+      formValues.button1Text.trim() === "" &&
+      formValues.button2Text.trim() === ""
     ) {
       errors.buttons = "At least one button text is required";
       isValid = false;
     }
-    if (addImage == null) {
+    if (formValues.addImage == null) {
       errors.imageAdd = "Please Select an option";
       isValid = false;
     }
-    if (width == "") {
+    if (formValues.width == "") {
       errors.width = "Please Select the width";
       isValid = false;
     }
-    if (addImage == 1 && image === null) {
+    if (formValues.addImage == 1 && formValues.image === null) {
       errors.image = "Image is required";
+      isValid = false;
+    }
+    if (formValues.theme == undefined || theme==null || theme=="") {
+      errors.theme = "Theme is required";
       isValid = false;
     }
 
@@ -248,7 +256,7 @@ function EditCard(props) {
 
             <div
               className="Form-field"
-              style={{ display: formValues.numButtons >= 1 ? "block" : "none" }}
+              style={{ display: formValues.numButtons >= 1 && formValues.addButton == 1 ? "block" : "none" }}
             >
               <label htmlFor="button1Text">Button 1 text: <span className="astrick">*</span></label>
               <input
@@ -265,7 +273,7 @@ function EditCard(props) {
 
             <div
               className="Form-field"
-              style={{ display: formValues.numButtons == 2 ? "block" : "none" }}
+              style={{ display: formValues.numButtons == 2 && formValues.addButton == 1 ? "block" : "none" }}
             >
               <label htmlFor="button2Text">Button 2 text: <span className="astrick">*</span></label>
               <input
@@ -325,12 +333,16 @@ function EditCard(props) {
             >
               <label htmlFor="button2Text"> Image:</label>
               <input
+              id="file-upload"
                 type="file"
+                name="input-file"
                 accept="image/*"
                 onChange={handleImageChange}
-               // value={formValues.image.name}
+                //value=" "
                 required
               />
+              <button className="upload-btn"><label  for="file-upload">Upload Image</label></button>
+              {formValues.image?<span>{formValues.image.name}</span>:<span>No File Choosen</span>}
               {errors.buttons && <span className="error">{errors.image}</span>}
             </div>
             <div className="Form-field">
@@ -343,6 +355,27 @@ function EditCard(props) {
                 <option value="25%">25%</option>
               </select>
               {errors.width && <span className="error">{errors.width}</span>}
+            </div>
+            <div className="Form-field">
+              <label for="theme">
+                <p>
+                  Please select the theme colour.
+                  <span className="asterik">*</span>{" "}
+                </p>
+                <select
+                  name="theme"
+                  id="theme"
+                  value={formValues.theme}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Dark">Dark</option>
+                  <option value="cg1">Capgemini-blue</option>
+                  <option value="cg2">Capgemini-purple</option>
+                </select>
+              </label>
+              {errors.theme && <span className="error">{errors.theme}</span>}
             </div>
             {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
             <div className="button-section">
