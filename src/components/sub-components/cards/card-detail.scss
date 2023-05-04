@@ -1,0 +1,46 @@
+.detail-container{
+    // min-width: 35vw !important;
+    width: 42vw!important;
+    // min-height: 212px!important;
+    // padding: 0px!important;
+    h1{
+        font-size: 1.3rem;
+    }
+   .details-section{
+    height: 42vh!important;
+   min-height: 0px!important;
+   padding: 0px !important;
+   font-weight: 300;
+   p{
+    font-size: 0.9em;
+   }
+   .detail-content{
+    font-size: 0.9em;
+   }
+   }
+    .detail-header{
+       display: flex;
+       justify-content: space-between;
+       background-color: #0070AD;
+       padding: 0.5em 2em;
+       color: #fff;
+       .close-button{
+        border: none; 
+    background: transparent;
+    float: right;
+       }
+        p{
+            font-size: 18px!important;
+            margin: 0px;
+        }
+       
+    }
+    .detail-content{
+        ul{
+            li{
+                margin-bottom: 4px;
+                
+            }
+        }
+    }
+}
