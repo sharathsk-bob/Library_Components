@@ -10,6 +10,19 @@ import EditCard from "./edit-card";
 function Cards() {
   //const { title,description,actionBtn,btn1,btn2,img }=newCard;
   //just
+  const {
+    setTitle,
+    setDescription,
+    setAddButton,
+    setNumButtons,
+    setButton1Text,
+    setButton2Text,
+    setImage,
+    setAddImage,
+    setWidth,
+    setTheme,
+
+  } = useContext(AppContext);
   const { newCard }=useContext(AppContext);
   const { open: openEditCards, close: closeEditCards, ModalWrapper: ModalWrapperEditCards } = useModal();
   let objectUrl;
@@ -18,6 +31,18 @@ function Cards() {
   }
   const history = useNavigate();
   console.log(newCard);
+  const resetNewCard = () => {
+    setTitle("");
+    setDescription("");
+    setAddButton(null);
+    setNumButtons(null);
+    setButton1Text("");
+    setButton2Text("");
+    setImage(null);
+    setAddImage(null);
+    setWidth("");
+    setTheme(null);
+  };
   return (
     <>
     <ModalWrapperEditCards>
@@ -26,11 +51,11 @@ function Cards() {
     <div className="card-component">
       <h1>Card component</h1>
       <div>
-      <button className="backToHome" onClick={()=>{history("/");window.location.reload();}}>Back</button>
+      <button className="backToHome" onClick={()=>{history("/");resetNewCard();}}>Back</button>
       <button className="edit-card" onClick={openEditCards}>Edit</button>
       </div>
     </div>
-    <div class="card" style={{ width:newCard.width }}>
+    <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
       <div className="card__img-container">
         {objectUrl?<img
           src={objectUrl}

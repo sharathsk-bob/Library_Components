@@ -32,8 +32,10 @@ function Form(props) {
     setAddImage,
     setWidth,
     setTheme,
-    newCard,
+    newCard
+
   } = useContext(AppContext);
+ 
   const [errors, setErrors] = useState({});
   //const navigate=useNavigate();
   const [activate, setActivate] = useState(false);
@@ -64,6 +66,18 @@ function Form(props) {
   //   );
 
   // }
+  const resetNewCard = () => {
+    setTitle("");
+    setDescription("");
+    setAddButton(null);
+    setNumButtons(null);
+    setButton1Text("");
+    setButton2Text("");
+    setImage(null);
+    setAddImage(null);
+    setWidth("");
+    setTheme(null);
+  };
   const validateForm = () => {
     let errors = {};
     let isValid = true;
@@ -124,10 +138,10 @@ function Form(props) {
       errors.image = "Image is required";
       isValid = false;
     }
-    // if (theme == undefined || theme==null || theme=="") {
-    //   errors.theme = "Theme is required";
-    //   isValid = false;
-    // }
+    if (theme == undefined || theme==null || theme=="") {
+      errors.theme = "Theme is required";
+      isValid = false;
+    }
 
     setErrors(errors);
 
@@ -139,7 +153,7 @@ function Form(props) {
       <div className="modal-content form-modalcontainer">
         <div class="form-header">
           <p>Cards</p>
-          <button className="close-button" onClick={close}>
+          <button className="close-button" onClick={()=>{resetNewCard();close();}}>
             <img src={closeIcon}></img>
           </button>
         </div>
@@ -248,7 +262,7 @@ function Form(props) {
 
             <div
               className="Form-field"
-              style={{ display: numButtons >= 1 ? "block" : "none" }}
+              style={{ display: numButtons >= 1 && addButton == 1  ? "block" : "none" }}
             >
               <label htmlFor="button1Text">
                 Button 1 text: <span className="astrick">*</span>
@@ -266,7 +280,7 @@ function Form(props) {
 
             <div
               className="Form-field"
-              style={{ display: numButtons == 2 ? "block" : "none" }}
+              style={{ display: numButtons == 2 && addButton == 1 ? "block" : "none" }}
             >
               <label htmlFor="button2Text">
                 Button 2 text: <span className="astrick">*</span>
@@ -355,7 +369,7 @@ function Form(props) {
               </select>
               {errors.width && <span className="error">{errors.width}</span>}
             </div>
-            {/* <div className="Form-field">
+            <div className="Form-field">
               <label for="theme">
                 <p>
                   Please select the theme colour.
@@ -375,7 +389,7 @@ function Form(props) {
                 </select>
               </label>
               {errors.theme && <span className="error">{errors.theme}</span>}
-            </div> */}
+            </div>
             {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
             <div className="button-section">
               <div className="link-button">

@@ -1,6 +1,44 @@
 .App{
     text-align: center;
 }
+.Normal{
+    background-color: #f1f4f8;
+    
+   
+    color: var(--color-capgemini-blue) !important;
+    .card__title {
+        color: var(--color-capgemini-blue) !important;
+     } 
+    
+}
+.Dark{
+    background-color: black;
+    
+   
+    color: #ffff !important;
+    .card__title {
+        color: white !important;
+     }  
+}
+.cg1{
+    background-color:var(--color-capgemini-blue);
+    
+   
+    color: #ffff !important; 
+    .cg-logo{
+        background-color: white;
+        padding: 4px;
+    } 
+}
+.cg2{
+    background-color:#2b0a3d;
+    
+   
+    color: #ffff !important;  
+    .card__title {
+       color: white !important;
+    }  
+}
 .card-component{
     display: flex;
     justify-content: space-between;
@@ -27,7 +65,7 @@
     text-decoration: none;
   }
 .card {
-	background-color: white!important;
+	background-color: white;
 	// border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow);
 	margin: 32px 16px;
