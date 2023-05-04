@@ -4,7 +4,7 @@ import appIcon from "../../asset/images/wbh-icon.png";
 import profileImage from "../../asset/images/profile.png"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import EditHeaderModal from "./components/edit-header";
+import EditHeaderModal from "../header/components/header-modal/edit-header";
 import useModal from "../../sub-components/use-modal/use-modal";
 const HeaderComponent = ( ) => {
   const location = useLocation();

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 
 
-import closeIcon from "../../../asset/images/cross-white.png";
-import "./header-details.scss";
+import closeIcon from "../../../../asset/images/cross-white.png";
+import "../header-detail/header-details.scss";
 
 const HeaderDetail =(props)=>{
    
@@ -31,15 +31,12 @@ const HeaderDetail =(props)=>{
             <p>We have taken the prefrence of the user for the application name,application logo, User profile name, CapgeminiLogo.</p>
            <div className="detail-content">
 <ul>
-    <li>Application name should not be more than 70 characters.</li>
-    <li>Application logo size is 50px width and 50px height.</li>
-    <li>User profile name should not be more than 50 characters</li>
-    <li>Application name should not be more than 70 characters.</li>
-    <li>Application logo size is 50px width and 50px height.</li>
-    <li>User profile name should not be more than 50 characters</li>
-    <li>Application name should not be more than 70 characters.</li>
-    <li>Application logo size is 50px width and 50px height.</li>
-    <li>User profile name should not be more than 50 characters</li>
+    <li>Application name should be less than 15 characters.</li>
+    <li>It is mandatory for you to specify whether you want app logo with (Yes/No)</li>
+    <li>If you have selected yes for profile icon than it is mandatory to speficy username</li>
+    <li>Username should be less than 10 characters</li>
+    <li>It is mandatory for you to specify whether you want capgemini logo with (Yes/No)</li>
+    
 
 </ul>
 

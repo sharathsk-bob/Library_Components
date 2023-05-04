@@ -4,7 +4,7 @@ import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal.scss";
+import "../header/components/header-modal/header-modal.scss";
 import ButtonComponent from "./button";
 
 const ButtonForm =(props)=>{

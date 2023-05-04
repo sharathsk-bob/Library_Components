@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-details.scss";
+import "../header/components/header-detail/header-details.scss";
 
 const ButtonDetail =(props)=>{
 

@@ -1,9 +1,9 @@
 import React from "react";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
-import HeaderModal from "../../sub-components/header/components/header-modal";
+import HeaderModal from "../../sub-components/header/components/header-modal/header-modal";
 // import HeaderComponent from "../../sub-components/header/header";
-import HeaderDetail from "../../sub-components/header/components/header-detail";
+import HeaderDetail from "../../sub-components/header/components/header-detail/header-detail";
 import Form from "../../sub-components/cards/form";
 import CardDetail from "../../sub-components/cards/card-detail";
 import "../../sub-components/use-modal/use-modal.scss"

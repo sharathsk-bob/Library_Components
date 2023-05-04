@@ -4,7 +4,7 @@ import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
 
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal.scss";
+import "../header/components/header-modal/header-modal.scss";
 
 const EditButtonModal = (props)=>{
 
@@ -31,12 +31,7 @@ const EditButtonModal = (props)=>{
     const checkValidation = (values) => {
 
         let errors = {};
-        // console.log("Errors are being checked");
-
-        // if (!values.btnnum) {
-        // errors.btnnum = "Number of buttons needs to be specified!"; 
-        // }
-
+        
         if (values.btntext == undefined) {
         errors.btntext = "Text is required!"; 
         } else if (values.btntext !== undefined) {
