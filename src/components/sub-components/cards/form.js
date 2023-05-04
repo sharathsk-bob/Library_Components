@@ -124,10 +124,10 @@ function Form(props) {
       errors.image = "Image is required";
       isValid = false;
     }
-    // if (theme == undefined || theme==null || theme=="") {
-    //   errors.theme = "Theme is required";
-    //   isValid = false;
-    // }
+    if (theme == undefined || theme==null || theme=="") {
+      errors.theme = "Theme is required";
+      isValid = false;
+    }
 
     setErrors(errors);
 
@@ -355,7 +355,7 @@ function Form(props) {
               </select>
               {errors.width && <span className="error">{errors.width}</span>}
             </div>
-            {/* <div className="Form-field">
+            <div className="Form-field">
               <label for="theme">
                 <p>
                   Please select the theme colour.
@@ -375,7 +375,7 @@ function Form(props) {
                 </select>
               </label>
               {errors.theme && <span className="error">{errors.theme}</span>}
-            </div> */}
+            </div>
             {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
             <div className="button-section">
               <div className="link-button">

@@ -30,7 +30,7 @@ function Cards() {
       <button className="edit-card" onClick={openEditCards}>Edit</button>
       </div>
     </div>
-    <div class="card" style={{ width:newCard.width }}>
+    <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
       <div className="card__img-container">
         {objectUrl?<img
           src={objectUrl}
