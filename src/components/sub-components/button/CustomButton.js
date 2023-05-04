@@ -7,15 +7,22 @@ export const CustomButton = style.button`
     margin-top: 32px;
     
     font-size:20px;
-    color: white;
-    padding: 16px 32px;
+    color: black;
     
     value: ${(props) => props.btntext};
-    border-radius: ${(props) => props.border_radius}px;
-    border: ${(props) => props.border_width}px solid #555555;
-    box-shadow: 0 ${(props) => props.box_shadow}pxpx 8px 0 rgba(0,0,0,0.2);
 
-    padding: ${(props) => props.size}px ${(props) => props.size}px;
+    box-shadow: ${(props) => props.Choice_BoxShadow == 'Yes' ? '10px 10px grey' : 'none'};
+    
+    border-radius: ${(props) => props.Choice_BorderRadius == 'Yes' ? props.border_radius+'px' : 'none'};
+
+    // border: ${(props) => props.border_width}px solid #555555;
+
+
+    padding: ${(props) => props.Choice_Size == '1em' ? '1em' : 
+            props.Choice_Size == '0.5em' ? '0.5em' :
+            props.Choice_Size == 'Half width' ? '5%' : '10%'
+        };
+    
 
     &:before {
         text-align: center;

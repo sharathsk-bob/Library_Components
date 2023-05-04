@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
-import { useNavigate } from 'react-router-dom';
+
 import closeIcon from "../../asset/images/cross-white.png";
 import "../header/components/header-modal.scss";
-import ButtonComponent from "./button";
 
-const ButtonForm =(props)=>{
-    const navigate = useNavigate()
+const EditButtonModal = (props)=>{
 
-    const {close} = props;
-    const [inputs, setInputs] = useState({});
+    const{close, data} = props;
+    const [inputs, setInputs] = useState(data);
+
+    console.log("Check Input", inputs);
     const [inputErrors, setInputErrors] = useState({});
 
     const [BorderRadius, setBorderRadius] = useState("");
@@ -83,8 +83,6 @@ const ButtonForm =(props)=>{
 
         if(themeValue === undefined){
             errors.theme = "Please select the value from the dropdown";
-        } else {
-            inputs.theme = themeValue;
         }
 
         // console.log("In Validation function>>>",errors);  
@@ -105,22 +103,13 @@ const ButtonForm =(props)=>{
         //alert("Successfully Submitted");
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
-        navigate("/button", {state: {inputs}});
         //window.location.reload(true);
         } else {
         // console.log("Validation Failed >>>> Errors Present", validerrors);
         }
-        
     };
 
-    const ButtonProps = {
-        ButtonText: inputs.btntext,
-        Choice_BorderRadius: inputs.Choice_BorderRadius,
-        BorderRadius: inputs.border_radius,
-        Choice_BoxShadow: inputs.Choice_BoxShadow,
-        Choice_Size: inputs.Choice_Size,
-        Choice_Theme: inputs.theme,
-    };
+
 
 
 return (
@@ -151,7 +140,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="btntext"
-                    value={inputs.btntext || ""} 
+                    value={""} 
                     onChange={handleChange}
                     aria-required="true"
                     // aria-describedby="name-err-title"
@@ -217,7 +206,7 @@ return (
                     autoComplete="off"
                     name="border_radius"
                     aria-required="true"
-                    value={inputs.border_radius || ""} 
+                    value={""} 
                     onChange={handleChange}         
                 />
                 </label>
@@ -348,7 +337,8 @@ return (
             <p className="error">{inputErrors.theme}</p>
         </div>
 
-
+        
+            
         {/* {
             isBtnCheck ? <CustomButton{...inputs}/> : "Button not displayed"
         } */}
@@ -358,18 +348,22 @@ return (
                 {/* <button className="btn btn-primary btn-lg" onClick={OnSubmit}> 
                     Submit
                 </button> */}
-
-                <Link state={ButtonProps} props={inputs} className="btn btn-primary btn-lg" onClick={OnSubmit}>
-                    Submit
-                </Link>
-
+                {isBtnCheck == true ?
+                    <Link to="button" state={inputs} className="btn btn-primary btn-lg" onClick={checkValidation}>
+                        Update
+                    </Link>
+                    :
+                    <Link state={inputs} className="btn btn-primary btn-lg" onClick={checkValidation}>
+                        Update
+                    </Link>
+                }
             </div>
         </div>
-        {/* {inputs && <ButtonComponent {...inputs} />} */}
+        
         </div>
         </div>
     </div>
     );
 };
 
-export default ButtonForm;
+export default EditButtonModal;
