@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./form.scss";
 import Cards from "./cards";
 // import { useNavigate } from 'react-router-dom';
-import closeIcon from "../../asset/images/cross-icon.png";
+import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
@@ -142,12 +142,15 @@ function EditCard(props) {
   console.log(formValues);
   return (
     <div className="modal_wapper">
-      <div className="modal-content header-modalcontainer">
-        <button className="close-button" onClick={close}>
+      <div className="modal-content form-modalcontainer">
+      <div class="form-header">
+          <p>Edit Card</p>
+          <button className="close-button" onClick={close}>
           <img src={closeIcon}></img>
         </button>
+        </div>
 
-        <div className="modal-container form-modal">
+        <div className="modal-container">
           <p>
             Please select the attributes according your prefrence to design the
             Card.
@@ -157,7 +160,7 @@ function EditCard(props) {
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
             <div className="Form-field">
-              <label htmlFor="title" >Title:</label>
+              <label htmlFor="title" >Title: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="title"
@@ -170,7 +173,7 @@ function EditCard(props) {
             </div>
 
             <div className="Form-field">
-              <label htmlFor="description">Description:</label>
+              <label htmlFor="description">Description: <span className="astrick">*</span></label>
               <textarea
                 id="description"
                 name="description"
@@ -183,7 +186,7 @@ function EditCard(props) {
               )}
             </div>
             <div className="Form-field">
-              <label htmlFor="addButton">Add button:</label>
+              <label htmlFor="addButton">Add button: <span className="astrick">*</span></label>
               <div className="radio-buttons">
                 <div>
                   <label htmlFor="addButton1">
@@ -196,7 +199,9 @@ function EditCard(props) {
                       onChange={handleChange
                       }
                     />
-                    Yes
+                    <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>
                   </label>
                 </div>
                 <div>
@@ -210,7 +215,9 @@ function EditCard(props) {
                       onChange={handleChange
                       }
                     />
-                    No
+                   <div className="tag">
+                  <span className="tag__cat">No </span>
+                </div>
                   </label>
                 </div>
               </div>
@@ -223,7 +230,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="numButtons">Number of Buttons:</label>
+              <label htmlFor="numButtons">Number of Buttons: <span className="astrick">*</span></label>
               <select
                 id="numButtons"
                 name="numButtons"
@@ -243,7 +250,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.numButtons >= 1 ? "block" : "none" }}
             >
-              <label htmlFor="button1Text">Button 1 text:</label>
+              <label htmlFor="button1Text">Button 1 text: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="button1Text"
@@ -260,7 +267,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.numButtons == 2 ? "block" : "none" }}
             >
-              <label htmlFor="button2Text">Button 2 text:</label>
+              <label htmlFor="button2Text">Button 2 text: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="button2Text"
@@ -272,8 +279,8 @@ function EditCard(props) {
                 <span className="error">{errors.buttons}</span>
               )}
             </div>
-            <div className="Form-field">
-              <label htmlFor="addImage">Do you want to add an Image?</label>
+            <div className="Form-field"> 
+              <label htmlFor="addImage">Do you want to add an Image? <span className="astrick">*</span></label>
               <div className="radio-buttons">
                 <div>
                   <label htmlFor="addImage1">
@@ -286,7 +293,9 @@ function EditCard(props) {
                       onChange={handleChange
                       }
                     />
-                    Yes
+                   <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>
                   </label>
                 </div>
                 <div>
@@ -300,7 +309,9 @@ function EditCard(props) {
                       onChange={handleChange
                       }
                     />
-                    No
+                   <div className="tag">
+                  <span className="tag__cat">No </span>
+                </div>
                   </label>
                 </div>
               </div>
@@ -323,7 +334,7 @@ function EditCard(props) {
               {errors.buttons && <span className="error">{errors.image}</span>}
             </div>
             <div className="Form-field">
-              <label for="card-width">Card Width:</label>
+              <label for="card-width">Card Width: <span className="astrick">*</span></label>
               <select id="card-width" name="width" onChange={handleChange} value={formValues.width}>
                 <option value="">Select</option>
                 <option value="100%">100%</option>

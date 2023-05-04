@@ -5,6 +5,7 @@ import HeaderComponent from "../src/components/sub-components/header/header";
 import ButtonComponent from "../src/components/sub-components/button/button";
 import { AppProvider } from './components/sub-components/app-context';
 import Cards from "./components/sub-components/cards/cards";
+import './index.scss';
 
 function App() {
   return (

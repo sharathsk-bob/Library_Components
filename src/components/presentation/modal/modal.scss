@@ -1,3 +1,4 @@
+@import "../../theme/breakpoints";
 .modal-components{
     display: flex;
     flex-wrap: wrap;
@@ -6,20 +7,20 @@
     .modal_section{
         
     margin: 1.4em;
-    box-shadow: -1px 1px 11px -7px #12abdb;
+    box-shadow: var(--box-shadow);
     margin: 0 16px 32px;
     max-width: calc(33% - 32px);
     width: 100%;
     border-radius: 4px;
     .modal-header{
-        background: #0070ad;
-        color: #fff;
+        background: var(--color-capgemini-blue);
         border: none;
         font-weight: 500;
         border-radius: 4px 4px 0px 0px;
         h1{
             margin: 0px;
             font-size: 17px;
+            color: var(--color-white) ;
             padding: 0.5em 1em;
             font-weight: normal;
                 }
@@ -48,14 +49,31 @@
     
             padding: 0.5em 0.8em;
     
-    background-color: #0070ad;
-    border-color: #0070ad;
+    background-color: var(--color-capgemini-blue);
+    border-color: var(--color-capgemini-blue);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius:var(--border-radius-btn);
     cursor: pointer;
   
         }
     }
     }
+}
+
+@media screen and (max-width: $bp-large) {
+	
+    .modal-components {
+    .modal_section{
+        max-width: calc(100%/3 - 32px);
+    }
+    }
+}
+
+@media screen and (max-width: $bp-mobile) {
+    .modal-components {
+        .modal_section{
+            max-width: calc(100% - 32px);
+        }
+        }
 }

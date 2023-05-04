@@ -10,6 +10,7 @@ const AppProvider=props=>{
   const [button2Text, setButton2Text] = useState('');
   const [addButton, setAddButton] = useState(null);
   const [numButtons, setNumButtons] = useState(null);
+  const [theme,setTheme]=useState();
   const [addImage, setAddImage] = useState(null);
   const [width, setWidth] = useState('');
   const [image, setImage] = useState('');
@@ -34,10 +35,11 @@ const AppProvider=props=>{
         ].filter((button) => button.text !== ''),
         image,
         addImage,
-        width
+        width,
+        theme
       };
     return(
-    <AppContext.Provider value={{ newCard,title,description,addButton,numButtons,button1Text,button2Text,image,addImage,width,setTitle,setDescription,setAddButton,setNumButtons,setButton1Text,setButton2Text,setImage,setAddImage,setWidth }}>
+    <AppContext.Provider value={{ newCard,title,description,addButton,numButtons,button1Text,button2Text,image,addImage,width,theme,setTitle,setDescription,setAddButton,setNumButtons,setButton1Text,setButton2Text,setImage,setAddImage,setWidth,setTheme }}>
           {children}
     </AppContext.Provider>
     );

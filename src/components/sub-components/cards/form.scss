@@ -8,75 +8,128 @@
     background-color: #f5f5f5;
     border-radius: 10px;
   } */
-  
-  .Form-field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-  .button-section{
-    .link-button{
-        float: right;
-    // margin-top: 20px;
-      a{
-    background-color: #0070AD;
-    border-color: #0070AD;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px;
-    text-decoration: none;
+  form{
+    p{
+      margin:0
     }
-}
-}
-  label {
-    margin-bottom: 0.5rem;
+    .Form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .button-section{
+      .link-button{
+          float: right;
+      // margin-top: 20px;
+        a{
+      background-color: var(--color-capgemini-blue);
+      border-color: var(--color-capgemini-blue);
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 8px;
+      text-decoration: none;
+      }
+  }
+  }
+    label {
+      margin-bottom: 0.5rem;
+      
+    }
+    
+   .form-header {
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--color-capgemini-blue);
+      padding: 0.5em 1em 0.52em;
+      color: #fff;
+  }
+    textarea {
+     
+      width: 60%;
+  
+    }
+    
+    textarea {
+      height: 4rem;
+      resize: vertical;
+    }
+    
+    input[type="file"] {
+      margin-top: 0.5rem;
+    }
+    .astrick{
+      color: red;
+    }
+    .tag{
+      width: fit-content;
+      display: flex;
+    }
+    .radio-buttons{
+      display: flex;
+    }
+    input[type="text" ] {
+      background-color: white;
+      color: var(--color-black);
+      margin-top: 10px;
+      min-height: 26px;
+      width: 84%;
+      border: 1.5px solid black;
+      border-radius: 4px;
+  }
+  input[type="text" ] {
+      padding: 1px 2px;
+  }
+  textarea{
+    background-color: white;
+      color: var(--color-black);
+      margin-top: 10px;
+      min-height: 26px;
+      width: 84%;
+      border: 1.5px solid black;
+      border-radius: 4px;
+      padding: 1px 2px;
+  }
+  select{
+    background-color: white;
+    color: var(--color-black);
+    margin-top: 10px;
+    min-height: 26px;
+    width: 84%;
+    border: 1.5px solid black;
+    border-radius: 4px;
+    padding: 1px 2px;
+  }
+    .error {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+    
+    .card-button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #0070AD;
+      border-color: #0070AD;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+    }
+    .form-modal{
+      p{
+        margin-bottom: 8px!important;
+      }
+    }
+    /* button:hover {
+      background-color: #0069d9;
+    } */
     
   }
   
-  
-  textarea {
-   
-    width: 60%;
-
-  }
-  
-  textarea {
-    height: 4rem;
-    resize: vertical;
-  }
-  
-  input[type="file"] {
-    margin-top: 0.5rem;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-  }
-  
-  .card-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #0070AD;
-    border-color: #0070AD;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right;
-  }
-  .form-modal{
-    p{
-      margin-bottom: 8px!important;
-    }
-  }
-  /* button:hover {
-    background-color: #0069d9;
-  } */
   
