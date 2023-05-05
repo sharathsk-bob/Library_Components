@@ -4,8 +4,8 @@ import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal/header-modal.scss";
 import ButtonComponent from "./button";
+import "./button.scss"
 
 const ButtonForm =(props)=>{
     const navigate = useNavigate()
@@ -170,7 +170,7 @@ return (
                     className="modal-input"
                     type="radio"
                     value="Yes"
-                    name="FilterType"
+                    name="Choice_BorderRadius"
                     checked={BorderRadius === "Yes"}
                     onChange={(e) => {
                         setBorderRadius("Yes");
@@ -187,7 +187,7 @@ return (
                     className="modal-input"
                     type="radio"
                     value="No"
-                    name="FilterType"
+                    name="Choice_BorderRadius"
                     checked={BorderRadius === "No"}
                     onChange={(e) => {
                         setBorderRadius("No");
@@ -257,7 +257,7 @@ return (
                     className="modal-input"
                     type="radio"
                     value="Yes"
-                    name="FilterType"
+                    name="Choice_BoxShadow"
                     checked={BoxShadow === "Yes"}
                     onChange={(e) => {
                         setBoxShadow("Yes");
@@ -274,7 +274,7 @@ return (
                     className="modal-input"
                     type="radio"
                     value="No"
-                    name="FilterType"
+                    name="Choice_BoxShadow"
                     checked={BoxShadow === "No"}
                     onChange={(e) => {
                         setBoxShadow("No");
