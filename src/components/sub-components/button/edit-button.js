@@ -2,16 +2,27 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
-
+import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
 import "../header/components/header-modal/header-modal.scss";
 
 const EditButtonModal = (props)=>{
 
     const{close, data} = props;
-    const [inputs, setInputs] = useState(data);
+    console.log("Check Input", data);
 
-    console.log("Check Input", inputs);
+    const initialValues = {
+        btntext: data.btntext,
+        Choice_BorderRadius: data.Choice_BorderRadius,
+        border_radius: data.border_radius,
+        Choice_BoxShadow: data.Choice_BoxShadow,
+        Choice_Size: data.Choice_Size,
+        Choice_Theme: data.theme,
+    }
+
+    const [inputs, setInputs] = useState(initialValues);
+    const navigate = useNavigate()
+
     const [inputErrors, setInputErrors] = useState({});
 
     const [BorderRadius, setBorderRadius] = useState("");
@@ -20,13 +31,43 @@ const EditButtonModal = (props)=>{
     const [sizeValue, setSizeValue] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         // console.log("event :", e.target.type);
         setInputs({ ...inputs, [name]: value });
-        //console.log("In handleChange>>>",inputs);
+        console.log("In handleChange>>>",inputs);
     };
+
+
+    // const handleChange = (e) => {
+    //     // const { name, value } = e.target;
+    //     console.log("event :", e.target.value);
+    //     // setInputs({ ...inputs, [name]: value });
+    //     if (e.target.id === "btntext") {
+    //         setInputs({ ...inputs, btntext: e.target.value });
+    //       } else if (e.target.name === "Choice_BorderRadius") {
+    //         setBorderRadius({ ...inputs, Choice_BorderRadius: e.target.value });
+    //       } else if (e.target.name === "Choice_BoxShadow") {
+    //         setBoxShadow({ ...inputs, Choice_BoxShadow: e.target.value });
+    //       } else if (e.target.name === "border_radius") {
+    //         setInputs({ ...inputs, border_radius: e.target.value });
+    //       } else if (e.target.name === "Choice_Size") {
+    //         setSizeValue({sizeValue, Choice_Size: e.target.value });
+    //       } else {
+    //         setThemeValue({themeValue, themeValue: e.target.value });
+    //       }
+    //     console.log("Are inputs clear????", inputs);
+    // };
+
+    const ButtonProps = {
+        ButtonText: inputs.btntext,
+        Choice_BorderRadius: inputs.Choice_BorderRadius,
+        BorderRadius: inputs.border_radius,
+        Choice_BoxShadow: inputs.Choice_BoxShadow,
+        Choice_Size: inputs.Choice_Size,
+        Choice_Theme: inputs.theme,
+    };
+
 
     const checkValidation = (values) => {
 
@@ -96,6 +137,8 @@ const EditButtonModal = (props)=>{
         //alert("Successfully Submitted");
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
+        navigate("/button", {state: {inputs}});
+        close();
         //window.location.reload(true);
         } else {
         // console.log("Validation Failed >>>> Errors Present", validerrors);
@@ -133,7 +176,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="btntext"
-                    value={""} 
+                    value={inputs.btntext} 
                     onChange={handleChange}
                     aria-required="true"
                     // aria-describedby="name-err-title"
@@ -151,9 +194,9 @@ return (
                 <input
                     className="modal-input"
                     type="radio"
-                    value="Yes"
-                    name="FilterType"
-                    checked={BorderRadius === "Yes"}
+                    value={inputs.Choice_BorderRadius}
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "Yes"}
                     onChange={(e) => {
                         setBorderRadius("Yes");
                     }}
@@ -168,9 +211,9 @@ return (
                 <input
                     className="modal-input"
                     type="radio"
-                    value="No"
-                    name="FilterType"
-                    checked={BorderRadius === "No"}
+                    value={inputs.Choice_BorderRadius}
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "No"}
                     onChange={(e) => {
                         setBorderRadius("No");
                     }}
@@ -199,7 +242,7 @@ return (
                     autoComplete="off"
                     name="border_radius"
                     aria-required="true"
-                    value={""} 
+                    value={inputs.border_radius} 
                     onChange={handleChange}         
                 />
                 </label>
@@ -234,16 +277,15 @@ return (
             <p>Would you like to have Box Shadow for Button?</p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" htmlFor="Choice_BoxShadow">
                 <input
+                    id="Choice_BoxShadow"
                     className="modal-input"
                     type="radio"
-                    value="Yes"
-                    name="FilterType"
-                    checked={BoxShadow === "Yes"}
-                    onChange={(e) => {
-                        setBoxShadow("Yes");
-                    }}
+                    value={"Yes"}
+                    name="Choice_BoxShadow"
+                    checked={inputs.Choice_BoxShadow == "Yes"}
+                    onChange={handleChange}
                 />
                 <div className="tag">
                   <span className="tag__cat">Yes </span>
@@ -251,16 +293,15 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" htmlFor="Choice_BoxShadow">
                 <input
+                    id="Choice_BoxShadow"
                     className="modal-input"
                     type="radio"
-                    value="No"
-                    name="FilterType"
-                    checked={BoxShadow === "No"}
-                    onChange={(e) => {
-                        setBoxShadow("No");
-                    }}
+                    value={"No"}
+                    name="Choice_BoxShadow"
+                    checked={inputs.Choice_BoxShadow == "No"}
+                    onChange={handleChange}
                 />
                 <div className="tag">
                   <span className="tag__cat">No</span>
@@ -297,9 +338,9 @@ return (
         <div className="input-field-container">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="size"> 
+                <label for="Choice_Size"> 
                 <p>Please select size of the Button: <span className="asterik">*</span> </p>
-                    <select name="size" id="size"  value={sizeValue} onChange={(event) => setSizeValue(event.target.value)}>
+                    <select name="Choice_Size" id="Choice_Size"  value={inputs.Choice_Size} onChange={handleChange}>
                         <option value="">--</option>         
                         <option value="0.5em">0.5 em</option>
                         <option value="1em">1 em</option>
@@ -317,7 +358,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="theme"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
-                    <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
+                    <select name="theme" id="theme"  value={inputs.theme} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
                         <option value="Normal">Normal</option>
                         <option value="Dark">Dark</option>
@@ -334,15 +375,9 @@ return (
                 {/* <button className="btn btn-primary btn-lg" onClick={OnSubmit}> 
                     Submit
                 </button> */}
-                {isBtnCheck == true ?
-                    <Link to="button" state={inputs} className="btn btn-primary btn-lg" onClick={checkValidation}>
-                        Update
-                    </Link>
-                    :
-                    <Link state={inputs} className="btn btn-primary btn-lg" onClick={checkValidation}>
-                        Update
-                    </Link>
-                }
+                <Link state={ButtonProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                    Update
+                </Link>
             </div>
         </div>
         
