@@ -37,12 +37,10 @@ function Form(props) {
   } = useContext(AppContext);
  
   const [errors, setErrors] = useState({});
-  //const navigate=useNavigate();
+
   const [activate, setActivate] = useState(false);
   const history = useNavigate();
-  // const [addButton, setAddButton] = useState(null);
-  // const [numButtons, setNumButtons] = useState(null);
-  // const [addImage, setAddImage] = useState(null);
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     const isValid = validateForm();
@@ -58,14 +56,7 @@ function Form(props) {
     const file = event.target.files[0];
     setImage(file);
   };
-  // if(activate==true){
-  //   return(
-  //     //close(),
-  //   <Cards {...newCard}/>
-  //   //close()
-  //   );
-
-  // }
+  
   const resetNewCard = () => {
     setTitle("");
     setDescription("");
@@ -147,7 +138,6 @@ function Form(props) {
 
     return isValid;
   };
-  console.log(errors);
   return (
     <div className="modal_wapper">
       <div className="modal-content form-modalcontainer">
@@ -162,10 +152,6 @@ function Form(props) {
             className="Form"
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
-            <p>
-              Please select the attributes according your prefrence to design
-              the Card.
-            </p>
             <div className="Form-field">
               <label htmlFor="title">
                 Title: <span className="astrick">*</span>
@@ -175,7 +161,7 @@ function Form(props) {
                 id="title"
                 //value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                //maxlength="10" required
+                maxlength="10" 
               />
               {errors.title && <span className="error">{errors.title}</span>}
             </div>
@@ -188,7 +174,7 @@ function Form(props) {
                 id="description"
                 //value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                //maxlength="500" rows="5" required
+                maxlength="500" rows="5" required
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>
@@ -395,7 +381,7 @@ function Form(props) {
               </label>
               {errors.theme && <span className="error">{errors.theme}</span>}
             </div>
-            {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
+           
             <div className="button-section">
               <div className="link-button">
                 <Link

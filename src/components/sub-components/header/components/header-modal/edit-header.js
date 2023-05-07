@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../../app-context";
 
 import { FormField, Input, Alert, TextArea, SplitButton, itemLayoutSlotClassNames } from "@fluentui/react-northstar";
 import closeIcon from "../../../../asset/images/cross-white.png";
@@ -8,12 +10,12 @@ import "./header-modal.scss";
 const EditHeaderModal =(props)=>{
 	
   const [errorMsgEdit, setErrorMsgEdit] = useState({});
-  const [validEdit, setVaildEdit ] =  useState(false);
-	const{close, data} = props;
-	
 
-// console.log(data, "edit value");
-let flag= false;
+  // const { headerProps, setHeaderProps } = useContext(AppContext);
+	const{close, data} = props;
+	   
+
+  const navigationheader = useNavigate();
   const [headerData, setHeaderData] = useState(data);
   const handleSubmit = (event) => {
     if (event.target.id === "title") {
@@ -31,40 +33,48 @@ let flag= false;
     }
   };
 
+  
+  
   let editError = {};
-  let errorflagtitle =false;
-  let errorflagprofile = false;
-
+  //  let headerProps ={
+  //   headerData
+  //  };
+  const headerProps = headerData;
    const checkValidation = () => {
+     
+     let errorflag = true;
      if (!headerData.profileValue || !headerData.titleValue) {
        if (!headerData.titleValue) {
          editError.editTitle = "Title is required";
-         errorflagtitle=true;
-         
-        
+         errorflag = false;
        }
        if (!headerData.profileValue) {
-        //  editError.editProfile = "Profile Name is required common";
-        //  console.log(editError, "erro");
-         errorflagprofile = true;
-        
-       }
-     } else {
-      
-      flag=true;
-     
-     }
-     console.log(errorflagprofile, "errosss");
-   };
-const onSubmit =  ()=>{
+         editError.editProfile = "Profile Name is required ";
 
-   checkValidation();
-    close();
+         errorflag = false;
+       }
+     }
+    //  console.log(editError, "object value");
+     setErrorMsgEdit(editError);
+     return errorflag;
+   };
+const onSubmit =  (event)=>{
+  event.preventDefault();
+  const checkEditValid =   checkValidation();
+  // setHeaderProps(headerData);
+
+
+  if(checkEditValid){
    
-  
+    close();
+    // console.log( headerProps.headerData, "err value");
+    navigationheader("/header", {state: {headerProps}});
+    
+  }
+ 
    
 }
-// const onfalse =()
+
 
 
 return (
@@ -99,7 +109,8 @@ return (
               />
               
             </label>
-            {editError.title ? <span className="error">{editError.title}</span>:""}
+            {/* {editError.editTitle!=undefined ? <span className="error">{editError.editTitle}</span>:""} */}
+          {errorMsgEdit.editTitle ? <span className="error">{errorMsgEdit.editTitle}</span>:""}
           </FormField>
         </div>
         <div className="input-field-container">
@@ -123,7 +134,7 @@ return (
               />
               
             </label>
-            { errorflagprofile ? <span className="error">Profile Name is required common</span>: ""}
+            { errorMsgEdit.editProfile ? <span className="error">{errorMsgEdit.editProfile}</span>: ""}
           </FormField>
         </div>
         <div className="input-field-container logo-field">
@@ -247,8 +258,8 @@ return (
   <select name="theme" id="theme"  value={headerData.themeValue}
               onChange={handleSubmit}
                 >
-                  <option value=""></option>
-    <option value="Normal">Normal</option>
+                  {/* <option value=""></option> */}
+    <option value="Normal"  selected >Normal</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Capgemini-blue</option>
     <option value="cg2">Capgemini-purple</option>
@@ -262,24 +273,16 @@ return (
         </div>
         
         <div className="button-section">
-          <div className="link-button">
-            {flag === true ?
-            <Link
-              to="header"
-              state={headerData}
+          <div className="link-button  update-button">
+           
+           <Link
+              // to="header"
+              // state={headerData}
               className="btn btn-primary btn-lg"
               onClick={onSubmit}
             >
               Update
             </Link>
-            : <Link
-            // to="header"
-            state={headerData}
-            className="btn btn-primary btn-lg"
-            onClick={checkValidation}
-          >
-            Update
-          </Link>}
           </div>
         </div>
       </div>

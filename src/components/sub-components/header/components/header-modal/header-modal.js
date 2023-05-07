@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../../app-context";
 
-import { FormField, Input, Alert, TextArea, SplitButton, itemLayoutSlotClassNames } from "@fluentui/react-northstar";
+import { FormField, Input } from "@fluentui/react-northstar";
 
 import closeIcon from "../../../../asset/images/cross-white.png";
 import "./header-modal.scss";
@@ -13,8 +15,8 @@ const HeaderModal =(props)=>{
   const [imageValue, setImageValue] = useState("");
   const [profileLogo, setProfileLogo] = useState("");
   const [errorMsg, setErrorMsg] = useState({});
-  const [isValid, setIsValid] = useState(false);
-  const [themeValue, setThemeValue] = useState();
+  const [themeValue, setThemeValue] = useState("Normal");
+  // const { headerProps, setHeaderProps } = useContext(AppContext);
 	const{close} = props;
 	
 
@@ -27,34 +29,56 @@ const HeaderModal =(props)=>{
    themeValue
   };
 
-
+  const navigationheader = useNavigate();
   
   let errors = {};
+  
 
 
    const checkValidation = () => {
+    let isValid = true;
      if (titleValue === undefined) {
        errors.title = "Title is required";
+       isValid = false;
      }
      if (profileValue === undefined) {
        errors.profile = "Profile Name is required";
+       isValid = false;
      }
      if (cgLogoValue === "") {
        errors.logoValue = "Please select the above field";
+       isValid = false;
      }if(imageValue === ""){
       errors.appLogo = "Please select the above field";
+      isValid = false;
      }if(profileLogo === ""){
       errors.profileLogovalue = "Please select the above field";
+      isValid = false;
      }if(themeValue === undefined){
+      
       errors.theme = "Please select the value from the dropdown";
+      isValid = false;
      }
-      else {
-       setIsValid(true);
-     }
-
      setErrorMsg(errors);
+      return isValid;
+
+    
    };
-  //  console.log(headerProps, "props value");
+const buttonSubmit =(event)=>{
+  event.preventDefault();
+  const checkValid =   checkValidation();
+  // setHeaderProps(propsValue);
+  if (checkValid) {
+   
+   
+   console.log(headerProps, "value");
+  navigationheader("/header", {state: {headerProps}});
+  
+  }else{
+    console.log(checkValid,"elsecondition");
+  }
+  console.log(themeValue, "theme valuee");
+};
   
 return (
   <div className="modal_wapper">
@@ -213,7 +237,7 @@ return (
                     setProfileLogo("Yes");
                   }}
                 />
-                <div className="tag">
+                <div className="tag"> 
                   <span className="tag__cat">Yes </span>
                 </div>
               </label>
@@ -241,15 +265,15 @@ return (
         </div>
         <div className="input-field-container theme-field">
           
-          <div className="modal-checkbox">
+          <div className="modal-checkbox modal-select">
             <FormField className="modal-content-theme">
              
             <label for="theme"> 
             <p>Please select the theme colour.<span className="asterik">*</span> </p>
   <select name="theme" id="theme"  value={themeValue}
                 onChange={(event) => setThemeValue(event.target.value)}>
-        <option value=""></option>         
-    <option value="Normal">Normal</option>
+        {/* <option value=""></option>          */}
+    <option value="Normal" selected>Normal</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Capgemini-blue</option>
     <option value="cg2">Capgemini-purple</option>
@@ -264,23 +288,14 @@ return (
        
         <div className="button-section">
           <div className="link-button">
-            {isValid == true ?
-            <Link
-              to="header"
-              state={headerProps}
+            
+           <Link
+
               className="btn btn-primary btn-lg"
-              onClick={checkValidation}
+              onClick={buttonSubmit}
             >
               Submit
             </Link>
-            :<Link
-            // to="header"
-            state={headerProps}
-            className="btn btn-primary btn-lg"
-            onClick={checkValidation}
-          >
-            Submit
-          </Link>}
           </div>
         </div>
       </div>

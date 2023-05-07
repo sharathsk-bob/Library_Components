@@ -14,6 +14,7 @@ const AppProvider=props=>{
   const [addImage, setAddImage] = useState('');
   const [width, setWidth] = useState('');
   const [image, setImage] = useState('');
+  const [headerProps, setHeaderProps] = useState ({});
   const newCard = {
     title,
     description,
@@ -40,7 +41,7 @@ const AppProvider=props=>{
   };
    
     return(
-    <AppContext.Provider value={{ newCard,title,description,addButton,numButtons,button1Text,button2Text,image,addImage,width,theme,setTitle,setDescription,setAddButton,setNumButtons,setButton1Text,setButton2Text,setImage,setAddImage,setWidth,setTheme }}>
+    <AppContext.Provider value={{ newCard,title,description,addButton,numButtons,button1Text,button2Text,image,addImage,width,theme,setTitle,setDescription,setAddButton,setNumButtons,setButton1Text,setButton2Text,setImage,setAddImage,setWidth,setTheme,headerProps, setHeaderProps }}>
           {children}
     </AppContext.Provider>
     );

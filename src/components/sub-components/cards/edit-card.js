@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
 
 function EditCard(props) {
-  const { close,newCard } = props;
+  const { close,newCard } = props; 
   const {
     title,
     description,
@@ -68,10 +68,7 @@ function EditCard(props) {
     setFormValues({ ...formValues, image: file });
     
   };
-  // if(activate==true){
-  //   close();
-
-  // }
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log("change");

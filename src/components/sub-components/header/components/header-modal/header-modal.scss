@@ -1,5 +1,9 @@
 .form-modalcontainer{
     color:#2b0a3d;
+    .error{
+        color: red;
+        font-size: 10px;
+    }
   
     .form-header{
         display: flex;
@@ -34,8 +38,8 @@
         background-color: white;
     color: var(--color-black);
     margin-top: 10px;
-    min-height: 26px;
-    width: 84%;
+    min-height: 28px;
+    width: 98%;
     border: 1.5px solid black;
     border-radius: 4px;
     }
@@ -77,6 +81,7 @@ label {
 }
 .modal-checkbox{
     display: flex;
+    max-height: 44px;
 .modal-content-checkbox{
     width: 50px;
     .modal-label{
@@ -102,13 +107,17 @@ label {
 }
 .modal-content-theme{
     display: block;
+    width: 98%;
     p{
         margin-top: 0px;
     }
     select{
-        width: 250px;
-    /* line-height: 2; */
-    min-height: 30px;
+        background-color: white;
+        color: var(--color-black);
+        min-height: 28px;
+        width: 98%;
+        border: 1.5px solid black;
+        border-radius: 4px;
     }
 }
 .button-section{
@@ -127,6 +136,12 @@ label {
     }
 }
 }
+.modal-select{
+    max-height: 54px;
+}
     }
+}
+.update-button{
+    margin-top: 30px!important;
 }
 

@@ -46,18 +46,19 @@
    
     color: #ffff !important; 
     .cg-logo{
-        background-color: white;
-        padding: 4px;
+        // background-color: white;
+        // padding: 4px;
+        width: 200px;
     } 
 }
-.cg2{
+.Cg2{
     background-color:#2b0a3d;
     
    
     color: #ffff !important;  
     .cg-logo{
-        background-color: white;
-        padding: 4px;
+        // background-color: white;
+        // padding: 4px;
     }  
 }
 .header-right ul{display: flex;align-items: center;margin-left: auto; list-style: none;}
@@ -69,9 +70,32 @@
 .header-output{
     .component-header{
         display: flex;
+        
     justify-content: space-between;
+    box-shadow: 1px 0px 4px #0000002b;
     align-items: center;
-    margin: 0px 31px;
+    // margin: 0px 31px;
+    .header-left{
+        display: flex;
+        padding: 15px;
+        h1{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0;
+            color: #0070ad;
+            margin-left: 10px !important;
+        }
+        span{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin: 0;
+            color: #333;
+            margin-left: 10px !important;
+        }
+    }
+    
     .header-right{
         .button-section{
             button {
@@ -92,8 +116,8 @@
         padding: 0.5rem;
         // font-size: 1rem;
         font-weight: bold;
-        background-color: var(--color-capgemini-blue);
-        border-color: var(--color-capgemini-blue);
+        background-color: #0070AD;
+        border-color: #0070AD;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -103,6 +127,10 @@
         }
     }
     }
+}
+.normal-header{
+    background-color: #fff;
+    height: 100vh;
 }
 
  

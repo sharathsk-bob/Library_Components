@@ -28,7 +28,7 @@ const HeaderDetail =(props)=>{
             <h1>
              Details for the Header section are below.
             </h1>
-            <p>We have taken the prefrence of the user for the application name,application logo, User profile name, CapgeminiLogo.</p>
+            <p>Please do follow the given instruction while creating the Header component</p>
            <div className="detail-content">
 <ul>
     <li>Application name should be less than 15 characters.</li>

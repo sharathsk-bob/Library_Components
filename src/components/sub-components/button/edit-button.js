@@ -90,8 +90,6 @@ const EditButtonModal = (props)=>{
         let validerrors= await checkValidation(inputs);
         setInputErrors(validerrors);
 
-        //console.log("OnSubmit>>>",Object.keys(validerrors).length);
-
         if(Object.keys(validerrors).length === 0)
         {
         // console.log("Validation Success >>>> Errors Gone", validerrors);
@@ -331,13 +329,6 @@ return (
             </div>
             <p className="error">{inputErrors.theme}</p>
         </div>
-
-        
-            
-        {/* {
-            isBtnCheck ? <CustomButton{...inputs}/> : "Button not displayed"
-        } */}
-
         <div className="button-section">
             <div className="link-button">
                 {/* <button className="btn btn-primary btn-lg" onClick={OnSubmit}> 
