@@ -148,6 +148,20 @@ function EditCard(props) {
     return isValid;
   };
   console.log(formValues);
+  let radio1 = document.getElementById('addButton0');
+  let radio2 = document.getElementById('addImage0');
+  if(radio1?.checked){
+    //  setNumButtons('0');
+    //  setButton1Text('');
+    //  setButton2Text('');
+    //setFormValues({ ...formValues, numButtons: '0', button1Text: '', button2Text: '' }); 
+    formValues.numButtons=0;
+    formValues.button1Text='';
+    formValues.button2Text='';     
+  }
+  if(radio2?.checked){
+    formValues.image='';
+ }
   return (
     <div className="modal_wapper">
       <div className="modal-content form-modalcontainer">
