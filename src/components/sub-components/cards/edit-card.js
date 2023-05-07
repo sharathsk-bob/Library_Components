@@ -355,9 +355,11 @@ function EditCard(props) {
                 //value=" "
                 required
               />
+              <div className="image-upload">
               <button className="upload-btn"><label  for="file-upload">Upload Image</label></button>
               {formValues.image?<span>{formValues.image.name}</span>:<span>No File Choosen</span>}
               {errors.buttons && <span className="error">{errors.image}</span>}
+              </div>
             </div>
             <div className="Form-field">
               <label for="card-width">Card Width: <span className="astrick">*</span></label>

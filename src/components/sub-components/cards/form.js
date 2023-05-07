@@ -162,7 +162,7 @@ function Form(props) {
             className="Form"
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
-            <p>
+            <p className="heading-text">
               Please select the attributes according your prefrence to design
               the Card.
             </p>
@@ -343,7 +343,7 @@ function Form(props) {
               className="Form-field"
               style={{ display: addImage == 1 ? "block" : "none" }}
             >
-              <label htmlFor="button2Text"> Image:</label>
+              <label htmlFor="button2Text"> Image:</label><br/>
               <input
               id="file-upload"
                 type="file"
@@ -353,9 +353,11 @@ function Form(props) {
                 //value=" "
                 required
               />
+              <div className="image-upload">
               <button className="upload-btn"><label  for="file-upload">Upload Image</label></button>
               {image?<span>{image.name}</span>:<span>No File Choosen</span>}<br/>
               {errors.image && <span className="error">{errors.image}</span>}
+              </div>
             </div>
             <div className="Form-field">
               <label for="card-width">
