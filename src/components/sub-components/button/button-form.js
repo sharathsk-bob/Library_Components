@@ -209,7 +209,8 @@ return (
           <p className="error">{inputErrors.BorderRadius}</p>
         </div>
 
-        <div className="input-field-container">
+        { BorderRadius === "Yes" ?
+            <div className="input-field-container">
             <FormField className="form-modal__content">
                 <label
                 className="modal__label"
@@ -223,6 +224,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="border_radius"
+                    min="0"
                     aria-required="true"
                     value={inputs.border_radius || ""} 
                     onChange={handleChange}         
@@ -231,6 +233,8 @@ return (
                 <p className='error'>{inputErrors.border_radius}</p>
             </FormField>
         </div>
+        : ""}
+        
 
         <div className="input-field-container">
             <FormField className="form-modal__content">
@@ -246,6 +250,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="border_width"
+                    min="0"
                     aria-required="true"
                     value={inputs.border_width || ""} 
                     onChange={handleChange}         

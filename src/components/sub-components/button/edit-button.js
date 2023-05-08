@@ -132,6 +132,8 @@ const EditButtonModal = (props)=>{
         let validerrors= await checkValidation(inputs);
         setInputErrors(validerrors);
 
+        //console.log("OnSubmit>>>",Object.keys(validerrors).length);
+
         if(Object.keys(validerrors).length === 0)
         {
         // console.log("Validation Success >>>> Errors Gone", validerrors);
@@ -226,29 +228,34 @@ return (
           </div>
           <p className="error">{inputErrors.BorderRadius}</p>
         </div>
-
-        <div className="input-field-container">
-            <FormField className="form-modal__content">
-                <label
-                className="modal__label"
-                aria-label="Border Radius Asterik-Required"
-                for="border_radius"
-                >
-                Border Radius for the Button: <span className="asterik">*</span> 
-                <Input
-                    id="border_radius"
-                    type="number" 
-                    className="text_modal__input"
-                    autoComplete="off"
-                    name="border_radius"
-                    aria-required="true"
-                    value={inputs.border_radius} 
-                    onChange={handleChange}         
-                />
-                </label>
-                <p className='error'>{inputErrors.border_radius}</p>
-            </FormField>
-        </div>
+        
+        { inputs.Choice_BorderRadius === "Yes" ?
+            <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="modal__label"
+                    aria-label="Border Radius Asterik-Required"
+                    for="border_radius"
+                    >
+                    Border Radius for the Button: <span className="asterik">*</span> 
+                    <Input
+                        id="border_radius"
+                        type="number" 
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="border_radius"
+                        min="0"
+                        aria-required="true"
+                        value={inputs.border_radius} 
+                        onChange={handleChange}         
+                    />
+                    </label>
+                    <p className='error'>{inputErrors.border_radius}</p>
+                </FormField>
+            </div>
+        :""
+        }
+        
 
         <div className="input-field-container">
             <FormField className="form-modal__content">
@@ -264,6 +271,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="border_width"
+                    min="0"
                     aria-required="true"
                     value={inputs.border_width} 
                     onChange={handleChange}         
@@ -371,6 +379,13 @@ return (
             </div>
             <p className="error">{inputErrors.theme}</p>
         </div>
+
+        
+            
+        {/* {
+            isBtnCheck ? <CustomButton{...inputs}/> : "Button not displayed"
+        } */}
+
         <div className="button-section">
             <div className="link-button">
                 {/* <button className="btn btn-primary btn-lg" onClick={OnSubmit}> 

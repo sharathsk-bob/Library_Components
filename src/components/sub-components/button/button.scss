@@ -37,7 +37,7 @@
     color: var(--color-black);
     margin-top: 10px;
     min-height: 26px;
-    width: 84%;
+    width: 98%;
     border: 1.5px solid black;
     border-radius: 4px;
     }
@@ -108,13 +108,18 @@ label {
     }
 }
 }
+
+.form-modalcontainer .modal-container .modal-content-theme {
+    display: block;
+    width: 100%;
+}
 .modal-content-theme{
     display: block;
     p{
         margin-top: 0px;
     }
     select{
-        width: 250px;
+        // width: 250px;
     /* line-height: 2; */
     min-height: 30px;
     }
