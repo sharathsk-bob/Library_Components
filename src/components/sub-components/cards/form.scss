@@ -9,6 +9,9 @@
     border-radius: 10px;
   } */
   form{
+    .heading-text{
+      margin-bottom: 15px;
+    }
     p{
       margin:0
     }
@@ -34,9 +37,12 @@
       }
   }
   }
-    label {
-      margin-bottom: 0.5rem;
+    // label {
+    //   margin-bottom: 0.5rem;
       
+    // }
+    .image-upload{
+      margin-top: 0.5rem;
     }
     
    .form-header {
@@ -125,6 +131,9 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      label{
+        cursor: pointer;
+      }
       
     }
     .card-button {

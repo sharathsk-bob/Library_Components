@@ -60,14 +60,14 @@ function Form(props) {
   const resetNewCard = () => {
     setTitle("");
     setDescription("");
-    setAddButton(null);
-    setNumButtons(null);
+    setAddButton("");
+    setNumButtons("");
     setButton1Text("");
     setButton2Text("");
-    setImage(null);
-    setAddImage(null);
+    setImage("");
+    setAddImage("");
     setWidth("");
-    setTheme(null);
+    setTheme("");
   };
   const validateForm = () => {
     let errors = {};
@@ -91,7 +91,7 @@ function Form(props) {
       errors.description = "Description should have only 100 words";
       isValid = false;
     }
-    if (addButton == null) {
+    if (addButton==="") {
       errors.buttonsAdd = "Please Select an option";
       isValid = false;
     }
@@ -117,7 +117,7 @@ function Form(props) {
       errors.buttons = "At least one button text is required";
       isValid = false;
     }
-    if (addImage == null) {
+    if (addImage === "") {
       errors.imageAdd = "Please Select an option";
       isValid = false;
     }
@@ -125,7 +125,7 @@ function Form(props) {
       errors.width = "Please Select the width";
       isValid = false;
     }
-    if (addImage == 1 && image === null) {
+    if (addImage == 1 && image == "") {
       errors.image = "Image is required";
       isValid = false;
     }
@@ -329,7 +329,7 @@ function Form(props) {
               className="Form-field"
               style={{ display: addImage == 1 ? "block" : "none" }}
             >
-              <label htmlFor="button2Text"> Image:</label>
+              <label htmlFor="button2Text"> Image:</label><br/>
               <input
               id="file-upload"
                 type="file"
@@ -339,9 +339,11 @@ function Form(props) {
                 //value=" "
                 required
               />
+              <div className="image-upload">
               <button className="upload-btn"><label  for="file-upload">Upload Image</label></button>
-              {image?<span>{image.name}</span>:<span>No File Choosen</span>}
-              {errors.buttons && <span className="error">{errors.image}</span>}
+              {image?<span>{image.name}</span>:<span>No File Choosen</span>}<br/>
+              {errors.image && <span className="error">{errors.image}</span>}
+              </div>
             </div>
             <div className="Form-field">
               <label for="card-width">

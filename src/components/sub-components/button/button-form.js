@@ -56,14 +56,20 @@ const ButtonForm =(props)=>{
         } else if (values.border_radius != undefined) {
             if (values.border_radius < 0) {
                 errors.border_radius = "Please enter a positive Border Radius value";
-            } else if (values.border_radius > 15) {
-                errors.border_radius = "Border Radius shouldn't exceed 15px";
+            } else if (values.border_radius > 50) {
+                errors.border_radius = "Border Radius shouldn't exceed 50px";
             }
         }
         
-        // if (!values.border_width) { 
-        // errors.border_width = "Please enter a Border width value";
-        // }
+        if (!values.border_width) { 
+        errors.border_width = "Please enter a Border width value";
+        } else if (values.border_width != undefined) {
+            if (values.border_width < 0) {
+                errors.border_width = "Please enter a positive Border Width value";
+            } else if (values.border_width > 15) {
+                errors.border_width = "Border Width shouldn't exceed 15px";
+            }
+        }
        
         if(BoxShadow === ""){
             errors.BoxShadow = "Please make decision for Box Shadow field";
@@ -151,6 +157,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="btntext"
+                    maxLength="15"
                     value={inputs.btntext || ""} 
                     onChange={handleChange}
                     aria-required="true"
@@ -162,7 +169,7 @@ return (
         </div>
 
         <div className="input-field-container logo-field">
-            <p>Would you like to have Border Radius for Button?</p>
+            <p>Would you like to have Border Radius for Button? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label">
@@ -225,7 +232,7 @@ return (
             </FormField>
         </div>
 
-        {/* <div className="input-field-container">
+        <div className="input-field-container">
             <FormField className="form-modal__content">
                 <label
                 className="modal__label"
@@ -236,7 +243,7 @@ return (
                 <Input
                     id="border_width"
                     type="number" 
-                    className="modal__input"
+                    className="text_modal__input"
                     autoComplete="off"
                     name="border_width"
                     aria-required="true"
@@ -246,14 +253,15 @@ return (
                 </label>
                 <p className='error'>{inputErrors.border_width}</p>
             </FormField>
-        </div> */}
+        </div>
 
         <div className="input-field-container logo-field">
-            <p>Would you like to have Box Shadow for Button?</p>
+            <p>Would you like to have Box Shadow for Button? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" htmlFor="Choice_BoxShadowyes">
                 <input
+                    id="Choice_BoxShadowyes"
                     className="modal-input"
                     type="radio"
                     value="Yes"
@@ -268,9 +276,10 @@ return (
                 </div>            
               </label>
             </FormField>
-            <FormField className="modal-content-checkbox">
+            <FormField className="modal-content-checkbox" htmlFor="Choice_BoxShadowno">
               <label className="modal-label">
                 <input
+                    id="Choice_BoxShadowno"
                     className="modal-input"
                     type="radio"
                     value="No"
