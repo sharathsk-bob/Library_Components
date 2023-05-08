@@ -15,6 +15,7 @@ const EditButtonModal = (props)=>{
         btntext: data.btntext,
         Choice_BorderRadius: data.Choice_BorderRadius,
         border_radius: data.border_radius,
+        border_width: data.border_width,
         Choice_BoxShadow: data.Choice_BoxShadow,
         Choice_Size: data.Choice_Size,
         Choice_Theme: data.theme,
@@ -25,10 +26,10 @@ const EditButtonModal = (props)=>{
 
     const [inputErrors, setInputErrors] = useState({});
 
-    const [BorderRadius, setBorderRadius] = useState("");
-    const [BoxShadow, setBoxShadow] = useState("");
-    const [themeValue, setThemeValue] = useState();
-    const [sizeValue, setSizeValue] = useState();
+    // const [BorderRadius, setBorderRadius] = useState("");
+    // const [BoxShadow, setBoxShadow] = useState("");
+    // const [themeValue, setThemeValue] = useState();
+    // const [sizeValue, setSizeValue] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
     const handleChange = (e) => {
@@ -65,7 +66,7 @@ const EditButtonModal = (props)=>{
         BorderRadius: inputs.border_radius,
         Choice_BoxShadow: inputs.Choice_BoxShadow,
         Choice_Size: inputs.Choice_Size,
-        Choice_Theme: inputs.theme,
+        Choice_Theme: inputs.Choice_Theme,
     };
 
 
@@ -81,10 +82,8 @@ const EditButtonModal = (props)=>{
             } 
         }   
 
-        if (BorderRadius === "") {
+        if (values.Choice_BorderRadius === "") {
             errors.BorderRadius = "Please make decision for Border Radius field";
-        } else {
-            inputs.Choice_BorderRadius = BorderRadius;
         }
 
         if (values.border_radius == undefined) {
@@ -92,32 +91,34 @@ const EditButtonModal = (props)=>{
         } else if (values.border_radius != undefined) {
             if (values.border_radius < 0) {
                 errors.border_radius = "Please enter a positive Border Radius value";
-            } else if (values.border_radius > 15) {
-                errors.border_radius = "Border Radius shouldn't exceed 15px";
+            } else if (values.border_radius > 50) {
+                errors.border_radius = "Border Radius shouldn't exceed 50px";
             }
         }
         
-        // if (!values.border_width) { 
-        // errors.border_width = "Please enter a Border width value";
-        // }
-       
-        if(BoxShadow === ""){
-            errors.BoxShadow = "Please make decision for Box Shadow field";
-        } else {
-            inputs.Choice_BoxShadow = BoxShadow;
+        if (!values.border_width) { 
+        errors.border_width = "Please enter a Border width value";
+        } else if (values.border_width != undefined) {
+            if (values.border_width < 0) {
+                errors.border_width = "Please enter a positive Border Width value";
+            } else if (values.border_width > 15) {
+                errors.border_width = "Border Width shouldn't exceed 15px";
+            }
         }
+       
+        if(values.Choice_BoxShadow === ""){
+            errors.BoxShadow = "Please make decision for Box Shadow field";
+        } 
 
         // if (!values.box_shadow) { 
         //     errors.box_shadow = "Please enter a Box Shadow value"; 
         // } 
     
-        if (sizeValue === undefined) { 
+        if (values.Choice_Size === undefined) { 
             errors.size = "Please select a button size";
-        } else {
-            inputs.Choice_Size = sizeValue;
-        }
+        } 
 
-        if(themeValue === undefined){
+        if(values.Choice_Theme === undefined){
             errors.theme = "Please select the value from the dropdown";
         }
 
@@ -178,6 +179,7 @@ return (
                     className="text_modal__input"
                     autoComplete="off"
                     name="btntext"
+                    maxLength="15"
                     value={inputs.btntext} 
                     onChange={handleChange}
                     aria-required="true"
@@ -189,19 +191,18 @@ return (
         </div>
 
         <div className="input-field-container logo-field">
-            <p>Would you like to have Border Radius for Button?</p>
+            <p>Would you like to have Border Radius for Button?<span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusyes">
                 <input
+                    id="Choice_BorderRadiusyes"
                     className="modal-input"
                     type="radio"
-                    value={inputs.Choice_BorderRadius}
+                    value="Yes"
                     name="Choice_BorderRadius"
                     checked={inputs.Choice_BorderRadius === "Yes"}
-                    onChange={(e) => {
-                        setBorderRadius("Yes");
-                    }}
+                    onChange={handleChange}
                 />
                 <div className="tag">
                   <span className="tag__cat">Yes </span>
@@ -209,16 +210,15 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusno">
                 <input
+                    id="Choice_BorderRadiusno"
                     className="modal-input"
                     type="radio"
-                    value={inputs.Choice_BorderRadius}
+                    value="No"
                     name="Choice_BorderRadius"
                     checked={inputs.Choice_BorderRadius === "No"}
-                    onChange={(e) => {
-                        setBorderRadius("No");
-                    }}
+                    onChange={handleChange}
                 />
                 <div className="tag">
                   <span className="tag__cat">No</span>
@@ -252,41 +252,42 @@ return (
             </FormField>
         </div>
 
-        {/* <div className="input-field-container">
+        <div className="input-field-container">
             <FormField className="form-modal__content">
                 <label
                 className="modal__label"
                 aria-label="Border Width Asterik-Required"
                 for="border_width"
                 >
-                Border Width for the Button:
+                Border Width for the Button: <span className="asterik">*</span> 
                 <Input
                     id="border_width"
                     type="number" 
-                    className="modal__input"
+                    className="text_modal__input"
                     autoComplete="off"
                     name="border_width"
                     aria-required="true"
-                    value={inputs.border_width || ""} 
+                    value={inputs.border_width} 
                     onChange={handleChange}         
                 />
                 </label>
                 <p className='error'>{inputErrors.border_width}</p>
             </FormField>
-        </div> */}
+        </div>
 
         <div className="input-field-container logo-field">
-            <p>Would you like to have Box Shadow for Button?</p>
+            <p>Would you like to have Box Shadow for Button?<span className="asterik">*</span></p>
+            {/* <label htmlFor="Choice_BoxShadow">Would you like to have Box Shadow for Button? <span className="astrick">*</span></label> */}
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_BoxShadow">
+              <label className="modal-label" htmlFor="Choice_BoxShadowyes">
                 <input
-                    id="Choice_BoxShadow"
+                    id="Choice_BoxShadowyes"
                     className="modal-input"
                     type="radio"
-                    value={"Yes"}
+                    value="Yes"
                     name="Choice_BoxShadow"
-                    checked={inputs.Choice_BoxShadow == "Yes"}
+                    checked={inputs.Choice_BoxShadow === "Yes"}
                     onChange={handleChange}
                 />
                 <div className="tag">
@@ -295,14 +296,14 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_BoxShadow">
+              <label className="modal-label" htmlFor="Choice_BoxShadowno">
                 <input
-                    id="Choice_BoxShadow"
+                    id="Choice_BoxShadowno"
                     className="modal-input"
                     type="radio"
-                    value={"No"}
+                    value="No"
                     name="Choice_BoxShadow"
-                    checked={inputs.Choice_BoxShadow == "No"}
+                    checked={inputs.Choice_BoxShadow === "No"}
                     onChange={handleChange}
                 />
                 <div className="tag">
@@ -358,9 +359,9 @@ return (
         <div className="input-field-container theme-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="theme"> 
+                <label for="Choice_Theme"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
-                    <select name="theme" id="theme"  value={inputs.theme} onChange={(event) => setThemeValue(event.target.value)}>
+                    <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
                         <option value="Normal">Normal</option>
                         <option value="Dark">Dark</option>

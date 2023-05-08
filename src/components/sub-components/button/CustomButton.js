@@ -3,11 +3,18 @@ import style from "styled-components";
 export const CustomButton = style.button`
     
     cursor: pointer;
-    background-color: cyan;
     margin-top: 32px;
-    
     font-size:20px;
-    color: black;
+
+    background-color: ${(props) => props.Choice_Theme == 'Normal' ? '#1aebff' : 
+        props.Choice_Theme == 'Dark' ? 'black' :
+        props.Choice_Theme == 'cg1' ? '#0070AD' : '#7479dc'
+    };
+
+    color: ${(props) => props.Choice_Theme == 'Normal' ? 'black' : 
+        props.Choice_Theme == 'Dark' ? 'white' :
+        props.Choice_Theme == 'cg1' ? 'white' : 'black'
+    };
     
     value: ${(props) => props.btntext};
 
@@ -15,7 +22,7 @@ export const CustomButton = style.button`
     
     border-radius: ${(props) => props.Choice_BorderRadius == 'Yes' ? props.border_radius+'px' : 'none'};
 
-    // border: ${(props) => props.border_width}px solid #555555;
+    border: ${(props) => props.border_width}px solid #555555;
 
 
     padding: ${(props) => props.Choice_Size == '1em' ? '1em' : 
