@@ -5,6 +5,7 @@
     justify-content: space-between;
     // color: #0070ad !important;
     align-items: center;  
+    margin-top: 24px;
     .header-left{
         display: flex;
         align-items: center;
@@ -74,10 +75,11 @@
     justify-content: space-between;
     box-shadow: 1px 0px 4px #0000002b;
     align-items: center;
+    padding: 15px;
     // margin: 0px 31px;
     .header-left{
         display: flex;
-        padding: 15px;
+        // padding: 15px;
         h1{
             font-size: 1.35rem;
             text-transform: uppercase;

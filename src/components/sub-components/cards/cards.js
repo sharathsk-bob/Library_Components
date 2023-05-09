@@ -51,13 +51,14 @@ function Cards() {
     <div className="card-component">
     <div className="card-left">
     <h1>Card</h1><span> Component</span> 
-        </div>
+        </div> 
    
       <div>
       <button className="backToHome" onClick={()=>{history("/");resetNewCard();}}>Back</button>
       <button className="edit-card" onClick={openEditCards}>Edit</button>
       </div>
     </div>
+    <div className="card-container">
     <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
       <div className="card__img-container" style={{display:newCard.addImage==1?"flex":"none"}}>
         {objectUrl?<img
@@ -111,6 +112,8 @@ function Cards() {
         </div>
       </div>
     </div>
+    </div>
+   
     </>
   );
 }

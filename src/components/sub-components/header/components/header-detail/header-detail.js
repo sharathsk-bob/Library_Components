@@ -32,10 +32,10 @@ const HeaderDetail =(props)=>{
            <div className="detail-content">
 <ul>
     <li>Application name should be less than 15 characters.</li>
-    <li>It is mandatory for you to specify whether you want app logo with (Yes/No)</li>
-    <li>If you have selected yes for profile icon than it is mandatory to speficy username</li>
+    <li>It is mandatory for you to specify whether you want to have app logo.</li>
+    <li>It is mandatory for you to specify whether you want to have profile logo</li>
     <li>Username should be less than 10 characters</li>
-    <li>It is mandatory for you to specify whether you want capgemini logo with (Yes/No)</li>
+    <li>It is mandatory for you to specify whether you want capgemini logo in the header section</li>
     
 
 </ul>

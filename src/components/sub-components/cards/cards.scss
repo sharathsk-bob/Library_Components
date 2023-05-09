@@ -12,14 +12,14 @@
     
 }
 .Dark{
-    background-image:linear-gradient(244deg,rgba(47, 48, 48, 0.9),rgba(22, 20, 20, 0.9));
+    // background-image:linear-gradient(244deg,rgba(47, 48, 48, 0.9),rgba(22, 20, 20, 0.9));
     color: #ffff !important;
     .card__title {
         color: white !important;
      }  
 }
 .cg1{
-    background-image:linear-gradient(244deg,rgba(0,123,189,.9),rgba(0,63,97,.9));
+    // background-image:linear-gradient(244deg,rgba(0,123,189,.9),rgba(0,63,97,.9));
     
    
     color: #ffff !important; 
@@ -43,6 +43,8 @@
 .card-component{
     display: flex;
     justify-content: space-between;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+    align-items: center;
     padding: 15px;
     .card-left{
         display: flex;
@@ -72,9 +74,11 @@
     color: white;
     cursor: pointer;
     font-weight: 600;
-    padding: 8px;
+    padding: 0.5rem;
     text-decoration: none;
-    margin: 8px;
+    margin-left: 14px;
+    box-shadow: none;
+    border: none;
   }
   .backToHome{
     background-color: var(--color-capgemini-blue);
@@ -83,15 +87,17 @@
     color: white;
     cursor: pointer;
     font-weight: 600;
-    padding: 8px;
+    padding: 0.5rem;
     text-decoration: none;
+    box-shadow: none;
+    border: none;
   }
 .card {
 	background-color: white;
 	// border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow);
 	//margin: 0px 32px 32px 32px;
-	max-width: calc(100% - 50px);
+	// max-width: calc(100% - 50px);
 	width: 100%;
 	display: inline-flex;
 	flex-direction: column;
@@ -125,7 +131,7 @@
         border-style: none;
     }
     .card__content {
-        padding: 10px;
+        padding: 20px;
         padding-top: 0;
         flex-grow: 1;
         display: block;
@@ -161,7 +167,7 @@
     }
     .card__content-spaced {
         align-items: center;
-        display: flex;
+        display:inline-flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 8px;
@@ -252,6 +258,9 @@
     //   }
       
      
+}
+.card-container{
+    margin: 40px 33px 40px 33px;
 }
 
 
