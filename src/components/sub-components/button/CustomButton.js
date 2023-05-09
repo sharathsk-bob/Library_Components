@@ -19,7 +19,7 @@ export const CustomButton = style.button`
     
     value: ${(props) => props.btntext};
 
-    box-shadow: ${(props) => props.Choice_BoxShadow == 'Yes' ? 'box-shadow: 2px 0px 8px #0000002b' : 'none'};
+    box-shadow: ${(props) => props.Choice_BoxShadow == 'Yes' ? '2px 0px 8px #0000002b' : 'none'};
     
     border-radius: ${(props) => props.Choice_BorderRadius == 'Yes' ? props.border_radius+'px' : 'none'};
 
