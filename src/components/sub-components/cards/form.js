@@ -121,6 +121,9 @@ function Form(props) {
     if (
       numButtons == 2 &&
       button1Text.trim() === "" &&
+      button2Text.trim() === "" ||
+      numButtons == 2 &&
+      button1Text.trim() !== "" &&
       button2Text.trim() === ""
     ) {
       errors.buttons = "At least one button text is required";
@@ -174,7 +177,7 @@ function Form(props) {
                 type="text"
                 id="title"
                 //value={title}
-                onChange={(event) => {setTitle(event.target.value);validateForm();}}
+                onChange={(event) => setTitle(event.target.value)}
                 maxlength="10" 
               />
               {errors.title && <span className="error">{errors.title}</span>}

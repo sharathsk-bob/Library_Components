@@ -106,21 +106,24 @@ function EditCard(props) {
       isValid = false;
     }
     if (formValues.numButtons == 1 && formValues.button1Text.trim() === "") {
-      errors.buttons = "Button 1 text is required";
+      errors.buttons1 = "Button 1 new text is required";
       isValid = false;
     }
 
     if (formValues.numButtons == 2 && formValues.button1Text.trim() === "") {
-      errors.buttons = "Button 2 text is required";
+      errors.buttons = "Button 1 text is required";
       isValid = false;
     }
 
     if (
       formValues.numButtons == 2 &&
       formValues.button1Text.trim() === "" &&
+      formValues.button2Text.trim() === "" ||
+      formValues.numButtons == 2 &&
+      formValues.button1Text.trim() !== "" &&
       formValues.button2Text.trim() === ""
     ) {
-      errors.buttons = "At least one button text is required";
+      errors.buttons = "Button text is required";
       isValid = false;
     }
     if (formValues.addImage == null) {
@@ -280,8 +283,8 @@ function EditCard(props) {
                 value={formValues.button1Text}
                 onChange={handleChange}
               />
-              {errors.buttons && (
-                <span className="error">{errors.buttons}</span>
+              {errors.buttons1 && (
+                <span className="error">{errors.buttons1}</span>
               )}
             </div>
 
