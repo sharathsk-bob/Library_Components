@@ -191,7 +191,7 @@ function Form(props) {
                 id="description"
                 //value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                maxlength="500" rows="5" 
+                maxlength="200" rows="5" 
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>

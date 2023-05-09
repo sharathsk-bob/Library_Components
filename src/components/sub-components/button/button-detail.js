@@ -21,14 +21,14 @@ const ButtonDetail =(props)=>{
             <h1>
             Details for the Button Section are Below:
             </h1>
-            <p>We have taken the preferene of the user for creating button for the application, for now this include:</p>
+            <p>Please do follow the given instruction while creating the Button component.</p>
             <div className="detail-content">
                 <ul>
                     <li>Text for button should not be more than 15 characters</li>
                     <li>Border Radius in pixels</li>
                     <li>Border Width in pixels</li>
-                    {/* <li>Box shadow (Needs to be discussed)</li> */}
-                    <li>Size of the button (padding both sides)</li>
+                    <li>User Can select if he/she want to add a box shadow</li>
+                    <li>User can select the size of the button from the dropdown (padding both sides)</li>
                 </ul>
             </div>
         </div>

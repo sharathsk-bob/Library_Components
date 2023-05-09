@@ -21,7 +21,7 @@ const ButtonComponent = ( ) => {
     <div className="header-output">
         <div className="component-header">
             <div className="header-left">
-                <h1>Button Component</h1>
+                <h1>Button </h1> <span> Component</span> 
             </div>
             <div className="header-right">
                 <div className="button-section">
