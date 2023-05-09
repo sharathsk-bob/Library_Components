@@ -165,7 +165,7 @@
         width: auto;
     }
     .button--primary {
-        background-color: white;
+        background-color: var(--color-capgemini-blue);
         border-color: var(--color-capgemini-blue);
         border-radius: 4px;
         box-shadow:  0 0.3px 0.9px rgba(0,0,0,0.1),0 1.6px 3.6px rgba(0,0,0,0.14);
@@ -177,39 +177,39 @@
         display: flex;
         align-self: flex-end;
     }
-    // .card__cta, .card__cta:hover {
-    //     background-color: #12abdb !important;
-    //     border-color: #12abdb !important;
-    // }
+    .card__cta, .card__cta:hover {
+        background-color: #12abdb !important;
+        border-color: #12abdb !important;
+    }
     .library-add-button{
         margin-left: 20px;
-        transition: all .2s ease-out;
-        overflow: hidden;
-        position: relative;
-        border: 1px solid #15011d;
-        background: #fff;
-        border-radius: calc((50/16)*1rem);
-        color: #15011d;
-        font-size: calc((16/16)*1rem);
-        font-weight: 400;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        -ms-flex-align: center;
-        align-items: center;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-        padding: 11px 24px;
+        // transition: all .2s ease-out;
+        // overflow: hidden;
+        // position: relative;
+        // border: 1px solid #15011d;
+        // background: #fff;
+        // border-radius: calc((50/16)*1rem);
+        // color: #15011d;
+        // font-size: calc((16/16)*1rem);
+        // font-weight: 400;
+        // display: -ms-inline-flexbox;
+        // display: inline-flex;
+        // -ms-flex-align: center;
+        // align-items: center;
+        // -ms-flex-pack: start;
+        // justify-content: flex-start;
+        // padding: 11px 24px;
         //min-height: 3rem;
     
     }
-    .library-add-button:hover{
-        color: #15011d;
-        border-color: #00e6e3;
-        box-shadow: 0 6px 30px 0 rgba(0,0,0,.2);
-        transform: scale(1.1);
-        z-index: 1;
-        background: #00e6e3;
-    }
+    // .library-add-button:hover{
+    //     color: #15011d;
+    //     border-color: #00e6e3;
+    //     box-shadow: 0 6px 30px 0 rgba(0,0,0,.2);
+    //     transform: scale(1.1);
+    //     z-index: 1;
+    //     background: #00e6e3;
+    // }
     .card-description {
         display: -webkit-box;
         -webkit-box-orient: vertical;

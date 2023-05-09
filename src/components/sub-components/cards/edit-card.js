@@ -159,6 +159,9 @@ function EditCard(props) {
   if(radio2?.checked){
     formValues.image='';
  }
+ if(formValues.numButtons==1){
+  formValues.button2Text='';
+ }
   return (
     <div className="modal_wapper">
       <div className="modal-content form-modalcontainer">
