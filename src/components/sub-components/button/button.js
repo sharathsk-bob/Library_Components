@@ -36,7 +36,7 @@ const ButtonComponent = ( ) => {
                 </div>
             </div>
         </div>
-        <div className= {`header-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
+        <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
             <CustomButton{...props}/>
         </div>
     </div>
