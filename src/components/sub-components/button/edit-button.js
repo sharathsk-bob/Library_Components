@@ -369,7 +369,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
-                        <option value="Normal">Normal</option>
+                        <option value="Normal">Transparent</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Capgemini-blue</option>
                         <option value="cg2">Capgemini-purple</option>

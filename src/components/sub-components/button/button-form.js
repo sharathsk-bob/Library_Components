@@ -38,10 +38,10 @@ const ButtonForm =(props)=>{
         // }
 
         if (values.btntext == undefined) {
-        errors.btntext = "Text is required!"; 
+        errors.btntext = "Text is required"; 
         } else if (values.btntext !== undefined) {
             if(values.btntext.length > 15){
-                errors.btntext = "Text should be shorter!"; 
+                errors.btntext = "Text should be shorter"; 
             } 
         }   
 
@@ -133,7 +133,7 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>Header</p>
+            <p>Buttons</p>
                 <button className="close-button" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
@@ -326,7 +326,7 @@ return (
             </FormField>
         </div> */}
 
-        <div className="input-field-container">
+        <div className="input-field-container size-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
                 <label for="size"> 
@@ -344,14 +344,14 @@ return (
             <p className='error'>{inputErrors.size}</p>
         </div>
 
-        <div className="input-field-container theme-field">
+        <div className="input-field-container theme-field size-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
                 <label for="theme"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
-                        <option value="Normal">Normal</option>
+                        <option value="Normal">Transparent</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Capgemini-blue</option>
                         <option value="cg2">Capgemini-purple</option>

@@ -375,7 +375,7 @@ function Form(props) {
                   onChange={(event) => setTheme(event.target.value)}
                 >
                   <option value="">Select</option>
-                  <option value="Normal">Normal</option>
+                  <option value="Normal">Transparent</option>
                   <option value="Dark">Dark</option>
                   <option value="cg1">Capgemini-blue</option>
                   <option value="cg2">Capgemini-purple</option>

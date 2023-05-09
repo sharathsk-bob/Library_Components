@@ -7,7 +7,7 @@
         display: flex;
        justify-content: space-between;
        background-color: #0070AD;
-       padding: 0.5em 1em 0.52em;
+    //    padding: 0.5em 1em 0.52em;
        color: #fff;
         .close-button{
             border: none;
@@ -143,6 +143,11 @@ label {
     }
 }
 
+.size-field{
+    .modal-checkbox{
+        max-height: 60px!important;
+    }
+}
 
 // Button Details
 
@@ -170,7 +175,7 @@ label {
        display: flex;
        justify-content: space-between;
        background-color: #0070AD;
-       padding: 0.5em 2em;
+    //    padding: 0.5em 2em;
        color: #fff;
        .close-button{
         border: none; 

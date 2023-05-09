@@ -259,7 +259,7 @@ return (
               onChange={handleSubmit}
                 >
                   {/* <option value=""></option> */}
-    <option value="Normal"  selected >Normal</option>
+    <option value="Normal"  selected >Transparent</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Capgemini-blue</option>
     <option value="cg2">Capgemini-purple</option>

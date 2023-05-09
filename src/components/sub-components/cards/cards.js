@@ -49,7 +49,10 @@ function Cards() {
       <EditCard close={closeEditCards} newCard={newCard}/>
     </ModalWrapperEditCards>
     <div className="card-component">
-      <h1>Card component</h1>
+    <div className="card-left">
+    <h1>Card</h1><span> Component</span> 
+        </div>
+   
       <div>
       <button className="backToHome" onClick={()=>{history("/");resetNewCard();}}>Back</button>
       <button className="edit-card" onClick={openEditCards}>Edit</button>

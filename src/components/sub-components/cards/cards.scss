@@ -42,6 +42,27 @@
 .card-component{
     display: flex;
     justify-content: space-between;
+    padding: 15px;
+    .card-left{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0;
+            color: #0070ad;
+            margin-left: 10px !important;
+        }
+        span{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin: 0;
+            color: #333;
+            margin-left: 10px !important;
+        }
+    }
   }
   .edit-card{
     background-color:var(--color-capgemini-blue);
@@ -68,7 +89,7 @@
 	background-color: white;
 	// border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow);
-	margin: 32px 16px;
+	margin: 0px 32px 32px 32px;
 	max-width: calc(100% - 50px);
 	width: 100%;
 	display: inline-flex;

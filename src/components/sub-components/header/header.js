@@ -26,7 +26,7 @@ const HeaderComponent = ( ) => {
         <div className="header-left">
          <h1>Header</h1><span> Component</span> 
         </div>
-        <div className="header-right">
+        <div className="header-right"> 
         <div className="button-section">
         <Link
               to="/"

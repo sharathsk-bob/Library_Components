@@ -27,7 +27,7 @@ const CardDetail =(props)=>{
             <h1>
              Details for the Cards section are below.
             </h1>
-            <p>We have taken the prefrence of the user for the application name,application logo, User profile name, CapgeminiLogo.</p>
+            <p>Please do follow the given instruction while creating the Card component.</p>
            <div className="detail-content">
 <ul>
     <li>Application title sholud not be more than 10 characters.</li>

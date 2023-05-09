@@ -273,7 +273,7 @@ return (
   <select name="theme" id="theme"  value={themeValue}
                 onChange={(event) => setThemeValue(event.target.value)}>
         {/* <option value=""></option>          */}
-    <option value="Normal" selected>Normal</option>
+    <option value="Normal" selected>Transparent</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Capgemini-blue</option>
     <option value="cg2">Capgemini-purple</option>

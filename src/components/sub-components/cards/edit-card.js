@@ -382,7 +382,7 @@ function EditCard(props) {
                   onChange={handleChange}
                 >
                   <option value="">Select</option>
-                  <option value="Normal">Normal</option>
+                  <option value="Normal">Transparent</option>
                   <option value="Dark">Dark</option>
                   <option value="cg1">Capgemini-blue</option>
                   <option value="cg2">Capgemini-purple</option>
