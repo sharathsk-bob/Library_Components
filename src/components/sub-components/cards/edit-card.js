@@ -204,7 +204,7 @@ function EditCard(props) {
                 name="description"
                 value={formValues.description}
                 onChange={handleChange}
-                maxlength="500" rows="5" required
+                maxlength="600"  required
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>

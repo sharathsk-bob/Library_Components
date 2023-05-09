@@ -74,7 +74,7 @@ function Form(props) {
     setButton1Text("");
     setButton2Text("");
     setImage("");
-    //setAddImage("");
+    setAddImage("");
     setWidth("");
     setTheme("");
   };
@@ -191,7 +191,7 @@ function Form(props) {
                 id="description"
                 //value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                maxlength="200" rows="5" 
+                maxlength="600" 
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>
