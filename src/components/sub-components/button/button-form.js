@@ -18,6 +18,7 @@ const ButtonForm =(props)=>{
     const [BoxShadow, setBoxShadow] = useState("");
     const [themeValue, setThemeValue] = useState();
     const [sizeValue, setSizeValue] = useState();
+    const [btnWidth, setBtnWidth] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
 
@@ -84,9 +85,15 @@ const ButtonForm =(props)=>{
         // } 
     
         if (sizeValue === undefined) { 
-            errors.size = "Please select a button size";
+            errors.size = "Please select a padding value button";
         } else {
             inputs.Choice_Size = sizeValue;
+        }
+
+        if (btnWidth === undefined) { 
+            errors.btnWidth = "Please select a width for button";
+        } else {
+            inputs.Choice_Width = btnWidth;
         }
 
         if(themeValue === undefined){
@@ -127,6 +134,7 @@ const ButtonForm =(props)=>{
         BorderRadius: inputs.border_radius,
         Choice_BoxShadow: inputs.Choice_BoxShadow,
         Choice_Size: inputs.Choice_Size,
+        Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.theme,
     };
 
@@ -332,18 +340,36 @@ return (
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
                 <label for="size"> 
-                <p>Please select size of the Button: <span className="asterik">*</span> </p>
+                <p>Please select padding of the Button: <span className="asterik">*</span> </p>
                     <select name="size" id="size"  value={sizeValue} onChange={(event) => setSizeValue(event.target.value)}>
-                        <option value="">--</option>         
-                        <option value="0.5em">0.5 em</option>
-                        <option value="1em">1 em</option>
-                        <option value="Half width">Half width</option>
-                        <option value="Full width">Full width</option>
+                        <option value="">--</option>
+                        <option value="5">5 px</option>
+                        <option value="10">10 px</option>
+                        <option value="15">15px</option>
+                        <option value="20">20 px</option>
                     </select>
                 </label>
             </FormField>
             </div>
             <p className='error'>{inputErrors.size}</p>
+        </div>
+
+        <div className="input-field-container size-field" >
+            <div className="modal-checkbox">
+            <FormField className="modal-content-theme">
+                <label for="btnwidth"> 
+                <p>Please select width of the Button: <span className="asterik">*</span> </p>
+                    <select name="btnwidth" id="btnwidth"  value={btnWidth} onChange={(event) => setBtnWidth(event.target.value)}>
+                        <option value="">--</option>         
+                        <option value="25">25 %</option>
+                        <option value="50">50 %</option>
+                        <option value="75">75 %</option>
+                        <option value="100">100 %</option>
+                    </select>
+                </label>
+            </FormField>
+            </div>
+            <p className='error'>{inputErrors.btnWidth}</p>
         </div>
 
         <div className="input-field-container theme-field size-field">
@@ -353,7 +379,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
-                        <option value="Normal">Transparent</option>
+                        <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Capgemini-blue</option>
                         <option value="cg2">Capgemini-purple</option>

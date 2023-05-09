@@ -26,14 +26,14 @@ export const CustomButton = style.button`
     border: ${(props) => props.border_width > 0 ? props.border_width+'px solid #555555' : 'none'} ;
 
 
-    padding: ${(props) => props.Choice_Size == '1em' ? '1em' : 
-            props.Choice_Size == '0.5em' ? '0.5em' :
-            props.Choice_Size == 'Half width' ? '0.5em 2em' : '1em 2em'
+    padding: ${(props) => props.Choice_Size == '5' ? '5px 5px' : 
+            props.Choice_Size == '10' ? '10px 10px' :
+            props.Choice_Size == '15' ? '15px 15px' : '20px 20px'
         };
     
-    width: ${(props) => props.Choice_Size == '1em' ? 'auto' : 
-        props.Choice_Size == '0.5em' ? 'auto' :
-        props.Choice_Size == 'Half width' ? '50%' : '100%'
+    width: ${(props) => props.Choice_Width == '25' ? '25%' : 
+        props.Choice_Width == '50' ? '50%' :
+        props.Choice_Width == '75' ? '75%' : '100%'
     }; 
 
     &:before {

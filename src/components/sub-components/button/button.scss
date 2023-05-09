@@ -21,13 +21,8 @@
         }
     }
     .modal-container{
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
-        .logo-field{
-            p{
-                margin-bottom: 0px;
-            }
-        }
         .asterik{
             color: red;
         }
@@ -51,6 +46,7 @@
     color: red;
     margin-top: 4px;
     margin-bottom: 16px;
+    font-size: 12px;
 }
 
 [type=radio] {
@@ -119,24 +115,22 @@ label {
         margin-top: 0px;
     }
     select{
-        // width: 250px;
-    /* line-height: 2; */
-    min-height: 30px;
+        min-height: 30px;
     }
 }
 .button-section{
     .link-button{
         float: right;
-    margin-top: 20px;
-      a{
-    background-color: #0070AD;
-    border-color: #0070AD;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px;
-    text-decoration: none;
+        margin-top: 20px;
+    a{
+        background-color: #0070AD;
+        border-color: #0070AD;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 8px;
+        text-decoration: none;
     }
 }
 }
