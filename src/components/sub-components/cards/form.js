@@ -37,10 +37,12 @@ function Form(props) {
   } = useContext(AppContext);
  
   const [errors, setErrors] = useState({});
-
+  //const navigate=useNavigate();
   const [activate, setActivate] = useState(false);
   const history = useNavigate();
- 
+  // const [addButton, setAddButton] = useState(null);
+  // const [numButtons, setNumButtons] = useState(null);
+  // const [addImage, setAddImage] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
     const isValid = validateForm();
@@ -56,7 +58,14 @@ function Form(props) {
     const file = event.target.files[0];
     setImage(file);
   };
-  
+  // if(activate==true){
+  //   return(
+  //     //close(),
+  //   <Cards {...newCard}/>
+  //   //close()
+  //   );
+
+  // }
   const resetNewCard = () => {
     setTitle("");
     setDescription("");
@@ -65,7 +74,7 @@ function Form(props) {
     setButton1Text("");
     setButton2Text("");
     setImage("");
-    setAddImage("");
+    //setAddImage("");
     setWidth("");
     setTheme("");
   };
@@ -125,10 +134,10 @@ function Form(props) {
       errors.width = "Please Select the width";
       isValid = false;
     }
-    if (addImage == 1 && image == "") {
-      errors.image = "Image is required";
-      isValid = false;
-    }
+    // if (addImage == 1 && image == "") {
+    //   errors.image = "Image is required";
+    //   isValid = false;
+    // }
     if (theme == undefined || theme==null || theme=="") {
       errors.theme = "Theme is required";
       isValid = false;
@@ -138,6 +147,7 @@ function Form(props) {
 
     return isValid;
   };
+  console.log(errors);
   return (
     <div className="modal_wapper">
       <div className="modal-content form-modalcontainer">
@@ -152,6 +162,10 @@ function Form(props) {
             className="Form"
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
+            <p className="heading-text">
+              Please select the attributes according your prefrence to design
+              the Card.
+            </p>
             <div className="Form-field">
               <label htmlFor="title">
                 Title: <span className="astrick">*</span>
@@ -160,7 +174,7 @@ function Form(props) {
                 type="text"
                 id="title"
                 //value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => {setTitle(event.target.value);validateForm();}}
                 maxlength="10" 
               />
               {errors.title && <span className="error">{errors.title}</span>}
@@ -174,7 +188,7 @@ function Form(props) {
                 id="description"
                 //value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                maxlength="500" rows="5" required
+                maxlength="500" rows="5" 
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>
@@ -325,7 +339,7 @@ function Form(props) {
                 <span className="error">{errors.imageAdd}</span>
               )}
             </div>
-            <div
+            {/* <div
               className="Form-field"
               style={{ display: addImage == 1 ? "block" : "none" }}
             >
@@ -344,7 +358,7 @@ function Form(props) {
               {image?<span>{image.name}</span>:<span>No File Choosen</span>}<br/>
               {errors.image && <span className="error">{errors.image}</span>}
               </div>
-            </div>
+            </div> */}
             <div className="Form-field">
               <label for="card-width">
                 Card Width: <span className="astrick">*</span>
@@ -383,7 +397,7 @@ function Form(props) {
               </label>
               {errors.theme && <span className="error">{errors.theme}</span>}
             </div>
-           
+            {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
             <div className="button-section">
               <div className="link-button">
                 <Link
