@@ -197,3 +197,10 @@ label {
         }
     }
 }
+
+.button-content{
+    display: flex;
+    padding: 16px 32px 8px;
+    justify-content: center;
+    align-items: center;    
+}

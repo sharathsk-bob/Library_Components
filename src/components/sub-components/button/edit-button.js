@@ -18,7 +18,7 @@ const EditButtonModal = (props)=>{
         border_width: data.border_width,
         Choice_BoxShadow: data.Choice_BoxShadow,
         Choice_Size: data.Choice_Size,
-        Choice_Theme: data.theme,
+        Choice_Theme: data.Choice_Theme,
     }
 
     const [inputs, setInputs] = useState(initialValues);
@@ -36,7 +36,7 @@ const EditButtonModal = (props)=>{
         const { name, value } = e.target;
         // console.log("event :", e.target.type);
         setInputs({ ...inputs, [name]: value });
-        console.log("In handleChange>>>",inputs);
+        //console.log("In handleChange>>>",inputs);
     };
 
 
@@ -86,15 +86,17 @@ const EditButtonModal = (props)=>{
             errors.BorderRadius = "Please make decision for Border Radius field";
         }
 
-        if (values.border_radius == undefined) {
-            errors.border_radius = "Please enter a Border Radius value";
-        } else if (values.border_radius != undefined) {
-            if (values.border_radius < 0) {
-                errors.border_radius = "Please enter a positive Border Radius value";
-            } else if (values.border_radius > 50) {
-                errors.border_radius = "Border Radius shouldn't exceed 50px";
+        if (values.Choice_BorderRadius === "Yes") {     
+            if (values.border_radius == undefined) {
+                errors.border_radius = "Please enter a Border Radius value";
+            } else if (values.border_radius != undefined) {
+                if (values.border_radius < 0) {
+                    errors.border_radius = "Please enter a positive Border Radius value";
+                } else if (values.border_radius > 50) {
+                    errors.border_radius = "Border Radius shouldn't exceed 50px";
+                }
             }
-        }
+        }   
         
         if (!values.border_width) { 
         errors.border_width = "Please enter a Border width value";
@@ -369,7 +371,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
-                        <option value="Normal">Transparent</option>
+                        <option value="Normal">Normal</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Capgemini-blue</option>
                         <option value="cg2">Capgemini-purple</option>

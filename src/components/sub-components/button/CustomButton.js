@@ -31,6 +31,10 @@ export const CustomButton = style.button`
             props.Choice_Size == 'Half width' ? '0.5em 2em' : '1em 2em'
         };
     
+    width: ${(props) => props.Choice_Size == '1em' ? 'auto' : 
+        props.Choice_Size == '0.5em' ? 'auto' :
+        props.Choice_Size == 'Half width' ? '50%' : '100%'
+    }; 
 
     &:before {
         text-align: center;
