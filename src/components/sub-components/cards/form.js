@@ -121,6 +121,9 @@ function Form(props) {
     if (
       numButtons == 2 &&
       button1Text.trim() === "" &&
+      button2Text.trim() === "" ||
+      numButtons == 2 &&
+      button1Text.trim() !== "" &&
       button2Text.trim() === ""
     ) {
       errors.buttons = "At least one button text is required";
