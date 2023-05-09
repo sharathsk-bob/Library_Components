@@ -135,7 +135,7 @@ function EditCard(props) {
       errors.image = "Image is required";
       isValid = false;
     }
-    if (formValues.theme == undefined || theme==null || theme=="") {
+    if (formValues.theme == undefined || formValues.theme==null || formValues.theme=="") {
       errors.theme = "Theme is required";
       isValid = false;
     }
@@ -158,6 +158,9 @@ function EditCard(props) {
   }
   if(radio2?.checked){
     formValues.image='';
+ }
+ if(formValues.numButtons==1){
+  formValues.button2Text='';
  }
   return (
     <div className="modal_wapper">
@@ -186,7 +189,7 @@ function EditCard(props) {
                 name="title"
                 value={formValues.title}
                 onChange={handleChange}
-                //maxlength="10" required
+                maxlength="10" required
               />
               {errors.title && <span className="error">{errors.title}</span>}
             </div>
@@ -198,7 +201,7 @@ function EditCard(props) {
                 name="description"
                 value={formValues.description}
                 onChange={handleChange}
-                //maxlength="500" rows="5" required
+                maxlength="500" rows="5" required
               />
               {errors.description && (
                 <span className="error">{errors.description}</span>
@@ -338,7 +341,7 @@ function EditCard(props) {
                 <span className="error">{errors.imageAdd}</span>
               )}
             </div>
-            <div
+            {/* <div
               className="Form-field"
               style={{ display: formValues.addImage == 1 ? "block" : "none" }}
             >
@@ -357,7 +360,7 @@ function EditCard(props) {
               {formValues.image?<span>{formValues.image.name}</span>:<span>No File Choosen</span>}
               {errors.buttons && <span className="error">{errors.image}</span>}
               </div>
-            </div>
+            </div> */}
             <div className="Form-field">
               <label for="card-width">Card Width: <span className="astrick">*</span></label>
               <select id="card-width" name="width" onChange={handleChange} value={formValues.width}>

@@ -34,14 +34,14 @@ function Cards() {
   const resetNewCard = () => {
     setTitle("");
     setDescription("");
-    setAddButton(null);
-    setNumButtons(null);
+    setAddButton("");
+    setNumButtons("");
     setButton1Text("");
     setButton2Text("");
-    setImage(null);
-    setAddImage(null);
+    setImage("");
+    setAddImage("");
     setWidth("");
-    setTheme(null);
+    setTheme("");
   };
   return (
     <>
@@ -59,7 +59,7 @@ function Cards() {
       </div>
     </div>
     <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
-      <div className="card__img-container">
+      <div className="card__img-container" style={{display:newCard.addImage==1?"flex":"none"}}>
         {objectUrl?<img
           src={objectUrl}
           class="ui-image bv bw bx by card__img"
@@ -77,7 +77,7 @@ function Cards() {
         </div>
         <div
           class="card__content-spaced card__actions"
-          title="Occurs Every 4th  Wednesday  of each month effective 10 Mar 2023 until 30 Apr 2023"
+          title={newCard.description}
         >
           <span class="card-description">
           {newCard.description}
