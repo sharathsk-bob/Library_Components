@@ -177,7 +177,7 @@ function Form(props) {
                 type="text"
                 id="title"
                 //value={title}
-                onChange={(event) => {setTitle(event.target.value);validateForm();}}
+                onChange={(event) => setTitle(event.target.value)}
                 maxlength="10" 
               />
               {errors.title && <span className="error">{errors.title}</span>}
