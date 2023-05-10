@@ -163,7 +163,7 @@ function Form(props) {
       <div className="modal-content form-modalcontainer">
         <div class="form-header">
           <p>Cards</p>
-          <button className="close-button" onClick={()=>{resetNewCard();close();}}>
+          <button className="close-button" aria-label="close modal" onClick={()=>{resetNewCard();close();}}>
             <img src={closeIcon}></img>
           </button>
         </div>

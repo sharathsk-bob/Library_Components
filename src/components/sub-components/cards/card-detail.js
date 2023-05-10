@@ -24,7 +24,7 @@ const CardDetail =(props)=>{
         <div className="modal-content header-modalcontainer detail-container">
         <div className="detail-header">
             <p>Cards</p>
-          <button className="close-button" onClick={close}>
+          <button className="close-button" aria-label="close modal" onClick={close}>
             <img src={closeIcon}></img>
           </button>
           </div>
