@@ -1,5 +1,5 @@
+import FocusTrap from "focus-trap-react";
 import React, { useContext, useEffect, useState } from "react";
-
 
 import closeIcon from "../../../components/asset/images/cross-white.png";
 import "./card-detail.scss";
@@ -14,6 +14,12 @@ const CardDetail =(props)=>{
      
         
     return (
+      <FocusTrap
+    focusTrapOptions={{
+      escapeDeactivates: false
+      //onDeactivate: closeModal
+    }}
+  >
       <div className="modal_wapper">
         <div className="modal-content header-modalcontainer detail-container">
         <div className="detail-header">
@@ -45,6 +51,7 @@ const CardDetail =(props)=>{
         </div>
         </div>
       </div>
+      </FocusTrap>
     );
 
    

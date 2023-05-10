@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FocusTrap from "focus-trap-react";
 import { CustomButton } from "./CustomButton";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
@@ -140,6 +141,12 @@ const ButtonForm =(props)=>{
 
 
 return (
+    <FocusTrap
+        focusTrapOptions={{
+        escapeDeactivates: false
+        //onDeactivate: closeModal
+        }}
+    >
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
@@ -171,10 +178,10 @@ return (
                     value={inputs.btntext || ""} 
                     onChange={handleChange}
                     aria-required="true"
-                    // aria-describedby="name-err-title"
+                    aria-describedby="btn-err-text"
                 />
                 </label>
-                <p className='error'>{inputErrors.btntext}</p>
+                <p id="btn-err-text" className='error' aria-atomic="true">{inputErrors.btntext}</p>
             </FormField>
         </div>
 
@@ -182,7 +189,7 @@ return (
             <p>Would you like to have Border Radius for Button? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Select Yes forBorder radius value">
                 <input
                     className="modal-input"
                     type="radio"
@@ -199,7 +206,7 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Select No for Border radius value">
                 <input
                     className="modal-input"
                     type="radio"
@@ -216,7 +223,7 @@ return (
               </label>
             </FormField>
           </div>
-          <p className="error">{inputErrors.BorderRadius}</p>
+          <p id="btn-err-selborder" className="error" aria-atomic="true">{inputErrors.BorderRadius}</p>
         </div>
 
         { BorderRadius === "Yes" ?
@@ -237,10 +244,11 @@ return (
                     min="0"
                     aria-required="true"
                     value={inputs.border_radius || ""} 
-                    onChange={handleChange}         
+                    onChange={handleChange}
+                    aria-describedby="btn-err-radiusvalue"
                 />
                 </label>
-                <p className='error'>{inputErrors.border_radius}</p>
+                <p id="btn-err-radiusvalue" className='error' aria-atomic="true">{inputErrors.border_radius}</p>
             </FormField>
         </div>
         : ""}
@@ -263,10 +271,11 @@ return (
                     min="0"
                     aria-required="true"
                     value={inputs.border_width || ""} 
-                    onChange={handleChange}         
+                    onChange={handleChange} 
+                    aria-describedby="btn-err-widthvalue"           
                 />
                 </label>
-                <p className='error'>{inputErrors.border_width}</p>
+                <p id="btn-err-widthvalue" className='error' aria-atomic="true">{inputErrors.border_width}</p>
             </FormField>
         </div>
 
@@ -274,7 +283,7 @@ return (
             <p>Would you like to have Box Shadow for Button? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_BoxShadowyes">
+              <label className="modal-label" htmlFor="Choice_BoxShadowyes" aria-label="Select Yes for Box Shadow property">
                 <input
                     id="Choice_BoxShadowyes"
                     className="modal-input"
@@ -291,7 +300,7 @@ return (
                 </div>            
               </label>
             </FormField>
-            <FormField className="modal-content-checkbox" htmlFor="Choice_BoxShadowno">
+            <FormField className="modal-content-checkbox" htmlFor="Choice_BoxShadowno" aria-label="Select No for Box Shadow property">
               <label className="modal-label">
                 <input
                     id="Choice_BoxShadowno"
@@ -310,7 +319,7 @@ return (
               </label>
             </FormField>
           </div>
-          <p className="error">{inputErrors.BoxShadow}</p>
+          <p id="btn-err-widthvalue" className='error' aria-atomic="true">{inputErrors.BoxShadow}</p>
         </div>
 
         {/* <div className="input-field-container">
@@ -339,7 +348,7 @@ return (
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="size"> 
+                <label for="size" aria-label="Select padding value Asterik-Required"> 
                 <p>Please select padding of the Button: <span className="asterik">*</span> </p>
                     <select name="size" id="size"  value={sizeValue} onChange={(event) => setSizeValue(event.target.value)}>
                         <option value="">--</option>
@@ -357,7 +366,7 @@ return (
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="btnwidth"> 
+                <label for="btnwidth" aria-label="Select button width value Asterik-Required"> 
                 <p>Please select width of the Button: <span className="asterik">*</span> </p>
                     <select name="btnwidth" id="btnwidth"  value={btnWidth} onChange={(event) => setBtnWidth(event.target.value)}>
                         <option value="">--</option>         
@@ -375,7 +384,7 @@ return (
         <div className="input-field-container theme-field size-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="theme"> 
+                <label for="theme" aria-label="Select the theme for the button Asterik-Required"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
@@ -411,6 +420,7 @@ return (
         </div>
         </div>
     </div>
+    </FocusTrap>
     );
 };
 
