@@ -177,7 +177,7 @@ function EditCard(props) {
       <div className="modal-content form-modalcontainer">
       <div class="form-header">
           <p>Edit Card</p>
-          <button className="close-button" onClick={close}>
+          <button className="close-button" aria-label="close modal" onClick={close}>
           <img src={closeIcon}></img>
         </button>
         </div>
