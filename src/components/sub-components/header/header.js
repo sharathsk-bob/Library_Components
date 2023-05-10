@@ -28,16 +28,18 @@ const HeaderComponent = ( ) => {
         </div>
         <div className="header-right"> 
         <div className="button-section">
+        {/* <div  className="buttons"> */}
         <Link
               to="/"
-            
-              className="btn btn-primary btn-lg"
+              // state={headerData}
+              className="link-button"
              
             >
-                <button class="buttons" >
-                  Back
-                </button>
-                </Link>
+              Back
+            </Link>
+        {/* </div> */}
+                
+                {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
                 <button class="buttons" onClick={openEditHeader} >
                   Edit
                 </button>
