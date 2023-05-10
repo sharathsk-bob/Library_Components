@@ -72,6 +72,7 @@
     .tag{
       width: fit-content;
       display: flex;
+      cursor: pointer;
     }
     .tag:focus{
       outline: black;

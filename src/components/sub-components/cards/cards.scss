@@ -280,8 +280,27 @@
 }
 
 
-// @media screen and (max-width: 767px){
-// .card {
-//     max-width: calc(33.33333% + 150px);
-// }
-// }
+@media screen and (min-width:320px) and (max-width: 767px){
+    .card-component .card-left{
+    display: grid;
+    }
+    .card-container {
+        margin: 20px 5px 20px 5px;
+    }
+    .card__title {
+        font-size: 1.2rem !important;
+    }
+    .card-description {
+        font-size: 0.5rem !important;
+    }
+    .card-footer-new{
+        display: grid !important;
+        justify-content: center !important;
+    }
+    .card .library-add-button {
+        margin: 5px !important;
+    }
+    .card .card__content {
+        padding: 5px;
+    }
+}

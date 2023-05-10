@@ -177,7 +177,7 @@ function EditCard(props) {
       <div className="modal-content form-modalcontainer">
       <div class="form-header">
           <p>Edit Card</p>
-          <button className="close-button" onClick={close}>
+          <button className="close-button" aria-label="close modal" onClick={close}>
           <img src={closeIcon}></img>
         </button>
         </div>
@@ -192,7 +192,7 @@ function EditCard(props) {
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
             <div className="Form-field">
-              <label htmlFor="title" >Title: <span className="astrick">*</span></label>
+              <label htmlFor="title" aria-label="Title for Asterik-Required" >Title: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="title"
@@ -205,7 +205,7 @@ function EditCard(props) {
             </div>
 
             <div className="Form-field">
-              <label htmlFor="description">Description: <span className="astrick">*</span></label>
+              <label htmlFor="description"  aria-label="Description for Asterik-Required">Description: <span className="astrick">*</span></label>
               <textarea
                 id="description"
                 name="description"
@@ -218,10 +218,10 @@ function EditCard(props) {
               )}
             </div>
             <div className="Form-field">
-              <label htmlFor="addButton">Add button: <span className="astrick">*</span></label>
+              <label htmlFor="addButton" aria-label="Add Button for Asterik-Required">Add button: <span className="astrick">*</span></label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addButton1">
+                  <label htmlFor="addButton1" aria-label="Select Yes" >
                     <input
                       type="radio"
                       id="addButton1"
@@ -237,7 +237,7 @@ function EditCard(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addButton0">
+                  <label htmlFor="addButton0"  aria-label="Select No">
                     <input
                       type="radio"
                       id="addButton0"
@@ -262,7 +262,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="numButtons">Number of Buttons: <span className="astrick">*</span></label>
+              <label htmlFor="numButtons"  aria-label=" Select Number of  Buttons for Asterik-Required">Number of Buttons: <span className="astrick">*</span></label>
               <select
                 id="numButtons"
                 name="numButtons"
@@ -282,7 +282,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.numButtons >= 1 && formValues.addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="button1Text">Button 1 text: <span className="astrick">*</span></label>
+              <label htmlFor="button1Text" aria-label="Button 1 text Asterik-Required">Button 1 text: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="button1Text"
@@ -299,7 +299,7 @@ function EditCard(props) {
               className="Form-field"
               style={{ display: formValues.numButtons == 2 && formValues.addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="button2Text">Button 2 text: <span className="astrick">*</span></label>
+              <label htmlFor="button2Text" aria-label="Button 2 text Asterik-Required">Button 2 text: <span className="astrick">*</span></label>
               <input
                 type="text"
                 id="button2Text"
@@ -312,10 +312,10 @@ function EditCard(props) {
               )}
             </div>
             <div className="Form-field"> 
-              <label htmlFor="addImage">Do you want to add an Image? <span className="astrick">*</span></label>
+              <label htmlFor="addImage" aria-label="Add Image Asterik-Required">Do you want to add an Image? <span className="astrick">*</span></label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addImage1">
+                  <label htmlFor="addImage1" aria-label="Select Yes">
                     <input
                       type="radio"
                       id="addImage1"
@@ -331,7 +331,7 @@ function EditCard(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addImage0">
+                  <label htmlFor="addImage0" aria-label="Select No">
                     <input
                       type="radio"
                       id="addImage0"
@@ -372,7 +372,7 @@ function EditCard(props) {
               </div>
             </div> */}
             <div className="Form-field">
-              <label for="card-width">Card Width: <span className="astrick">*</span></label>
+              <label for="card-width" aria-label="Card Width Asterik-Required">Card Width: <span className="astrick">*</span></label>
               <select id="card-width" name="width" onChange={handleChange} value={formValues.width}>
                 <option value="">Select</option>
                 <option value="100%">100%</option>
@@ -383,7 +383,7 @@ function EditCard(props) {
               {errors.width && <span className="error">{errors.width}</span>}
             </div>
             <div className="Form-field">
-              <label for="theme">
+              <label for="theme" aria-label="Theme Asterik-Required">
                 <p>
                   Please select the theme colour.
                   <span className="asterik">*</span>{" "}
@@ -410,6 +410,7 @@ function EditCard(props) {
                   type="button"
                   className="btn btn-primary btn-lg"
                   onClick={handleSubmit}
+                  aria-label="Submit"
                 >
                   Submit
                 </Link>

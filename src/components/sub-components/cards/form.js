@@ -163,7 +163,7 @@ function Form(props) {
       <div className="modal-content form-modalcontainer">
         <div class="form-header">
           <p>Cards</p>
-          <button className="close-button" onClick={()=>{resetNewCard();close();}}>
+          <button className="close-button" aria-label="close modal" onClick={()=>{resetNewCard();close();}}>
             <img src={closeIcon}></img>
           </button>
         </div>
@@ -177,7 +177,7 @@ function Form(props) {
               the Card.
             </p>
             <div className="Form-field">
-              <label htmlFor="title">
+              <label htmlFor="title" aria-label="Title for Asterik-Required" >
                 Title: <span className="astrick">*</span>
               </label>
               <input
@@ -191,7 +191,7 @@ function Form(props) {
             </div>
 
             <div className="Form-field">
-              <label htmlFor="description">
+              <label htmlFor="description" aria-label="Description for Asterik-Required"> 
                 Description: <span className="astrick">*</span>
               </label>
               <textarea
@@ -205,12 +205,12 @@ function Form(props) {
               )}
             </div>
             <div className="Form-field">
-              <label htmlFor="addButton">
+              <label htmlFor="addButton" aria-label="Add Button for Asterik-Required">
                 Add button: <span className="astrick">*</span>
               </label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addButton1">
+                  <label htmlFor="addButton1" aria-label="Select Yes" >
                     <input
                       type="radio"
                       id="addButton1"
@@ -227,7 +227,7 @@ function Form(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addButton0">
+                  <label htmlFor="addButton0" aria-label="Select No">
                     <input
                       type="radio"
                       id="addButton0"
@@ -253,7 +253,7 @@ function Form(props) {
               className="Form-field"
               style={{ display: addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="numButtons">
+              <label htmlFor="numButtons" aria-label=" Select Number of  Buttons for Asterik-Required">
                 Number of Buttons: <span className="astrick">*</span>
               </label>
               <select
@@ -274,7 +274,7 @@ function Form(props) {
               className="Form-field"
               style={{ display: numButtons >= 1 && addButton == 1  ? "block" : "none" }}
             >
-              <label htmlFor="button1Text">
+              <label htmlFor="button1Text" aria-label="Button 1 text Asterik-Required">
                 Button 1 text: <span className="astrick">*</span>
               </label>
               <input
@@ -292,7 +292,7 @@ function Form(props) {
               className="Form-field"
               style={{ display: numButtons == 2 && addButton == 1 ? "block" : "none" }}
             >
-              <label htmlFor="button2Text">
+              <label htmlFor="button2Text" aria-label="Button 2 text Asterik-Required">
                 Button 2 text: <span className="astrick">*</span>
               </label>
               <input
@@ -306,12 +306,12 @@ function Form(props) {
               )}
             </div>
             <div className="Form-field">
-              <label htmlFor="addImage">
+              <label htmlFor="addImage" aria-label="Add Image Asterik-Required">
                 Do you want to add an Image? <span className="astrick">*</span>
               </label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addImage1">
+                  <label htmlFor="addImage1" aria-label="Select Yes" >
                     <input
                       type="radio"
                       id="addImage1"
@@ -328,7 +328,7 @@ function Form(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addImage0">
+                  <label htmlFor="addImage0" aria-label="Select No" >
                     <input
                       type="radio"
                       id="addImage0"
@@ -370,7 +370,7 @@ function Form(props) {
               </div>
             </div> */}
             <div className="Form-field">
-              <label for="card-width">
+              <label for="card-width" aria-label="Card Width Asterik-Required" >
                 Card Width: <span className="astrick">*</span>
               </label>
               <select
@@ -387,7 +387,7 @@ function Form(props) {
               {errors.width && <span className="error">{errors.width}</span>}
             </div>
             <div className="Form-field">
-              <label for="theme">
+              <label for="theme" aria-label="Theme Asterik-Required">
                 <p>
                   Please select the theme colour.
                   <span className="asterik">*</span>{" "}
@@ -414,6 +414,7 @@ function Form(props) {
                   type="button"
                   className="btn btn-primary btn-lg"
                   onClick={handleSubmit}
+                  aria-label="Submit"
                 >
                   Submit
                 </Link>

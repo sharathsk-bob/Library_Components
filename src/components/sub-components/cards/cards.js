@@ -25,10 +25,10 @@ function Cards() {
   } = useContext(AppContext);
   const { newCard }=useContext(AppContext);
   const { open: openEditCards, close: closeEditCards, ModalWrapper: ModalWrapperEditCards } = useModal();
-  let objectUrl;
-  if(newCard.image!==null && newCard.image!=='' && newCard.image!==undefined){
-    objectUrl = URL.createObjectURL(newCard.image)
-  }
+  //let objectUrl;
+  // if(newCard.image!==null && newCard.image!=='' && newCard.image!==undefined){
+  //   objectUrl = URL.createObjectURL(newCard.image)
+  // }
   const history = useNavigate();
   console.log(newCard);
   const resetNewCard = () => {
@@ -61,16 +61,16 @@ function Cards() {
     <div className="card-container">
     <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
       <div className="card__img-container" style={{display:newCard.addImage==1?"flex":"none"}}>
-        {objectUrl?<img
+        {/* {objectUrl?<img
           src={objectUrl}
           class="ui-image bv bw bx by card__img"
           alt="myimage"
-        />:
+        />: */}
         <img
           src="https://azwelzdevappwbh.azurewebsites.net/assets/7FE422D6-6C37-4E3D-A5B7-8D1085281553"
           class="ui-image bv bw bx by card__img"
-          alt="myimage"
-        />}
+          alt="default-image"
+        />
       </div>
       <div class="card__content">
         <div className="heading_title">

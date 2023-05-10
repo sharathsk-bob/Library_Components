@@ -151,7 +151,7 @@ return (
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
             <p>Button</p>
-                <button className="close-button" aria-label="close modal" onClick={close}>
+                <button className="close-button" aria-label="close create button modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
@@ -261,7 +261,7 @@ return (
                 aria-label="Border Width Asterik-Required"
                 for="border_width"
                 >
-                Border Width for the Button:
+                Border Width for the Button: <span className="asterik">*</span> 
                 <Input
                     id="border_width"
                     type="number" 
