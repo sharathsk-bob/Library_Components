@@ -1,3 +1,5 @@
+@import "../theme/breakpoints.scss";
+
 body{
     margin: 0px;
     font-family: ubuntu;
@@ -33,4 +35,40 @@ body{
     }
 
     }
+}
+@media screen and (max-width: $bp-sm-mobile){
+    .modal-button_section{
+        
+        button:first-child{
+            margin-bottom: 4px;
+        }
+
+    }
+    .presentation{
+        .header-container{
+            h1{
+                font-size: 1rem;
+            }
+            span{
+                font-size: 1rem;
+            }
+            
+    
+        }
+    
+    }
+    
+}
+
+@media screen and (max-width: $bp-xs-mobile){
+    .modal-button_section{
+        button{
+            width: 80%;
+        }
+        button:first-child{
+            margin-bottom: 4px;
+        }
+
+    }
+
 }

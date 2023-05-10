@@ -1,3 +1,6 @@
+@import "../../theme/breakpoints.scss";
+
+
 .modal_wapper{
     align-items: center;
     background-color: rgba(36, 36, 36, 0.75);
@@ -39,3 +42,28 @@
 }
    
 }
+@media screen and (max-width:$bp-sm-tablet){
+.modal_wapper {
+    .modal-content{
+        width: 54vw;
+    }
+    }
+   
+}
+@media screen and (max-width:$bp-mobile){
+    .modal_wapper {
+        .modal-content{
+            width: 76vw;
+        }
+        }
+       
+    }
+
+    @media screen and (max-width:$bp-sm-mobile){
+        .modal_wapper {
+            .modal-content{
+                width: 76vw;
+            }
+            }
+           
+        }

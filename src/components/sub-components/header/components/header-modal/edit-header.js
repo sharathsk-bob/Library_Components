@@ -109,7 +109,7 @@ return (
                 autoComplete="off"
                 name="title"
                 aria-required="true"
-                maxLength="25"
+                maxLength="15"
                 aria-describedby="name-err-title"
                 value={headerData.titleValue}
                 onChange={handleSubmit}
@@ -268,8 +268,8 @@ return (
                   {/* <option value=""></option> */}
     <option value="Normal"  selected >Transparent</option>
     <option value="Dark">Dark</option>
-    <option value="cg1">Capgemini-blue</option>
-    <option value="cg2">Capgemini-purple</option>
+    <option value="cg1">Blue</option>
+    <option value="cg2">Purple</option>
    
   </select>
   </label>

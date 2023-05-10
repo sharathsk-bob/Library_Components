@@ -1,3 +1,5 @@
+@import "../../theme/breakpoints.scss";
+
 .header-content{
     display: flex;
     // background-color: #f1f4f8;
@@ -5,7 +7,7 @@
     justify-content: space-between;
     // color: #0070ad !important;
     align-items: center;  
-    margin-top: 24px;
+    // margin-top: 24px;
     .header-left{
         display: flex;
         align-items: center;
@@ -28,8 +30,8 @@
   }
       
 }
-.Normal{
-    background-color: #f1f4f8;
+.light-theme{
+    background-color: rgb(241, 244, 248);
     
    
     color: var(--color-capgemini-blue) !important;
@@ -73,7 +75,7 @@
         display: flex;
         
     justify-content: space-between;
-    box-shadow: 1px 0px 4px #0000002b;
+    box-shadow: 4px -2px 9px grey;
     align-items: center;
     padding: 15px;
     // margin: 0px 31px;
@@ -102,21 +104,9 @@
         .button-section{
             button {
                 margin-right: 14px;
-        //         background-color: #0070AD;
-        // border-color: #0070AD;
-        // border-radius: 4px;
         
-        // color: #ffff;
-        // cursor: pointer;
-        // // display: flex;
-        // font-weight: 600;
-        // // justify-content: center;
-        // padding: 8px;
-        // // width: autos;
-        // text-decoration: none;
-        // margin-top: 1rem;
         padding: 0.5rem;
-        // font-size: 1rem;
+        
         font-weight: bold;
         background-color: #0070AD;
         border-color: #0070AD;
@@ -124,7 +114,7 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        // float: right;
+        
             }
         }
     }
@@ -133,6 +123,89 @@
 .normal-header{
     background-color: #fff;
     height: 100vh;
+}
+
+
+@media screen and (max-width: $bp-sm-mobile){
+    .component-header{
+        display: block!important;
+        .header-left{
+            h1{
+                font-size: 1rem!important;
+            }
+            span{
+                font-size: 1rem!important;
+            }
+        }
+      
+        .header-right{
+            margin-left: 10px;
+            margin-top: 10px;
+            .buttons{
+                width: 30%;
+            }
+        }
+    }
+.header-content{
+    display: block;
+    .header-left{
+        .logo-new{
+            width: 30px;
+            height: 30px;
+        }
+        p{
+            font-size: 16px!important;
+        }
+
+    }
+    .header-right{
+        .profile{
+            img{
+                height: 20px!important;
+            }
+            span{
+                font-size: 14px !important; 
+            }
+        }
+    .cg-logo{
+        width: 70px !important;
+      
+
+    }
+ul{
+    padding: 0px;
+}
+    }
+    .header-right li + li{margin-left: 8px;}
+}
+}
+@media screen and (max-width: $bp-mobile){
+    .header-content{
+        .header-left{
+           
+            p{
+                font-size: 18px;
+            }
+    
+        }
+        .header-right{
+            .profile{
+                img{
+                    height: 20px;
+                }
+                span{
+                    font-size: 16px; 
+                }
+            }
+        .cg-logo{
+            width: 120px;
+          
+    
+        }
+    
+        }
+        .header-right li + li{margin-left: 8px;}
+    }
 }
 
  

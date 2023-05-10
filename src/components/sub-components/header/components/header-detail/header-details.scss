@@ -1,3 +1,6 @@
+@import "../../../../theme/breakpoints.scss";
+
+
 .detail-container{
    
     width: 42vw!important;
@@ -46,3 +49,37 @@
         }
     }
 }
+
+@media screen and (max-width:$bp-tablet){
+.detail-container{
+    width: 52vw !important;
+}
+}
+@media screen and (max-width:$bp-mobile){
+    .detail-container{
+        width: 60vw !important;
+    }
+    }
+
+    @media screen and (max-width:$bp-sm-mobile){
+        .detail-container{
+           .details-section{
+            h1{
+                font-size: 0.8rem;
+            }
+            p{
+                font-size: 0.7rem!important;  
+            }
+            .detail-content{
+                font-size: 0.7em;
+            }
+           }
+        }
+        }
+
+        @media screen and (max-width:$bp-xs-mobile){
+            .detail-container{
+                width: 80vw !important;
+            }
+        }
+

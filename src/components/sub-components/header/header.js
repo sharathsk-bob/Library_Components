@@ -44,7 +44,7 @@ const HeaderComponent = ( ) => {
               </div>
         </div>
       </div>
-    <div className= {`header-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
+    <div className= {`header-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"light-theme":"" }`}>
         <div class="header-left">
         {props.imageValue ==="Yes" ? props?.themeValue == "cg1"?<img  src={appIconTheme} alt="logo" class="logo-new" />:<img  src={appIcon} alt="logo" class="logo-new" />: ""}
           <p class="heading-text">{titleName}</p>

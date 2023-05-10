@@ -113,7 +113,7 @@ return (
                 autoComplete="off"
                 name="title"
                 aria-required="true"
-                maxLength="20"
+                maxLength="15"
                 aria-describedby="name-err-title"
                 value={titleValue}
                 onChange={(event) => setTitleValue(event.target.value)}
@@ -282,8 +282,8 @@ return (
         {/* <option value=""></option>          */}
     <option value="Normal" selected>Transparent</option>
     <option value="Dark">Dark</option>
-    <option value="cg1">Capgemini-blue</option>
-    <option value="cg2">Capgemini-purple</option>
+    <option value="cg1">Blue</option>
+    <option value="cg2">Purple</option>
    
   </select>
   </label>
