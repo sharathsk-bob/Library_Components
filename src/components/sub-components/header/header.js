@@ -46,21 +46,21 @@ const HeaderComponent = ( ) => {
       </div>
     <div className= {`header-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"light-theme":"" }`}>
         <div class="header-left">
-        {props.imageValue ==="Yes" ? props?.themeValue == "cg1"?<img  src={appIconTheme} alt="logo" class="logo-new" />:<img  src={appIcon} alt="logo" class="logo-new" />: ""}
+        {props.imageValue ==="Yes" ? props?.themeValue == "cg1"?<img  src={appIconTheme} alt="Application logo" class="logo-new" />:<img  src={appIcon} alt="Application logo" class="logo-new" />: ""}
           <p class="heading-text">{titleName}</p>
         </div>
         <div class="header-right">
               <ul>
               <li class="profile">
               
-              {props.profileLogo === "Yes" ?  <img src={profileImage} />  :""}
+              {props.profileLogo === "Yes" ?  <img alt="profile logo" src={profileImage} />  :""}
                   <span>{profileName}</span>
               </li>
            
             
               {props.cgLogoValue ==="Yes" ?  <li>
-              {props.themeValue == "cg1" ? <img  className="cg-logo" src={cgLogoWhite} />:
-                  <img  className="cg-logo" src={cgLogo} />}
+              {props.themeValue == "cg1" ? <img  alt="Capgemini logo" className="cg-logo" src={cgLogoWhite} />:
+                  <img alt="Capgemini logo"  className="cg-logo" src={cgLogo} />}
               </li> : ""}
               </ul>
             </div>

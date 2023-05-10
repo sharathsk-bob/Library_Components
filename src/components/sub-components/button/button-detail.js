@@ -2,12 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 
 import closeIcon from "../../asset/images/cross-white.png";
 import "./button.scss";
+import FocusTrap from "focus-trap-react";
 
 const ButtonDetail =(props)=>{
 
     const{close} = props;
  
     return (
+        <FocusTrap
+			focusTrapOptions={{
+				escapeDeactivates: false
+				//onDeactivate: closeModal
+			}}
+		>
       <div className="modal_wapper">
         <div className="modal-content detail-container">
             <div className="detail-header">
@@ -34,8 +41,9 @@ const ButtonDetail =(props)=>{
         </div>
         </div>
       </div>
+      </FocusTrap>
     );
-
+    
    
 };
  export default ButtonDetail;

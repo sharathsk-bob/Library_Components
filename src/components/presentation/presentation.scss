@@ -62,9 +62,9 @@ body{
 
 @media screen and (max-width: $bp-xs-mobile){
     .modal-button_section{
-        button{
-            width: 80%;
-        }
+        // button{
+        //     width: 80%;
+        // }
         button:first-child{
             margin-bottom: 4px;
         }

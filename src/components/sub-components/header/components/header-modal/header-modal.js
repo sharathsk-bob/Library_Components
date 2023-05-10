@@ -92,7 +92,7 @@ return (
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
         <p>Header</p>
-        <button className="close-button" onClick={close}>
+        <button className="close-button" aria-label="Close" onClick={close}>
           <img src={closeIcon}></img>
           
         </button>
@@ -103,7 +103,7 @@ return (
           <FormField className="form-modal__content">
             <label
               className="wbh-modal__label"
-              aria-label="Title for Asterik-Required"
+              aria-label="Title for Header Asterik-Required"
               for="title"
             >
               Title: <span className="asterik">*</span> 
@@ -114,7 +114,7 @@ return (
                 name="title"
                 aria-required="true"
                 maxLength="15"
-                aria-describedby="name-err-title"
+                // aria-describedby="name-err-title"
                 value={titleValue}
                 onChange={(event) => setTitleValue(event.target.value)}
               />
@@ -127,7 +127,7 @@ return (
           <FormField className="form-modal__content">
             <label
               className="modal__label"
-              aria-label="Title for Asterik-Required"
+              aria-label="Profile Name Asterik-Required"
               for="profile name"
             >
               Profile Name:<span className="asterik">*</span> 
@@ -151,7 +151,7 @@ return (
           <p>Would you like to have Capgemini logo in the header section <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Would you like to have capegeimi Logo Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -168,7 +168,7 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label=" Select No ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -192,7 +192,7 @@ return (
           <p>Would you like to have App logo in the header section<span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Would you like to have app Logo Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -209,7 +209,7 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label"  aria-label=" Select No ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -233,7 +233,7 @@ return (
           <p>Would you like to have profile logo in the header section <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -250,7 +250,7 @@ return (
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label">
+              <label className="modal-label" aria-label="Select No">
                 <input
                   className="modal-input"
                   type="radio"
@@ -275,7 +275,7 @@ return (
           <div className="modal-checkbox modal-select">
             <FormField className="modal-content-theme">
              
-            <label for="theme"> 
+            <label for="theme" aria-label="Select theme Asterik-Required"> 
             <p>Please select the theme colour.<span className="asterik">*</span> </p>
   <select name="theme" id="theme"  value={themeValue}
                 onChange={(event) => setThemeValue(event.target.value)}>
