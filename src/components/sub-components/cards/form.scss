@@ -73,6 +73,12 @@
       width: fit-content;
       display: flex;
     }
+    .tag:focus{
+      outline: black;
+  }
+  .tag:focus-visible{
+      outline: black;
+  }
     .radio-buttons{
       display: flex;
     }
@@ -90,6 +96,9 @@
   }
   input[type="file" ] {
    display: none;
+}
+input[type=radio]:focus + .tag {
+  border: 2px solid black;
 }
 .radio-buttons{
   label{

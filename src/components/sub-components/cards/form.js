@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./form.scss";
 import Cards from "./cards";
 // import { useNavigate } from 'react-router-dom';
+import FocusTrap from "focus-trap-react";
 import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -152,6 +153,12 @@ function Form(props) {
   };
   console.log(errors);
   return (
+    <FocusTrap
+    focusTrapOptions={{
+      escapeDeactivates: false
+      //onDeactivate: closeModal
+    }}
+  >
     <div className="modal_wapper">
       <div className="modal-content form-modalcontainer">
         <div class="form-header">
@@ -416,6 +423,7 @@ function Form(props) {
         </div>
       </div>
     </div>
+    </FocusTrap>
   );
 }
 
