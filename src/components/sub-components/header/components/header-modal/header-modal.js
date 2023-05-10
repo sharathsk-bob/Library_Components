@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../app-context";
+import FocusTrap from "focus-trap-react";
 
 import { FormField, Input } from "@fluentui/react-northstar";
 
@@ -81,6 +82,12 @@ const buttonSubmit =(event)=>{
 };
   
 return (
+  <FocusTrap
+			focusTrapOptions={{
+				escapeDeactivates: false
+				//onDeactivate: closeModal
+			}}
+		>
   <div className="modal_wapper">
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
@@ -301,6 +308,7 @@ return (
       </div>
     </div>
   </div>
+  </FocusTrap>
 );
 };
 

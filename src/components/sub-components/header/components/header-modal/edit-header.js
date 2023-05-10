@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../app-context";
+import FocusTrap from "focus-trap-react";
 
 import { FormField, Input, Alert, TextArea, SplitButton, itemLayoutSlotClassNames } from "@fluentui/react-northstar";
 import closeIcon from "../../../../asset/images/cross-white.png";
@@ -78,6 +79,12 @@ const onSubmit =  (event)=>{
 
 
 return (
+  <FocusTrap
+  focusTrapOptions={{
+    escapeDeactivates: false
+    //onDeactivate: closeModal
+  }}
+>
   <div className="modal_wapper">
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
@@ -288,6 +295,7 @@ return (
       </div>
     </div>
   </div>
+  </FocusTrap>
 );
 };
 
