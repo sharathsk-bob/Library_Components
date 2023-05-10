@@ -151,7 +151,7 @@ return (
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
             <p>Button</p>
-                <button className="close-button" onClick={close}>
+                <button className="close-button" aria-label="close modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>

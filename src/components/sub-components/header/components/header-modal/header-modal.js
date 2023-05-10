@@ -294,7 +294,7 @@ return (
         </div>
        
         <div className="button-section">
-          <div className="link-button">
+          <div className="link-button margin-button">
             
            <Link
 

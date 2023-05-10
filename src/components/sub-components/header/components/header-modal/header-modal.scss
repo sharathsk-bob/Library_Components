@@ -133,9 +133,12 @@ label {
     }
 }
 .button-section{
+    .margin-button{
+        margin-top: 40px !important;
+    }
     .link-button{
         float: right;
-    margin-top: 40px;
+        margin-top: 24px;
       a{
     background-color: #0070AD;
     border-color: #0070AD;
@@ -162,7 +165,7 @@ label {
         .form-modalcontainer{
             width: 76vw;
             .modal-container{
-                font-size: 10px;
+                font-size: 14px;
                 margin: 10px;
             }
         }

@@ -21,14 +21,13 @@ const Modal =()=>{
     const componentList =[
         "Header",
         "Cards",
-        "Buttons",
+        "Button",
         "Navbar",
-        "ToolBar",
-       
-"Text",
-"Dropdown",
-"Footer",
-"Alert"
+        "ToolBar",    
+        "Text",
+        "Dropdown",
+        "Footer",
+        "Alert"
     ];
 return(
     <>
@@ -72,25 +71,25 @@ return(
                 <button title="Details button for header" type="button" class="buttons" onClick={openHeaderDetail}>
                   Details
                 </button>
-                <button title="Create button for header"  type="button" class="buttons" onClick={openHeader}>
+                <button title="Create button for header" type="button" class="buttons" onClick={openHeader}>
                   Create
                 </button>
               </div>
             ) : data === "Cards" ? (
               <div className="modal-button_section">
-                <button  type="button" class="buttons" onClick={openFormDetail}>
+                <button  type="button" aria-label="Details button for card component" class="buttons" onClick={openFormDetail}>
                   Details
                 </button>
-                <button type="button"  class="buttons" onClick={openForm}>
+                <button type="button" aria-label="Create button for card component" class="buttons" onClick={openForm}>
                   Create
                 </button>
               </div>
             ) : (
               <div className="modal-button_section">
-              <button  type="button" class="buttons" onClick={openButtonDetail}>
+              <button  type="button" aria-label="Details button for button component" class="buttons" onClick={openButtonDetail}>
                 Details
               </button>
-              <button  type="button" class="buttons" onClick={openButtonForm}>
+              <button  type="button" aria-label="Create button for button component" class="buttons" onClick={openButtonForm}>
                 Create
               </button>
             </div>

@@ -4,8 +4,11 @@ export const CustomButton = style.button`
     
     cursor: pointer;
     margin-top: 32px;
-    font-size:20px;
+    font-size:16px;
 
+    @media (max-width: 768px) {
+        font-size:12px;
+    }
 
     background-color: ${(props) => props.Choice_Theme == 'Normal' ? 'white' : 
         props.Choice_Theme == 'Dark' ? 'black' :
