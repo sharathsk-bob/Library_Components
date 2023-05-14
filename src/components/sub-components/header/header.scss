@@ -33,7 +33,11 @@
 .light-theme{
     background-color: rgb(241, 244, 248);
     
-   
+    // -webkit-box-shadow: 0 8px 6px -6px lightgray;
+
+    // -moz-box-shadow: 0 8px 6px -6px lightgray;
+    
+    //  box-shadow: 0 8px 6px -6px lightgray;
     color: var(--color-capgemini-blue) !important;
     
 }
