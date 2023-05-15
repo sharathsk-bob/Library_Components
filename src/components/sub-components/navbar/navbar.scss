@@ -1,3 +1,55 @@
+.Normal{
+  background-color: #f1f4f8 !important;
+  
+  .navbar-links li a{
+    color: var(--color-capgemini-blue) !important;
+  }
+  .navbar-icons {
+    .icon {
+      color: var(--color-capgemini-blue) !important; ;
+    }
+  }
+  
+}
+.Dark{
+ 
+      background-color: black !important;
+      border-color: black !important;
+      color: white !important;
+  
+}
+.cg1{
+  // background-image:linear-gradient(244deg,rgba(0,123,189,.9),rgba(0,63,97,.9));
+  
+ 
+  color: #ffff !important; 
+  // .cg-logo{
+  //     background-color: white;
+  //     padding: 4px;
+  // } 
+  .card__title {
+      color: white !important;
+   }  
+   .card__cta, .card__cta:hover {
+      background-color: white !important;
+      border-color: black !important;
+      color: black !important;
+  }
+}
+.cg2{
+  background-color:#2b0a3d !important;
+  
+ 
+  color: #ffff !important;  
+  .card__title {
+     color: white !important;
+  }  
+  .card__cta, .card__cta:hover {
+      background-color: white !important;
+      border-color: black !important;
+      color: black !important;
+  }
+}
 .card-component{
     display: flex;
     justify-content: space-between;
@@ -27,7 +79,7 @@
   }
 
   // Variables
-$navbar-background-color: #333;
+$navbar-background-color: #0070ad;
 $navbar-text-color: #fff;
 $navbar-max-width: 1200px;
 $navbar-padding: 0 20px;
@@ -45,12 +97,12 @@ $navbar-icon-color: #fff;
 .navbar {
   background-color: $navbar-background-color;
   color: $navbar-text-color;
-  height: 50px;
+  height: 40px;
 
   .navbar-container {
     @include flex-center;
     height: 100%;
-    max-width: $navbar-max-width;
+    //max-width: $navbar-max-width;
     margin: 0 auto;
     padding: $navbar-padding;
 
@@ -105,6 +157,7 @@ $navbar-icon-color: #fff;
 
     .navbar-icons {
       display: flex;
+      margin-left: auto;
 
       .icon {
         color: $navbar-icon-color;
