@@ -1,0 +1,121 @@
+.card-component{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+    align-items: center;
+    padding: 15px;
+    .card-left{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0;
+            color: #0070ad;
+            margin-left: 10px !important;
+        }
+        span{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin: 0;
+            color: #333;
+            margin-left: 10px !important;
+        }
+    }
+  }
+
+  // Variables
+$navbar-background-color: #333;
+$navbar-text-color: #fff;
+$navbar-max-width: 1200px;
+$navbar-padding: 0 20px;
+$navbar-icon-size: 24px;
+$navbar-icon-color: #fff;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+//   justify-content: center;
+//   align-items: center;
+}
+
+// Navbar
+.navbar {
+  background-color: $navbar-background-color;
+  color: $navbar-text-color;
+  height: 50px;
+
+  .navbar-container {
+    @include flex-center;
+    height: 100%;
+    max-width: $navbar-max-width;
+    margin: 0 auto;
+    padding: $navbar-padding;
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0 10px;
+
+        a {
+          color: $navbar-text-color;
+          text-decoration: none;
+          padding: 10px;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            background-color: #444;
+          }
+        }
+      }
+
+      .dropdown {
+        position: relative;
+
+        &:hover {
+          .dropdown-menu {
+            display: block;
+          }
+        }
+
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #fff;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          padding: 10px;
+          list-style: none;
+        }
+      }
+    }
+
+    .navbar-icons {
+      display: flex;
+
+      .icon {
+        color: $navbar-icon-color;
+        font-size: $navbar-icon-size;
+        margin-left: 10px;
+        text-decoration: none;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

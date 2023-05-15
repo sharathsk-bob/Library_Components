@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
 import { useState } from "react";
-import "./form.scss";
-import Cards from "./cards";
+import "./navbar-form.scss";
+//import Cards from "./cards";
 // import { useNavigate } from 'react-router-dom';
 import FocusTrap from "focus-trap-react";
 import closeIcon from "../../../components/asset/images/cross-white.png";
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
 
-function Form(props) {
+function NavbarForm(props) {
   const { close } = props;
   const {
     title,
@@ -50,7 +50,7 @@ function Form(props) {
     if (isValid) {
       setActivate(true);
       history({
-        pathname: "/cardheader",
+        pathname: "/cards",
       });
     }
   };
@@ -428,4 +428,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default NavbarForm;

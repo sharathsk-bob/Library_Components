@@ -10,6 +10,7 @@ import "../../sub-components/use-modal/use-modal.scss"
 import ButtonDetail from "../../sub-components/button/button-detail";
 import ButtonForm from "../../sub-components/button/button-form";
 import cgLogo from "../../asset/images/cg_logo.svg";
+import NavbarForm from "../../sub-components/navbar/navbar-form";
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -17,6 +18,8 @@ const Modal =()=>{
     const { open: openFormDetail, close: closeFormDetail, ModalWrapper: ModalFormDetail } = useModal();
     const { open: openButtonDetail, close: closeButtonDetail, ModalWrapper: ModalWrapperButtonDetail } = useModal();
     const { open: openButtonForm, close: closeButtonForm, ModalWrapper: ModalWrapperButton } = useModal();
+    const { open: openNavbarDetail, close: closeNavbarDetail, ModalWrapper: ModalWrapperNavbarDetail } = useModal();
+    const { open: openNavbarForm, close: closeNavbarForm, ModalWrapper: ModalWrapperNavbar } = useModal();
     
     const componentList =[
         "Header",
@@ -55,6 +58,9 @@ return(
       <ModalWrapperButton>
         <ButtonForm close={closeButtonForm} />
       </ModalWrapperButton>
+      <ModalWrapperNavbar>
+        <NavbarForm close={closeNavbarForm} />
+      </ModalWrapperNavbar>
     {componentList.map((data, index) => {
        
            
@@ -84,7 +90,7 @@ return(
                   Create
                 </button>
               </div>
-            ) : (
+            ) : data === "Button"? (
               <div className="modal-button_section">
               <button  type="button" aria-label="Details button for button component" class="buttons" onClick={openButtonDetail}>
                 Details
@@ -93,6 +99,24 @@ return(
                 Create
               </button>
             </div>
+            ):data === "Navbar" ? (
+              <div className="modal-button_section">
+                <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openNavbarDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for navbar component" class="buttons" onClick={openNavbarForm}>
+                  Create
+                </button>
+              </div>
+            ):(
+              <div className="modal-button_section">
+                <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openFormDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for navbar component" class="buttons" onClick={openForm}>
+                  Create
+                </button>
+              </div>
             )}
             </div>
             
