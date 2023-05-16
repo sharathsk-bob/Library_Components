@@ -26,7 +26,7 @@ function NavbarHeader() {
         setHasIcons();
         setNavTheme("");
       };
-      const [activeTab, setActiveTab] = useState(0);
+      const [activeTab, setActiveTab] = useState(1);
 
   return (
     <>

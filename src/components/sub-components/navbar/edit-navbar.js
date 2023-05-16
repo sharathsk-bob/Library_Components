@@ -27,10 +27,7 @@ function EditNav(props) {
   const [formValues,setFormValues]=useState(initialValues);
   const handleNumMenusChange = (event) => {
     const value = parseInt(event.target.value);
-    if (value < 1) {
-      setErrors({ numMenus: "Number of menus must be greater than 0" });
-    } else {
-      // Create a new array of menus with the existing values
+    if (value >= 1 && value <= 5) {
       const newMenus = Array.from({ length: value }, (item, index) => {
         return formValues.menus[index] || { type: "basic", text: "" };
       });
@@ -38,6 +35,10 @@ function EditNav(props) {
       setNumMenus(value);
       setMenus(newMenus);
       setErrors({});
+      
+    } else {
+      // Create a new array of menus with the existing values
+      setErrors({ numMenus: "Number of menus must be greater than 0" });
     }
   };
 
@@ -183,12 +184,13 @@ function EditNav(props) {
           </div>
           <div className="modal-container">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="num-menus">Number of menus:</label>
+              <label htmlFor="num-menus">Number of menus:<span className="astrick">*</span></label>
               <input
                 type="number"
                 id="num-menus"
                 name="num-menus"
                 min="1"
+                max="5"
                 value={formValues.numMenus}
                 onChange={handleNumMenusChange}
               />
@@ -198,7 +200,7 @@ function EditNav(props) {
 
               {[...Array(formValues.numMenus)].map((_, i) => (
                 <div key={i}>
-                  <label htmlFor={`menu-${i}-type`}>Menu {i + 1} type:</label>
+                  <label htmlFor={`menu-${i}-type`}>Menu {i + 1} type:<span className="astrick">*</span></label>
                   <select
                     id={`menu-${i}-type`}
                     name={`menu-${i}-type`}
@@ -213,7 +215,7 @@ function EditNav(props) {
                   <br />
                   <br />
 
-                  <label htmlFor={`menu-${i}-text`}>Menu {i + 1} text:</label>
+                  <label htmlFor={`menu-${i}-text`}>Menu {i + 1} text:<span className="astrick">*</span></label>
                   <input
                     type="text"
                     id={`menu-${i}-text`}
@@ -231,9 +233,9 @@ function EditNav(props) {
 
                   {formValues.menus[i].type === "dropdown" && (
                     <fieldset>
-                      <legend>Options:</legend>
+                      <legend>Options:<span className="astrick">*</span></legend>
                       <label htmlFor={`menu-${i}-num-options`}>
-                        Number of options:
+                        Number of options:<span className="astrick">*</span>
                       </label>
                       <input
                         type="number"
@@ -254,7 +256,7 @@ function EditNav(props) {
                       {[...Array(formValues.menus[i].numOptions)].map((_, j) => (
                         <div key={j}>
                           <label htmlFor={`menu-${i}-option-${j}`}>
-                            Option {j + 1} text:
+                            Option {j + 1} text:<span className="astrick">*</span>
                           </label>
                           <input
                             type="text"
@@ -277,7 +279,7 @@ function EditNav(props) {
                 </div>
               ))}
               <div>
-                <label>Navbar icons:</label>
+                <label>Navbar icons:<span className="astrick">*</span></label>
                 <div className="nav-icons">
                 <label htmlFor="nav-yes">
                   <input
@@ -309,7 +311,7 @@ function EditNav(props) {
                 {errors.hasIcons && <p className="error">{errors.hasIcons}</p>}
               </div>
               <div>
-                <label htmlFor="theme">Theme:</label>
+                <label htmlFor="theme">Theme:<span className="astrick">*</span></label>
                 <select
                   id="theme"
                   name="navtheme"

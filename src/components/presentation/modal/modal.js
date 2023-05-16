@@ -11,6 +11,7 @@ import ButtonDetail from "../../sub-components/button/button-detail";
 import ButtonForm from "../../sub-components/button/button-form";
 import cgLogo from "../../asset/images/cg_logo.svg";
 import NavbarForm from "../../sub-components/navbar/navbar-form";
+import NavbarDetail from "../../sub-components/navbar/navbar-detail";
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -61,6 +62,9 @@ return(
       <ModalWrapperNavbar>
         <NavbarForm close={closeNavbarForm} />
       </ModalWrapperNavbar>
+      <ModalWrapperNavbarDetail>
+        <NavbarDetail close={closeNavbarDetail} />
+      </ModalWrapperNavbarDetail>
     {componentList.map((data, index) => {
        
            
