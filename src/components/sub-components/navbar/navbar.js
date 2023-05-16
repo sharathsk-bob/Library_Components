@@ -18,10 +18,13 @@ function Navbar(props) {
     <>
     <div id="mySidenav" class="sidenav">
     <nav class={`navbar navbar-expand-sm custom-nav ${navValues?.navtheme == "Dark"?"Dark":navValues?.navtheme == "cg1"?"cg1":navValues?.navtheme == "cg2"?"cg2":navValues?.navtheme == "Normal"?"Normal":"" }`}>
+    {/* <div className="navbar-toggler" onClick={() => setIsDropdownVisible(!isDropdownVisible)}>
+            <span className={`navbar-toggler-icon ${isDropdownVisible ? 'open' : ''}`}></span>
+    </div> */}
     <ul className="navbar-nav">
       {navValues?.menus?.map((menu, index) => (
         menu.type === "dropdown" ?<li class="dropdown"  onClick={() => toggleDropdown(index)} key={index}>
-          <a href="#">{menu.text}</a>
+          <a href="#" className='menu-text'>{menu.text}</a>
             <ul class="dropdown-menu" >
               {[...Array(menu.numOptions)].map((_, optionIndex) => (
                 isDropdownVisible[index] ?<li class="dropdown-item" key={optionIndex}>

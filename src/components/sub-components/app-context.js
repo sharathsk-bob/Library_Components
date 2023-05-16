@@ -15,7 +15,7 @@ const AppProvider = (props) => {
   const [width, setWidth] = useState("");
   const [image, setImage] = useState("");
   const [headerProps, setHeaderProps] = useState({});
-  const [numMenus, setNumMenus] = useState(1);
+  const [numMenus, setNumMenus] = useState(0);
   const [menus, setMenus] = useState([{ type: "basic", text: "" }]);
   const [hasIcons, setHasIcons] = useState();
   const [navtheme, setNavTheme] = useState("");

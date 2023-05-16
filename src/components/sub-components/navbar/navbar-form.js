@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
 function NavbarForm(props) {
   const { close } = props;
-  const { numMenus,
+  const {
+    numMenus,
     menus,
     hasIcons,
     navtheme,
@@ -19,18 +20,18 @@ function NavbarForm(props) {
     setMenus,
     setHasIcons,
     setNavTheme,
-    navValues
-    }=useContext(AppContext);
-    const history=useNavigate();
+    navValues,
+  } = useContext(AppContext);
+  const history = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleNumMenusChange = (event) => {
     const value = parseInt(event.target.value);
+    console.log(value);
     if (value >= 1 && value <= 5) {
       setNumMenus(value);
       setMenus(Array(value).fill({ type: "basic", text: "" }));
       setErrors({});
-    
     } else {
       setErrors({ numMenus: "Number of menus must be greater than 0" });
     }
@@ -42,47 +43,50 @@ function NavbarForm(props) {
     // const isTitleValid = title.length <= 10;
     // const isDescriptionValid = description.split(" ").length <= 100;
     // Validate number of menus
-  if (!numMenus || numMenus < 1) {
-    errors.numMenus = "Please enter a valid number of menus";
-    isValid = false;
-  }
+    if (!numMenus || numMenus < 1) {
+      errors.numMenus = "Please enter a valid number of menus";
+      isValid = false;
+    }
 
-  // Validate menu text
-  menus.forEach((menu, i) => {
-    if (menu.type === "dropdown" && menu.options) {
-      menu.options.forEach((option, j) => {
+    // Validate menu text
+    menus.forEach((menu, i) => {
+      if (menu.type === "dropdown" && menu.options) {
+        menu.options.forEach((option, j) => {
+          if (!option) {
+            errors[`menu${i}Option${j}Text`] = "Please enter option text";
+            isValid = false;
+          }
+        });
+      }
+      if (!menu.text) {
+        errors[`menu${i}Text`] = "Please enter menu text";
+        isValid = false;
+      }
+
+      // Validate number of options
+      if (
+        menu.type === "dropdown" &&
+        (!menu.numOptions || menu.numOptions < 1)
+      ) {
+        errors[`menu${i}NumOptions`] = "Please enter a valid number of options";
+        isValid = false;
+      }
+
+      // Validate option text
+      menu.options?.forEach((option, j) => {
         if (!option) {
           errors[`menu${i}Option${j}Text`] = "Please enter option text";
           isValid = false;
         }
       });
-    }
-    if (!menu.text) {
-      errors[`menu${i}Text`] = "Please enter menu text";
-      isValid = false;
-    }
-
-    // Validate number of options
-    if (menu.type === "dropdown" && (!menu.numOptions || menu.numOptions < 1)) {
-      errors[`menu${i}NumOptions`] = "Please enter a valid number of options";
-      isValid = false;
-    }
-
-    // Validate option text
-    menu.options?.forEach((option, j) => {
-      if (!option) {
-        errors[`menu${i}Option${j}Text`] = "Please enter option text";
-        isValid = false;
-      }
     });
-  });
 
-    if (navtheme == undefined || navtheme==null || navtheme=="") {
+    if (navtheme == undefined || navtheme == null || navtheme == "") {
       errors.navtheme = "Theme is required";
       isValid = false;
     }
-    
-    if (hasIcons == undefined || hasIcons==null || hasIcons=="") {
+
+    if (hasIcons == undefined || hasIcons == null || hasIcons == "") {
       errors.hasIcons = "Please Select an option";
       isValid = false;
     }
@@ -147,7 +151,7 @@ function NavbarForm(props) {
     if (isValid) {
       console.log(navValues);
       history("/navbarheader");
-    }else{
+    } else {
       console.log(errors);
     }
   };
@@ -181,23 +185,31 @@ function NavbarForm(props) {
           </div>
           <div className="modal-container">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="num-menus">Number of menus:<span className="astrick">*</span></label>
-              <input
-                type="number"
+              <div className="Form-field">
+              <label htmlFor="num-menus" aria-label="Number of menues for Asterik-Required">
+                Number of menus:<span className="astrick" >*</span>
+              </label>
+              <select
                 id="num-menus"
                 name="num-menus"
-                min="1"
-                max="5"
                 value={numMenus}
                 onChange={handleNumMenusChange}
-              />
+              >
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
               {errors.numMenus && <p className="error">{errors.numMenus}</p>}
-              <br />
-              <br />
+              </div>
 
               {[...Array(numMenus)].map((_, i) => (
-                <div key={i}>
-                  <label htmlFor={`menu-${i}-type`}>Menu {i + 1} type:<span className="astrick">*</span></label>
+                <div  key={i}>
+                  <label htmlFor={`menu-${i}-type`} aria-label="Menu Type for Asterik-Required">
+                    Menu {i + 1} type:<span className="astrick">*</span>
+                  </label>
                   <select
                     id={`menu-${i}-type`}
                     name={`menu-${i}-type`}
@@ -209,10 +221,11 @@ function NavbarForm(props) {
                     <option value="basic">Basic</option>
                     <option value="dropdown">Dropdown</option>
                   </select>
-                  <br />
-                  <br />
-
-                  <label htmlFor={`menu-${i}-text`}>Menu {i + 1} text:<span className="astrick">*</span></label>
+                  <br/>
+                  <br/>
+                  <label htmlFor={`menu-${i}-text`} aria-label="Menu Text for Asterik-Required">
+                    Menu {i + 1} text:<span className="astrick">*</span>
+                  </label>
                   <input
                     type="text"
                     id={`menu-${i}-text`}
@@ -223,22 +236,22 @@ function NavbarForm(props) {
                     }
                   />
                   {errors[`menu${i}Text`] && (
-            <p className="error">{errors[`menu${i}Text`]}</p>
-          )}
-                  <br />
-                  <br />
-
+                    <p className="error">{errors[`menu${i}Text`]}</p>
+                  )}
+             
+                  <br/>
+                  <br/>
                   {menus[i].type === "dropdown" && (
                     <fieldset>
-                      <legend>Options:<span className="astrick">*</span></legend>
-                      <label htmlFor={`menu-${i}-num-options`}>
+                      <legend>
+                        Options:<span className="astrick">*</span>
+                      </legend>
+                      <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">
                         Number of options:
                       </label>
-                      <input
-                        type="number"
+                      <select
                         id={`menu-${i}-num-options`}
                         name={`menu-${i}-num-options`}
-                        min="1"
                         value={menus[i].numOptions}
                         onChange={(event) =>
                           handleNumOptionsChange(
@@ -246,14 +259,23 @@ function NavbarForm(props) {
                             parseInt(event.target.value)
                           )
                         }
-                      />
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        {/* Add more options as needed */}
+                      </select>
                       {errors[`menu${i}NumOptions`] && (
-                <p className="error">{errors[`menu${i}NumOptions`]}</p>
-              )}
+                        <p className="error">{errors[`menu${i}NumOptions`]}</p>
+                      )}
+
                       {[...Array(menus[i].numOptions)].map((_, j) => (
                         <div key={j}>
-                          <label htmlFor={`menu-${i}-option-${j}`}>
-                            Option {j + 1} text:<span className="astrick">*</span>
+                          <label htmlFor={`menu-${i}-option-${j}`} aria-label="Option Text for Asterik-Required">
+                            Option {j + 1} text:
+                            <span className="astrick">*</span>
                           </label>
                           <input
                             type="text"
@@ -264,51 +286,60 @@ function NavbarForm(props) {
                               handleOptionTextChange(i, j, event.target.value)
                             }
                           />
-                           {errors[`menu${i}Option${j}Text`] && (
-                    <p className="error">{errors[`menu${i}Option${j}Text`]}</p>
-                  )}
-                          <br />
-                          <br />
+                          {errors[`menu${i}Option${j}Text`] && (
+                            <p className="error">
+                              {errors[`menu${i}Option${j}Text`]}
+                            </p>
+                          )}
+   
                         </div>
                       ))}
                     </fieldset>
+                    
                   )}
+                    <br/>
                 </div>
               ))}
+                  <br/>
+
               <div>
-                <label>Navbar icons:<span className="astrick">*</span></label>
+                <label aria-label="Navbar Icon for Asterik-Required">
+                  Navbar icons:<span className="astrick">*</span>
+                </label>
                 <div className="nav-icons">
-                <label htmlFor="nav-yes">
-                  <input
-                    type="radio"
-                    id="nav-yes"
-                    name="has-icons"
-                    value="yes"
-                    //checked={hasIcons}
-                    onChange={(event) => setHasIcons(event.target.value)}
-                  />
-                  <div className="tag">
+                  <label htmlFor="nav-yes" aria-label="Select Yes">
+                    <input
+                      type="radio"
+                      id="nav-yes"
+                      name="has-icons"
+                      value="yes"
+                      //checked={hasIcons}
+                      onChange={(event) => setHasIcons(event.target.value)}
+                    />
+                    <div className="tag">
                       <span className="tag__cat">Yes </span>
                     </div>
-                </label>
-                <label htmlFor="nav-no">
-                  <input
-                    type="radio"
-                    id="nav-no"
-                    name="has-icons"
-                    value="no"
-                    //checked={!hasIcons}
-                    onChange={(event) => setHasIcons(event.target.value)}
-                  />
-                  <div className="tag">
+                  </label>
+                  <label htmlFor="nav-no" aria-label="Select No">
+                    <input
+                      type="radio"
+                      id="nav-no"
+                      name="has-icons"
+                      value="no"
+                      //checked={!hasIcons}
+                      onChange={(event) => setHasIcons(event.target.value)}
+                    />
+                    <div className="tag">
                       <span className="tag__cat">No </span>
                     </div>
                   </label>
-                  </div>
+                </div>
                 {errors.hasIcons && <p className="error">{errors.hasIcons}</p>}
               </div>
               <div>
-                <label htmlFor="theme">Theme:<span className="astrick">*</span></label>
+                <label htmlFor="theme" aria-label="Theme for Asterik-Required">
+                  Theme:<span className="astrick">*</span>
+                </label>
                 <select
                   id="theme"
                   name="theme"
@@ -325,17 +356,17 @@ function NavbarForm(props) {
               </div>
 
               <div className="button-section">
-              <div className="link-button">
-                <Link
-                  type="button"
-                  className="btn btn-primary btn-lg"
-                  onClick={handleSubmit}
-                  aria-label="Submit"
-                >
-                  Submit
-                </Link>
+                <div className="link-button">
+                  <Link
+                    type="button"
+                    className="btn btn-primary btn-lg"
+                    onClick={handleSubmit}
+                    aria-label="Submit"
+                  >
+                    Submit
+                  </Link>
+                </div>
               </div>
-            </div>
             </form>
           </div>
         </div>
