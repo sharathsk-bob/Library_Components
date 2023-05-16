@@ -141,7 +141,7 @@ return(
                 Create
               </button>
             </div>
-            ) : data === "Tooltip"? (
+            ) : data === "ToolTip"? (
               <div className="modal-button_section">
               <button  type="button" aria-label="Details button for tooltip component" class="buttons" onClick={openTooltipDetail}>
                 Details

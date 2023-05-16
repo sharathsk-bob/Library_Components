@@ -27,11 +27,9 @@ const ButtonComponent = ( ) => {
             </div>
             <div className="header-right">
                 <div className="button-section">
-                <Link to="/" className="btn btn-primary btn-lg">
-                    <button class="buttons" aria-label="back to various component homepage">
+                    <Link to="/" className="link-button" aria-label="back to various component homepage">
                         Back
-                    </button>
-                </Link>
+                    </Link>
                     <button class="buttons" aria-label="Edit values for Button Component" onClick={openEditButton} >
                         Edit
                     </button>
@@ -56,7 +54,7 @@ const ButtonComponent = ( ) => {
     {activeTab === 0 ? (
         ("")
     ) : (
-        <ButtonHtml newCard={props} />
+        <ButtonHtml data={props} />
     )}
     </div>
       

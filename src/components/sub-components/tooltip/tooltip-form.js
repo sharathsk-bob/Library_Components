@@ -97,15 +97,15 @@ const TooltipForm =(props)=>{
 return (
     <FocusTrap
         focusTrapOptions={{
-        escapeDeactivates: false
-        //onDeactivate: closeModal
+            //escapeDeactivates: false
+            onDeactivate: close
         }}
     >
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
             <p>ToolTip</p>
-                <button className="close-button" aria-label="close create button modal" onClick={close}>
+                <button className="close-button" aria-label="close create tooltip modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
