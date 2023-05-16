@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import EditTooltipModal from "./edit-tooltip";
 import useModal from "../../sub-components/use-modal/use-modal";
 import CustomTooltip from "./CustomTooltip";
+import TooltipHtml from "./tooltip-html";
 
 // import { CustomTooltip } from "./CustomTooltip";
 
@@ -12,6 +13,7 @@ const TooltipComponent = ( ) => {
   const { open: openEditTooltip, close: closeEditTooltip, ModalWrapper: ModalWrapperEditTooltip } = useModal();
   const props = location.state.inputs;
 
+  const [activeTab, setActiveTab] = useState(0);
   console.log(props, "props in tooltip");
   // const themeClass = {props.themeValue?}
   return (
@@ -41,6 +43,23 @@ const TooltipComponent = ( ) => {
             {/* {CustomTooltip()} */}
             <CustomTooltip{...props}/>
         </div>
+    </div>
+
+    <div className="card-tabs">
+        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+            HTML
+        </button>
+        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+            TAB2
+        </button>
+    </div>
+
+    <div className="card-content">
+    {activeTab === 0 ? (
+        ("")
+    ) : (
+        <TooltipHtml newCard={props} />
+    )}
     </div>
       
     </>
