@@ -12,6 +12,9 @@ import ButtonForm from "../../sub-components/button/button-form";
 import cgLogo from "../../asset/images/cg_logo.svg";
 import NavbarForm from "../../sub-components/navbar/navbar-form";
 import NavbarDetail from "../../sub-components/navbar/navbar-detail";
+import TooltipDetail from "../../sub-components/tooltip/tooltip-detail";
+import TooltipForm from "../../sub-components/tooltip/tooltip-form";
+
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -21,13 +24,15 @@ const Modal =()=>{
     const { open: openButtonForm, close: closeButtonForm, ModalWrapper: ModalWrapperButton } = useModal();
     const { open: openNavbarDetail, close: closeNavbarDetail, ModalWrapper: ModalWrapperNavbarDetail } = useModal();
     const { open: openNavbarForm, close: closeNavbarForm, ModalWrapper: ModalWrapperNavbar } = useModal();
+    const { open: openTooltipDetail, close: closeTooltipDetail, ModalWrapper: ModalWrapperTooltipDetail } = useModal();
+    const { open: openTooltipForm, close: closeTooltipForm, ModalWrapper: ModalWrapperTooltip } = useModal();
     
     const componentList =[
         "Header",
         "Cards",
         "Button",
         "Navbar",
-        "ToolBar",    
+        "Tooltip",    
         "Text",
         "Dropdown",
         "Footer",
@@ -55,10 +60,18 @@ return(
       <ModalWrapperButtonDetail>
         <ButtonDetail close={closeButtonDetail} />
       </ModalWrapperButtonDetail>
-
       <ModalWrapperButton>
         <ButtonForm close={closeButtonForm} />
       </ModalWrapperButton>
+      <ModalWrapperTooltipDetail>
+        <TooltipDetail close={closeTooltipDetail} />
+      </ModalWrapperTooltipDetail>
+      <ModalWrapperTooltip>
+        <TooltipForm close={closeTooltipForm} />
+      </ModalWrapperTooltip>
+
+
+
       <ModalWrapperNavbar>
         <NavbarForm close={closeNavbarForm} />
       </ModalWrapperNavbar>
@@ -103,7 +116,16 @@ return(
                 Create
               </button>
             </div>
-            ):data === "Navbar" ? (
+            ) : data === "Tooltip"? (
+              <div className="modal-button_section">
+              <button  type="button" aria-label="Details button for tooltip component" class="buttons" onClick={openTooltipDetail}>
+                Details
+              </button>
+              <button  type="button" aria-label="Create button for tooltip component" class="buttons" onClick={openTooltipForm}>
+                Create
+              </button>
+            </div>
+            ) :data === "Navbar" ? (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openNavbarDetail}>
                   Details
