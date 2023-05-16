@@ -1,29 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { AppContext } from '../app-context';
 import 'font-awesome/css/font-awesome.min.css';
 import { useNavigate } from 'react-router-dom';
 import './navbar.scss';
-
+import useModal from '../use-modal/use-modal';
+import EditNav from './edit-navbar';
 function Navbar() {
-  const {
-    setNoOfMenus,
-    setEachMenu,
-    setNoOfOptions,
+  const { numMenus,
+    menus,
+    hasIcons,
+    navtheme,
+    setNumMenus,
+    setMenus,
+    setHasIcons,
     setNavTheme,
-    setShowIcons,
-    navValues,
-  } = useContext(AppContext);
+    navValues
+    }=useContext(AppContext);
+    const { open: openEditNavs, close: closeEditNavs, ModalWrapper: ModalWrapperEditNavs } = useModal();
   const history=useNavigate();
   const resetNav = () => {
-    setNoOfMenus("");
-    setEachMenu([]);
-    setNoOfOptions("");
+    setNumMenus(0);
+    setMenus([{ type: "basic", text: "" }]);
+    setHasIcons();
     setNavTheme("");
-    setShowIcons("");
+  };
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+  const toggleDropdown = (index) => {
+    setIsDropdownVisible({ ...isDropdownVisible, [index]: !isDropdownVisible[index] });
   };
   console.log(navValues);
   return (
     <>
+    <ModalWrapperEditNavs>
+    <EditNav close={closeEditNavs} />
+  </ModalWrapperEditNavs>
     <div className="card-component">
     <div className="card-left">
     <h1>Navbar</h1><span> Component</span> 
@@ -31,32 +42,60 @@ function Navbar() {
    
       <div>
       <button className="backToHome"  onClick={()=>{history("/");resetNav();}}>Back</button>
-      <button className="edit-card">Edit</button>
+      <button className="edit-card" onClick={openEditNavs}>Edit</button>
       </div>
     </div>
-
-    <nav class={`navbar ${navValues?.navtheme == "Dark"?"Dark":navValues?.navtheme == "cg1"?"cg1":navValues?.navtheme == "cg2"?"cg2":navValues?.navtheme== "Normal"?"Normal":"" }`}>
-  <div class="navbar-container">
-    {/* <a href="#" class="logo">Logo</a> */}
-    <ul class="navbar-links">
-      <li><a href="#">{navValues.eachMenu[0].menuText}</a></li>
-      {/* <li><a href="#">{navValues.eachMenu[1].menuText}</a></li> */}
-      {/* <li class="dropdown">
-        <a href="#">Dropdown</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Dropdown Link 1</a></li>
-          <li><a href="#">Dropdown Link 2</a></li>
-          <li><a href="#">Dropdown Link 3</a></li>
-        </ul>
-      </li> */}
+    <div id="mySidenav" class="sidenav">
+    <nav class={`navbar navbar-expand-sm custom-nav ${navValues?.navtheme == "Dark"?"Dark":navValues?.navtheme == "cg1"?"cg1":navValues?.navtheme == "cg2"?"cg2":navValues?.navtheme == "Normal"?"Normal":"" }`}>
+    <ul className="navbar-nav">
+      {navValues.menus.map((menu, index) => (
+        menu.type === "dropdown" ?<li class="dropdown"  onClick={() => toggleDropdown(index)} key={index}>
+          <a href="#">{menu.text}</a>
+            <ul class="dropdown-menu" >
+              {[...Array(menu.numOptions)].map((_, optionIndex) => (
+                isDropdownVisible[index] ?<li class="dropdown-item" key={optionIndex}>
+                  <a href="#">{menu.options[optionIndex]}</a>
+                </li>:("")
+              ))}
+            </ul>
+        </li>:
+        <li key={index}>
+        <a href="#">{menu.text}</a></li>
+      ))}
     </ul>
-   {navValues.showIcons? <div class="navbar-icons">
-      <a href="#" class="icon"><i class="fa fa-search"></i></a>
-      <a href="#" class="icon"><i class="fa fa-user"></i></a>
-      <a href="#" class="icon"><i class="fa fa-shopping-cart"></i></a>
-    </div>:("")}
-  </div>
-</nav>
+
+        { navValues.hasIcons=="yes" ?  <div class="documents-section">
+                <ul class="navbar-nav">
+                  
+                    <li>
+                        <a href="#" class="startTourBtn">
+                            <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+                            <span class="srt">FAQ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           
+                            <i class="fa fa-file-text fa-lg" aria-hidden="true"></i>
+                            <span class="srt">User Manual</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           
+                            <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+                            <span class="srt">Logout</span>
+                        </a>
+                    </li>
+                    
+                   
+                   
+                </ul>
+            </div>:("")}
+    
+            </nav>
+
+</div>
     </>
   )
 }

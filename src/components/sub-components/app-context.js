@@ -15,14 +15,11 @@ const AppProvider = (props) => {
   const [width, setWidth] = useState("");
   const [image, setImage] = useState("");
   const [headerProps, setHeaderProps] = useState({});
-  const [noOfMenus, setNoOfMenus] = useState("");
-  const [eachMenu, setEachMenu] = useState([]);
-  //const [ type,setType ]=useState('');
-  let basicValues = { type: "", menuText: "" };
-  const [noOfOptions, setNoOfOptions] = useState("");
-  let dropdownValues = { type: "", menuText: "" };
+  const [numMenus, setNumMenus] = useState(0);
+  const [menus, setMenus] = useState([{ type: "basic", text: "" }]);
+  const [hasIcons, setHasIcons] = useState();
   const [navtheme, setNavTheme] = useState("");
-  const [showIcons, setShowIcons] = useState(false);
+  
 
   const newCard = {
     title,
@@ -50,13 +47,10 @@ const AppProvider = (props) => {
   };
 
   const navValues = {
-    noOfMenus,
-    eachMenu,
-    basicValues,
-    dropdownValues,
-    noOfOptions,
-    showIcons,
-    navtheme,
+    numMenus,
+    menus,
+    hasIcons,
+    navtheme
   };
 
   return (
@@ -73,6 +67,10 @@ const AppProvider = (props) => {
         addImage,
         width,
         theme,
+        numMenus,
+        menus,
+        hasIcons,
+        navtheme,
         setTitle,
         setDescription,
         setAddButton,
@@ -85,19 +83,12 @@ const AppProvider = (props) => {
         setTheme,
         headerProps,
         setHeaderProps,
-        noOfMenus,
-        eachMenu,
-        noOfOptions,
-        basicValues,
-        dropdownValues,
-        navtheme,
-        showIcons,
-        setNoOfMenus,
-        setEachMenu,
-        setNoOfOptions,
+        setNumMenus,
+        setMenus,
+        setHasIcons,
         setNavTheme,
-        setShowIcons,
         navValues
+       
       }}
     >
       {children}
