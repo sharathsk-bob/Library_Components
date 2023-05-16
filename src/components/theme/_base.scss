@@ -76,3 +76,14 @@ a.btn.btn-default.app-tabs-selected {
 label {
 	outline: none !important;
 }
+// input:hover,
+// input:active,
+// input:focus,
+// input:focus-within,
+// input:target,
+// input:focus-visible{
+// 	border: 1.5px solid #ed6373!important;
+// }
+input[type=text]:focus {
+	border: 1.5px solid #ed6373!important;
+  }

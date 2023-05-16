@@ -9,6 +9,7 @@ import './index.scss';
 import Navbar from './components/sub-components/navbar/navbar';
 import CardHtml from './components/sub-components/cards/card-html';
 import CardHeader from './components/sub-components/cards/card-header';
+import NavbarHeader from './components/sub-components/navbar/navbar-header';
 import FooterComponent from "../src/components/sub-components/footer/footer";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="navbar"element ={<Navbar/>} ></Route>
           <Route exact path="cardhtml"element ={<CardHtml/>} ></Route>
           <Route exact path="/cardheader"element ={<CardHeader/>} ></Route>
+          <Route exact path="navbarheader"element ={<NavbarHeader/>} ></Route>
           <Route exact path="footer"element ={<FooterComponent/>} ></Route>
           
           </Routes>

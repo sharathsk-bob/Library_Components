@@ -12,7 +12,7 @@ import "./footer-modal.scss";
 const EditFooterModal =(props)=>{
 	
   const [errorMsgEdit, setErrorMsgEdit] = useState({});
-  const [multiselectOption, setMultiselectOption] = useState();
+  const [multiselectOption, setMultiselectOption] = useState([]);
 
 
 	const{close, data} = props;
@@ -20,7 +20,7 @@ const EditFooterModal =(props)=>{
 
   const navigationFooter = useNavigate();
   const [footerData, setFooterData] = useState(data);
-console.log(footerData, "footer dataa");
+
 
 
   const handleSubmit = (event) => {
@@ -34,31 +34,51 @@ console.log(footerData, "footer dataa");
     }
   };
 
-  const handleSelect =(options)=>{
-setMultiselectOption(options);
-setFooterData({...footerData, multiselectValue: multiselectOption
-})
+  const handleSelect = (list) => {
+    setMultiselectOption(list);
+    setFooterData({ ...footerData, multiselectValue: multiselectOption });
   };
-  
+
+const handleRemove =(selectedList, removedItem)=>{
+console.log(selectedList, removedItem, "removed valuess");
+setMultiselectOption(selectedList);
+setFooterData({ ...footerData, multiselectValue: multiselectOption });
+
+};
+   
   let editError = {};
-  //  let headerProps ={
-  //   headerData
-  //  };
+ 
   const footerProps = footerData;
-//  ]
+// console.log(footerData, "dataaa");
+const checkValidation = () => {
+     
+  let errorflag = true;
+ 
+    if (!footerData.textValue) {
+      editError.editTitle = "Title is required";
+      errorflag = false;
+    }
+   
+
+  setErrorMsgEdit(editError);
+  return errorflag;
+};
+
 const onSubmit =  (event)=>{
   event.preventDefault();
-  // const checkEditValid =   checkValidation();
-  // setHeaderProps(headerData);
+  
+  const checkEditValid =   checkValidation();
 
+console.log(checkEditValid, "error valid");
+   console.log(multiselectOption,"options");
 
-  // if(checkEditValid){
+  if(checkEditValid){
    
     close();
-    // console.log( headerProps.headerData, "err value");
+    console.log( footerData, "err value");
     navigationFooter("/footer", {state: {footerProps}});
     
-  // }
+  }
  
    
 }
@@ -68,8 +88,8 @@ const onSubmit =  (event)=>{
 return (
   <FocusTrap
   focusTrapOptions={{
-    escapeDeactivates: false
-    //onDeactivate: closeModal
+    // escapeDeactivates: false
+    onDeactivate: close
   }}
 >
   <div className="modal_wapper">
@@ -86,7 +106,7 @@ return (
           <FormField className="form-modal__content">
             <label
               className="wbh-modal__label"
-              aria-label="Title for Header Asterik-Required"
+              aria-label="Text for footer Asterik-Required"
               for="text"
             >
               Text : <span className="asterik">*</span> 
@@ -103,11 +123,11 @@ return (
               />
               
             </label>
-            {/* {errorMsg.title ?<span className="error">{errorMsg.title}</span>:""} */}
+            {errorMsgEdit.editTitle ?<span className="error">{errorMsgEdit.editTitle}</span>:""}
           </FormField>
         </div>
         <div className="input-field-container footer-modal">
-          <p>Would you like to have Socal Icons in the header section <span className="asterik">*</span> </p>
+          <p>Would you like to have Socal Icons in the Footer section <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" aria-label="Would you like to have social icons Select yes ">
@@ -152,10 +172,11 @@ return (
             <Multiselect
   isObject={false}
   onKeyPressFn={function noRefCheck(){}}
-  onRemove={function noRefCheck(){}}
-id ="multiselect"
+ 
+  id ="multiselect"
   selectedValues={footerData.multiselectValue}
   onSelect={handleSelect}
+  onRemove={handleRemove} 
   options={[
     "LinkedIn",
     "Tiwtter",

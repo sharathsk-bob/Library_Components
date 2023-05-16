@@ -60,7 +60,7 @@ const FooterComponent =()=>{
                     // console.log(element, "elemnet value");
                   
                          if(element==="Tiwtter"){
-                            console.log("twit");
+                          
                             return(<li>
                                 
                                 <a
@@ -77,7 +77,7 @@ const FooterComponent =()=>{
                             
                         } 
                       if(element==="LinkedIn"){
-                        console.log("link");
+                        
                         return(
                             <li>
                         <a
@@ -94,7 +94,7 @@ const FooterComponent =()=>{
                         
                         }
                         if(element==="Instagram"){
-                            console.log("Insta");
+                            // console.log("Insta");
                             return(   <li>
                                 <a
                                   href="https://www.instagram.com/capgemini/"
@@ -110,7 +110,7 @@ const FooterComponent =()=>{
                          
                         }
                         if(element === "Facebook"){
-                            console.log("face");
+                            // console.log("face");
                             return(
                                 <li>
                             <a
@@ -130,7 +130,7 @@ const FooterComponent =()=>{
         
                         }
                         if(element === "You Tube"){
-                            console.log("you");
+                            // console.log("you");
                             return(
                                 <li>
                                 <a
@@ -149,7 +149,7 @@ const FooterComponent =()=>{
                           
                         }
                         if(element === "Glass door"){
-                            console.log("glass");
+                            // console.log("glass");
                             return(<li>
                                 <a
                                   href="https://www.glassdoor.com/Overview/Working-at-Capgemini-EI_IE3803.11,20.htm"
@@ -183,6 +183,6 @@ const FooterComponent =()=>{
           </div>
         </div>
       </>
-    );
+    );  
 };
 export default FooterComponent;

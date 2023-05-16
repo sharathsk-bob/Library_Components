@@ -11,6 +11,7 @@ import ButtonDetail from "../../sub-components/button/button-detail";
 import ButtonForm from "../../sub-components/button/button-form";
 import cgLogo from "../../asset/images/cg_logo.svg";
 import NavbarForm from "../../sub-components/navbar/navbar-form";
+import NavbarDetail from "../../sub-components/navbar/navbar-detail";
 import FooterModal from "../../sub-components/footer/components/footer-modal/footer-modal";
 import FooterDetail from "../../sub-components/footer/components/footer-detail/footer-details";
 const Modal =()=>{
@@ -72,6 +73,9 @@ return(
       <ModalWrapperNavbar>
         <NavbarForm close={closeNavbarForm} />
       </ModalWrapperNavbar>
+      <ModalWrapperNavbarDetail>
+        <NavbarDetail close={closeNavbarDetail} />
+      </ModalWrapperNavbarDetail>
       <ModalWrapperFooter>
 				
         <FooterModal close={closeFooter} />

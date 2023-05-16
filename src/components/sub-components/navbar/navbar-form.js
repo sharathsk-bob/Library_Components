@@ -9,115 +9,159 @@ import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../app-context";
-
 function NavbarForm(props) {
   const { close } = props;
-  const {
-    noOfMenus,
-    eachMenu,
-    basicValues,
-    noOfOptions,
-    dropdownValues,
+  const { numMenus,
+    menus,
+    hasIcons,
     navtheme,
-    showIcons,
-    setNoOfMenus,
-    setEachMenu,
-    setNoOfOptions,
+    setNumMenus,
+    setMenus,
+    setHasIcons,
     setNavTheme,
-    setShowIcons,
-    navValues,
-  } = useContext(AppContext);
-
+    navValues
+    }=useContext(AppContext);
+    const history=useNavigate();
   const [errors, setErrors] = useState({});
-  //const navigate=useNavigate();
-  const [activate, setActivate] = useState(false);
-  const history = useNavigate();
-  // const [addButton, setAddButton] = useState(null);
-  // const [numButtons, setNumButtons] = useState(null);
-  // const [addImage, setAddImage] = useState(null);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const isValid = validateForm();
-    if (isValid) {
-      setActivate(true);
-      history({
-        pathname: "/navbar",
-      });
+
+  const handleNumMenusChange = (event) => {
+    const value = parseInt(event.target.value);
+    if (value >= 1 && value <= 5) {
+      setNumMenus(value);
+      setMenus(Array(value).fill({ type: "basic", text: "" }));
+      setErrors({});
+    
+    } else {
+      setErrors({ numMenus: "Number of menus must be greater than 0" });
     }
   };
-  console.log(navValues);
 
-  // const resetNewCard = () => {
-  //   setTitle("");
-  //   setDescription("");
-  //   setAddButton("");
-  //   setNumButtons("");
-  //   setButton1Text("");
-  //   setButton2Text("");
-  //   setImage("");
-  //   setAddImage("");
-  //   setWidth("");
-  //   setTheme("");
-  // };
   const validateForm = () => {
     let errors = {};
     let isValid = true;
-    if (noOfMenus === "") {
-      errors.noofmenus = "Number of Menu is required";
+    // const isTitleValid = title.length <= 10;
+    // const isDescriptionValid = description.split(" ").length <= 100;
+    // Validate number of menus
+  if (!numMenus || numMenus < 1) {
+    errors.numMenus = "Please enter a valid number of menus";
+    isValid = false;
+  }
+
+  // Validate menu text
+  menus.forEach((menu, i) => {
+    if (menu.type === "dropdown" && menu.options) {
+      menu.options.forEach((option, j) => {
+        if (!option) {
+          errors[`menu${i}Option${j}Text`] = "Please enter option text";
+          isValid = false;
+        }
+      });
+    }
+    if (!menu.text) {
+      errors[`menu${i}Text`] = "Please enter menu text";
       isValid = false;
     }
-    if (navtheme == undefined || navtheme == null || navtheme == "") {
-      errors.theme = "Theme is required";
+
+    // Validate number of options
+    if (menu.type === "dropdown" && (!menu.numOptions || menu.numOptions < 1)) {
+      errors[`menu${i}NumOptions`] = "Please enter a valid number of options";
       isValid = false;
     }
-    // if(showIcons){
-    //   errors.showIcons="please select a"
-    // }
+
+    // Validate option text
+    menu.options?.forEach((option, j) => {
+      if (!option) {
+        errors[`menu${i}Option${j}Text`] = "Please enter option text";
+        isValid = false;
+      }
+    });
+  });
+
+    if (navtheme == undefined || navtheme==null || navtheme=="") {
+      errors.navtheme = "Theme is required";
+      isValid = false;
+    }
+    
+    if (hasIcons == undefined || hasIcons==null || hasIcons=="") {
+      errors.hasIcons = "Please Select an option";
+      isValid = false;
+    }
+
     setErrors(errors);
 
     return isValid;
   };
-  console.log(errors);
 
-  const handleMenuTypeChange = (event, index) => {
-    console.log(event);
-    if (event == "link") {
-      const newEachMenu = basicValues;
-      newEachMenu.type = event;
-      eachMenu.push(newEachMenu);
-    } else if (event == "dropdown") {
-      const newEachMenu = dropdownValues;
-      console.log(newEachMenu);
-      newEachMenu.type = event;
-      eachMenu.push(newEachMenu);
+  const handleMenuTypeChange = (index, type) => {
+    const newMenus = [...menus];
+    if (type === "basic") {
+      newMenus[index] = { type: "basic", text: "" };
+    } else {
+      newMenus[index] = { type: "dropdown", numOptions: 1, options: [""] };
+    }
+    setMenus(newMenus);
+  };
+
+  const handleMenuTextChange = (index, value) => {
+    setMenus((prevMenus) => {
+      const updatedMenus = [...prevMenus];
+      updatedMenus[index] = {
+        ...updatedMenus[index],
+        text: value,
+      };
+      return updatedMenus;
+    });
+  };
+
+  const handleNumOptionsChange = (index, numOptions) => {
+    const newMenus = [...menus];
+    if (numOptions < 1) {
+      setErrors({
+        ...errors,
+        [`menu-${index}-numOptions`]:
+          "Number of options must be greater than 0",
+      });
+    } else {
+      newMenus[index].numOptions = numOptions;
+      if (newMenus[index].options) {
+        newMenus[index].options = newMenus[index].options.slice(0, numOptions);
+      } else {
+        newMenus[index].options = [...Array(numOptions)].map(() => "");
+      }
+      setMenus(newMenus);
+      setErrors({ ...errors, [`menu-${index}-numOptions`]: undefined });
     }
   };
 
-  const handleMenuTextChange = (event, index) => {
-    console.log(event);
-    if (eachMenu[index].type == "link") {
-      const newEachMenu = eachMenu[index];
-      newEachMenu.menuText = event;
-      // eachMenu.push(newEachMenu);
-    } else if (eachMenu[index].type == "dropdown") {
-      const newEachMenu = eachMenu[index];
-      newEachMenu.menuText = event;
-      eachMenu.push(newEachMenu);
+  const handleOptionTextChange = (menuIndex, optionIndex, text) => {
+    const newMenus = [...menus];
+    const newOptions = [...newMenus[menuIndex].options];
+    newOptions[optionIndex] = text;
+    newMenus[menuIndex].options = newOptions;
+    setMenus(newMenus);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const isValid = validateForm();
+    if (isValid) {
+      console.log(navValues);
+      history("/navbarheader");
+    }else{
+      console.log(errors);
     }
   };
   const resetNav = () => {
-    setNoOfMenus("");
-    setEachMenu([]);
-    setNoOfOptions("");
+    setNumMenus(0);
+    setMenus([{ type: "basic", text: "" }]);
+    setHasIcons();
     setNavTheme("");
-    setShowIcons("");
   };
-
   return (
     <FocusTrap
       focusTrapOptions={{
-        escapeDeactivates: false,
-        //onDeactivate: closeModal
+        // escapeDeactivates: false,
+        onDeactivate: close
       }}
     >
       <div className="modal_wapper">
@@ -136,133 +180,162 @@ function NavbarForm(props) {
             </button>
           </div>
           <div className="modal-container">
-            <form
-              className="Form"
-              onSubmit={(event) => handleSubmit(event, navValues)}
-            >
-              <p className="heading-text">
-                Please select the attributes according your prefrence to design
-                the NavBar.
-              </p>
-              <div className="Form-field">
-                <label
-                  htmlFor="noofmenus"
-                  aria-label="Title for Asterik-Required"
-                >
-                  how many menus do you want?<span className="astrick">*</span>
-                </label>
-                <input
-                  type="number"
-                  id="noofmenus"
-                  //value={title}
-                  onChange={(event) => setNoOfMenus(event.target.value)}
-                />
-                {errors.noofmenus && (
-                  <span className="error">{errors.noofmenus}</span>
-                )}
-              </div>
-              {Array.from({ length: noOfMenus }, (_, i) => i + 1).map(
-                (menuIndex) => (
-                  <div className="menu-field" key={`menu-${menuIndex}`}>
-                    <h3 className="menu-header">Menu {menuIndex}</h3>
-                    <div className="Form-field">
-                      <label
-                        htmlFor={`menu-type-${menuIndex}`}
-                        aria-label={`Menu Type for Menu ${menuIndex}`}
-                      >
-                        Menu Type<span className="astrick">*</span>
-                      </label>
-                      <select
-                        id={`menu-type-${menuIndex}`}
-                        onChange={(event) =>
-                          handleMenuTypeChange(
-                            event.target.value,
-                            menuIndex - 1
-                          )
-                        }
-                        //value={eachMenu[menuIndex - 1]?.type || ""}
-                      >
-                        <option value="">Select</option>
-                        <option value="link">Link</option>
-                        <option value="dropdown">Dropdown</option>
-                      </select>
-                      {errors[`menu-type-${menuIndex}`] && (
-                        <span className="error">
-                          {errors[`menu-type-${menuIndex}`]}
-                        </span>
-                      )}
-                    </div>
-                    <div className="Form-field">
-                      <label
-                        htmlFor={`menu-text-${menuIndex}`}
-                        aria-label={`Menu Text for Menu ${menuIndex}`}
-                      >
-                        Menu Text<span className="astrick">*</span>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="num-menus">Number of menus:<span className="astrick">*</span></label>
+              <input
+                type="number"
+                id="num-menus"
+                name="num-menus"
+                min="1"
+                max="5"
+                value={numMenus}
+                onChange={handleNumMenusChange}
+              />
+              {errors.numMenus && <p className="error">{errors.numMenus}</p>}
+              <br />
+              <br />
+
+              {[...Array(numMenus)].map((_, i) => (
+                <div key={i}>
+                  <label htmlFor={`menu-${i}-type`}>Menu {i + 1} type:<span className="astrick">*</span></label>
+                  <select
+                    id={`menu-${i}-type`}
+                    name={`menu-${i}-type`}
+                    value={menus[i].type}
+                    onChange={(event) =>
+                      handleMenuTypeChange(i, event.target.value)
+                    }
+                  >
+                    <option value="basic">Basic</option>
+                    <option value="dropdown">Dropdown</option>
+                  </select>
+                  <br />
+                  <br />
+
+                  <label htmlFor={`menu-${i}-text`}>Menu {i + 1} text:<span className="astrick">*</span></label>
+                  <input
+                    type="text"
+                    id={`menu-${i}-text`}
+                    name={`menu-${i}-text`}
+                    value={menus[i].text}
+                    onChange={(event) =>
+                      handleMenuTextChange(i, event.target.value)
+                    }
+                  />
+                  {errors[`menu${i}Text`] && (
+            <p className="error">{errors[`menu${i}Text`]}</p>
+          )}
+                  <br />
+                  <br />
+
+                  {menus[i].type === "dropdown" && (
+                    <fieldset>
+                      <legend>Options:<span className="astrick">*</span></legend>
+                      <label htmlFor={`menu-${i}-num-options`}>
+                        Number of options:
                       </label>
                       <input
-                        type="text"
-                        id={`menu-text-${menuIndex}`}
+                        type="number"
+                        id={`menu-${i}-num-options`}
+                        name={`menu-${i}-num-options`}
+                        min="1"
+                        value={menus[i].numOptions}
                         onChange={(event) =>
-                          handleMenuTextChange(
-                            event.target.value,
-                            menuIndex - 1
+                          handleNumOptionsChange(
+                            i,
+                            parseInt(event.target.value)
                           )
                         }
-                        //value={eachMenu[menuIndex - 1]?.text || ""}
                       />
-                      {errors[`menu-text-${menuIndex}`] && (
-                        <span className="error">
-                          {errors[`menu-text-${menuIndex}`]}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                )
+                      {errors[`menu${i}NumOptions`] && (
+                <p className="error">{errors[`menu${i}NumOptions`]}</p>
               )}
-              <div className="Form-field">
-                <label htmlFor="showIcons">Show icons</label>
-                <input
-                  type="checkbox"
-                  id="showIcons"
-                  checked={showIcons}
-                  onChange={(event) => setShowIcons(event.target.checked)}
-                />
+                      {[...Array(menus[i].numOptions)].map((_, j) => (
+                        <div key={j}>
+                          <label htmlFor={`menu-${i}-option-${j}`}>
+                            Option {j + 1} text:<span className="astrick">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            id={`menu-${i}-option-${j}`}
+                            name={`menu-${i}-option-${j}`}
+                            value={menus[i].options[j]}
+                            onChange={(event) =>
+                              handleOptionTextChange(i, j, event.target.value)
+                            }
+                          />
+                           {errors[`menu${i}Option${j}Text`] && (
+                    <p className="error">{errors[`menu${i}Option${j}Text`]}</p>
+                  )}
+                          <br />
+                          <br />
+                        </div>
+                      ))}
+                    </fieldset>
+                  )}
+                </div>
+              ))}
+              <div>
+                <label>Navbar icons:<span className="astrick">*</span></label>
+                <div className="nav-icons">
+                <label htmlFor="nav-yes">
+                  <input
+                    type="radio"
+                    id="nav-yes"
+                    name="has-icons"
+                    value="yes"
+                    //checked={hasIcons}
+                    onChange={(event) => setHasIcons(event.target.value)}
+                  />
+                  <div className="tag">
+                      <span className="tag__cat">Yes </span>
+                    </div>
+                </label>
+                <label htmlFor="nav-no">
+                  <input
+                    type="radio"
+                    id="nav-no"
+                    name="has-icons"
+                    value="no"
+                    //checked={!hasIcons}
+                    onChange={(event) => setHasIcons(event.target.value)}
+                  />
+                  <div className="tag">
+                      <span className="tag__cat">No </span>
+                    </div>
+                  </label>
+                  </div>
+                {errors.hasIcons && <p className="error">{errors.hasIcons}</p>}
+              </div>
+              <div>
+                <label htmlFor="theme">Theme:<span className="astrick">*</span></label>
+                <select
+                  id="theme"
+                  name="theme"
+                  value={navtheme}
+                  onChange={(event) => setNavTheme(event.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="Normal">Transparent</option>
+                  <option value="Dark">Dark</option>
+                  <option value="cg1">Capgemini Blue</option>
+                  <option value="cg2">Capgemini Purple</option>
+                </select>
+                {errors.navtheme && <p className="error">{errors.navtheme}</p>}
               </div>
 
-              <div className="Form-field">
-                <label for="theme" aria-label="Theme Asterik-Required">
-                  <p>
-                    Please select the theme colour.
-                    <span className="asterik">*</span>{" "}
-                  </p>
-                  <select
-                    name="theme"
-                    id="theme"
-                    value={navtheme}
-                    onChange={(event) => setNavTheme(event.target.value)}
-                  >
-                    <option value="">Select</option>
-                    <option value="Normal">Transparent</option>
-                    <option value="Dark">Dark</option>
-                    <option value="cg1">Capgemini-blue</option>
-                    <option value="cg2">Capgemini-purple</option>
-                  </select>
-                </label>
-                {errors.theme && <span className="error">{errors.theme}</span>}
-              </div>
-              {/* <button  className="card-button"onClick={handleSubmit}>Submit</button> */}
               <div className="button-section">
-                <div className="link-button">
-                  <Link
-                    type="button"
-                    className="btn btn-primary btn-lg"
-                    onClick={handleSubmit}
-                    aria-label="Submit"
-                  >
-                    Submit
-                  </Link>
-                </div>
+              <div className="link-button">
+                <Link
+                  type="button"
+                  className="btn btn-primary btn-lg"
+                  onClick={handleSubmit}
+                  aria-label="Submit"
+                >
+                  Submit
+                </Link>
               </div>
+            </div>
             </form>
           </div>
         </div>
