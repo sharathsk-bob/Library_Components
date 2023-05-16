@@ -50,7 +50,7 @@ function Form(props) {
     if (isValid) {
       setActivate(true);
       history({
-        pathname: "/cards",
+        pathname: "/cardheader",
       });
     }
   };

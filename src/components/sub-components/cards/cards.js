@@ -6,61 +6,27 @@ import { AppContext } from "../app-context";
 import { useNavigate } from "react-router-dom";
 import useModal from "../use-modal/use-modal";
 import EditCard from "./edit-card";
+import ReactDOMServer from 'react-dom/server';
+import CardHeader from "./card-header";
+import CardHtml from "./card-html";
 
-function Cards() {
-  //const { title,description,actionBtn,btn1,btn2,img }=newCard;
+
+function Cards(props) {
+  //const { title,description,actionBtn,btn1,btn2,img }=props;
   //just
-  const {
-    setTitle,
-    setDescription,
-    setAddButton,
-    setNumButtons,
-    setButton1Text,
-    setButton2Text,
-    setImage,
-    setAddImage,
-    setWidth,
-    setTheme,
 
-  } = useContext(AppContext);
-  const { newCard }=useContext(AppContext);
-  const { open: openEditCards, close: closeEditCards, ModalWrapper: ModalWrapperEditCards } = useModal();
+  //const { props }=useContext(AppContext);
+ 
   //let objectUrl;
-  // if(newCard.image!==null && newCard.image!=='' && newCard.image!==undefined){
-  //   objectUrl = URL.createObjectURL(newCard.image)
+  // if(props.image!==null && props.image!=='' && props.image!==undefined){
+  //   objectUrl = URL.createObjectURL(props.image)
   // }
-  const history = useNavigate();
-  console.log(newCard);
-  const resetNewCard = () => {
-    setTitle("");
-    setDescription("");
-    setAddButton("");
-    setNumButtons("");
-    setButton1Text("");
-    setButton2Text("");
-    setImage("");
-    setAddImage("");
-    setWidth("");
-    setTheme("");
-  };
+ // const history = useNavigate();
   return (
     <>
-    <ModalWrapperEditCards>
-      <EditCard close={closeEditCards} newCard={newCard}/>
-    </ModalWrapperEditCards>
-    <div className="card-component">
-    <div className="card-left">
-    <h1>Card</h1><span> Component</span> 
-        </div> 
-   
-      <div>
-      <button className="backToHome" onClick={()=>{history("/");resetNewCard();}}>Back</button>
-      <button className="edit-card" onClick={openEditCards}>Edit</button>
-      </div>
-    </div>
     <div className="card-container">
-    <div class={`card ${newCard?.theme == "Dark"?"Dark":newCard?.theme == "cg1"?"cg1":newCard?.theme == "cg2"?"cg2":newCard?.theme == "Normal"?"Normal":"" }`} style={{ width:newCard.width }}>
-      <div className="card__img-container" style={{display:newCard.addImage==1?"flex":"none"}}>
+    <div class={`card ${props?.theme == "Dark"?"Dark":props?.theme == "cg1"?"cg1":props?.theme == "cg2"?"cg2":props?.theme == "Normal"?"Normal":"" }`} style={{ width:props?.width }}>
+      <div className="card__img-container" style={{display:props?.addImage==1?"flex":"none"}}>
         {/* {objectUrl?<img
           src={objectUrl}
           class="ui-image bv bw bx by card__img"
@@ -74,46 +40,45 @@ function Cards() {
       </div>
       <div class="card__content">
         <div className="heading_title">
-          <h5 class="card__title my_title">{newCard.title}</h5>
+          <h5 class="card__title my_title">{props?.title}</h5>
         </div>
         <div
           class="card__content-spaced card__actions"
-          title={newCard.description}
+          title={props?.description}
         >
           <span class="card-description">
-          {newCard.description}
+          {props?.description}
           </span>
         </div>
        
         <div class="card-footer-new">
-  {newCard.buttons.length === 2 ? (
+  {props?.buttons?.length === 2 ? (
   <>
     <button
       class="button button--primary card__cta library-add-button"
       aria-label="Listen more about My Mental Health Journey Podcast"
     >
-      {newCard.buttons[1].text}
+      {props?.buttons[1].text}
     </button>
     <button
       class="button button--primary card__cta library-add-button"
       aria-label="Listen more about My Mental Health Journey Podcast"
     >
-      {newCard.buttons[0].text}
+      {props?.buttons[0].text}
     </button>
   </>
-) : newCard.buttons.length=== 1 ? (
+) : props?.buttons?.length=== 1 ? (
   <button
     class="button button--primary card__cta library-add-button"
     aria-label="Listen more about My Mental Health Journey Podcast"
   >
-    {newCard.buttons[0].text}
+    {props?.buttons[0].text}
   </button>
 ) : null}
         </div>
       </div>
     </div>
     </div>
-   
     </>
   );
 }
