@@ -19,7 +19,7 @@ const ButtonDetail =(props)=>{
         <div className="modal-content detail-container">
             <div className="detail-header">
             <p>Buttons</p>
-                <button className="close-button" onClick={close}>
+                <button className="close-button" aria-label="close button details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>

@@ -53,7 +53,6 @@ function EditNav(props) {
     isValid = false;
   }
 
-  // Validate menu text
   formValues.menus.forEach((menu, i) => {
     if (menu.type === "dropdown" && menu.options) {
       menu.options.forEach((option, j) => {
@@ -68,13 +67,11 @@ function EditNav(props) {
       isValid = false;
     }
 
-    // Validate number of options
     if (menu.type === "dropdown" && (!menu.numOptions || menu.numOptions < 1)) {
       errors[`menu${i}NumOptions`] = "Please enter a valid number of options";
       isValid = false;
     }
 
-    // Validate option text
     menu.options?.forEach((option, j) => {
       if (!option) {
         errors[`menu${i}Option${j}Text`] = "Please enter option text";
@@ -184,23 +181,29 @@ function EditNav(props) {
           </div>
           <div className="modal-container">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="num-menus">Number of menus:<span className="astrick">*</span></label>
-              <input
-                type="number"
+            <label htmlFor="num-menus" aria-label="Number of menues for Asterik-Required">
+                Number of menus:<span className="astrick">*</span>
+              </label>
+              <select
                 id="num-menus"
                 name="num-menus"
-                min="1"
-                max="5"
                 value={formValues.numMenus}
                 onChange={handleNumMenusChange}
-              />
+              >
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
               {errors.numMenus && <p className="error">{errors.numMenus}</p>}
               <br />
               <br />
 
               {[...Array(formValues.numMenus)].map((_, i) => (
                 <div key={i}>
-                  <label htmlFor={`menu-${i}-type`}>Menu {i + 1} type:<span className="astrick">*</span></label>
+                  <label htmlFor={`menu-${i}-type`} aria-label="Menu Type for Asterik-Required">Menu {i + 1} type:<span className="astrick">*</span></label>
                   <select
                     id={`menu-${i}-type`}
                     name={`menu-${i}-type`}
@@ -215,7 +218,7 @@ function EditNav(props) {
                   <br />
                   <br />
 
-                  <label htmlFor={`menu-${i}-text`}>Menu {i + 1} text:<span className="astrick">*</span></label>
+                  <label htmlFor={`menu-${i}-text`} aria-label="Menu Text for Asterik-Required">Menu {i + 1} text:<span className="astrick">*</span></label>
                   <input
                     type="text"
                     id={`menu-${i}-text`}
@@ -234,14 +237,12 @@ function EditNav(props) {
                   {formValues.menus[i].type === "dropdown" && (
                     <fieldset>
                       <legend>Options:<span className="astrick">*</span></legend>
-                      <label htmlFor={`menu-${i}-num-options`}>
-                        Number of options:<span className="astrick">*</span>
+                      <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">
+                        Number of options:
                       </label>
-                      <input
-                        type="number"
+                      <select
                         id={`menu-${i}-num-options`}
                         name={`menu-${i}-num-options`}
-                        min="1"
                         value={formValues.menus[i].numOptions}
                         onChange={(event) =>
                           handleNumOptionsChange(
@@ -249,13 +250,20 @@ function EditNav(props) {
                             parseInt(event.target.value)
                           )
                         }
-                      />
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        {/* Add more options as needed */}
+                      </select>
                       {errors[`menu${i}NumOptions`] && (
-                <p className="error">{errors[`menu${i}NumOptions`]}</p>
-              )}
+                        <p className="error">{errors[`menu${i}NumOptions`]}</p>
+                      )}
                       {[...Array(formValues.menus[i].numOptions)].map((_, j) => (
                         <div key={j}>
-                          <label htmlFor={`menu-${i}-option-${j}`}>
+                          <label htmlFor={`menu-${i}-option-${j}`} aria-label="Option Text for Asterik-Required">
                             Option {j + 1} text:<span className="astrick">*</span>
                           </label>
                           <input
@@ -279,9 +287,9 @@ function EditNav(props) {
                 </div>
               ))}
               <div>
-                <label>Navbar icons:<span className="astrick">*</span></label>
+                <label aria-label="Navbar Icon for Asterik-Required">Navbar icons:<span className="astrick">*</span></label>
                 <div className="nav-icons">
-                <label htmlFor="nav-yes">
+                <label htmlFor="nav-yes" aria-label="Select Yes">
                   <input
                     type="radio"
                     id="nav-yes"
@@ -294,7 +302,7 @@ function EditNav(props) {
                       <span className="tag__cat">Yes </span>
                     </div>
                 </label>
-                <label htmlFor="nav-no">
+                <label htmlFor="nav-no" aria-label="Select No">
                   <input
                     type="radio"
                     id="nav-no"
@@ -311,7 +319,7 @@ function EditNav(props) {
                 {errors.hasIcons && <p className="error">{errors.hasIcons}</p>}
               </div>
               <div>
-                <label htmlFor="theme">Theme:<span className="astrick">*</span></label>
+                <label htmlFor="theme" aria-label="Theme for Asterik-Required">Theme:<span className="astrick">*</span></label>
                 <select
                   id="theme"
                   name="navtheme"

@@ -5,6 +5,7 @@
 }
 
 body {
+	overflow: auto !important;
 	background-color: var(--color-grey-white);
 	font-family: "Ubuntu", sans-serif;
 	-webkit-font-smoothing: antialiased;

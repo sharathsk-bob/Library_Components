@@ -28,11 +28,9 @@ const TooltipComponent = ( ) => {
             </div>
             <div className="header-right">
                 <div className="button-section">
-                <Link to="/" className="btn btn-primary btn-lg">
-                    <button class="buttons" aria-label="back to various component homepage">
+                    <Link to="/" className="link-button" aria-label="back to various component homepage">
                         Back
-                    </button>
-                </Link>
+                    </Link>
                     <button class="buttons" aria-label="Edit values for Tooltip Component" onClick={openEditTooltip} >
                         Edit
                     </button>
@@ -58,7 +56,7 @@ const TooltipComponent = ( ) => {
     {activeTab === 0 ? (
         ("")
     ) : (
-        <TooltipHtml newCard={props} />
+        <TooltipHtml data={props} />
     )}
     </div>
       
