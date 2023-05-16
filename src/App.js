@@ -6,6 +6,7 @@ import ButtonComponent from "../src/components/sub-components/button/button";
 import { AppProvider } from './components/sub-components/app-context';
 import Cards from "./components/sub-components/cards/cards";
 import './index.scss';
+import FooterComponent from "../src/components/sub-components/footer/footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="header"element ={<HeaderComponent/>} ></Route>
           <Route exact path="cards"element ={<Cards/>} ></Route>
           <Route path="/button" element ={<ButtonComponent/>} ></Route>
+          <Route exact path="footer"element ={<FooterComponent/>} ></Route>
           
           </Routes>
         </AppProvider> 
