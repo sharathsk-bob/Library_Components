@@ -1,3 +1,6 @@
+@import "../../theme/breakpoints.scss";
+
+
 .footer-section{
     background-color: white;
     height: 100vh;
@@ -70,6 +73,12 @@
    
     align-items: center;
     margin-top: 2px;
+    .left-footer{
+        p{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
         .right-footer{
             .social-nav-wrapper{
 .social-nav{
@@ -157,5 +166,29 @@
                 }
             }
         } 
+    }
+}
+
+@media screen and (max-width: $bp-sm-mobile){
+    .footer-section{
+        .footer-container{
+            display: block;
+            .right-footer{
+                .social-nav-wrapper{
+                    .social-nav{
+                        padding: 0px;
+                        li:first-child{
+                            padding-left: 0px;
+                        }
+                        li{
+                            a{
+                                width:30px;
+                                height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

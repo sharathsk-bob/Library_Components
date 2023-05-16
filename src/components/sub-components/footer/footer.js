@@ -1,5 +1,5 @@
 import "../footer/footer.scss";
-
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import instagramicon from "../../asset/images/Instagram.png";
@@ -10,12 +10,13 @@ import twittericon from "../../asset/images/Twitter.png";
 import youtubeicon from "../../asset/images/YouTube.png";
 import useModal from "../../sub-components/use-modal/use-modal";
 import EditFooterModal from "../footer/components/footer-modal/edit-footer";
-
+import FooterHtml from "./components/footer-modal/footer-html";
 
 const FooterComponent =()=>{
 
     const location = useLocation();
     const { open: openEditFooter, close: closeEditFooter, ModalWrapper: ModalWrapperEditFooter } = useModal();
+    const [activeTab, setActiveTab] = useState(0);
     const props = location.state.footerProps;
    console.log(props, "value");
 
@@ -182,6 +183,24 @@ const FooterComponent =()=>{
             </div>
           </div>
         </div>
+
+
+        <div className="card-tabs">
+        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+            HTML
+        </button>
+        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+            TAB2
+        </button>
+    </div>
+
+    <div className="card-content">
+    {activeTab === 0 ? (
+        ("")
+    ) : (
+        <FooterHtml footerProps={props} />
+    )}
+    </div>
       </>
     );  
 };
