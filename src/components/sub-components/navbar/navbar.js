@@ -1,6 +1,6 @@
 import React, { useContext,useState } from 'react';
 import { AppContext } from '../app-context';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
 import './navbar.scss';
 
 function Navbar(props) {

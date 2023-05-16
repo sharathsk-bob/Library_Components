@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import EditButtonModal from "./edit-button";
+import EditTooltipModal from "./edit-tooltip";
 import useModal from "../../sub-components/use-modal/use-modal";
-import "../header/header.scss";
-import { CustomButton } from "./CustomButton";
-import ButtonHtml from "./button-html";
+import CustomTooltip from "./CustomTooltip";
+import TooltipHtml from "./tooltip-html";
 
-const ButtonComponent = ( ) => {
+// import { CustomTooltip } from "./CustomTooltip";
+
+const TooltipComponent = ( ) => {
   const location = useLocation();
-  const { open: openEditButton, close: closeEditButton, ModalWrapper: ModalWrapperEditButton } = useModal();
+  const { open: openEditTooltip, close: closeEditTooltip, ModalWrapper: ModalWrapperEditTooltip } = useModal();
   const props = location.state.inputs;
 
   const [activeTab, setActiveTab] = useState(0);
-  console.log(props, "props in button");
+  console.log(props, "props in tooltip");
   // const themeClass = {props.themeValue?}
   return (
     <>
-    <ModalWrapperEditButton >
-        <EditButtonModal close={closeEditButton} data={props} />
-	</ModalWrapperEditButton >
+    <ModalWrapperEditTooltip >
+        <EditTooltipModal close={closeEditTooltip} data={props} />
+	</ModalWrapperEditTooltip >
     <div className="header-output">
         <div className="component-header">
             <div className="header-left">
-                <h1>Button </h1> <span> Component</span> 
+                <h1>TooltTip </h1> <span> Component</span> 
             </div>
             <div className="header-right">
                 <div className="button-section">
@@ -32,14 +33,15 @@ const ButtonComponent = ( ) => {
                         Back
                     </button>
                 </Link>
-                    <button class="buttons" aria-label="Edit values for Button Component" onClick={openEditButton} >
+                    <button class="buttons" aria-label="Edit values for Tooltip Component" onClick={openEditTooltip} >
                         Edit
                     </button>
                 </div>
             </div>
         </div>
         <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
-            <CustomButton{...props}/>
+            {/* {CustomTooltip()} */}
+            <CustomTooltip{...props}/>
         </div>
     </div>
 
@@ -56,11 +58,11 @@ const ButtonComponent = ( ) => {
     {activeTab === 0 ? (
         ("")
     ) : (
-        <ButtonHtml newCard={props} />
+        <TooltipHtml newCard={props} />
     )}
     </div>
       
     </>
   );
 };
-export default ButtonComponent;
+export default TooltipComponent;
