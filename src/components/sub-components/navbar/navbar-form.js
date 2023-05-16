@@ -138,7 +138,7 @@ function NavbarForm(props) {
     const isValid = validateForm();
     if (isValid) {
       console.log(navValues);
-      history("/navbar");
+      history("/navbarheader");
     }else{
       console.log(errors);
     }
