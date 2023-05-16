@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 
 
 import closeIcon from "../../../../asset/images/cross-white.png";
-import "../header-detail/header-details.scss";
+// import "../../../header/components/header-detail/header-detail.scss";
 import FocusTrap from "focus-trap-react";
 
-const HeaderDetail =(props)=>{
+const FooterDetail =(props)=>{
    
     
 
@@ -24,7 +24,7 @@ const HeaderDetail =(props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
           <div className="detail-header">
-            <p>Headers</p>
+            <p>Footer</p>
           <button className="close-button" aria-label="Close" onClick={close}>
             <img src={closeIcon}></img>
           </button>
@@ -33,16 +33,15 @@ const HeaderDetail =(props)=>{
     
           <div className="modal-container details-section">
             <h1>
-             Details for the Header section are below.
+             Details for the Footer section are below.
             </h1>
-            <p>Please do follow the given instruction while creating the Header component</p>
+            <p>Please do follow the given instruction while creating the footer component</p>
            <div className="detail-content">
 <ul>
-    <li>Application name should be less than 15 characters.</li>
-    <li>It is mandatory for you to specify whether you want to have app logo.</li>
-    <li>It is mandatory for you to specify whether you want to have profile logo</li>
-    <li>Username should be less than 10 characters</li>
-    <li>It is mandatory for you to specify whether you want capgemini logo in the header section</li>
+    <li>Footer text should be less than 25 characters.</li>
+    <li>User can select the social icons </li>
+    
+    <li>User can select the theme of the footer section</li>
     
 
 </ul>
@@ -56,4 +55,4 @@ const HeaderDetail =(props)=>{
 
    
 };
- export default HeaderDetail;
+ export default FooterDetail;

@@ -84,8 +84,8 @@ const buttonSubmit =(event)=>{
 return (
   <FocusTrap
 			focusTrapOptions={{
-				escapeDeactivates: false
-				//onDeactivate: closeModal
+				// escapeDeactivates: false
+				onDeactivate: close
 			}}
 		>
   <div className="modal_wapper">
@@ -280,7 +280,7 @@ return (
   <select name="theme" id="theme"  value={themeValue}
                 onChange={(event) => setThemeValue(event.target.value)}>
         {/* <option value=""></option>          */}
-    <option value="Normal" selected>Transparent</option>
+    <option value="Normal" selected>Light</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Blue</option>
     <option value="cg2">Purple</option>

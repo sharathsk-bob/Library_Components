@@ -161,8 +161,8 @@ function EditNav(props) {
   return (
     <FocusTrap
       focusTrapOptions={{
-        escapeDeactivates: false,
-        //onDeactivate: closeModal
+        // escapeDeactivates: false,
+        onDeactivate: close
       }}
     >
       <div className="modal_wapper">
