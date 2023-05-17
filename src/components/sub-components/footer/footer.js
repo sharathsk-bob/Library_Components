@@ -21,6 +21,7 @@ const FooterComponent =()=>{
        <ModalWrapperEditFooter>
     <EditFooterModal close={closeEditFooter} data={props} />
 			</ModalWrapperEditFooter>
+      <div className="footer-output">
         <div className="footer-section">
           <div className="component-header">
             <div className="header-left">
@@ -63,6 +64,7 @@ const FooterComponent =()=>{
     ) : (
         <FooterHtml footerProps={props} />
     )}
+    </div>
     </div>
       </>
     );  
