@@ -31,9 +31,10 @@ function EditNav(props) {
       const newMenus = Array.from({ length: value }, (item, index) => {
         return formValues.menus[index] || { type: "basic", text: "" };
       });
-  
-      setNumMenus(value);
-      setMenus(newMenus);
+      const newFormValues = {...formValues, menus: newMenus,numMenus:value};
+      // setNumMenus(value);
+      // setMenus(newMenus);
+      setFormValues(newFormValues)
       setErrors({});
       
     } else {
@@ -55,12 +56,12 @@ function EditNav(props) {
 
   formValues.menus.forEach((menu, i) => {
     if (menu.type === "dropdown" && menu.options) {
-      menu.options.forEach((option, j) => {
-        if (!option) {
+      for (let j = 0; j < menu.numOptions; j++) {
+        if (!menu.options[j]) {
           errors[`menu${i}Option${j}Text`] = "Please enter option text";
           isValid = false;
         }
-      });
+      }
     }
     if (!menu.text) {
       errors[`menu${i}Text`] = "Please enter menu text";
@@ -102,7 +103,8 @@ function EditNav(props) {
     } else {
       newMenus[index] = { type: "dropdown", numOptions: 1, options: [""] };
     }
-    setMenus(newMenus);
+    const newFormValues = {...formValues, menus: newMenus};
+    setFormValues(newFormValues);
   };
 
   const handleMenuTextChange = (index, text) => {
@@ -127,7 +129,8 @@ function EditNav(props) {
       } else {
         newMenus[index].options = [...Array(numOptions)].map(() => "");
       }
-      setMenus(newMenus);
+      const newFormValues = {...formValues, menus: newMenus};
+     setFormValues(newFormValues);
       setErrors({ ...errors, [`menu-${index}-numOptions`]: undefined });
     }
   };
