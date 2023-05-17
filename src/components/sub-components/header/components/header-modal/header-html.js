@@ -1,16 +1,15 @@
 import React from 'react';
-import FooterComponent from '../../footer';
 import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { useEffect } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import Footer from '../footer-main';
+import Header from './header-main';
 
-function FooterHtml(props) {
-    const { footerProps }=props;
+function HeaderHtml(props) {
+    const {  headerVal }=props;
     const sheet = new ServerStyleSheet();
-    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<Footer footerProps={footerProps}/>));
+    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<Header headerVal={headerVal}/>));
     const css = sheet.getStyleTags();
     const lines = html.split('>');
     var indentSize = 2;
@@ -33,4 +32,4 @@ const formattedCode = lines.join('\n');
   )
 }
 
-export default FooterHtml
+export default HeaderHtml;
