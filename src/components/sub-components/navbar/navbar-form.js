@@ -29,8 +29,11 @@ function NavbarForm(props) {
     const value = parseInt(event.target.value);
     console.log(value);
     if (value >= 1 && value <= 5) {
+      const newMenus = Array.from({ length: value }, (item, index) => {
+        return menus[index] || { type: "basic", text: "" };
+      });
       setNumMenus(value);
-      setMenus(Array(value).fill({ type: "basic", text: "" }));
+      setMenus(newMenus);
       setErrors({});
     } else {
       setErrors({ numMenus: "Number of menus must be greater than 0" });
@@ -51,12 +54,12 @@ function NavbarForm(props) {
     // Validate menu text
     menus.forEach((menu, i) => {
       if (menu.type === "dropdown" && menu.options) {
-        menu.options.forEach((option, j) => {
-          if (!option) {
+        for (let j = 0; j < menu.numOptions; j++) {
+          if (!menu.options[j]) {
             errors[`menu${i}Option${j}Text`] = "Please enter option text";
             isValid = false;
           }
-        });
+        }
       }
       if (!menu.text) {
         errors[`menu${i}Text`] = "Please enter menu text";
