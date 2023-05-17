@@ -8,6 +8,12 @@
     background-color: #f5f5f5;
     border-radius: 10px;
   } */
+
+  .card-section{
+    .error{
+      margin-bottom: 0px!important;
+    }
+  }
   form{
     .heading-text{
       margin-bottom: 15px;
@@ -87,7 +93,7 @@
       background-color: white;
       color: var(--color-black);
       margin-top: 10px;
-      min-height: 26px;
+      min-height: 30px;
       width: 98%;
       border: 1.5px solid black;
       border-radius: 4px;
@@ -120,7 +126,7 @@ input[type=radio]:focus + .tag {
     background-color: white;
     color: var(--color-black);
     margin-top: 10px;
-    min-height: 26px;
+    min-height: 30px;
     width: 98%;
     border: 1.5px solid black;
     border-radius: 4px;

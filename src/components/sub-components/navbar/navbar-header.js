@@ -33,6 +33,7 @@ function NavbarHeader() {
     <ModalWrapperEditNavs>
     <EditNav close={closeEditNavs} />
   </ModalWrapperEditNavs>
+  <div className="navbar-component">
     <div className="card-component">
     <div className="card-left">
     <h1>Navbar</h1><span> Component</span> 
@@ -64,6 +65,7 @@ function NavbarHeader() {
   ) : (
     <NavbarHtml navValues={navValues} />
   )}
+</div>
 </div>
     </>
   )

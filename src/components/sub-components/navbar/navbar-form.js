@@ -183,9 +183,9 @@ function NavbarForm(props) {
               <img src={closeIcon}></img>
             </button>
           </div>
-          <div className="modal-container">
+          <div className="modal-container navbar-container">
             <form onSubmit={handleSubmit}>
-              <div className="Form-field">
+              <div className="navbar-fields Form-field">
               <label htmlFor="num-menus" aria-label="Number of menues for Asterik-Required">
                 Number of menus:<span className="astrick" >*</span>
               </label>
@@ -206,7 +206,8 @@ function NavbarForm(props) {
               </div>
 
               {[...Array(numMenus)].map((_, i) => (
-                <div  key={i}>
+                <div  className="menu-container" key={i}>
+                  <div className="sub-menu">
                   <label htmlFor={`menu-${i}-type`} aria-label="Menu Type for Asterik-Required">
                     Menu {i + 1} type:<span className="astrick">*</span>
                   </label>
@@ -221,8 +222,10 @@ function NavbarForm(props) {
                     <option value="basic">Basic</option>
                     <option value="dropdown">Dropdown</option>
                   </select>
-                  <br/>
-                  <br/>
+                  </div>
+                  {/* <br/>
+                  <br/> */}
+                  <div className="sub-menu">
                   <label htmlFor={`menu-${i}-text`} aria-label="Menu Text for Asterik-Required">
                     Menu {i + 1} text:<span className="astrick">*</span>
                   </label>
@@ -235,17 +238,15 @@ function NavbarForm(props) {
                       handleMenuTextChange(i, event.target.value)
                     }
                   />
+                  </div>
                   {errors[`menu${i}Text`] && (
                     <p className="error">{errors[`menu${i}Text`]}</p>
                   )}
              
-                  <br/>
-                  <br/>
+                  {/* <br/>
+                  <br/> */}
                   {menus[i].type === "dropdown" && (
-                    <fieldset>
-                      <legend>
-                        Options:<span className="astrick">*</span>
-                      </legend>
+                    <div className="drop-down-submenus">
                       <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">
                         Number of options:
                       </label>
@@ -272,7 +273,7 @@ function NavbarForm(props) {
                       )}
 
                       {[...Array(menus[i].numOptions)].map((_, j) => (
-                        <div key={j}>
+                        <div className="drop-down-submenus" key={j}>
                           <label htmlFor={`menu-${i}-option-${j}`} aria-label="Option Text for Asterik-Required">
                             Option {j + 1} text:
                             <span className="astrick">*</span>
@@ -294,15 +295,15 @@ function NavbarForm(props) {
    
                         </div>
                       ))}
-                    </fieldset>
                     
+                    </div>
                   )}
-                    <br/>
+                    {/* <br/> */}
                 </div>
               ))}
-                  <br/>
+                
 
-              <div>
+              <div className=" navbar-fields icon-container">
                 <label aria-label="Navbar Icon for Asterik-Required">
                   Navbar icons:<span className="astrick">*</span>
                 </label>
@@ -336,7 +337,7 @@ function NavbarForm(props) {
                 </div>
                 {errors.hasIcons && <p className="error">{errors.hasIcons}</p>}
               </div>
-              <div>
+              <div className=" navbar-fields theme-container">
                 <label htmlFor="theme" aria-label="Theme for Asterik-Required">
                   Theme:<span className="astrick">*</span>
                 </label>
@@ -349,9 +350,9 @@ function NavbarForm(props) {
                   <option value="">Select</option>
                   <option value="Normal">Transparent</option>
                   <option value="Dark">Dark</option>
-                  <option value="cg1">Capgemini Blue</option>
-                  <option value="cg2">Capgemini Purple</option>
-                </select>
+                  <option value="cg1">Blue</option>
+                  <option value="cg2">Purple</option>
+                </select> 
                 {errors.navtheme && <p className="error">{errors.navtheme}</p>}
               </div>
 

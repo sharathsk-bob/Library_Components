@@ -1,7 +1,22 @@
 .nav-icons{
     display: flex;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
 }
-form .Form-field{
-    margin-bottom: 0px;
+.navbar-container{
+   
+    .error{
+        margin-bottom: 0px!important;
+    }
+    .navbar-fields{
+        margin-bottom: 14px;
+    }
+    .menu-container{
+        margin-bottom: 14px;
+        .sub-menu{
+            margin-bottom: 14px;
+        }
+        .drop-down-submenus{
+            margin-top: 10px;
+        }
+    }
 }

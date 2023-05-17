@@ -110,12 +110,12 @@ function Form(props) {
       isValid = false;
     }
     if (numButtons == 1 && button1Text.trim() === "") {
-      errors.buttons = "Button 1 text is required";
+      errors.buttons = "Button text is required";
       isValid = false;
     }
 
     if (numButtons == 2 && button1Text.trim() === "") {
-      errors.buttons = "Button 2 text is required";
+      errors.buttons = "Button text is required";
       isValid = false;
     }
 
@@ -127,7 +127,7 @@ function Form(props) {
       button1Text.trim() !== "" &&
       button2Text.trim() === ""
     ) {
-      errors.buttons = "At least one button text is required";
+      errors.buttons = "Button text is required";
       isValid = false;
     }
     if (addImage === "") {
@@ -167,15 +167,15 @@ function Form(props) {
             <img src={closeIcon}></img>
           </button>
         </div>
-        <div className="modal-container">
+        <div className="modal-container card-section">
           <form
             className="Form"
             onSubmit={(event) => handleSubmit(event, newCard)}
           >
-            <p className="heading-text">
+            {/* <p className="heading-text">
               Please select the attributes according your prefrence to design
               the Card.
-            </p>
+            </p> */}
             <div className="Form-field">
               <label htmlFor="title" aria-label="Title for Asterik-Required" >
                 Title: <span className="astrick">*</span>
@@ -401,8 +401,8 @@ function Form(props) {
                   <option value="">Select</option>
                   <option value="Normal">Transparent</option>
                   <option value="Dark">Dark</option>
-                  <option value="cg1">Capgemini-blue</option>
-                  <option value="cg2">Capgemini-purple</option>
+                  <option value="cg1">Blue</option>
+                  <option value="cg2">Purple</option>
                 </select>
               </label>
               {errors.theme && <span className="error">{errors.theme}</span>}

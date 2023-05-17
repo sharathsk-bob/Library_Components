@@ -390,8 +390,8 @@ return (
                         <option value="">--</option>         
                         <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
-                        <option value="cg1">Capgemini-blue</option>
-                        <option value="cg2">Capgemini-purple</option>
+                        <option value="cg1">Blue</option>
+                        <option value="cg2">Purple</option>
                     </select>
                 </label>
             </FormField>
