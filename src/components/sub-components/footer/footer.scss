@@ -189,6 +189,53 @@ transition: all .2s ease-out;
 .footer-output{
     background-color: #ffff;
 }
+// .tooltip{
+//     visibility: hidden;
+
+// // display: block;
+
+//  position: relative;
+
+//  top: -110%;
+
+//  width:65px;
+
+// left: 30%;
+
+// transform: translate(-50%, 0);
+
+// margin-top: 0.1rem;
+
+// //  padding: 0.1rem 10px;
+
+//  font-size: 0.7rem;
+
+//  font-weight: 500;
+
+//  white-space: nowrap;
+
+// color: #000;
+
+//  border-radius: 50px; background-color: #f7f7f7;
+
+//  pointer-events: none;
+
+// -webkit-user-select: none;
+
+// user-select: none;
+
+//  text-align: center;
+
+// }
+// .li:hover + .tooltip{
+
+//    background-color: #f7f7f7;
+    
+//     border-color: black;
+    
+//      visibility: visible;
+    
+    //  }
 @media screen and (max-width: $bp-sm-mobile){
     .footer-section{
         .footer-container{

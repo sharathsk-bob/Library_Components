@@ -28,6 +28,7 @@ function Footer(props) {
                           target="_blank"
                           class="footer-class"
                           rel="noopener noreferrer"
+                          title="Twitter"
                         >
                           <img src={twittericon} class="social-icon-footer" />
                           {/* <span class="sr-only">Twitter</span> */}
@@ -44,11 +45,12 @@ function Footer(props) {
                   href="https://www.linkedin.com/company/capgemini"
                   target="_blank"
                   class="footer-class"
-                  title="Opens in a new window"
+                  title="LinkedIn"
                   rel="noopener noreferrer"
                 >
                   <img src={linkedinicon} class="social-icon-footer" />
                 </a>
+                {/* <span aria-hidden="true" class="tooltip">LinkedIn</span> */}
               </li>
                 );
                 
@@ -61,10 +63,12 @@ function Footer(props) {
                           target="_blank"
                           class="footer-class"
                           rel="noopener noreferrer"
+                          title="Instagram"
                         >
                           <img src={instagramicon} class="social-icon-footer" />
                           
                         </a>
+                        {/* <span aria-hidden="true" class="tooltip">Instagram</span> */}
                       
                       </li>);
                  
@@ -77,13 +81,13 @@ function Footer(props) {
                       href="https://www.facebook.com/Capgemini/"
                       target="_blank"
                       class="footer-class"
-                      title="Opens in a new window"
+                      title="Facebook"
                       rel="noopener noreferrer"
                     >
                       <img src={facebookicon} class="social-icon-footer" />
                      
                     </a>
-                   
+                    {/* <span aria-hidden="true" class="tooltip">Facebook</span> */}
                   </li>
                     );
                     
@@ -97,13 +101,13 @@ function Footer(props) {
                           href="https://www.youtube.com/user/capgeminimedia"
                           target="_blank"
                           class="footer-class"
-                          title="Opens in a new window"
+                          title="Youtube"
                           rel="noopener noreferrer"
                         >
                           <img src={youtubeicon} class="social-icon-footer" />
                           
                         </a>
-                        
+                        {/* <span aria-hidden="true" class="tooltip">YouTube</span> */}
                       </li>
                     );
                   
@@ -115,11 +119,12 @@ function Footer(props) {
                           href="https://www.glassdoor.com/Overview/Working-at-Capgemini-EI_IE3803.11,20.htm"
                           target="_blank"
                           class="footer-class"
-                          title="Opens in a new window"
+                          title="Glass Door"
                           rel="noopener noreferrer"
                         >
                           <img src={glassdooricon} class="social-icon-footer" />
                         </a>
+                        {/* <span aria-hidden="true" class="tooltip">Glassdoor</span> */}
                       </li>);
                     
                 }
