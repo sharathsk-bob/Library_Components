@@ -248,6 +248,7 @@ function EditNav(props) {
                     //     Number of options:
                     //   </label>
                     <div className="drop-down-submenus">
+                      <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">Options:<span className="astrick">*</span></label>
                       <select
                         id={`menu-${i}-num-options`}
                         name={`menu-${i}-num-options`}
