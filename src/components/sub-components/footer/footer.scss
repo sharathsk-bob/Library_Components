@@ -2,13 +2,13 @@
 
 
 .footer-section{
-    background-color: white;
+    background-color: var(--color-white);
     //height: 100vh;
     .component-header{
         display: flex;
         
     justify-content: space-between;
-    box-shadow: 4px -2px 9px grey;
+    box-shadow: 4px -2px 9px var(--color-grey-light);
     align-items: center;
     padding: 15px;
     // margin: 0px 31px;
@@ -21,7 +21,7 @@
             text-transform: uppercase;
             font-weight: 700;
             margin: 0;
-            color: #0070ad;
+            color: var(--color-capgemini-blue);
             margin-left: 10px !important;
         }
         span{
@@ -29,7 +29,7 @@
             text-transform: uppercase;
             // font-weight: 800;
             margin: 0;
-            color: #333;
+            color: var(--color-black);
             margin-left: 10px !important;
         }
     }
@@ -43,9 +43,9 @@
         padding: 0.5rem;
         
         font-weight: bold;
-        background-color: #0070AD;
-        border-color: #0070AD;
-        color: #fff;
+        background-color: var(--color-capgemini-blue);
+        border-color: var(--color-capgemini-blue);
+        color: var(--color-white);
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -57,9 +57,9 @@
                 padding: 0.5rem;
                 
                 font-weight: bold;
-                background-color: #0070AD;
-                border-color: #0070AD;
-                color: #fff;
+                background-color: var(--color-capgemini-blue);
+                border-color: var(--color-capgemini-blue);
+                color: var(--color-white);
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
@@ -93,10 +93,10 @@
             // transition: all .2s ease-out;
     overflow: hidden;
     position: relative;
-    border: 1px solid #15011d;
-    background-color: white;
+    border: 1px solid var(--color-purple-wbh);
+    background-color: var(--color-white);
     border-radius: 50%;
-    color: #15011d;
+    color: var(--color-purple-wbh);
     background: 0 0;
     width: 40px;
     height: 40px;
@@ -108,8 +108,8 @@
     background-image: linear-gradient(to left,
     transparent,
     transparent 50%,
-    #01d1d0 50%,
-    #01d1d0);
+    var(--color-turquoise-blue) 50%,
+    var(--color-turquoise-blue));
 background-position: 100% 0;
 background-size: 200% 100%;
 transition: all .2s ease-out;
@@ -128,16 +128,16 @@ transition: all .2s ease-out;
             }
         }
         a:focus-within{
-            color: #15011d;
-    border-color: #01d1d0;
-    background-color:  #01d1d0;
+            color: var(--color-purple-wbh);
+    border-color: var(--color-turquoise-blue);
+    background-color:  var(--color-turquoise-blue);
     box-shadow: 0 6px 30px 0 rgba(0,0,0,.2);
     transform: scale(1.2);
     z-index: 1;
         }
         a:hover{
-            color: #15011d;
-    border-color: #01d1d0;
+            color: var(--color-purple-wbh);
+    border-color: var(--color-turquoise-blue);
     // background-color:  #01d1d0;
     box-shadow: 0 6px 30px 0 rgba(0,0,0,.2);
     // transform: scale(1.2);
@@ -155,7 +155,7 @@ transition: all .2s ease-out;
                 .social-nav{
                     li{
                         a{
-                            background-color: white;
+                            background-color: var(--color-white);
                         }
                     }
                 }
@@ -168,7 +168,7 @@ transition: all .2s ease-out;
                 .social-nav{
                     li{
                         a{
-                            background-color: white;
+                            background-color: var(--color-white);
                         }
                     }
                 }
@@ -181,7 +181,7 @@ transition: all .2s ease-out;
                 .social-nav{
                     li{
                         a{
-                            background-color: white;
+                            background-color: var(--color-white);
                         }
                     }
                 }
@@ -190,7 +190,7 @@ transition: all .2s ease-out;
     }
 }
 .footer-output{
-    background-color: #ffff;
+    background-color: var(--color-white);
 }
 // .tooltip{
 //     visibility: hidden;
