@@ -298,7 +298,7 @@ return (
             
            <Link
 
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary"
               onClick={buttonSubmit}
             >
               Submit
