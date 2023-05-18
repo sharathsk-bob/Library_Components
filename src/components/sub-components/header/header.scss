@@ -43,16 +43,16 @@
     
 }
 .Dark{
-    background-color: black;
+    background-color: var(--color-black);
     
    
-    color: #ffff !important;
+    color:  var(--color-white) !important;
 }
 .cg1{
     background-color:var(--color-capgemini-blue);
     
    
-    color: #ffff !important; 
+    color:  var(--color-white) !important; 
     .cg-logo{
         // background-color: white;
         // padding: 4px;
@@ -60,10 +60,10 @@
     } 
 }
 .Cg2{
-    background-color:#2b0a3d;
+    background-color: var(--color-purple-wbh);
     
    
-    color: #ffff !important;  
+    color:  var(--color-white) !important;  
     .cg-logo{
         // background-color: white;
         // padding: 4px;
@@ -80,7 +80,7 @@
         display: flex;
         
     justify-content: space-between;
-    box-shadow: 4px -2px 9px grey;
+    box-shadow: 4px -2px 9px var(--color-grey-wbh);
     align-items: center;
     padding: 15px;
     // margin: 0px 31px;
@@ -93,7 +93,7 @@
             text-transform: uppercase;
             font-weight: 700;
             margin: 0;
-            color: #0070ad;
+            color: var(--color-capgemini-blue);
             margin-left: 10px !important;
         }
         span{
@@ -101,7 +101,7 @@
             text-transform: uppercase;
             font-weight: 700;
             margin: 0;
-            color: #333;
+            color: var(--color-black);
             margin-left: 10px !important;
         }
     }
@@ -115,9 +115,9 @@
         padding: 0.5rem;
         
         font-weight: bold;
-        background-color: #0070AD;
-        border-color: #0070AD;
-        color: #fff;
+        background-color:  var(--color-capgemini-blue);
+        border-color:  var(--color-capgemini-blue);
+        color:  var(--color-white);
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -129,9 +129,9 @@
                 padding: 0.5rem;
                 
                 font-weight: bold;
-                background-color: #0070AD;
-                border-color: #0070AD;
-                color: #fff;
+                background-color:  var(--color-capgemini-blue);
+                border-color:  var(--color-capgemini-blue);
+                color:  var(--color-white);
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
@@ -141,7 +141,7 @@
     }
 }
 .normal-header{
-    background-color: #fff;
+    background-color:  var(--color-white);
     // height: 100vh;
 }
 

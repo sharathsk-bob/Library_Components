@@ -24,9 +24,9 @@
     .detail-header{
        display: flex;
        justify-content: space-between;
-       background-color: #0070AD;
+       background-color: var(--color-capgemini-blue);
        padding: 0.8em;
-       color: #fff;
+       color:  var(--color-white);
        .close-button{
         border: none; 
     background: transparent;
