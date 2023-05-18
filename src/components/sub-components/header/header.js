@@ -10,10 +10,10 @@ const HeaderComponent = ( ) => {
   const location = useLocation();
   const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
   const props = location.state.headerProps;
-  console.log(location.state.headerProps, "props in header");
+  // console.log(location.state.headerProps, "props in header");
   const [activeTab, setActiveTab] = useState(0);
   
-  // const themeClass = {props.themeValue?}
+ 
   return (
     <>
     <ModalWrapperEditHeader>
@@ -26,18 +26,18 @@ const HeaderComponent = ( ) => {
         </div>
         <div className="header-right"> 
         <div className="button-section">
-        {/* <div  className="buttons"> */}
+       
         <Link
               to="/"
-              // state={headerData}
+             
               className="link-button"
              
             >
               Back
             </Link>
-        {/* </div> */}
+    
                 
-                {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
+             
                 <button class="buttons" onClick={openEditHeader} >
                   Edit
                 </button>

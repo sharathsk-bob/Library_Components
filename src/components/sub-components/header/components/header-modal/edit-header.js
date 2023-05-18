@@ -12,7 +12,7 @@ const EditHeaderModal =(props)=>{
 	
   const [errorMsgEdit, setErrorMsgEdit] = useState({});
 
-  // const { headerProps, setHeaderProps } = useContext(AppContext);
+  
 	const{close, data} = props;
 	   
 
@@ -37,9 +37,7 @@ const EditHeaderModal =(props)=>{
   
   
   let editError = {};
-  //  let headerProps ={
-  //   headerData
-  //  };
+  
   const headerProps = headerData;
    const checkValidation = () => {
      
@@ -55,20 +53,20 @@ const EditHeaderModal =(props)=>{
          errorflag = false;
        }
      }
-    //  console.log(editError, "object value");
+   
      setErrorMsgEdit(editError);
      return errorflag;
    };
 const onSubmit =  (event)=>{
   event.preventDefault();
   const checkEditValid =   checkValidation();
-  // setHeaderProps(headerData);
+
 
 
   if(checkEditValid){
    
     close();
-    // console.log( headerProps.headerData, "err value");
+   
     navigationheader("/header", {state: {headerProps}});
     
   }
