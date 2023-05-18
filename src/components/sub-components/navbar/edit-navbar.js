@@ -248,6 +248,7 @@ function EditNav(props) {
                     //     Number of options:
                     //   </label>
                     <div className="drop-down-submenus">
+                      <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">Options:<span className="astrick">*</span></label>
                       <select
                         id={`menu-${i}-num-options`}
                         name={`menu-${i}-num-options`}
@@ -298,7 +299,7 @@ function EditNav(props) {
               <div className=" navbar-fields icon-container">
                 <label aria-label="Navbar Icon for Asterik-Required">Navbar icons:<span className="astrick">*</span></label>
                 <div className="nav-icons">
-                <label htmlFor="nav-yes" aria-label="Select Yes">
+                <label htmlFor="nav-yes" aria-label="Select Yes for Navbar Icon">
                   <input
                     type="radio"
                     id="nav-yes"
@@ -311,7 +312,7 @@ function EditNav(props) {
                       <span className="tag__cat">Yes </span>
                     </div>
                 </label>
-                <label htmlFor="nav-no" aria-label="Select No">
+                <label htmlFor="nav-no" aria-label="Select No for Navbar Icon">
                   <input
                     type="radio"
                     id="nav-no"
@@ -352,7 +353,7 @@ function EditNav(props) {
                   onClick={handleSubmit}
                   aria-label="Submit"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
             </div>

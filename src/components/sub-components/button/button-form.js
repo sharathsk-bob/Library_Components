@@ -39,7 +39,7 @@ const ButtonForm =(props)=>{
         // errors.btnnum = "Number of buttons needs to be specified!"; 
         // }
 
-        if (values.btntext == undefined) {
+        if (values.btntext == undefined || values.btntext == "") {
         errors.btntext = "Text is required"; 
         } else if (values.btntext !== undefined) {
             if(values.btntext.length > 15){
@@ -360,8 +360,8 @@ return (
                 </label>
             </FormField>
             </div>
-            <p className='error'>{inputErrors.size}</p>
         </div>
+        <p className='error'>{inputErrors.size}</p>
 
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">

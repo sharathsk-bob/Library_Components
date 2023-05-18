@@ -103,7 +103,7 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>Header</p>
+            <p>Tooltip</p>
                 <button className="close-button" aria-label="close edit button modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>

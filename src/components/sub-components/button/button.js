@@ -6,6 +6,7 @@ import useModal from "../../sub-components/use-modal/use-modal";
 import "../header/header.scss";
 import { CustomButton } from "./CustomButton";
 import ButtonHtml from "./button-html";
+import Button from "./button-main";
 
 const ButtonComponent = ( ) => {
   const location = useLocation();
@@ -36,9 +37,10 @@ const ButtonComponent = ( ) => {
                 </div>
             </div>
         </div>
-        <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
+        {/* <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
             <CustomButton{...props}/>
-        </div>
+        </div> */}
+        <Button ButtonProps = {props} />
     </div>
 
     <div className="card-tabs">
@@ -54,7 +56,7 @@ const ButtonComponent = ( ) => {
     {activeTab === 0 ? (
         ("")
     ) : (
-        <ButtonHtml data={props} />
+        <ButtonHtml ButtonProps = {props} />
     )}
     </div>
       

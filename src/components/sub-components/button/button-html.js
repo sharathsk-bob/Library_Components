@@ -4,11 +4,12 @@ import { ServerStyleSheet } from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CustomButton } from './CustomButton';
+import Button from './button-main';
 
 function ButtonHtml(props) {
-    const { data }=props;
+    const { ButtonProps } = props;
     const sheet = new ServerStyleSheet();
-    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<CustomButton {...data}/>));
+    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<Button ButtonProps = {ButtonProps}/>));
     const css = sheet.getStyleTags();
     const lines = html.split('>');
     var indentSize = 2;
@@ -29,9 +30,9 @@ const formattedCode = lines.join('\n');
             <SyntaxHighlighter language="html" style={coy}>
                 {formattedCode}
             </SyntaxHighlighter>
-            <SyntaxHighlighter language="css" style={coy}>
+            {/* <SyntaxHighlighter language="css" style={coy}>
                 {css}
-            </SyntaxHighlighter>
+            </SyntaxHighlighter> */}
         </>
     )
 }

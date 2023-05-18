@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import EditTooltipModal from "./edit-tooltip";
 import useModal from "../../sub-components/use-modal/use-modal";
-import CustomTooltip from "./CustomTooltip";
+//import CustomTooltip from "./CustomTooltip";
 import TooltipHtml from "./tooltip-html";
-
-// import { CustomTooltip } from "./CustomTooltip";
+import Tooltip from "./tooltip-main";
+import './tooltip.scss';
 
 const TooltipComponent = ( ) => {
   const location = useLocation();
@@ -37,10 +37,11 @@ const TooltipComponent = ( ) => {
                 </div>
             </div>
         </div>
-        <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
-            {/* {CustomTooltip()} */}
-            <CustomTooltip{...props}/>
-        </div>
+        <Tooltip TooltipProps = {props} />
+        {/* <div className= {`button-content ${props?.themeValue == "Dark"?"Dark":props?.themeValue == "cg1"?"cg1":props?.themeValue == "cg2"?"Cg2":props?.themeValue == "Normal"?"Normal":"" }`}>
+            <CustomTooltip {...props}/>
+        </div> */}
+
     </div>
 
     <div className="card-tabs">
@@ -56,7 +57,7 @@ const TooltipComponent = ( ) => {
     {activeTab === 0 ? (
         ("")
     ) : (
-        <TooltipHtml data={props} />
+        <TooltipHtml TooltipProps ={props} />
     )}
     </div>
       

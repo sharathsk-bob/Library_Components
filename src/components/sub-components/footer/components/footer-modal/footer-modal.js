@@ -95,7 +95,7 @@ return (
           <FormField className="form-modal__content">
             <label
               className="wbh-modal__label"
-              aria-label="Title for Header Asterik-Required"
+              aria-label="Title for Footer Asterik-Required"
               for="text"
             >
               Text : <span className="asterik">*</span> 
@@ -116,7 +116,7 @@ return (
           </FormField>
         </div>
         <div className="input-field-container footer-modal">
-          <p>Would you like to have Socal Icons in the header section <span className="asterik">*</span> </p>
+          <p>Would you like to have Social Icons in the footer section <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" aria-label="Would you like to have social icons Select yes ">

@@ -125,10 +125,10 @@ return(
             ) :  
             data === "Footer" ? (
               <div className="modal-button_section">
-                <button  type="button" aria-label="Details button for card component" class="buttons" onClick={openFooterDetail}>
+                <button  type="button" aria-label="Details button for footer component" class="buttons" onClick={openFooterDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Create button for card component" class="buttons" onClick={openFooter}>
+                <button type="button" aria-label="Create button for footer component" class="buttons" onClick={openFooter}>
                   Create
                 </button>
               </div>
