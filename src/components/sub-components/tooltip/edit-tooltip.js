@@ -26,9 +26,7 @@ const EditTooltipModal = (props)=>{
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // console.log("event :", e.target.type);
         setInputs({ ...inputs, [name]: value });
-        //console.log("In handleChange>>>",inputs);
     };
 
     const TooltipProps = {
@@ -66,8 +64,6 @@ const EditTooltipModal = (props)=>{
         if(values.Choice_Theme === undefined || values.Choice_Theme === ''){
             errors.theme = "Please select the theme value from the dropdown";
         }
-
-        // console.log("In Validation function>>>",errors);  
         return errors;
     };
 
@@ -77,26 +73,19 @@ const EditTooltipModal = (props)=>{
         let validerrors= await checkValidation(inputs);
         setInputErrors(validerrors);
 
-        //console.log("OnSubmit>>>",Object.keys(validerrors).length);
-
         if(Object.keys(validerrors).length === 0)
         {
-        // console.log("Validation Success >>>> Errors Gone", validerrors);
-        //alert("Successfully Submitted");
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
         navigate("/tooltip", {state: {inputs}});
         close();
-        //window.location.reload(true);
         } else {
-        // console.log("Validation Failed >>>> Errors Present", validerrors);
         }
     };
 
 return (
     <FocusTrap
         focusTrapOptions={{
-            //escapeDeactivates: false
             onDeactivate: close
         }}
     >

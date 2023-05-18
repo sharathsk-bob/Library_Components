@@ -9,7 +9,6 @@ const TooltipDetail = (props)=>{
     return (
         <FocusTrap
 			focusTrapOptions={{
-				//escapeDeactivates: false
 				onDeactivate: close
 			}}
 		>

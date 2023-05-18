@@ -12,9 +12,6 @@ const TooltipForm =(props)=>{
     const {close} = props;
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
-
-    // const [BorderRadius, setBorderRadius] = useState("");
-    // const [BoxShadow, setBoxShadow] = useState("");
     const [themeValue, setThemeValue] = useState();
     const [directionValue, setDirectionValue] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
@@ -22,15 +19,12 @@ const TooltipForm =(props)=>{
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // console.log("event :", e.target.type);
         setInputs({ ...inputs, [name]: value });
-        //console.log("In handleChange>>>",inputs);
     };
 
     const checkValidation = (values) => {
 
         let errors = {};
-        // console.log("Errors are being checked");
 
         if (values.icontext == undefined || values.icontext === '') {
         errors.icontext = "Icon Text is required"; 
@@ -59,8 +53,6 @@ const TooltipForm =(props)=>{
         } else {
             inputs.Choice_Theme = themeValue;
         }
-
-        // console.log("In Validation function>>>",errors);  
         return errors;
     };
 
@@ -69,19 +61,12 @@ const TooltipForm =(props)=>{
         e.preventDefault();
         let validerrors= await checkValidation(inputs);
         setInputErrors(validerrors);
-
-        //console.log("OnSubmit>>>",Object.keys(validerrors).length);
-
         if(Object.keys(validerrors).length === 0)
         {
-        // console.log("Validation Success >>>> Errors Gone", validerrors);
-        //alert("Successfully Submitted");
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
         navigate("/tooltip", {state: {inputs}});
-        //window.location.reload(true);
         } else {
-        // console.log("Validation Failed >>>> Errors Present", validerrors);
         }
         
     };

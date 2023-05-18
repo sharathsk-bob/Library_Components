@@ -27,40 +27,12 @@ const EditButtonModal = (props)=>{
     const navigate = useNavigate()
 
     const [inputErrors, setInputErrors] = useState({});
-
-    // const [BorderRadius, setBorderRadius] = useState("");
-    // const [BoxShadow, setBoxShadow] = useState("");
-    // const [themeValue, setThemeValue] = useState();
-    // const [sizeValue, setSizeValue] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // console.log("event :", e.target.type);
         setInputs({ ...inputs, [name]: value });
-        //console.log("In handleChange>>>",inputs);
     };
-
-
-    // const handleChange = (e) => {
-    //     // const { name, value } = e.target;
-    //     console.log("event :", e.target.value);
-    //     // setInputs({ ...inputs, [name]: value });
-    //     if (e.target.id === "btntext") {
-    //         setInputs({ ...inputs, btntext: e.target.value });
-    //       } else if (e.target.name === "Choice_BorderRadius") {
-    //         setBorderRadius({ ...inputs, Choice_BorderRadius: e.target.value });
-    //       } else if (e.target.name === "Choice_BoxShadow") {
-    //         setBoxShadow({ ...inputs, Choice_BoxShadow: e.target.value });
-    //       } else if (e.target.name === "border_radius") {
-    //         setInputs({ ...inputs, border_radius: e.target.value });
-    //       } else if (e.target.name === "Choice_Size") {
-    //         setSizeValue({sizeValue, Choice_Size: e.target.value });
-    //       } else {
-    //         setThemeValue({themeValue, themeValue: e.target.value });
-    //       }
-    //     console.log("Are inputs clear????", inputs);
-    // };
 
     const ButtonProps = {
         ButtonText: inputs.btntext,
@@ -114,10 +86,6 @@ const EditButtonModal = (props)=>{
         if(values.Choice_BoxShadow === ""){
             errors.BoxShadow = "Please make decision for Box Shadow field";
         } 
-
-        // if (!values.box_shadow) { 
-        //     errors.box_shadow = "Please enter a Box Shadow value"; 
-        // } 
     
         if (values.Choice_Size === undefined || values.Choice_Size === "") { 
             errors.size = "Please select a padding value button";
@@ -130,8 +98,6 @@ const EditButtonModal = (props)=>{
         if(values.Choice_Theme === undefined || values.Choice_Theme === ""){
             errors.theme = "Please select the value from the dropdown";
         }
-
-        // console.log("In Validation function>>>",errors);  
         return errors;
     };
 
@@ -141,19 +107,13 @@ const EditButtonModal = (props)=>{
         let validerrors= await checkValidation(inputs);
         setInputErrors(validerrors);
 
-        //console.log("OnSubmit>>>",Object.keys(validerrors).length);
-
         if(Object.keys(validerrors).length === 0)
         {
-        // console.log("Validation Success >>>> Errors Gone", validerrors);
-        //alert("Successfully Submitted");
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
         navigate("/button", {state: {inputs}});
         close();
-        //window.location.reload(true);
         } else {
-        // console.log("Validation Failed >>>> Errors Present", validerrors);
         }
     };
 
@@ -163,7 +123,6 @@ const EditButtonModal = (props)=>{
 return (
     <FocusTrap
         focusTrapOptions={{
-        // escapeDeactivates: false
         onDeactivate: close
         }}
     >
@@ -177,9 +136,6 @@ return (
             </div>
 
         <div className="modal-container button-modal-conatiner">
-            {/* <p>
-            Please select the attributes according your preference to create Customized Button.
-            </p> */}
   
         <div className="input-field-container">
             <FormField className="form-modal__content">
@@ -272,7 +228,6 @@ return (
         :""
         }
         
-
         <div className="input-field-container">
             <FormField className="form-modal__content">
                 <label
@@ -300,7 +255,6 @@ return (
 
         <div className="input-field-container logo-field">
             <p>Would you like to have Box Shadow for Button?<span className="asterik">*</span></p>
-            {/* <label htmlFor="Choice_BoxShadow">Would you like to have Box Shadow for Button? <span className="astrick">*</span></label> */}
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" htmlFor="Choice_BoxShadowyes"  aria-label="Select Yes for Box Shadow property">
@@ -337,29 +291,6 @@ return (
           </div>
           <p id="btn-err-widthvalue" className="error" aria-atomic="true">{inputErrors.BoxShadow}</p>
         </div>
-
-        {/* <div className="input-field-container">
-            <FormField className="form-modal__content">
-                <label
-                className="modal__label"
-                aria-label="Title for Asterik-Required"
-                for="box_shadow"
-                >
-                Box Shadow for the Button:
-                <Input
-                    id="box_shadow"
-                    type="number" 
-                    className="modal__input"
-                    autoComplete="off"
-                    name="box_shadow"
-                    aria-required="true"
-                    value={inputs.box_shadow || ""} 
-                    onChange={handleChange}         
-                />
-                </label>
-                <p className='error'>{inputErrors.box_shadow}</p>
-            </FormField>
-        </div> */}
 
         <div className="input-field-container">
             <div className="modal-checkbox">
@@ -415,17 +346,8 @@ return (
             <p className="error">{inputErrors.theme}</p>
         </div>
 
-        
-            
-        {/* {
-            isBtnCheck ? <CustomButton{...inputs}/> : "Button not displayed"
-        } */}
-
         <div className="button-section">
             <div className="link-button">
-                {/* <button className="btn btn-primary btn-lg" onClick={OnSubmit}> 
-                    Submit
-                </button> */}
                 <Link state={ButtonProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                     Update
                 </Link>
