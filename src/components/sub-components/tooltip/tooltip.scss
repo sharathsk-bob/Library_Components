@@ -25,7 +25,11 @@
     left: 30%;
     margin-left: -60px;
 }
-  
+ .tool-tipcontainer{
+    label{
+        width:100%;
+    }
+ } 
 .Tooltip_Button .tooltiptext-top::after {
     content: "";
     position: absolute;

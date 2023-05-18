@@ -101,7 +101,7 @@ return (
         </button>
       </div>
 
-      <div className="modal-container">
+      <div className="modal-container footer-modal-container">
       <div className="input-field-container footer-text">
           <FormField className="form-modal__content">
             <label

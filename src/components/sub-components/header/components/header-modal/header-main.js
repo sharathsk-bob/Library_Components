@@ -7,9 +7,9 @@ import cgLogoWhite  from "../../../../asset/images/capgemini-white.png";
 
 function Header(props) {
   const { headerVal }=props;
-  console.log(headerVal);
+  console.log(headerVal, "props value");
   const titleName =  headerVal?.titleValue?.toUpperCase();
-  const  profileName =  headerVal?.profileValue?.charAt(0).toUpperCase() + props.profileValue?.slice(1);
+  const  profileName =  headerVal?.profileValue?.charAt(0).toUpperCase() + headerVal.profileValue?.slice(1);
   return (
     <div className= {`header-content ${headerVal?.themeValue == "Dark"?"Dark":headerVal?.themeValue == "cg1"?"cg1":headerVal?.themeValue == "cg2"?"Cg2":headerVal?.themeValue == "Normal"?"light-theme":"" }`}>
         <div class="header-left">

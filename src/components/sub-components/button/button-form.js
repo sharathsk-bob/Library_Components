@@ -156,7 +156,7 @@ return (
                 </button>
             </div>
 
-        <div className="modal-container">
+        <div className="modal-container button-modal-conatiner">
             {/* <p>
             Please select the attributes according your preference to create Customized Button.
             </p> */}

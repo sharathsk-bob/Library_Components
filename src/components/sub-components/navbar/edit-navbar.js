@@ -248,6 +248,7 @@ function EditNav(props) {
                     //     Number of options:
                     //   </label>
                     <div className="drop-down-submenus">
+                      <label htmlFor={`menu-${i}-num-options`} aria-label="Number of Options for Asterik-Required">Options:<span className="astrick">*</span></label>
                       <select
                         id={`menu-${i}-num-options`}
                         name={`menu-${i}-num-options`}
@@ -336,7 +337,7 @@ function EditNav(props) {
                   onChange={handleChange}
                 >
                   <option value="">Select</option>
-                  <option value="Normal">Transparent</option>
+                  <option value="Normal">Light</option>
                   <option value="Dark">Dark</option>
                   <option value="cg1">Blue</option>
                   <option value="cg2">Purple</option>
@@ -352,7 +353,7 @@ function EditNav(props) {
                   onClick={handleSubmit}
                   aria-label="Submit"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
             </div>

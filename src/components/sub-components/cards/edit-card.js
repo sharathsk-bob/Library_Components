@@ -395,7 +395,7 @@ function EditCard(props) {
                   onChange={handleChange}
                 >
                   <option value="">Select</option>
-                  <option value="Normal">Transparent</option>
+                  <option value="Normal">Light</option>
                   <option value="Dark">Dark</option>
                   <option value="cg1">Blue</option>
                   <option value="cg2">Purple</option>
@@ -412,7 +412,7 @@ function EditCard(props) {
                   onClick={handleSubmit}
                   aria-label="Submit"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
             </div>

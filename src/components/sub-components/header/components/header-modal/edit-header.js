@@ -94,7 +94,7 @@ return (
         </button>
       </div>
 
-      <div className="modal-container">
+      <div className="modal-container  headerModal">
         <div className="input-field-container">
           <FormField className="form-modal__content">
             <label
@@ -285,7 +285,7 @@ return (
            <Link
               // to="header"
               // state={headerData}
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary"
               onClick={onSubmit}
             >
               Update

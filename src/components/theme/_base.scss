@@ -88,3 +88,11 @@ label {
 input[type=text]:focus {
 	border: 1.5px solid #ed6373!important;
   }
+  input[type=text]:focus-visible {
+	border: 1.5px solid #ed6373!important;
+	outline: none!important;
+  }
+  select:focus-visible{
+	border: 1.5px solid #ed6373!important;
+	outline: none!important;
+  }
