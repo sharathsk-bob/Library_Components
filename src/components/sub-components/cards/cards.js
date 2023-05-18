@@ -25,7 +25,7 @@ function Cards(props) {
   return (
     <>
     <div className="card-container">
-    <div class={`card ${props?.theme == "Dark"?"Dark":props?.theme == "cg1"?"cg1":props?.theme == "cg2"?"cg2":props?.theme == "Normal"?"Normal":"" }`} style={{ width:props?.width }}>
+    <div class={`card ${props?.theme == "Dark"?"Dark":props?.theme == "cg1"?"cg1":props?.theme == "cg2"?"cg2":props?.theme == "Normal"?"Normal":"" } ${props?.width=="100%"?"card-fullwidth":props?.width=="75%"?"card-threefourthwidth":props?.width=="50%"?"card-halfwidth":props?.width=="25%"?"card-quaterwidth":""}`}>
       <div className="card__img-container" style={{display:props?.addImage==1?"flex":"none"}}>
         {/* {objectUrl?<img
           src={objectUrl}
