@@ -210,7 +210,7 @@ function Form(props) {
               </label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addButton1" aria-label="Select Yes" >
+                  <label htmlFor="addButton1" aria-label="Select Yes to add Button" >
                     <input
                       type="radio"
                       id="addButton1"
@@ -227,7 +227,7 @@ function Form(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addButton0" aria-label="Select No">
+                  <label htmlFor="addButton0" aria-label="Select No to add Button">
                     <input
                       type="radio"
                       id="addButton0"
@@ -311,7 +311,7 @@ function Form(props) {
               </label>
               <div className="radio-buttons">
                 <div>
-                  <label htmlFor="addImage1" aria-label="Select Yes" >
+                  <label htmlFor="addImage1" aria-label="Select Yes for adding Image" >
                     <input
                       type="radio"
                       id="addImage1"
@@ -328,7 +328,7 @@ function Form(props) {
                   </label>
                 </div>
                 <div>
-                  <label htmlFor="addImage0" aria-label="Select No" >
+                  <label htmlFor="addImage0" aria-label="Select No for adding Image" >
                     <input
                       type="radio"
                       id="addImage0"
