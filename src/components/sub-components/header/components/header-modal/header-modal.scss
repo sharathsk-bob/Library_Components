@@ -97,7 +97,7 @@ label {
 }
 .modal-checkbox{
     display: flex;
-    max-height: 44px;
+    // max-height: 44px;
 .modal-content-checkbox{
     width: 50px;
     .modal-label{
@@ -170,6 +170,9 @@ label {
 .headerModal{
     label{
         width: 100%;
+    }
+    .modal-checkbox{
+        max-height: 44px;
     }
 }
 
