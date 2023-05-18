@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CustomStyleTooltip } from './tooltip';
 import Tooltip from './tooltip-main';
 
 function TooltipHtml(props) {
@@ -25,7 +26,7 @@ function TooltipHtml(props) {
     const formattedHTML = lines.join('\n');
     const formattedCSS = csslines.join('\n');
     console.log(formattedHTML);
-    console.log(formattedCSS);
+    console.log(CustomStyleTooltip.componentStyle.rules[0]);
     return (
         <>
             <SyntaxHighlighter language="html" style={coy}>

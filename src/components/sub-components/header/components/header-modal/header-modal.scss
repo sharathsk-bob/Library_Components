@@ -1,7 +1,7 @@
 @import "../../../../theme/breakpoints.scss";
 
 .form-modalcontainer{
-    color:#2b0a3d;
+    color: var(--color-purple-wbh);
     .error{
         color: red;
         font-size: 10px;
@@ -10,14 +10,14 @@
     .form-header{
         display: flex;
        justify-content: space-between;
-       background-color: #0070AD;
+       background-color: var(--color-capgemini-blue);
        padding: 0.8em;
-       color: #fff;
+       color: var(--color-white);
         .close-button{
             border: none;
         background: transparent;
         float: right;
-         color: #ffff;
+         color: var(--color-white);
          cursor: pointer;
         }
         p{
@@ -38,12 +38,12 @@
         }
 .text_modal__input{
     input{
-        background-color: white;
+        background-color:  var(--color-white);
     color: var(--color-black);
     margin-top: 10px;
     min-height: 30px;
     width: 98%;
-    border: 1.5px solid black;
+    border: 1.5px solid var(--color-black);
     border-radius: 4px;
     }
 }
@@ -56,11 +56,11 @@
 	appearance: none;
 }
 input[type=radio]:checked + .tag {
-    background-color: #0070AD;
+    background-color: var(--color-capgemini-blue);
     color: #ffff;
 }
 input[type=radio]:focus + .tag {
-    border: 2px solid black;
+    border: 2px solid  var(--color-black);
 }
 label {
 	outline: none !important;
@@ -71,7 +71,7 @@ label {
 }
 .tag{
     align-items: center;
-    background-color:#ffff;
+    background-color: var(--color-white);
     border-radius: 8px 0 0 8px;
     display: flex;
     justify-content: center;
@@ -86,10 +86,10 @@ label {
     min-height: 26px;
 }
 .tag:focus{
-    outline: black;
+    outline: var(--color-black);
 }
 .tag:focus-visible{
-    outline: black;
+    outline: var(--color-black);
 }
 .header-heading{
     margin-bottom: 0px;
@@ -129,11 +129,11 @@ label {
         margin-top: 0px;
     }
     select{
-        background-color: white;
+        background-color: var(--color-white);
         color: var(--color-black);
         min-height: 28px;
         width: 98%;
-        border: 1.5px solid black;
+        border: 1.5px solid var(--color-black);
         border-radius: 4px;
     }
 }
@@ -146,10 +146,10 @@ label {
         float: right;
        
       a{
-    background-color: #0070AD;
-    border-color: #0070AD;
+    background-color: var(--color-capgemini-blue);
+    border-color: var(--color-capgemini-blue);
     border-radius: 4px;
-    color: white;
+    color: var(--color-white);
     cursor: pointer;
     // font-weight: 600;
     // padding: 8px;
