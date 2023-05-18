@@ -77,7 +77,7 @@ const EditButtonModal = (props)=>{
 
         let errors = {};
         
-        if (values.btntext == undefined) {
+        if (values.btntext == undefined || values.btntext == "") {
         errors.btntext = "Text is required!"; 
         } else if (values.btntext !== undefined) {
             if(values.btntext.length > 15){
@@ -119,15 +119,15 @@ const EditButtonModal = (props)=>{
         //     errors.box_shadow = "Please enter a Box Shadow value"; 
         // } 
     
-        if (values.Choice_Size === undefined) { 
+        if (values.Choice_Size === undefined || values.Choice_Size === "") { 
             errors.size = "Please select a padding value button";
         } 
 
-        if (values.Choice_Width === undefined) { 
+        if (values.Choice_Width === undefined || values.Choice_Size === "") { 
             errors.btnWidth = "Please select a width for button";
         } 
 
-        if(values.Choice_Theme === undefined){
+        if(values.Choice_Theme === undefined || values.Choice_Theme === ""){
             errors.theme = "Please select the value from the dropdown";
         }
 
@@ -170,7 +170,7 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>Header</p>
+            <p>Button</p>
                 <button className="close-button" aria-label="close edit button modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
@@ -404,7 +404,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
-                        <option value="Normal">Normal</option>
+                        <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>

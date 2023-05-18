@@ -3,14 +3,15 @@ import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import CustomTooltip from './CustomTooltip';
+import Tooltip from './tooltip-main';
 
 function TooltipHtml(props) {
-    const { data }=props;
+    const { TooltipProps } = props;
     const sheet = new ServerStyleSheet();
-    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<CustomTooltip {...data}/>));
+    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<Tooltip TooltipProps= {TooltipProps}/>));
     const css = sheet.getStyleTags();
     const lines = html.split('>');
+    const csslines = css.split(';');
     var indentSize = 2;
 
     for (let i = 0; i < lines.length-1; i++) {
@@ -21,16 +22,17 @@ function TooltipHtml(props) {
         }
     }
 
-const formattedCode = lines.join('\n');
-    console.log(formattedCode);
-    console.log(css);
+    const formattedHTML = lines.join('\n');
+    const formattedCSS = csslines.join('\n');
+    console.log(formattedHTML);
+    console.log(formattedCSS);
     return (
         <>
             <SyntaxHighlighter language="html" style={coy}>
-                {formattedCode}
+                {formattedHTML}
             </SyntaxHighlighter>
             <SyntaxHighlighter language="css" style={coy}>
-                {css}
+                {formattedCSS}
             </SyntaxHighlighter>
         </>
     )

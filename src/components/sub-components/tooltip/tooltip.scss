@@ -1,0 +1,238 @@
+@import "../../theme/breakpoints.scss";
+
+.Tooltip_Button {
+    position: relative;
+    background-color: #0070AD;
+    color: white;
+    width: 200px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 70px auto;
+}
+  
+.Tooltip_Button .tooltiptext-top {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: 30%;
+    margin-left: -60px;
+}
+  
+.Tooltip_Button .tooltiptext-top::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.Tooltip_Button .tooltiptext-bottom {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 30%;
+    margin-left: -60px;
+}
+
+.Tooltip_Button .tooltiptext-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.Tooltip_Button .tooltiptext-right {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 103%;
+}
+
+.Tooltip_Button .tooltiptext-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.Tooltip_Button .tooltiptext-left {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 103%;
+}
+
+.Tooltip_Button .tooltiptext-left::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.Tooltip_Button .tooltiptext-topleft {
+    visibility: hidden;
+    width: 200px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: -30%;
+    margin-left: -60px;
+}
+  
+.Tooltip_Button .tooltiptext-topleft::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 80%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.Tooltip_Button .tooltiptext-topright {
+    visibility: hidden;
+    width: 200px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: 90%;
+    margin-left: -60px;
+}
+  
+.Tooltip_Button .tooltiptext-topright::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.Tooltip_Button .tooltiptext-bottomright {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 90%;
+    margin-left: -60px;
+}
+
+.Tooltip_Button .tooltiptext-bottomright::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 20%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.Tooltip_Button .tooltiptext-bottomleft {
+    visibility: hidden;
+    width: 200px;
+     
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: -30%;
+    margin-left: -60px;
+}
+
+.Tooltip_Button .tooltiptext-bottomleft::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+  
+.Tooltip_Button:hover .tooltiptext-top, .Tooltip_Button:hover .tooltiptext-bottom, 
+.Tooltip_Button:hover .tooltiptext-right, .Tooltip_Button:hover .tooltiptext-left,
+.Tooltip_Button:hover .tooltiptext-topleft, .Tooltip_Button:hover .tooltiptext-topright,
+.Tooltip_Button:hover .tooltiptext-bottomleft, .Tooltip_Button:hover .tooltiptext-bottomright{
+    visibility: visible;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.normal {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.blue {
+    background-color: #0070AD;
+    color: white;
+}
+
+.purple {
+    background-color: #2b0a3d;
+    color: white;
+}
+
