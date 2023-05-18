@@ -41,7 +41,7 @@
         background-color: white;
     color: var(--color-black);
     margin-top: 10px;
-    min-height: 28px;
+    min-height: 30px;
     width: 98%;
     border: 1.5px solid black;
     border-radius: 4px;
@@ -64,6 +64,10 @@ input[type=radio]:focus + .tag {
 }
 label {
 	outline: none !important;
+  
+}
+.headerModal label{
+    width:100%;
 }
 .tag{
     align-items: center;
@@ -135,18 +139,21 @@ label {
 .button-section{
     .margin-button{
         margin-top: 40px !important;
+        margin-top: 48px!important;
     }
     .link-button{
         float: right;
-        margin-top: 24px;
+       
       a{
     background-color: #0070AD;
     border-color: #0070AD;
     border-radius: 4px;
     color: white;
     cursor: pointer;
-    font-weight: 600;
+    // font-weight: 600;
     // padding: 8px;
+    padding: 4px 8px;
+    font-size: 16px;
     text-decoration: none;
     }
 }

@@ -75,7 +75,7 @@
         span{
             font-size: 1.35rem;
             text-transform: uppercase;
-            font-weight: 800;
+            // font-weight: 800;
             margin: 0;
             color: #333;
             margin-left: 10px !important;
@@ -188,7 +188,7 @@
         margin-bottom: 16px;
     }
     .card-description {
-        font-size: 0.7rem;
+        font-size: 1rem;
         text-align: initial;
     }
     .card-footer-new{
@@ -202,7 +202,7 @@
         display: flex;
         font-weight: 600;
         justify-content: center;
-        padding: 8px;
+        padding: 4px 8px;
         width: auto;
     }
     .button--primary {
@@ -314,19 +314,19 @@
     .card-component .card-left{
     display: grid;
     }
-    .card-container {
-        margin: 20px 5px 20px 5px;
-    }
+    // .card-container {
+    //     // margin: 20px 5px 20px 5px;
+    // }
     .card__title {
         font-size: 1.2rem !important;
     }
     .card-description {
-        font-size: 0.5rem !important;
+        font-size: 0.7rem !important;
     }
     .card .library-add-button {
         margin: 5px !important;
     }
     .card .card__content {
-        padding: 5px;
+        padding: 8px;
     }
 }
