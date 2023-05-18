@@ -311,7 +311,7 @@ function NavbarForm(props) {
                   Navbar icons:<span className="astrick">*</span>
                 </label>
                 <div className="nav-icons">
-                  <label htmlFor="nav-yes" aria-label="Select Yes">
+                  <label htmlFor="nav-yes" aria-label="Select Yes for Navbar Icon">
                     <input
                       type="radio"
                       id="nav-yes"
@@ -324,7 +324,7 @@ function NavbarForm(props) {
                       <span className="tag__cat">Yes </span>
                     </div>
                   </label>
-                  <label htmlFor="nav-no" aria-label="Select No">
+                  <label htmlFor="nav-no" aria-label="Select No for Navbar Icon">
                     <input
                       type="radio"
                       id="nav-no"
