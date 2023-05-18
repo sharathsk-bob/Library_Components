@@ -276,7 +276,8 @@
 }
 .card-container{
     margin: 40px 33px 40px 33px;
-    text-align: center;
+    justify-content: center;
+    display: flex;
 }
 .card-tabs {
     display: flex;
@@ -321,10 +322,6 @@
     }
     .card-description {
         font-size: 0.5rem !important;
-    }
-    .card-footer-new{
-        display: grid !important;
-        justify-content: center !important;
     }
     .card .library-add-button {
         margin: 5px !important;
