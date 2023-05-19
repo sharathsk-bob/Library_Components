@@ -53,6 +53,7 @@ function Toaster() {
   <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       {/* <img src="..." class="rounded me-2" alt="..."/> */}
+      {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>:("")}
       <strong class="me-auto">{props.title}</strong>
       {/* <small>11 mins ago</small> */}
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>

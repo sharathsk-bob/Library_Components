@@ -107,6 +107,7 @@ function ToasterForm(props) {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            maxlength="10" 
           />
           {errors.title && <span className="error">{errors.title}</span>}
         </div>
@@ -116,6 +117,7 @@ function ToasterForm(props) {
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            maxlength="600" 
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </div>
@@ -126,6 +128,7 @@ function ToasterForm(props) {
             id="buttonText"
             value={buttonText}
             onChange={(e) => setButtonText(e.target.value)}
+            maxlength="10" 
           />
           {errors.buttonText && <span className="error">{errors.buttonText}</span>}
         </div>

@@ -113,6 +113,7 @@ function EditToasterForm(props) {
             name="title"
             value={formValues.title}
             onChange={handleChange}
+            maxlength="10" 
           />
           {errors.title && <span className="error">{errors.title}</span>}
         </div>
@@ -123,6 +124,7 @@ function EditToasterForm(props) {
             name="message"
             value={formValues.message}
             onChange={handleChange}
+            maxlength="600" 
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </div>
@@ -134,6 +136,7 @@ function EditToasterForm(props) {
             name="buttonText"
             value={formValues.buttonText}
             onChange={handleChange}
+            maxlength="10" 
           />
           {errors.buttonText && <span className="error">{errors.buttonText}</span>}
         </div>
