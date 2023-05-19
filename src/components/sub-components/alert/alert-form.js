@@ -60,10 +60,10 @@ const AlertForm =(props)=>{
         {
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
-        // navigate("/alert");
+        navigate("/alert");
         // alert("This is success!!!");
         // <AlertComponent {...inputs}/>
-        //openAlert( {props} );
+        openAlert( {props} );
 
         } else {
         }

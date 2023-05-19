@@ -1,0 +1,66 @@
+.component-toaster{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+    align-items: center;
+    padding: 15px;
+    .toaster-left{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0;
+            color: #0070ad;
+            margin-left: 10px !important;
+        }
+        span{
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            // font-weight: 800;
+            margin: 0;
+            color: #333;
+            margin-left: 10px !important;
+        }
+    }
+    .toaster-right{
+        .button-section{
+            font-size: 14px;
+            button {
+                margin-right: 14px;
+        
+        padding: 0.5rem;
+        
+        font-weight: bold;
+        background-color: var(--color-capgemini-blue);
+        border-color: var(--color-capgemini-blue);
+        color: var(--color-white);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+            }
+           .link-button{
+                margin-right: 14px;
+        text-decoration: none;
+                padding: 0.5rem;
+                
+                font-weight: bold;
+                background-color: var(--color-capgemini-blue);
+                border-color: var(--color-capgemini-blue);
+                color: var(--color-white);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+  }
+  .toaster-button{
+    text-align: center;
+    margin: 100px;
+  }
+  .top-0 {
+    top: 60px!important;
+}

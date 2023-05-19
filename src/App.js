@@ -13,6 +13,7 @@ import CardHeader from './components/sub-components/cards/card-header';
 import NavbarHeader from './components/sub-components/navbar/navbar-header';
 import FooterComponent from "../src/components/sub-components/footer/footer";
 import AlertComponent from './components/sub-components/alert/alert';
+import Toaster from './components/sub-components/toaster/toaster';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/cardheader"element ={<CardHeader/>} ></Route>
           <Route exact path="navbarheader"element ={<NavbarHeader/>} ></Route>
           <Route exact path="footer"element ={<FooterComponent/>} ></Route>
+          <Route exact path="toaster"element ={<Toaster/>} ></Route>
           
           </Routes>
         </AppProvider> 

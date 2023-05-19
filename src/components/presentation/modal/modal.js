@@ -19,6 +19,8 @@ import AlertForm from "../../sub-components/alert/alert-form";
 
 import FooterModal from "../../sub-components/footer/components/footer-modal/footer-modal";
 import FooterDetail from "../../sub-components/footer/components/footer-detail/footer-details";
+import ToasterForm from "../../sub-components/toaster/toaster-form";
+import ToasterDetail from "../../sub-components/toaster/toaster-detail";
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -32,6 +34,8 @@ const Modal =()=>{
     const { open: openNavbarForm, close: closeNavbarForm, ModalWrapper: ModalWrapperNavbar } = useModal();
     const { open: openTooltipDetail, close: closeTooltipDetail, ModalWrapper: ModalWrapperTooltipDetail } = useModal();
     const { open: openTooltipForm, close: closeTooltipForm, ModalWrapper: ModalWrapperTooltip } = useModal();
+    const { open: openToasterDetail, close: closeToasterDetail, ModalWrapper: ModalWrapperToasterDetail } = useModal();
+    const { open: openToasterForm, close: closeToasterForm, ModalWrapper: ModalWrapperToaster } = useModal();
     const { open: openAlertDetail, close: closeAlertDetail, ModalWrapper: ModalWrapperAlertDetail } = useModal();
     const { open: openAlertForm, close: closeAlertForm, ModalWrapper: ModalWrapperAlert } = useModal();
 
@@ -103,6 +107,12 @@ return(
 				
         <FooterModal close={closeFooter} />
 </ModalWrapperFooter>
+<ModalWrapperToasterDetail>
+<ToasterDetail close={closeToasterDetail}/>
+</ModalWrapperToasterDetail>
+<ModalWrapperToaster>
+  <ToasterForm close={closeToasterForm}/>
+</ModalWrapperToaster>
     {componentList.map((data, index) => {
        
            
@@ -169,7 +179,17 @@ return(
                   Create
                 </button>
               </div>
-            ) : data === "Alert"? (
+            ):data === "Toaster" ? (
+              <div className="modal-button_section">
+                <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openToasterDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for navbar component" class="buttons" onClick={openToasterForm}>
+                  Create
+                </button>
+              </div>
+            ):
+             data === "Alert"? (
               <div className="modal-button_section">
                 <button type="button" aria-label="Details button for alert component" class="buttons" onClick={openAlertDetail}>
                   Details
