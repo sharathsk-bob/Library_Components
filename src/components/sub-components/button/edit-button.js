@@ -91,7 +91,7 @@ const EditButtonModal = (props)=>{
             errors.size = "Please select a padding value button";
         } 
 
-        if (values.Choice_Width === undefined || values.Choice_Size === "") { 
+        if (values.Choice_Width === undefined || values.Choice_Width === "") { 
             errors.btnWidth = "Please select a width for button";
         } 
 
@@ -145,6 +145,7 @@ return (
                 for="btntext"
                 >
                 Text for the Button: <span className="asterik">*</span> 
+                </label>
                 <Input
                     id="btntext"
                     className="text_modal__input"
@@ -155,8 +156,7 @@ return (
                     onChange={handleChange}
                     aria-required="true"
                     aria-describedby="btn-err-text"
-                />
-                </label>
+                />   
                 <p id="btn-err-text" className='error' aria-atomic="true">{inputErrors.btntext}</p>
             </FormField>
         </div>
@@ -209,6 +209,7 @@ return (
                     for="border_radius"
                     >
                     Border Radius for the Button: <span className="asterik">*</span> 
+                    </label>
                     <Input
                         id="border_radius"
                         type="number" 
@@ -221,7 +222,7 @@ return (
                         value={inputs.border_radius} 
                         onChange={handleChange}         
                     />
-                    </label>
+                    
                     <p id="btn-err-radiusvalue" className='error' aria-atomic="true">{inputErrors.border_radius}</p>
                 </FormField>
             </div>
@@ -236,6 +237,7 @@ return (
                 for="border_width"
                 >
                 Border Width for the Button: <span className="asterik">*</span> 
+                </label>
                 <Input
                     id="border_width"
                     type="number" 
@@ -248,7 +250,7 @@ return (
                     value={inputs.border_width} 
                     onChange={handleChange}         
                 />
-                </label>
+                
                 <p id="btn-err-widthvalue" className='error' aria-atomic="true">{inputErrors.border_width}</p>
             </FormField>
         </div>
@@ -297,6 +299,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="Choice_Size" aria-label="Edit padding value Asterik-Required"> 
                 <p>Please select padding of the Button: <span className="asterik">*</span> </p>
+                </label>
                     <select name="Choice_Size" id="Choice_Size"  value={inputs.Choice_Size} onChange={handleChange}>      
                         <option value="">--</option>
                         <option value="5">5 px</option>
@@ -304,7 +307,7 @@ return (
                         <option value="15">15px</option>
                         <option value="20">20 px</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className='error'>{inputErrors.size}</p>
@@ -315,6 +318,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="Choice_Width" aria-label="Edit button width value Asterik-Required"> 
                 <p>Please select width of the Button: <span className="asterik">*</span> </p>
+                </label>
                     <select name="Choice_Width" id="Choice_Width"  value={inputs.Choice_Width} onChange={handleChange}>
                         <option value="">--</option>         
                         <option value="25">25 %</option>
@@ -322,7 +326,7 @@ return (
                         <option value="75">75 %</option>
                         <option value="100">100 %</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className='error'>{inputErrors.btnWidth}</p>
@@ -333,6 +337,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="Choice_Theme" aria-label="Edit the theme for the button Asterik-Required"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
+                </label>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
                         <option value="Normal">Transparent</option>
@@ -340,7 +345,7 @@ return (
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className="error">{inputErrors.theme}</p>
