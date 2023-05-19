@@ -55,6 +55,18 @@
         color: black !important;
     }
 }
+.card-fullwidth{
+    width: 100% !important;
+}
+.card-threefourthwidth{
+    width: 75% !important;
+}
+.card-halfwidth{
+    width: 50% !important;
+}
+.card-quaterwidth{
+    width: 25% !important;
+}
 .card-component{
     display: flex;
     justify-content: space-between;
@@ -314,9 +326,9 @@
     .card-component .card-left{
     display: grid;
     }
-    // .card-container {
-    //     // margin: 20px 5px 20px 5px;
-    // }
+    .card-quaterwidth{
+        width: 50% !important;
+    }
     .card__title {
         font-size: 1.2rem !important;
     }

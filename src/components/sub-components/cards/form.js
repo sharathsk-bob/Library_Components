@@ -282,6 +282,7 @@ function Form(props) {
                 id="button1Text"
                 value={button1Text}
                 onChange={(event) => setButton1Text(event.target.value)}
+                maxlength="10" 
               />
               {errors.buttons && (
                 <span className="error">{errors.buttons}</span>
@@ -300,6 +301,7 @@ function Form(props) {
                 id="button2Text"
                 value={button2Text}
                 onChange={(event) => setButton2Text(event.target.value)}
+                maxlength="10" 
               />
               {errors.buttons && (
                 <span className="error">{errors.buttons}</span>

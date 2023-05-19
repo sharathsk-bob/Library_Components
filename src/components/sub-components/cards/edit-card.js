@@ -289,6 +289,7 @@ function EditCard(props) {
                 name="button1Text"
                 value={formValues.button1Text}
                 onChange={handleChange}
+                maxlength="10" 
               />
               {errors.buttons1 && (
                 <span className="error">{errors.buttons1}</span>
@@ -306,6 +307,7 @@ function EditCard(props) {
                 name="button2Text"
                 value={formValues.button2Text}
                 onChange={handleChange}
+                maxlength="10" 
               />
               {errors.buttons && (
                 <span className="error">{errors.buttons}</span>
