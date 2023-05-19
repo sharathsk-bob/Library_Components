@@ -12,6 +12,7 @@ import CardHtml from './components/sub-components/cards/card-html';
 import CardHeader from './components/sub-components/cards/card-header';
 import NavbarHeader from './components/sub-components/navbar/navbar-header';
 import FooterComponent from "../src/components/sub-components/footer/footer";
+import AlertComponent from './components/sub-components/alert/alert';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="cards"element ={<Cards/>} ></Route>
           <Route path="/button" element ={<ButtonComponent/>} ></Route>
           <Route path="/tooltip" element ={<TooltipComponent/>} ></Route>
+          <Route path="/alert" element ={<AlertComponent/>} ></Route>
           <Route exact path="navbar"element ={<Navbar/>} ></Route>
           <Route exact path="cardhtml"element ={<CardHtml/>} ></Route>
           <Route exact path="/cardheader"element ={<CardHeader/>} ></Route>

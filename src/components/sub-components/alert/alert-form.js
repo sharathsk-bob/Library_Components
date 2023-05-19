@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
+import useModal from "../../sub-components/use-modal/use-modal";
 import { FormField, Input } from "@fluentui/react-northstar";
-import { useNavigate } from 'react-router-dom';
+import AlertComponent from "./alert";
 import closeIcon from "../../asset/images/cross-white.png";
 
 
 const AlertForm =(props)=>{
-    const navigate = useNavigate()
 
     const {close} = props;
+    const navigate = useNavigate()
+
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
     const [themeValue, setThemeValue] = useState();
-    const [directionValue, setDirectionValue] = useState();
+    const [alertType, setAlertType] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
+    const { open: openAlert, close: closeAlert, ModalWrapper: ModalWrapperAlert } = useModal();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,26 +29,18 @@ const AlertForm =(props)=>{
 
         let errors = {};
 
-        if (values.icontext == undefined || values.icontext === '') {
-        errors.icontext = "Icon Text is required"; 
-        } else if (values.icontext !== undefined) {
-            if(values.icontext.length > 15){
-                errors.icontext = "Icon Text should be shorter"; 
+        if (values.alerttext == undefined || values.alerttext === '') {
+        errors.alerttext = "Alert Text is required"; 
+        } else if (values.alerttext !== undefined) {
+            if(values.alerttext.length > 20){
+                errors.alerttext = "Alert Text should be shorter"; 
             } 
         }
 
-        if (values.tooltiptext == undefined || values.tooltiptext === '') {
-            errors.tooltiptext = "Tooltip Text is required"; 
-        } else if (values.tooltiptext !== undefined) {
-            if(values.tooltiptext.length > 25){
-                errors.tooltiptext = "Tooltip Text should be shorter"; 
-            } 
-        }   
-
-        if(directionValue === undefined || directionValue === ''){
-            errors.direction = "Please select the direction for tooltip from the dropdown";
+        if(alertType === undefined || alertType === ''){
+            errors.alerttype = "Please select the choice for alert from the dropdown";
         } else {
-            inputs.Choice_Direction = directionValue;
+            inputs.Choice_Alerttype = alertType;
         }
 
         if(themeValue === undefined || themeValue === ''){
@@ -65,21 +60,25 @@ const AlertForm =(props)=>{
         {
         setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
-        navigate("/tooltip", {state: {inputs}});
+        // navigate("/alert");
+        // alert("This is success!!!");
+        // <AlertComponent {...inputs}/>
+        //openAlert( {props} );
+
         } else {
         }
         
     };
 
-    const TooltipProps = {
-        IconText: inputs.icontext,
-        TooltipText: inputs.tooltiptext,
-        Choice_Direction: inputs.direction,
+    const AlertProps = {
+        AlertText: inputs.alerttext,
+        Choice_Alerttype: inputs.alerttype,
         Choice_Theme: inputs.theme,
     };
 
 
 return (
+    <>
     <FocusTrap
         focusTrapOptions={{
             //escapeDeactivates: false
@@ -89,8 +88,8 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>ToolTip</p>
-                <button className="close-button" aria-label="close create tooltip modal" onClick={close}>
+            <p>Alert</p>
+                <button className="close-button" aria-label="close create alert modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
@@ -101,70 +100,40 @@ return (
             <FormField className="form-modal__content">
                 <label
                 className="wbh-modal__label"
-                aria-label="Text for the Tooltip icon Asterik-Required"
-                for="icontext"
+                aria-label="Text for the Alert Asterik-Required"
+                for="alerttext"
                 >
-                Text for the Tooltip Icon: <span className="asterik">*</span> 
+                Text for the Alert: <span className="asterik">*</span> 
                 <Input
-                    id="icontext"
+                    id="alerttext"
                     className="text_modal__input"
                     autoComplete="off"
-                    name="icontext"
-                    maxLength="15"
-                    value={inputs.icontext || ""} 
+                    name="alerttext"
+                    maxLength="20"
+                    value={inputs.alerttext || ""} 
                     onChange={handleChange}
                     aria-required="true"
-                    aria-describedby="icon-err-text"
+                    aria-describedby="alert-err-text"
                 />
                 </label>
-                <p id="icon-err-text" className='error' aria-atomic="true">{inputErrors.icontext}</p>
-            </FormField>
-        </div>
-
-        <div className="input-field-container">
-            <FormField className="form-modal__content">
-                <label
-                className="wbh-modal__label"
-                aria-label="Text for the Tooltip title Asterik-Required"
-                for="tooltiptext"
-                >
-                Enter Text to appear in Tooltip:  <span className="asterik">*</span> 
-                <Input
-                    id="tooltiptext"
-                    className="text_modal__input"
-                    autoComplete="off"
-                    name="tooltiptext"
-                    maxLength="25"
-                    value={inputs.tooltiptext || ""} 
-                    onChange={handleChange}
-                    aria-required="true"
-                    aria-describedby="tooltip-err-text"
-                />
-                </label>
-                <p id="tooltip-err-text" className='error' aria-atomic="true">{inputErrors.tooltiptext}</p>
+                <p id="alert-err-text" className='error' aria-atomic="true">{inputErrors.alerttext}</p>
             </FormField>
         </div>
 
         <div className="input-field-container theme-field size-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="direction" aria-label="Select the direction for the tooltip title to appear Asterik-Required"> 
-                <p>Please select the direction to appear the Tooltip title<span className="asterik">*</span> </p>
-                    <select name="direction" id="direction"  value={directionValue} onChange={(event) => setDirectionValue(event.target.value)}>
+                <label for="alerttype" aria-label="Please select the choice of alert needed Asterik-Required"> 
+                <p>Please select the choice of alert needed<span className="asterik">*</span> </p>
+                    <select name="alerttype" id="alerttype"  value={alertType} onChange={(event) => setAlertType(event.target.value)}>
                         <option value="">--</option>         
-                        <option value="bottomright">Bottom-Right</option>
-                        <option value="bottom">Bottom</option>
-                        <option value="bottomleft">Bottom-Left</option>
-                        <option value="left">Left</option>
-                        <option value="right">Right</option>
-                        <option value="topright">Top-Right</option>
-                        <option value="top">Top</option>
-                        <option value="topleft">Top-Left</option>
+                        <option value="alertinfo">Information and Messages</option>
+                        <option value="alertaction">Confirmation Popup</option>
                     </select>
                 </label>
             </FormField>
             </div>
-            <p className="error">{inputErrors.direction}</p>
+            <p className="error">{inputErrors.alerttype}</p>
         </div>
 
         <div className="input-field-container theme-field size-field">
@@ -174,7 +143,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
-                        <option value="Normal">Transparent</option>
+                        <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>
@@ -187,7 +156,7 @@ return (
 
         <div className="button-section">
             <div className="link-button">
-                <Link state={TooltipProps} props={inputs} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                <Link to="/alert" props={inputs} element={<AlertComponent/>} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                     Submit
                 </Link>
             </div>
@@ -197,6 +166,11 @@ return (
         </div>
     </div>
     </FocusTrap>
+
+    <ModalWrapperAlert >
+        <AlertComponent close={closeAlert} data={inputs} />
+    </ModalWrapperAlert >
+    </>
     );
 };
 

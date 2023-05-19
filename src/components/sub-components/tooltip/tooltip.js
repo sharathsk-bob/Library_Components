@@ -251,7 +251,7 @@ export const CustomStyleTooltip = styled.div`@import "../../theme/breakpoints.sc
 
 `;
 
-console.log("Css aayi?", CustomStyleTooltip.componentStyle.rules[0]);
+//console.log("Css aayi?", CustomStyleTooltip.componentStyle.rules[0]);
 
 const TooltipComponent = ( ) => {
   const location = useLocation();
