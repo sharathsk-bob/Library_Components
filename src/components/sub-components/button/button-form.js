@@ -6,7 +6,7 @@ import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
 import ButtonComponent from "./button";
-import "./button.scss"
+import "../header/components/header-modal/header-modal.scss";
 
 const ButtonForm =(props)=>{
     const navigate = useNavigate()
@@ -145,6 +145,7 @@ return (
                 for="btntext"
                 >
                 Text for the Button: <span className="asterik">*</span> 
+                </label>
                 <Input
                     id="btntext"
                     className="text_modal__input"
@@ -156,7 +157,7 @@ return (
                     aria-required="true"
                     aria-describedby="btn-err-text"
                 />
-                </label>
+                
                 <p id="btn-err-text" className='error' aria-atomic="true">{inputErrors.btntext}</p>
             </FormField>
         </div>
@@ -211,6 +212,7 @@ return (
                 for="border_radius"
                 >
                 Border Radius for the Button: <span className="asterik">*</span> 
+                </label>
                 <Input
                     id="border_radius"
                     type="number" 
@@ -223,7 +225,7 @@ return (
                     onChange={handleChange}
                     aria-describedby="btn-err-radiusvalue"
                 />
-                </label>
+                
                 <p id="btn-err-radiusvalue" className='error' aria-atomic="true">{inputErrors.border_radius}</p>
             </FormField>
         </div>
@@ -238,6 +240,7 @@ return (
                 for="border_width"
                 >
                 Border Width for the Button: <span className="asterik">*</span> 
+                </label>
                 <Input
                     id="border_width"
                     type="number" 
@@ -250,7 +253,7 @@ return (
                     onChange={handleChange} 
                     aria-describedby="btn-err-widthvalue"           
                 />
-                </label>
+                
                 <p id="btn-err-widthvalue" className='error' aria-atomic="true">{inputErrors.border_width}</p>
             </FormField>
         </div>
@@ -303,6 +306,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="size" aria-label="Select padding value Asterik-Required"> 
                 <p>Please select padding of the Button: <span className="asterik">*</span> </p>
+                </label>
                     <select name="size" id="size"  value={sizeValue} onChange={(event) => setSizeValue(event.target.value)}>
                         <option value="">--</option>
                         <option value="5">5 px</option>
@@ -310,7 +314,7 @@ return (
                         <option value="15">15px</option>
                         <option value="20">20 px</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className='error'>{inputErrors.size}</p>
@@ -322,6 +326,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="btnwidth" aria-label="Select button width value Asterik-Required"> 
                 <p>Please select width of the Button: <span className="asterik">*</span> </p>
+                </label>
                     <select name="btnwidth" id="btnwidth"  value={btnWidth} onChange={(event) => setBtnWidth(event.target.value)}>
                         <option value="">--</option>         
                         <option value="25">25 %</option>
@@ -329,7 +334,7 @@ return (
                         <option value="75">75 %</option>
                         <option value="100">100 %</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className='error'>{inputErrors.btnWidth}</p>
@@ -340,6 +345,7 @@ return (
             <FormField className="modal-content-theme">
                 <label for="theme" aria-label="Select the theme for the button Asterik-Required"> 
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
+                </label>
                     <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                         <option value="">--</option>         
                         <option value="Normal">Transparent</option>
@@ -347,7 +353,7 @@ return (
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>
                     </select>
-                </label>
+                
             </FormField>
             </div>
             <p className="error">{inputErrors.theme}</p>
