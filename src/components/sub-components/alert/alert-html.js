@@ -24,7 +24,7 @@ function AlertHtml(props) {
 
     const formattedHTML = lines.join('\n');
     const formattedCSS = csslines.join('\n');
-    console.log(formattedHTML);
+    // console.log(formattedHTML);
     return (
         <>
             <SyntaxHighlighter language="html" style={coy}>

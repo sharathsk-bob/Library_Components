@@ -18,7 +18,7 @@ function Button(props) {
     return(
         <>
             <div className={`Button-Content`}>
-                <button style={CustomBStyle} className={`CustomButton ${ ButtonProps?.Choice_Theme == "Dark"?"dark": ButtonProps?.Choice_Theme == "cg1"?"blue": ButtonProps?.Choice_Theme == "cg2"?"purple": ButtonProps?.Choice_Theme == "Normal"?"normal":"" }`}>
+                <button aria-label="This is the button" tabIndex='0' role="button" style={CustomBStyle} className={`CustomButton ${ ButtonProps?.Choice_Theme == "Dark"?"dark": ButtonProps?.Choice_Theme == "cg1"?"blue": ButtonProps?.Choice_Theme == "cg2"?"purple": ButtonProps?.Choice_Theme == "Normal"?"normal":"" }`}>
                     {ButtonProps.btntext}
                 </button>
             </div>

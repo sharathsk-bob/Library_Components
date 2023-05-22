@@ -7,7 +7,7 @@ function Tooltip(props) {
     return(
         <>
             <div>
-                <div className="Tooltip_Button">{TooltipProps.icontext}
+                <div className="Tooltip_Button" aria-label="This is the tooltip" tabIndex='0' role="tooltip">{TooltipProps.icontext}
                     <span className= {`tooltiptext-${TooltipProps.Choice_Direction} 
                     ${TooltipProps?.Choice_Theme == "Dark"?"dark":TooltipProps?.Choice_Theme == "cg1"?"blue": 
                     TooltipProps?.Choice_Theme == "cg2"?"purple":TooltipProps?.Choice_Theme == "Normal"?"normal":"" }

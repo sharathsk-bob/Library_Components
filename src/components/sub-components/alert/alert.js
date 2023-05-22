@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useModal from "../../sub-components/use-modal/use-modal";
 // import EditAlertModal from "./edit-alert";
 import AlertHtml from "./alert-html";
 import Alert from "./alert-main";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import EditAlertModal from "./edit-alert";
+import './alert.scss'
 
+const AlertComponent = ( ) => {
 
-const AlertComponent = ( props, data ) => {
-
-    const {close} = props;
+    const location = useLocation();
+    const props = location.state.inputs;
     const { open: openEditAlert, close: closeEditAlert, ModalWrapper: ModalWrapperEditAlert } = useModal();
-
+    const { open: openAlert, close: closeAlert, ModalWrapper: ModalWrapperAlert } = useModal();
 
     const [activeTab, setActiveTab] = useState(0);
     console.log(props, "props in Alert.js");
@@ -20,8 +22,12 @@ const AlertComponent = ( props, data ) => {
     return (
         <>
         <ModalWrapperEditAlert >
-            {/* <EditAlertModal close={closeEditAlert} data={props} /> */}
+            <EditAlertModal close={closeEditAlert} data={props} />
         </ModalWrapperEditAlert >
+        <ModalWrapperAlert >
+            <Alert close={closeAlert} AlertProps={props} />
+        </ModalWrapperAlert >
+
         <div className="header-output">
             <div className="component-header">
                 <div className="header-left">
@@ -38,7 +44,13 @@ const AlertComponent = ( props, data ) => {
                     </div>
                 </div>
             </div>
-            <Alert AlertProps = {props} />
+
+            <div className="alert-section">
+                <button className="alert-button" aria-label="Show Custom Alert" onClick={openAlert} >
+                    Show Custom Alert
+                </button>
+            </div>
+
         </div>
 
         <div className="card-tabs">
