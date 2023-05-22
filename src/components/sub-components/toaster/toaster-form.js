@@ -117,7 +117,7 @@ function ToasterForm(props) {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            maxlength="10" 
+            maxlength="20" 
           />
           {errors.title && <span className="error">{errors.title}</span>}
         </div>

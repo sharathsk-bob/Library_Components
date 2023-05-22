@@ -126,7 +126,7 @@ function EditToasterForm(props) {
             name="title"
             value={formValues.title}
             onChange={handleChange}
-            maxlength="10" 
+            maxlength="20" 
           />
           {errors.title && <span className="error">{errors.title}</span>}
         </div>
