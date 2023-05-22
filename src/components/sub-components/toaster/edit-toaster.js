@@ -10,10 +10,14 @@ function EditToasterForm(props) {
     const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
+    const [toastdirection,setDirection]=useState('');
+    const [toastTheme,setToastTheme]=useState('');
     const initialValues={toasterType:data.toasterType,
         title:data.title,
         message:data.message,
-        buttonText:data.buttonText};
+        buttonText:data.buttonText,
+        toastdirection:data.toastdirection,
+      toastTheme:data.toastTheme};
     const [formValues,setFormValues]=useState(initialValues);
   
     const [errors, setErrors] = useState({});
@@ -21,7 +25,9 @@ function EditToasterForm(props) {
         toasterType:formValues.toasterType,
         title:formValues.title,
         message:formValues.message,
-        buttonText:formValues.buttonText
+        buttonText:formValues.buttonText,
+        toastdirection:formValues.toastdirection,
+        toastTheme:formValues.toastTheme
       };
     const history = useNavigate();
     const handleSubmit = (e) => {
@@ -56,7 +62,12 @@ function EditToasterForm(props) {
       if (!formValues.buttonText) {
         errors.buttonText = 'Button text is required.';
       }
-  
+      if (formValues.toastdirection == undefined || formValues.toastdirection == null || formValues.toastdirection == "") {
+        errors.dir = "Direction is required";
+      }
+      if (formValues.toastTheme == undefined || formValues.toastTheme == null || formValues.toastTheme == "") {
+        errors.theme = "Theme is required";
+      }
       return errors;
     };
     const handleChange = (e) => {
@@ -70,6 +81,8 @@ function EditToasterForm(props) {
         setTitle(formValues.title);
         setMessage(formValues.message);
         setButtonText(formValues.buttonText);
+        setDirection(formValues.toastdirection);
+        setToastTheme(formValues.toastTheme);
     };
    
     return (
@@ -140,6 +153,40 @@ function EditToasterForm(props) {
           />
           {errors.buttonText && <span className="error">{errors.buttonText}</span>}
         </div>
+        <div className=" toaster-fields">
+                <label htmlFor="toastdirection" aria-label="Direction for Asterik-Required">
+                  Choose Direction:<span className="astrick">*</span>
+                </label>
+                <select
+                  id="toastdirection"
+                  name="toastdirection"
+                  value={formValues.toastdirection}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option value="Top">Top</option>
+                  <option value="Bottom">Bottom</option>
+                </select> 
+                {errors.dir && <p className="error">{errors.dir}</p>}
+              </div>
+        <div className=" toaster-fields theme-container">
+                <label htmlFor="toastTheme" aria-label="Theme for Asterik-Required">
+                  Theme:<span className="astrick">*</span>
+                </label>
+                <select
+                  id="toastTheme"
+                  name="toastTheme"
+                  value={formValues.toastTheme}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option value="Normal">Light</option>
+                  <option value="Dark">Dark</option>
+                  <option value="cg1">Blue</option>
+                  <option value="cg2">Purple</option>
+                </select> 
+                {errors.theme && <p className="error">{errors.theme}</p>}
+              </div>
         <div className="button-section">
               <div className="link-button">
                 <Link

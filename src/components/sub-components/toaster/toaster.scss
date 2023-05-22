@@ -57,9 +57,15 @@
         }
     }
   }
+  .toaster-main{
+    z-index: 99;
+  }
   .toaster-button{
     text-align: center;
     margin: 100px;
+  }
+  .toaster-button button{
+    background-color:var(--color-capgemini-blue);
   }
   .top-0 {
     top: 60px!important;

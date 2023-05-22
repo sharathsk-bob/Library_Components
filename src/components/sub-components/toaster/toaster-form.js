@@ -10,13 +10,17 @@ function ToasterForm(props) {
     const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
+    const [toastdirection,setDirection]=useState('');
+    const [toastTheme,setToastTheme]=useState('');
   
     const [errors, setErrors] = useState({});
     const toasterProps = {
         toasterType,
         title,
         message,
-        buttonText
+        buttonText,
+        toastdirection,
+        toastTheme
       };
     const history = useNavigate();
     const handleSubmit = (e) => {
@@ -50,6 +54,12 @@ function ToasterForm(props) {
 
       if (!buttonText) {
         errors.buttonText = 'Button text is required.';
+      }
+      if (toastdirection == undefined || toastdirection == null || toastdirection == "") {
+        errors.dir = "Direction is required";
+      }
+      if (toastTheme == undefined || toastTheme == null || toastTheme == "") {
+        errors.theme = "Theme is required";
       }
   
       return errors;
@@ -132,6 +142,40 @@ function ToasterForm(props) {
           />
           {errors.buttonText && <span className="error">{errors.buttonText}</span>}
         </div>
+        <div className=" toaster-fields">
+                <label htmlFor="dir" aria-label="Direction for Asterik-Required">
+                  Choose Direction:<span className="astrick">*</span>
+                </label>
+                <select
+                  id="dir"
+                  name="dir"
+                  value={toastdirection}
+                  onChange={(event) => setDirection(event.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="Top">Top</option>
+                  <option value="Bottom">Bottom</option>
+                </select> 
+                {errors.dir && <p className="error">{errors.dir}</p>}
+              </div>
+        <div className=" toaster-fields theme-container">
+                <label htmlFor="theme" aria-label="Theme for Asterik-Required">
+                  Theme:<span className="astrick">*</span>
+                </label>
+                <select
+                  id="theme"
+                  name="theme"
+                  value={toastTheme}
+                  onChange={(event) => setToastTheme(event.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="Normal">Light</option>
+                  <option value="Dark">Dark</option>
+                  <option value="cg1">Blue</option>
+                  <option value="cg2">Purple</option>
+                </select> 
+                {errors.theme && <p className="error">{errors.theme}</p>}
+              </div>
         <div className="button-section">
               <div className="link-button">
                 <Link

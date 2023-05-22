@@ -1,20 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useLocation } from "react-router-dom";
-import { Toast } from '@coreui/coreui';
 import { Link } from "react-router-dom";
 import useModal from "../../sub-components/use-modal/use-modal";
 import EditToaster from './edit-toaster';
 import "./toaster.scss";
+import ToasterMain from './toaster-main';
+import ToasterHtml from './toaster-html';
 
 function Toaster() {
     const location = useLocation();
+    const [activeTab, setActiveTab] = useState(1);
+
     const props = location.state.toasterProps;
     const { open: openEditToaster, close: closeEditToaster, ModalWrapper: ModalWrapperEditToaster } = useModal();
-    const openToaster=()=>{
-        const toastLiveExample = document.getElementById('liveToast');
-        const toast = new Toast(toastLiveExample);
-        toast.show();
-    }
+   
     
     
   return (
@@ -44,24 +43,27 @@ function Toaster() {
               </div>
             </div>
           </div>
-          <div className='toaster-button'>
-          <button type="button" class="btn btn-primary" id="liveToastBtn" onClick={openToaster}>{props.buttonText}</button>
-          </div>
-    
-
-<div class="position-fixed top-0 end-0 p-3" >
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      {/* <img src="..." class="rounded me-2" alt="..."/> */}
-      {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>:("")}
-      <strong class="me-auto">{props.title}</strong>
-      {/* <small>11 mins ago</small> */}
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-    {props.message}
-    </div>
-  </div>
+          <ToasterMain {...props}/>
+          <div className="card-tabs">
+  <button
+    className={activeTab === 1 ? "active" : ""}
+    onClick={() => setActiveTab(1)}
+  >
+    HTML
+  </button>
+  <button
+    className={activeTab === 0 ? "active" : ""}
+    onClick={() => setActiveTab(0)}
+  >
+    TAB2
+  </button>
+</div>
+<div className="card-content">
+  {activeTab === 0 ? (
+    ("")
+  ) : (
+    <ToasterHtml {...props} />
+  )}
 </div>
     </>
   )
