@@ -31,18 +31,17 @@ const ToasterDetail =(props)=>{
     
           <div className="modal-container details-section">
             <h1>
-             Details for the Cards section are below.
+             Details for the Toaster section are below.
             </h1>
-            <p>Please do follow the given instruction while creating the Card component.</p>
+            <p>Please do follow the given instruction while creating the Toaster component.</p>
            <div className="detail-content">
 <ul>
-    <li>Card title sholud not be more than 10 characters.</li>
-    <li>Card description should not be more than 200 words.</li>
-    <li>User Can select if he/she want to add a button</li>
-    <li> If User select to add a Button then he can choose max upto two buttons and their respective text</li>
-    <li>User Can select if he/she want to add a Image</li>
-    <li>User Can select the card width</li>
-    <li>User Can select the card theme</li>
+    <li>User Can select the toaster type.</li>
+    <li>The Toaster title should only contain 20 characters.</li>
+    <li>User can add a message of 100 words.</li>
+    <li>User can select the Button text on click of which the toaster appears.</li>
+    <li>User Can select the Toaster direction top/bottom</li>
+    <li>User Can select the Toaster theme</li>
 
 
 </ul>
