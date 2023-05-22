@@ -28,9 +28,10 @@ const AlertDetail = (props)=>{
             <p>Please do follow the given instruction while creating the Alert component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for Alert should not be more than 20 characters</li>
-                    <li>User can select if they want warning icon</li>
-                    <li>User can select if they want close button in alert</li>
+                    <li>Text for Alert should not be more than 50 characters</li>
+                    <li>User can choose the alert type they wish</li>
+                    <li>User can select if they want header with close button in alert</li>
+                    <li>User can input header text with a limit of 15 characters</li>
                     <li>User can select the theme of the alert from the dropdown</li>
                 </ul>
             </div>
