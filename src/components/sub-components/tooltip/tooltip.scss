@@ -212,10 +212,10 @@
     border-color: transparent transparent var(--color-black) transparent;
 }
   
-.Tooltip_Button:hover .tooltiptext-top, .Tooltip_Button:hover .tooltiptext-bottom, 
-.Tooltip_Button:hover .tooltiptext-right, .Tooltip_Button:hover .tooltiptext-left,
-.Tooltip_Button:hover .tooltiptext-topleft, .Tooltip_Button:hover .tooltiptext-topright,
-.Tooltip_Button:hover .tooltiptext-bottomleft, .Tooltip_Button:hover .tooltiptext-bottomright{
+.Tooltip_Button:hover .tooltiptext-top, .Tooltip_Button:focus-visible .tooltiptext-top, .Tooltip_Button:hover .tooltiptext-bottom, .Tooltip_Button:focus-visible .tooltiptext-bottom,
+.Tooltip_Button:hover .tooltiptext-right, .Tooltip_Button:focus-visible .tooltiptext-right, .Tooltip_Button:hover .tooltiptext-left, .Tooltip_Button:focus-visible .tooltiptext-left,
+.Tooltip_Button:hover .tooltiptext-topleft, .Tooltip_Button:focus-visible .tooltiptext-topleft,  .Tooltip_Button:hover .tooltiptext-topright, .Tooltip_Button:focus-visible .tooltiptext-topright,
+.Tooltip_Button:hover .tooltiptext-bottomleft, .Tooltip_Button:focus-visible .tooltiptext-bottomleft, .Tooltip_Button:hover .tooltiptext-bottomright, .Tooltip_Button:focus-visible .tooltiptext-bottomright{
     visibility: visible;
 }
 
