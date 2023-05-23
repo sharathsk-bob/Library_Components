@@ -1,6 +1,3 @@
-// .App{
-//     text-align: center;
-// }
 .Normal{
     background-color: #f1f4f8;
     
@@ -12,7 +9,6 @@
     
 }
 .Dark{
-    // background-image:linear-gradient(244deg,rgba(47, 48, 48, 0.9),rgba(22, 20, 20, 0.9));
     color: #ffff !important;
     .card__title {
         color: white !important;
@@ -24,14 +20,9 @@
     }
 }
 .cg1{
-    // background-image:linear-gradient(244deg,rgba(0,123,189,.9),rgba(0,63,97,.9));
     background-color: var(--color-capgemini-blue) !important;
    
     color: #ffff !important; 
-    // .cg-logo{
-    //     background-color: white;
-    //     padding: 4px;
-    // } 
     .card__title {
         color: white !important;
      }  
@@ -87,7 +78,6 @@
         span{
             font-size: 1.35rem;
             text-transform: uppercase;
-            // font-weight: 800;
             margin: 0;
             color: #333;
             margin-left: 10px !important;
@@ -121,10 +111,7 @@
   }
 .card {
 	background-color: white;
-	// border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow);
-	//margin: 0px 32px 32px 32px;
-	// max-width: calc(100% - 50px);
 	width: 100%;
 	display: inline-flex;
 	flex-direction: column;
@@ -181,7 +168,6 @@
         margin: 0;
     }
     .my_title {
-        //width: 70%;
         overflow: hidden;
         white-space: nowrap;
         display: inline-block;
@@ -230,59 +216,20 @@
         display: flex;
         align-self: flex-end;
     }
-    // .card__cta, .card__cta:hover {
-    //     background-color: #12abdb !important;
-    //     border-color: #12abdb !important;
-    // }
+
     .library-add-button{
         margin-left: 20px;
-        // transition: all .2s ease-out;
-        // overflow: hidden;
-        // position: relative;
-        // border: 1px solid #15011d;
-        // background: #fff;
-        // border-radius: calc((50/16)*1rem);
-        // color: #15011d;
-        // font-size: calc((16/16)*1rem);
-        // font-weight: 400;
-        // display: -ms-inline-flexbox;
-        // display: inline-flex;
-        // -ms-flex-align: center;
-        // align-items: center;
-        // -ms-flex-pack: start;
-        // justify-content: flex-start;
-        // padding: 11px 24px;
-        //min-height: 3rem;
+      
     
     }
-    // .library-add-button:hover{
-    //     color: #15011d;
-    //     border-color: #00e6e3;
-    //     box-shadow: 0 6px 30px 0 rgba(0,0,0,.2);
-    //     transform: scale(1.1);
-    //     z-index: 1;
-    //     background: #00e6e3;
-    // }
+    
     .card-description {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
         text-overflow: ellipsis;
-       // max-height: 2.4em; /* Change this value to adjust the number of lines */
       }
-    //   .card-description:hover {
-    //     display:block;
-    //     max-height: none;
-    //     white-space: normal;
-    //     background-color: white;
-    //     z-index: 9999;
-    //     position: absolute;
-    //     padding: 10px;
-    //     border: 1px solid #ccc;
-    //     top: 220px;
-    //     left: 400px;
-    //   }
       
      
 }
@@ -327,7 +274,10 @@
     display: grid;
     }
     .card-quaterwidth{
-        width: 50% !important;
+        width: 75% !important;
+    }
+    .card-halfwidth{
+        width: 75% !important;
     }
     .card__title {
         font-size: 1.2rem !important;

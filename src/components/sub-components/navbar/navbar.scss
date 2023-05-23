@@ -4,9 +4,7 @@
   a  {
     color: var(--color-capgemini-blue) !important;
   }
-  // ul.navbar-nav li a:hover {
-  //   background-color: #333 !important;
-  // }
+ 
   .navbar-toggler-icon {
 
      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -70,13 +68,8 @@ ul.dropdown-menu li a:focus {
 
 }
 .cg1 {
-  // background-image:linear-gradient(244deg,rgba(0,123,189,.9),rgba(0,63,97,.9));
-
+ 
   color: #ffff !important;
-  // .cg-logo{
-  //     background-color: white;
-  //     padding: 4px;
-  // }
   .card__title {
     color: white !important;
   }
@@ -167,7 +160,6 @@ ul.dropdown-menu li a:focus {
     span {
       font-size: 1.35rem;
       text-transform: uppercase;
-      // font-weight: 800;
       margin: 0;
       color: #333;
       margin-left: 10px !important;
@@ -220,32 +212,9 @@ ul.navbar-nav li a i {
 ul.navbar-nav li a span {
   font-size: 1em;
 }
-// ul.navbar-nav li a:hover {
-//   text-decoration: none;
-//   background-color:  #0070ad;
-//   color:white;
-//   font-weight: 600;
-// }
-// ul.navbar-nav li a:focus {
-//   text-decoration: none;
-//   background-color:  #0070ad;
-//   color:white;
-//   font-weight: 600;
-// }
-// ul.dropdown-menu li a:hover {
-//   background: #0070ad;
-//   color: white;
-//   font-weight: 600;
-// }
-// ul.dropdown-menu li a:focus {
-//   background: #0070ad;
-//   color: white;
-//   font-weight: 600;
-// }
 ul.dropdown-menu {
   padding: 0px;
   margin: 0px;
-  // min-width: 100%;
 }
 .profile-part-div {
   float: right;
@@ -283,7 +252,6 @@ i.fa.fa-sign-out.fa-lg {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  // border: 1px solid rgba(0,0,0,.15);
   border-radius: 0.25rem;
 }
 .dropdown .menu-text::after {
@@ -305,12 +273,10 @@ i.fa.fa-sign-out.fa-lg {
   .navbar {
     margin-top: 0px;
     padding: 1em 0px;
-    //flex-flow: column;
   }
   ul.navbar-nav {
     margin: 0;
     padding: 0;
-    //display: block;
     width: 100%;
   }
   .dropdown-menu {
