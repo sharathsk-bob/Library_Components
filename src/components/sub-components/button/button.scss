@@ -16,15 +16,16 @@
     }
 }
 
-.dark {
+.Button-Content .dark {
     background-color: var(--color-black);
     color: var(--color-white);
 }
-.dark:focus {
+.Button-Content .dark:focus {
 	border: 5px solid white!important;
 }
-.dark:focus-visible {
-	border: 5px solid white!important;
+.Button-Content .dark:focus-visible {
+	border: 5px solid var(--color-capgemini-blue)!important;
+    outline: none !important;
 }
 
 .normal {

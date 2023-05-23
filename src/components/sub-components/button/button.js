@@ -41,6 +41,24 @@ const ButtonComponent = ( ) => {
   const [activeTab, setActiveTab] = useState(0);
   console.log(props, "props in button");
   // const themeClass = {props.themeValue?}
+
+  const formattedCSS = CustomStyleButton.componentStyle.rules[0];
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+      navigator.clipboard.writeText(formattedCSS)
+      .then(() => {
+          setCopied(true);
+          setTimeout(() => {
+          setCopied(false);
+          }, 2000);
+      })
+      .catch((error) => {
+          console.error('Failed to copy to clipboard:', error);
+      });
+  };
+
   return (
     <>
     <ModalWrapperEditButton >
@@ -79,9 +97,18 @@ const ButtonComponent = ( ) => {
 
     <div className="card-content">
     {activeTab === 0 ? (
+        <>
+        <div className='clipboard-div'>
+            <button className='clipboard-btn' onClick={copyToClipboard}>
+                <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                    {copied ? ' Copied!' : ' Copy Code'}
+                </i>
+            </button>
+        </div>
         <SyntaxHighlighter language="css" style={coy}>
-            {CustomStyleButton.componentStyle.rules[0]}
+            {formattedCSS}
         </SyntaxHighlighter>
+        </>
     ) : (
         <ButtonHtml ButtonProps = {props} />
     )}

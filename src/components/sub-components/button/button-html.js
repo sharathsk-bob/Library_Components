@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -22,15 +22,37 @@ function ButtonHtml(props) {
         }
     }
 
-const formattedCode = lines.join('\n');
-    console.log(formattedCode);
+    const formattedHTML = lines.join('\n');
+
+    const [copied, setCopied] = useState(false);
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(formattedHTML)
+        .then(() => {
+            setCopied(true);
+            setTimeout(() => {
+            setCopied(false);
+            }, 2000);
+        })
+        .catch((error) => {
+            console.error('Failed to copy to clipboard:', error);
+        });
+    };
+
+    console.log(formattedHTML);
     console.log(css);
     return (
         <>
+            <div className='clipboard-div'>
+                <button className='clipboard-btn' onClick={copyToClipboard}>
+                    <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                        {copied ? ' Copied!' : ' Copy Code'}
+                    </i>
+                </button>
+            </div>
             <SyntaxHighlighter language="html" style={coy}>
-                {formattedCode}
+                {formattedHTML}
             </SyntaxHighlighter>
-            
         </>
     )
 }
