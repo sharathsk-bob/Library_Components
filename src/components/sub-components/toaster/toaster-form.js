@@ -7,7 +7,6 @@ import './toaster-form.scss';
 function ToasterForm(props) {
     const { close } = props;
     const [toasterType, setToasterType] = useState('');
-    const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
     const [toastdirection,setDirection]=useState('');
@@ -16,7 +15,6 @@ function ToasterForm(props) {
     const [errors, setErrors] = useState({});
     const toasterProps = {
         toasterType,
-        title,
         message,
         buttonText,
         toastdirection,
@@ -44,10 +42,6 @@ function ToasterForm(props) {
         errors.toasterType = 'Toaster type is required.';
       }
 
-      if (!title) {
-        errors.title = 'Title is required.';
-      }
-
       if (!message) {
         errors.message = 'Message is required.';
       }
@@ -67,13 +61,11 @@ function ToasterForm(props) {
   
     const displayToaster = () => {
       console.log('Toaster Type:', toasterType);
-      console.log('Title:', title);
       console.log('Message:', message);
       console.log('Button Text:', buttonText);
     };
     const resetToaster = () => {
         setToasterType('');
-        setTitle('');
         setMessage('');
         setButtonText('');
         setErrors({});
@@ -111,23 +103,12 @@ function ToasterForm(props) {
           {errors.toasterType && <span className="error">{errors.toasterType}</span>}
         </div>
         <div className='toaster-fields'>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            maxlength="20" 
-          />
-          {errors.title && <span className="error">{errors.title}</span>}
-        </div>
-        <div className='toaster-fields'>
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            maxlength="600" 
+            maxlength="40" 
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </div>

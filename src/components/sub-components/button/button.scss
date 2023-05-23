@@ -21,6 +21,12 @@
     color: var(--color-white);
     
 }
+.dark:focus {
+	border: 5px solid white!important;
+}
+.dark:focus-visible {
+	border: 5px solid white!important;
+}
 
 .normal {
     background-color: var(--color-white);

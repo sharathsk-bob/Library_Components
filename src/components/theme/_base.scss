@@ -73,7 +73,13 @@ a.btn.btn-default.app-tabs-selected {
 [type=radio] {
 	appearance: none;
 }
-
+.clipboard-div{
+	text-align: end;
+}
+.clipboard-btn{
+	background: none;
+	border: none;
+}
 label {
 	outline: none !important;
 }

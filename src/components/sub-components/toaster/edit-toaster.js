@@ -7,13 +7,11 @@ import './toaster-form.scss';
 function EditToasterForm(props) {
     const { close,data } = props;
     const [toasterType, setToasterType] = useState('');
-    const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
     const [toastdirection,setDirection]=useState('');
     const [toastTheme,setToastTheme]=useState('');
     const initialValues={toasterType:data.toasterType,
-        title:data.title,
         message:data.message,
         buttonText:data.buttonText,
         toastdirection:data.toastdirection,
@@ -23,7 +21,6 @@ function EditToasterForm(props) {
     const [errors, setErrors] = useState({});
     const toasterProps = {
         toasterType:formValues.toasterType,
-        title:formValues.title,
         message:formValues.message,
         buttonText:formValues.buttonText,
         toastdirection:formValues.toastdirection,
@@ -51,10 +48,6 @@ function EditToasterForm(props) {
         errors.toasterType = 'Toaster type is required.';
       }
 
-      if (!formValues.title) {
-        errors.title = 'Title is required.';
-      }
-
       if (!formValues.message) {
         errors.message = 'Message is required.';
       }
@@ -78,7 +71,6 @@ function EditToasterForm(props) {
       };
     const displayToaster = () => {
         setToasterType(formValues.toasterType);
-        setTitle(formValues.title);
         setMessage(formValues.message);
         setButtonText(formValues.buttonText);
         setDirection(formValues.toastdirection);
@@ -119,25 +111,13 @@ function EditToasterForm(props) {
           {errors.toasterType && <span className="error">{errors.toasterType}</span>}
         </div>
         <div className='toaster-fields'>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formValues.title}
-            onChange={handleChange}
-            maxlength="20" 
-          />
-          {errors.title && <span className="error">{errors.title}</span>}
-        </div>
-        <div className='toaster-fields'>
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
             name="message"
             value={formValues.message}
             onChange={handleChange}
-            maxlength="600" 
+            maxlength="40" 
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </div>
