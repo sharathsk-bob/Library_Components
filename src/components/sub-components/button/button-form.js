@@ -6,7 +6,7 @@ import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
 import ButtonComponent from "./button";
-import "../header/components/header-modal/header-modal.scss";
+import "../header/header-modal.scss";
 
 const ButtonForm =(props)=>{
     const navigate = useNavigate()

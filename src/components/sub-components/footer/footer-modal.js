@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../../app-context";
 import Multiselect from "multiselect-react-dropdown";
 import FocusTrap from "focus-trap-react";
-
 import { FormField, Input } from "@fluentui/react-northstar";
-
-import closeIcon from "../../../../asset/images/cross-white.png";
+import closeIcon from "../../asset/images/cross-white.png";
 import "./footer-modal.scss";
 
 const FooterModal =(props)=>{
@@ -17,24 +14,20 @@ const FooterModal =(props)=>{
   const [footertheme, setFootertheme] = useState("Normal");
   const [footerErrorsMsg, setFooterErrorMsg] = useState({});
 
-  
- 
 	const{close} = props;
 	
   const footerProps = {
-   textValue,
-   multiselectValue,
-   iconsValue,
-   footertheme
-   };
+    textValue,
+    multiselectValue,
+    iconsValue,
+    footertheme
+  };
  
-
- 
- const handleSelect = (options)=>{
-setMultiselectValue(options);
-
- };
- let footerErrors = {};
+  const handleSelect = (options)=>{
+    setMultiselectValue(options);
+  };
+  let footerErrors = {};
+  
 const checkValidation =()=>{
   let isValidFooter = true;
   if (textValue === undefined) {

@@ -1,9 +1,9 @@
 import React from 'react';
-import cgLogo from "../../../../asset/images/cg_logo.svg";
-import appIcon from "../../../../asset/images/wbh-icon.png";
-import profileImage from "../../../../asset/images/profile.png";
-import appIconTheme from "../../../../asset/images/wbh-theme.png";
-import cgLogoWhite  from "../../../../asset/images/capgemini-white.png";
+import cgLogo from "../../asset/images/cg_logo.svg";
+import appIcon from "../../asset/images/wbh-icon.png";
+import profileImage from "../../asset/images/profile.png";
+import appIconTheme from "../../asset/images/wbh-theme.png";
+import cgLogoWhite  from "../../asset/images/capgemini-white.png";
 
 function Header(props) {
   const { headerVal }=props;

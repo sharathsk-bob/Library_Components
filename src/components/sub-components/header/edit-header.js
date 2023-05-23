@@ -1,104 +1,82 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../../app-context";
 import FocusTrap from "focus-trap-react";
-
 import { FormField, Input } from "@fluentui/react-northstar";
-
-import closeIcon from "../../../../asset/images/cross-white.png";
+import closeIcon from "../../asset/images/cross-white.png";
 import "./header-modal.scss";
 
-const HeaderModal =(props)=>{
-	const [titleValue, setTitleValue] = useState();
-  const [profileValue, setProfileValue] = useState();
-  const [cgLogoValue, setCgLogoValue] = useState("");
-  const [imageValue, setImageValue] = useState("");
-  const [profileLogo, setProfileLogo] = useState("");
-  const [errorMsg, setErrorMsg] = useState({});
-  const [themeValue, setThemeValue] = useState("Normal");
-  // const { headerProps, setHeaderProps } = useContext(AppContext);
-	const{close} = props;
+const EditHeaderModal =(props)=>{
 	
+  const [errorMsgEdit, setErrorMsgEdit] = useState({});
+	const{close, data} = props;
+  const navigationheader = useNavigate();
+  const [headerData, setHeaderData] = useState(data);
 
-  const headerProps = {
-   titleValue,
-   profileValue,
-   cgLogoValue,
-   imageValue,
-   profileLogo,
-   themeValue
+  const handleSubmit = (event) => {
+    if (event.target.id === "title") {
+      setHeaderData({ ...headerData, titleValue: event.target.value });
+    } else if (event.target.id === "profile name") {
+      setHeaderData({ ...headerData, profileValue: event.target.value });
+    } else if (event.target.name === "FilterType") {
+      setHeaderData({ ...headerData, cgLogoValue: event.target.value });
+    } else if (event.target.name === "applogo") {
+      setHeaderData({ ...headerData, imageValue: event.target.value });
+    } else if (event.target.name === "profilelogo") {
+      setHeaderData({ ...headerData, profileLogo: event.target.value });
+    } else {
+      setHeaderData({ ...headerData, themeValue: event.target.value });
+    }
   };
 
-  const navigationheader = useNavigate();
+  let editError = {};
   
-  let errors = {};
-  
+  const headerProps = headerData;
+  const checkValidation = () => {
+     
+     let errorflag = true;
+     if (!headerData.profileValue || !headerData.titleValue) {
+       if (!headerData.titleValue) {
+         editError.editTitle = "Title is required";
+         errorflag = false;
+       }
+       if (!headerData.profileValue) {
+         editError.editProfile = "Profile Name is required ";
 
-
-   const checkValidation = () => {
-    let isValid = true;
-     if (titleValue === undefined) {
-       errors.title = "Title is required";
-       isValid = false;
+         errorflag = false;
+       }
      }
-     if (profileValue === undefined) {
-       errors.profile = "Profile Name is required";
-       isValid = false;
-     }
-     if (cgLogoValue === "") {
-       errors.logoValue = "Please select the above field";
-       isValid = false;
-     }if(imageValue === ""){
-      errors.appLogo = "Please select the above field";
-      isValid = false;
-     }if(profileLogo === ""){
-      errors.profileLogovalue = "Please select the above field";
-      isValid = false;
-     }if(themeValue === undefined){
-      
-      errors.theme = "Please select the value from the dropdown";
-      isValid = false;
-     }
-     setErrorMsg(errors);
-      return isValid;
-
-    
+   
+     setErrorMsgEdit(editError);
+     return errorflag;
    };
-const buttonSubmit =(event)=>{
+const onSubmit =  (event)=>{
   event.preventDefault();
-  const checkValid =   checkValidation();
-  // setHeaderProps(propsValue);
-  if (checkValid) {
-   
-   
-   console.log(headerProps, "value");
-  navigationheader("/header", {state: {headerProps}});
-  
-  }else{
-    console.log(checkValid,"elsecondition");
+  const checkEditValid =   checkValidation();
+
+  if(checkEditValid){
+    close();
+    navigationheader("/header", {state: {headerProps}});
   }
-  console.log(themeValue, "theme valuee");
-};
-  
+}
+
 return (
   <FocusTrap
-			focusTrapOptions={{
-				// escapeDeactivates: false
-				onDeactivate: close
-			}}
-		>
+  focusTrapOptions={{
+    // escapeDeactivates: false
+    onDeactivate: close
+  }}
+>
   <div className="modal_wapper">
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
-        <p>Header</p>
+        <p> Edit Header</p>
         <button className="close-button" aria-label="Close" onClick={close}>
           <img src={closeIcon}></img>
-          
         </button>
       </div>
 
-      <div className="modal-container headerModal">
+      <div className="modal-container  headerModal">
         <div className="input-field-container">
           <FormField className="form-modal__content">
             <label
@@ -106,7 +84,7 @@ return (
               aria-label="Title for Header Asterik-Required"
               for="title"
             >
-              Title: <span className="asterik">*</span> 
+             Title: <span className="asterik">*</span> 
               <Input
                 id="title"
                 className="text_modal__input"
@@ -114,13 +92,14 @@ return (
                 name="title"
                 aria-required="true"
                 maxLength="15"
-                // aria-describedby="name-err-title"
-                value={titleValue}
-                onChange={(event) => setTitleValue(event.target.value)}
+                aria-describedby="name-err-title"
+                value={headerData.titleValue}
+                onChange={handleSubmit}
               />
               
             </label>
-            {errorMsg.title ?<span className="error">{errorMsg.title}</span>:""}
+            {/* {editError.editTitle!=undefined ? <span className="error">{editError.editTitle}</span>:""} */}
+          {errorMsgEdit.editTitle ? <span className="error">{errorMsgEdit.editTitle}</span>:""}
           </FormField>
         </div>
         <div className="input-field-container">
@@ -130,7 +109,7 @@ return (
               aria-label="Profile Name Asterik-Required"
               for="profile name"
             >
-              Profile Name:<span className="asterik">*</span> 
+              Profile Name: <span className="asterik">*</span> 
               <Input
                 id="profile name"
                 className=" text_modal__input"
@@ -139,12 +118,12 @@ return (
                 aria-required="true"
                 maxLength="10"
                 aria-describedby="name-err-title"
-                value={profileValue}
-                onChange={(event) => setProfileValue(event.target.value)}
+                value={headerData.profileValue}
+                onChange={handleSubmit}
               />
               
             </label>
-            {errorMsg.profile ? <span className="error">{errorMsg.profile}</span>: ""}
+            { errorMsgEdit.editProfile ? <span className="error">{errorMsgEdit.editProfile}</span>: ""}
           </FormField>
         </div>
         <div className="input-field-container logo-field">
@@ -157,10 +136,8 @@ return (
                   type="radio"
                   value="Yes"
                   name="FilterType"
-                  checked={cgLogoValue === "Yes"}
-                  onChange={(e) => {
-                    setCgLogoValue("Yes");
-                  }}
+                  checked={headerData.cgLogoValue === "Yes"}
+                  onChange={handleSubmit}
                 />
                 <div className="tag">
                   <span className="tag__cat">Yes </span>
@@ -174,10 +151,8 @@ return (
                   type="radio"
                   value="No"
                   name="FilterType"
-                  checked={cgLogoValue === "No"}
-                  onChange={(e) => {
-                    setCgLogoValue("No");
-                  }}
+                  checked={headerData.cgLogoValue === "No"}
+                  onChange={handleSubmit}
                 />
                 <div className="tag">
                   <span className="tag__cat">No</span>
@@ -186,22 +161,20 @@ return (
             </FormField>
           
           </div>
-          {errorMsg.logoValue ? <span className="error">{errorMsg.logoValue}</span>: ""}
+          {/* {errorMsg.logoValue ? <span className="error">{errorMsg.logoValue}</span>: ""} */}
         </div>
         <div className="input-field-container logo-field">
           <p>Would you like to have App logo in the header section<span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have app Logo Select yes ">
+              <label className="modal-label"  aria-label="Would you like to have app Logo Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
                   value="Yes"
                   name="applogo"
-                  checked={imageValue === "Yes"}
-                  onChange={(e) => {
-                    setImageValue("Yes");
-                  }}
+                  checked={headerData.imageValue === "Yes"}
+                  onChange={handleSubmit}
                 />
                 <div className="tag">
                   <span className="tag__cat">Yes </span>
@@ -215,10 +188,8 @@ return (
                   type="radio"
                   value="No"
                   name="applogo"
-                  checked={imageValue === "No"}
-                  onChange={(e) => {
-                    setImageValue("No");
-                  }}
+                  checked={headerData.imageValue === "No"}
+                  onChange={handleSubmit}
                 />
                 <div className="tag">
                   <span className="tag__cat">No</span>
@@ -227,7 +198,7 @@ return (
             </FormField>
           
           </div>
-          {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""}
+          {/* {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""} */}
         </div>
         <div className="input-field-container logo-field">
           <p>Would you like to have profile logo in the header section <span className="asterik">*</span> </p>
@@ -239,12 +210,10 @@ return (
                   type="radio"
                   value="Yes"
                   name="profilelogo"
-                  checked={profileLogo === "Yes"}
-                  onChange={(e) => {
-                    setProfileLogo("Yes");
-                  }}
+                  checked={headerData.profileLogo === "Yes"}
+                  onChange={handleSubmit}
                 />
-                <div className="tag"> 
+                <div className="tag">
                   <span className="tag__cat">Yes </span>
                 </div>
               </label>
@@ -256,10 +225,8 @@ return (
                   type="radio"
                   value="No"
                   name="profilelogo"
-                  checked={profileLogo === "No"}
-                  onChange={(e) => {
-                    setProfileLogo("No");
-                  }}
+                  checked={headerData.profileLogo === "No"}
+                  onChange={handleSubmit}
                 />
                 <div className="tag">
                   <span className="tag__cat">No</span>
@@ -268,19 +235,20 @@ return (
             </FormField>
           
           </div>
-          {errorMsg.profileLogovalue ? <span className="error">{errorMsg.profileLogovalue}</span>: ""}
+          {/* {errorMsg.profileLogovalue ? <span className="error">{errorMsg.profileLogovalue}</span>: ""} */}
         </div>
         <div className="input-field-container theme-field">
           
-          <div className="modal-checkbox modal-select">
+          <div className="modal-checkbox">
             <FormField className="modal-content-theme">
              
             <label for="theme" aria-label="Select theme Asterik-Required"> 
             <p>Please select the theme colour.<span className="asterik">*</span> </p>
-  <select name="theme" id="theme"  value={themeValue}
-                onChange={(event) => setThemeValue(event.target.value)}>
-        {/* <option value=""></option>          */}
-    <option value="Normal" selected>Light</option>
+  <select name="theme" id="theme"  value={headerData.themeValue}
+              onChange={handleSubmit}
+                >
+                  {/* <option value=""></option> */}
+    <option value="Normal"  selected >Light</option>
     <option value="Dark">Dark</option>
     <option value="cg1">Blue</option>
     <option value="cg2">Purple</option>
@@ -290,18 +258,19 @@ return (
             </FormField>
           
           </div>
-          {errorMsg.theme ? <span className="error">{errorMsg.theme}</span>: ""}
+          {/* {errorMsg.theme ? <span className="error">{errorMsg.theme}</span>: ""} */}
         </div>
-       
+        
         <div className="button-section">
-          <div className="link-button margin-button">
-            
+          <div className="link-button  update-button">
+           
            <Link
-
+              // to="header"
+              // state={headerData}
               className="btn btn-primary"
-              onClick={buttonSubmit}
+              onClick={onSubmit}
             >
-              Submit
+              Update
             </Link>
           </div>
         </div>
@@ -312,4 +281,4 @@ return (
 );
 };
 
- export default HeaderModal;
+ export default EditHeaderModal;

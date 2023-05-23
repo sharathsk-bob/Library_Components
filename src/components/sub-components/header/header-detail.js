@@ -1,18 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-
-
-import closeIcon from "../../../../asset/images/cross-white.png";
-import "../header-detail/header-details.scss";
+import React from "react";
+import closeIcon from "../../asset/images/cross-white.png";
+import "./header-details.scss";
 import FocusTrap from "focus-trap-react";
 
 const HeaderDetail =(props)=>{
    
-    
-
-        const{close} = props;
-        
-    
-     
+    const{close} = props;
         
     return (
       <FocusTrap
