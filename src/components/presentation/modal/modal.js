@@ -1,9 +1,9 @@
 import React from "react";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
-import HeaderModal from "../../sub-components/header/components/header-modal/header-modal";
+import HeaderModal from "../../sub-components/header/header-modal";
 // import HeaderComponent from "../../sub-components/header/header";
-import HeaderDetail from "../../sub-components/header/components/header-detail/header-detail";
+import HeaderDetail from "../../sub-components/header/header-detail";
 import Form from "../../sub-components/cards/form";
 import CardDetail from "../../sub-components/cards/card-detail";
 import "../../sub-components/use-modal/use-modal.scss"
@@ -17,8 +17,8 @@ import TooltipForm from "../../sub-components/tooltip/tooltip-form";
 import AlertDetail from "../../sub-components/alert/alert-detail";
 import AlertForm from "../../sub-components/alert/alert-form";
 
-import FooterModal from "../../sub-components/footer/components/footer-modal/footer-modal";
-import FooterDetail from "../../sub-components/footer/components/footer-detail/footer-details";
+import FooterModal from "../../sub-components/footer/footer-modal";
+import FooterDetail from "../../sub-components/footer/footer-details";
 import ToasterForm from "../../sub-components/toaster/toaster-form";
 import ToasterDetail from "../../sub-components/toaster/toaster-detail";
 const Modal =()=>{

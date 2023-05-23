@@ -4,7 +4,7 @@ import FocusTrap from "focus-trap-react";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal/header-modal.scss";
+import "../header/header-modal.scss";
 
 const EditAlertModal = (props)=>{
 
@@ -14,8 +14,8 @@ const EditAlertModal = (props)=>{
     const initialValues = {
         alerttext: data.alerttext,
         Choice_Alerttype: data.Choice_Alerttype,
-        Choice_HeaderIf: data.Choice_HeaderIf,
-        alerthead: data.alerthead,
+        // Choice_HeaderIf: data.Choice_HeaderIf,
+        // alerthead: data.alerthead,
         Choice_Width: data.Choice_Width,
         Choice_Theme: data.Choice_Theme,
     }
@@ -34,8 +34,8 @@ const EditAlertModal = (props)=>{
     const AlertProps = {
         alerttext: inputs.alerttext,
         Choice_Alerttype: inputs.Choice_Alerttype,
-        Choice_HeaderIf: inputs.Choice_HeaderIf,
-        alerthead: inputs.alerthead,
+        // Choice_HeaderIf: inputs.Choice_HeaderIf,
+        // alerthead: inputs.alerthead,
         Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.Choice_Theme,
     };
@@ -53,19 +53,19 @@ const EditAlertModal = (props)=>{
             } 
         }
 
-        if(values.Choice_HeaderIf === ""){
-            errors.Choice_HeaderIf = "Please make decision for Header field";
-        }
+        // if(values.Choice_HeaderIf === ""){
+        //     errors.Choice_HeaderIf = "Please make decision for Header field";
+        // }
 
-        if( values.Choice_HeaderIf === "Yes" ) {
-            if (values.alerthead == undefined || values.alerthead === '' ) {
-                errors.alerthead = "Alert heading is required";
-            } else if (values.alerthead !== undefined) {
-                if(values.alerthead.length > 15){
-                    errors.alerthead = "Alert Heading Text should be shorter"; 
-                } 
-            }
-        }   
+        // if( values.Choice_HeaderIf === "Yes" ) {
+        //     if (values.alerthead == undefined || values.alerthead === '' ) {
+        //         errors.alerthead = "Alert heading is required";
+        //     } else if (values.alerthead !== undefined) {
+        //         if(values.alerthead.length > 15){
+        //             errors.alerthead = "Alert Heading Text should be shorter"; 
+        //         } 
+        //     }
+        // }   
 
         if(values.Choice_Alerttype === undefined || values.Choice_Alerttype === ''){
             errors.Choice_Alerttype = "Please select the type of alert from the dropdown";
@@ -155,7 +155,7 @@ return (
             <p className="error">{inputErrors.Choice_Alerttype}</p>
         </div>
 
-        <div className="input-field-container logo-field">
+        {/* <div className="input-field-container logo-field">
             <p>Would you like to have Header in Alert? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
@@ -218,7 +218,7 @@ return (
                 <p id="tooltip-err-text" className='error' aria-atomic="true">{inputErrors.alerthead}</p>
             </FormField>
         </div>
-        : "" }
+        : "" } */}
 
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
@@ -245,7 +245,7 @@ return (
                 <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
-                        <option value="Normal">Transparent</option>
+                        <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>

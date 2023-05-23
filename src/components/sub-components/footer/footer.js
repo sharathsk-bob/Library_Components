@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useModal from "../../sub-components/use-modal/use-modal";
-import EditFooterModal from "../footer/components/footer-modal/edit-footer";
-import FooterHtml from "./components/footer-modal/footer-html";
-import Footer from "./components/footer-main";
+import EditFooterModal from "./edit-footer";
+import FooterHtml from "./footer-html";
+import Footer from "./footer-main";
 
 const FooterComponent =()=>{
 

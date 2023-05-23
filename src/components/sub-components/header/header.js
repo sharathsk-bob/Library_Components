@@ -1,11 +1,12 @@
-import "../header/header.scss";
+import "./header.scss";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import EditHeaderModal from "../header/components/header-modal/edit-header";
+import EditHeaderModal from "./edit-header";
 import useModal from "../../sub-components/use-modal/use-modal";
-import Header from "./components/header-modal/header-main";
-import HeaderHtml from "./components/header-modal/header-html";
+import Header from "./header-main";
+import HeaderHtml from "./header-html";
 import { useState } from "react";
+
 const HeaderComponent = ( ) => {
   const location = useLocation();
   const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
@@ -28,16 +29,11 @@ const HeaderComponent = ( ) => {
         <div className="button-section">
        
         <Link
-              to="/"
-             
-              className="link-button"
-             
+              to="/"     
+              className="link-button"     
             >
               Back
             </Link>
-    
-                
-             
                 <button class="buttons" onClick={openEditHeader} >
                   Edit
                 </button>
@@ -51,7 +47,7 @@ const HeaderComponent = ( ) => {
             HTML
         </button>
         <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
-            TAB2
+            CSS
         </button>
     </div>
 

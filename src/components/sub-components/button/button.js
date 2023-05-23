@@ -1,12 +1,37 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation,  Link } from "react-router-dom";
 import EditButtonModal from "./edit-button";
 import useModal from "../../sub-components/use-modal/use-modal";
-import "../header/header.scss";
 import { CustomButton } from "./CustomButton";
 import ButtonHtml from "./button-html";
 import Button from "./button-main";
+import styled from "styled-components";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import "../header/header.scss";
+
+export const CustomStyleButton = styled.div`
+    .dark {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    .normal {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border: 1px solid var(--color-black);
+    }
+
+    .blue {
+        background-color: var(--color-capgemini-blue);
+        color: var(--color-white);
+    }
+
+    .purple {
+        background-color: var(--color-purple-wbh);
+        color: var(--color-white);
+    }
+`;
 
 const ButtonComponent = ( ) => {
   const location = useLocation();
@@ -48,13 +73,15 @@ const ButtonComponent = ( ) => {
             HTML
         </button>
         <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
-            TAB2
+            CSS
         </button>
     </div>
 
     <div className="card-content">
     {activeTab === 0 ? (
-        ("")
+        <SyntaxHighlighter language="css" style={coy}>
+            {CustomStyleButton.componentStyle.rules[0]}
+        </SyntaxHighlighter>
     ) : (
         <ButtonHtml ButtonProps = {props} />
     )}

@@ -5,7 +5,7 @@ import FocusTrap from "focus-trap-react";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal/header-modal.scss";
+import "../header/header-modal.scss";
 
 const EditButtonModal = (props)=>{
 
@@ -71,7 +71,9 @@ const EditButtonModal = (props)=>{
                     errors.border_radius = "Border Radius shouldn't exceed 50px";
                 }
             }
-        }   
+        } else if (values.Choice_BorderRadius === "No") {
+            values.border_radius = "0";
+        }
         
         if (!values.border_width) { 
         errors.border_width = "Please enter a Border width value";
@@ -340,7 +342,7 @@ return (
                 </label>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
-                        <option value="Normal">Transparent</option>
+                        <option value="Normal">Light</option>
                         <option value="Dark">Dark</option>
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>

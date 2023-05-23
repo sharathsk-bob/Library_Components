@@ -16,7 +16,7 @@ const AlertForm =(props)=>{
     const [inputErrors, setInputErrors] = useState({});
     const [themeValue, setThemeValue] = useState();
     const [alertType, setAlertType] = useState();
-    const [headerIf, setHeaderIf] = useState("");
+    // const [headerIf, setHeaderIf] = useState("");
     const [alertWidth, setAlertWidth] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
@@ -37,21 +37,21 @@ const AlertForm =(props)=>{
             } 
         }
 
-        if(headerIf === ""){
-            errors.Headerif = "Please make decision for Header field";
-        } else {
-            inputs.Choice_HeaderIf = headerIf;
-        }
+        // if(headerIf === ""){
+        //     errors.Headerif = "Please make decision for Header field";
+        // } else {
+        //     inputs.Choice_HeaderIf = headerIf;
+        // }
 
-        if( headerIf === "Yes" ) {
-            if (values.alerthead == undefined || values.alerthead === '' ) {
-                errors.alerthead = "Alert heading is required";
-            } else if (values.alerthead !== undefined) {
-                if(values.alerthead.length > 15){
-                    errors.alerthead = "Alert Heading Text should be shorter"; 
-                } 
-            }
-        }   
+        // if( headerIf === "Yes" ) {
+        //     if (values.alerthead == undefined || values.alerthead === '' ) {
+        //         errors.alerthead = "Alert heading is required";
+        //     } else if (values.alerthead !== undefined) {
+        //         if(values.alerthead.length > 15){
+        //             errors.alerthead = "Alert Heading Text should be shorter"; 
+        //         } 
+        //     }
+        // }   
 
         if(alertType === undefined || alertType === ''){
             errors.alerttype = "Please select the choice for alert from the dropdown";
@@ -90,8 +90,8 @@ const AlertForm =(props)=>{
     const AlertProps = {
         alerttext: inputs.alerttext,
         Choice_Alerttype: inputs.alerttype,
-        Choice_HeaderIf: inputs.headerIf,
-        alerthead: inputs.alerthead,
+        // Choice_HeaderIf: inputs.headerIf,
+        // alerthead: inputs.alerthead,
         Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.theme,
     };
@@ -157,7 +157,7 @@ const AlertForm =(props)=>{
                 <p className="error">{inputErrors.alerttype}</p>
             </div>
 
-            <div className="input-field-container logo-field">
+            {/* <div className="input-field-container logo-field">
                 <p>Would you like to have Header in Alert? <span className="asterik">*</span></p>
                 <div className="modal-checkbox">
                 <FormField className="modal-content-checkbox">
@@ -194,9 +194,9 @@ const AlertForm =(props)=>{
                 </FormField>
             </div>
             <p id="btn-err-ifheader" className='error' aria-atomic="true">{inputErrors.Headerif}</p>
-            </div>
+            </div> */}
 
-            { headerIf === "Yes" ?
+            {/* { headerIf === "Yes" ?
             <div className="input-field-container">
                 <FormField className="form-modal__content">
                     <label
@@ -220,7 +220,7 @@ const AlertForm =(props)=>{
                     <p id="alerthead-err-text" className='error' aria-atomic="true">{inputErrors.alerthead}</p>
                 </FormField>
             </div>
-            : ""}
+            : ""} */}
 
             <div className="input-field-container size-field" >
                 <div className="modal-checkbox">

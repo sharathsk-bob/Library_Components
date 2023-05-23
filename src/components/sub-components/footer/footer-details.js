@@ -1,19 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-
-
-import closeIcon from "../../../../asset/images/cross-white.png";
-// import "../../../header/components/header-detail/header-detail.scss";
+import React from "react";
+import closeIcon from "../../asset/images/cross-white.png";
 import FocusTrap from "focus-trap-react";
 
 const FooterDetail =(props)=>{
-   
-    
 
-        const{close} = props;
-        
-    
-     
-        
+  const{close} = props;
+          
     return (
       <FocusTrap
 			focusTrapOptions={{

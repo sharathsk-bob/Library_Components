@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Multiselect from "multiselect-react-dropdown";
-
 import FocusTrap from "focus-trap-react";
-
 import { FormField, Input } from "@fluentui/react-northstar";
-import closeIcon from "../../../../asset/images/cross-white.png";
+import closeIcon from "../../asset/images/cross-white.png";
 import "./footer-modal.scss";
 
 const EditFooterModal =(props)=>{

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../asset/images/cross-white.png";
-import "../header/components/header-modal/header-modal.scss";
+import "../header/header-modal.scss";
 
 const EditTooltipModal = (props)=>{
 

@@ -30,6 +30,7 @@ const formattedCode = lines.join('\n');
             <SyntaxHighlighter language="html" style={coy}>
                 {formattedCode}
             </SyntaxHighlighter>
+            
         </>
     )
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import instagramicon from "../../../asset/images/Instagram.png";
-import facebookicon from "../../../asset/images/Facebook.png";
-import glassdooricon from "../../../asset/images/Glassdoor.png";
-import linkedinicon from "../../../asset/images/Linkedin.png";
-import twittericon from "../../../asset/images/Twitter.png";
-import youtubeicon from "../../../asset/images/YouTube.png";
+import instagramicon from "../../asset/images/Instagram.png";
+import facebookicon from "../../asset/images/Facebook.png";
+import glassdooricon from "../../asset/images/Glassdoor.png";
+import linkedinicon from "../../asset/images/Linkedin.png";
+import twittericon from "../../asset/images/Twitter.png";
+import youtubeicon from "../../asset/images/YouTube.png";
 function Footer(props) {
     const { footerProps }=props;
   return (
