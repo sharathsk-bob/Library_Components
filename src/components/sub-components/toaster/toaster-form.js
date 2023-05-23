@@ -104,7 +104,8 @@ function ToasterForm(props) {
         </div>
         <div className='toaster-fields'>
           <label htmlFor="message">Message:</label>
-          <textarea
+          <input
+            type="text"
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
