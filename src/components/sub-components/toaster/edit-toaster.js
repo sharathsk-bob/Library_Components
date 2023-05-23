@@ -112,7 +112,8 @@ function EditToasterForm(props) {
         </div>
         <div className='toaster-fields'>
           <label htmlFor="message">Message:</label>
-          <textarea
+          <input
+            type="text"
             id="message"
             name="message"
             value={formValues.message}
