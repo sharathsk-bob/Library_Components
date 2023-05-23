@@ -303,7 +303,6 @@ const TooltipComponent = ( ) => {
         <SyntaxHighlighter language="css" style={coy}>
             {CustomStyleTooltip.componentStyle.rules[0]}
         </SyntaxHighlighter>
-        
     ) : (
         <TooltipHtml TooltipProps ={props} />
     )}

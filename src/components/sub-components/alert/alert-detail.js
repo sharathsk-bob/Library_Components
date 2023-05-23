@@ -30,9 +30,8 @@ const AlertDetail = (props)=>{
                 <ul>
                     <li>Text for Alert should not be more than 50 characters</li>
                     <li>User can choose the alert type they wish</li>
-                    <li>User can select if they want header with close button in alert</li>
-                    <li>User can input header text with a limit of 15 characters</li>
-                    <li>User can select the theme of the alert from the dropdown</li>
+                    <li>Header of the alert is determined by the alert type and is mandatory</li>
+                    <li>User can select the theme of the alert which applies to header from the dropdown</li>
                 </ul>
             </div>
         </div>
