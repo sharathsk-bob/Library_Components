@@ -21,6 +21,8 @@ import FooterModal from "../../sub-components/footer/footer-modal";
 import FooterDetail from "../../sub-components/footer/footer-details";
 import ToasterForm from "../../sub-components/toaster/toaster-form";
 import ToasterDetail from "../../sub-components/toaster/toaster-detail";
+import FormPresentation from "../formpresentation";
+import { useNavigate } from "react-router-dom";
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -38,8 +40,10 @@ const Modal =()=>{
     const { open: openToasterForm, close: closeToasterForm, ModalWrapper: ModalWrapperToaster } = useModal();
     const { open: openAlertDetail, close: closeAlertDetail, ModalWrapper: ModalWrapperAlertDetail } = useModal();
     const { open: openAlertForm, close: closeAlertForm, ModalWrapper: ModalWrapperAlert } = useModal();
+    const { open: openFormComp, close: closeFormComp, ModalWrapper: ModalWrapperForm } = useModal();
 
-    
+
+    const history=useNavigate();
     
 
     
@@ -52,7 +56,7 @@ const Modal =()=>{
         "Footer",
         "Alert",
         "Toaster",
-        "Dropdown",
+        "Forms",
     ];
 return(
     <>
@@ -113,6 +117,7 @@ return(
 <ModalWrapperToaster>
   <ToasterForm close={closeToasterForm}/>
 </ModalWrapperToaster>
+
     {componentList.map((data, index) => {
        
            
@@ -198,7 +203,16 @@ return(
                   Create
                 </button>
               </div>
-            ) : (
+            ) :data === "Forms"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for forms component" class="buttons" onClick={openAlertDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Componets button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
+                  Components
+                </button>
+              </div>
+            ): (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openFormDetail}>
                   Details

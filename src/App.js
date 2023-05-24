@@ -14,6 +14,7 @@ import NavbarHeader from './components/sub-components/navbar/navbar-header';
 import FooterComponent from "../src/components/sub-components/footer/footer";
 import AlertComponent from './components/sub-components/alert/alert';
 import Toaster from './components/sub-components/toaster/toaster';
+import FormPresentation from './components/presentation/formpresentation';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="navbarheader"element ={<NavbarHeader/>} ></Route>
           <Route exact path="footer"element ={<FooterComponent/>} ></Route>
           <Route exact path="toaster"element ={<Toaster/>} ></Route>
+          <Route exact path="/formcomponents"element ={<FormPresentation/>} ></Route>
           
           </Routes>
         </AppProvider> 
