@@ -19,7 +19,7 @@ function ToasterMain(props) {
   <div id="liveToast" class={`toast hide ${props?.toasterType=="success"?"success":props.toasterType=="warning"?"warning":props.toasterType=="info"?"info":props.toasterType=="error"?"error":"" } ${props?.toastTheme == "Dark"?"Dark":props?.toastTheme == "cg1"?"cg1":props?.toastTheme == "cg2"?"cg2":props?.toastTheme == "Normal"?"Normal":"" }`} role="alert" aria-live="assertive" aria-atomic="true">
     <div class={`toast-header `}>
       {/* <img src="..." class="rounded me-2" alt="..."/> */}
-      {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"> Success!</i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"> Warning!</i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"> Info</i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"> Error</i>:("")}
+      {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>:("")}
       <strong class="me-auto">{props.message}</strong>
       {/* <small>11 mins ago</small> */}
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>

@@ -224,7 +224,7 @@ return (
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
                 <label for="Choice_Width" aria-label="Select alert width value Asterik-Required"> 
-                <p>Please select width of the Button: <span className="asterik">*</span> </p>
+                <p>Please select width of the Alert: <span className="asterik">*</span> </p>
                 </label>
                     <select name="Choice_Width" id="Choice_Width" value={inputs.Choice_Width} onChange={handleChange}>
                         <option value="">--</option>         
@@ -242,7 +242,7 @@ return (
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
                 <label for="Choice_Theme" aria-label="Edit the theme for the button Asterik-Required"> 
-                <p>Please select the theme colour.<span className="asterik">*</span> </p>
+                <p>Please select the theme colour: <span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         
                         <option value="Normal">Light</option>
