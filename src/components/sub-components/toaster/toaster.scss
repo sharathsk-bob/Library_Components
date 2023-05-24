@@ -101,6 +101,7 @@
 }
 .toast-header{
     font-size: 1.2rem;
+    padding: 0.6em 0.8em;
     justify-content: space-evenly;
 }
 .toast {
@@ -113,23 +114,23 @@
 }
 .success{
     border-color: #178c3d !important; 
- 
+    border-radius: 15px;
        --bs-toast-header-color: #178c3d !important; 
 }
 .warning{
     border-color:#da681d !important;
-
+    border-radius: 15px;
         --bs-toast-header-color: #da681d!important; 
 
 }
 .error{
     border-color: red !important;
-
+    border-radius: 15px;
         --bs-toast-header-color: red !important; 
 }
 .info{
     border-color: #177cb4 !important;
-
+    border-radius: 15px;
         --bs-toast-header-color: #177cb4 !important; 
 }
 .btn-close{
