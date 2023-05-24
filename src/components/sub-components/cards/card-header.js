@@ -354,7 +354,7 @@ function CardHeader() {
   <h1>Card</h1><span> Component</span> 
       </div> 
  
-    <div>
+    <div  className="card-right">
     <button className="backToHome" onClick={handleChange}>Back</button>
     <button className="edit-card" onClick={openEditCards}>Edit</button>
     </div>

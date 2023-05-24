@@ -1,3 +1,7 @@
+
+@import "../../theme/breakpoints.scss";
+
+
 .Normal{
     background-color: #f1f4f8;
     
@@ -282,13 +286,55 @@
     .card__title {
         font-size: 1.2rem !important;
     }
-    .card-description {
-        font-size: 0.7rem !important;
-    }
+    // .card-description {
+    //     font-size: 0.7rem !important;
+    // }
     .card .library-add-button {
         margin: 5px !important;
     }
     .card .card__content {
         padding: 8px;
+    }
+}
+
+
+@media screen and (max-width: $bp-sm-mobile){
+    .card-component{
+        display: block!important;
+        .card-left{
+            h1{
+                font-size: 1.2rem!important;
+            }
+            span{
+                font-size: 1.2rem!important;
+            }
+        }
+      
+        .card-right{
+            margin-left: 10px;
+            margin-top: 10px;
+            .buttons{
+                // width: 12%;
+                padding: 0.4rem!important;
+                font-size: 12px;
+            }
+            .link-button{
+                padding: 0.4rem!important;
+                font-size: 12px;  
+            }
+        }
+    }
+    .card{
+        width:100% !important;
+        .card-footer-new{
+            display: block;
+            width: 70%;
+            button{
+                margin-left: 0px !important;
+            margin-bottom: 4px;
+          
+            width: 100%;
+            }
+        }
     }
 }
