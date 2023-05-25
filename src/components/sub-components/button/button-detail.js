@@ -18,7 +18,7 @@ const ButtonDetail =(props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
             <div className="detail-header">
-            <p>Buttons</p>
+            <p>Button</p>
                 <button className="close-button" aria-label="close button details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
@@ -32,10 +32,12 @@ const ButtonDetail =(props)=>{
             <div className="detail-content">
                 <ul>
                     <li>Text for button should not be more than 15 characters</li>
-                    <li>Border Radius in pixels</li>
+                    <li>User can select if he/she want to add Border Radius or not and enter its value in pixels</li>
                     <li>Border Width in pixels</li>
-                    <li>User Can select if he/she want to add a box shadow</li>
                     <li>User can select the size of the button from the dropdown (padding both sides)</li>
+                    <li>User can select if he/she want to add a Box shadow</li>
+                    <li>User can select the width of the button in the screen</li>
+                    <li>User can select the theme of the button from the dropdown</li>
                 </ul>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import HeaderModal from "../../sub-components/header/header-modal";
@@ -16,13 +17,13 @@ import TooltipDetail from "../../sub-components/tooltip/tooltip-detail";
 import TooltipForm from "../../sub-components/tooltip/tooltip-form";
 import AlertDetail from "../../sub-components/alert/alert-detail";
 import AlertForm from "../../sub-components/alert/alert-form";
-
 import FooterModal from "../../sub-components/footer/footer-modal";
 import FooterDetail from "../../sub-components/footer/footer-details";
 import ToasterForm from "../../sub-components/toaster/toaster-form";
 import ToasterDetail from "../../sub-components/toaster/toaster-detail";
 import FormPresentation from "../formpresentation";
-import { useNavigate } from "react-router-dom";
+import FormComponentDetail from "../../sub-components/forms/formcomponent-detail";
+
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
     const { open: openHeaderDetail, close: closeHeaderDetail, ModalWrapper: ModalWrapperHeaderDetail } = useModal();
@@ -40,13 +41,12 @@ const Modal =()=>{
     const { open: openToasterForm, close: closeToasterForm, ModalWrapper: ModalWrapperToaster } = useModal();
     const { open: openAlertDetail, close: closeAlertDetail, ModalWrapper: ModalWrapperAlertDetail } = useModal();
     const { open: openAlertForm, close: closeAlertForm, ModalWrapper: ModalWrapperAlert } = useModal();
+    const { open: openFormComponentDetail, close: closeFormComponentDetail, ModalWrapper: ModalWrapperFormComponentDetail } = useModal();
     const { open: openFormComp, close: closeFormComp, ModalWrapper: ModalWrapperForm } = useModal();
 
 
     const history=useNavigate();
-    
 
-    
     const componentList =[
         "Header",
         "Cards",
@@ -61,23 +61,20 @@ const Modal =()=>{
 return(
     <>
     <div className="modal-components">
-    <ModalWrapperHeaderDetail>
-    <HeaderDetail close={closeHeaderDetail} />
+      <ModalWrapperHeaderDetail>
+        <HeaderDetail close={closeHeaderDetail} />
 			</ModalWrapperHeaderDetail>
       <ModalWrapperFooterDetail>
-    <FooterDetail close={closefooterDetail} />
+        <FooterDetail close={closefooterDetail} />
 			</ModalWrapperFooterDetail>
-              <ModalWrapperHeader>
-				
-                <HeaderModal close={closeHeader} />
+      <ModalWrapperHeader>
+        <HeaderModal close={closeHeader} />
 			</ModalWrapperHeader>
-            <ModalForm>
-				
-                <Form close={closeForm} />
+      <ModalForm>
+        <Form close={closeForm} />
 			</ModalForm>
       <ModalFormDetail>
-				
-                <CardDetail close={closeFormDetail} />
+        <CardDetail close={closeFormDetail} />
 			</ModalFormDetail>
 
       <ModalWrapperButtonDetail>
@@ -99,8 +96,6 @@ return(
         <AlertForm close={closeAlertForm} />
       </ModalWrapperAlert>
 
-
-
       <ModalWrapperNavbar>
         <NavbarForm close={closeNavbarForm} />
       </ModalWrapperNavbar>
@@ -108,19 +103,21 @@ return(
         <NavbarDetail close={closeNavbarDetail} />
       </ModalWrapperNavbarDetail>
       <ModalWrapperFooter>
-				
         <FooterModal close={closeFooter} />
-</ModalWrapperFooter>
-<ModalWrapperToasterDetail>
-<ToasterDetail close={closeToasterDetail}/>
-</ModalWrapperToasterDetail>
-<ModalWrapperToaster>
-  <ToasterForm close={closeToasterForm}/>
-</ModalWrapperToaster>
+      </ModalWrapperFooter>
+      <ModalWrapperToasterDetail>
+      <ToasterDetail close={closeToasterDetail}/>
+      </ModalWrapperToasterDetail>
+      <ModalWrapperToaster>
+        <ToasterForm close={closeToasterForm}/>
+      </ModalWrapperToaster>
+
+      <ModalWrapperFormComponentDetail>
+        <FormComponentDetail close={closeFormComponentDetail} />
+      </ModalWrapperFormComponentDetail>
 
     {componentList.map((data, index) => {
        
-           
         return (
           <div key={index} class="modal_section">
            <div className="modal-header">
@@ -193,8 +190,7 @@ return(
                   Create
                 </button>
               </div>
-            ):
-             data === "Alert"? (
+            ): data === "Alert"? (
               <div className="modal-button_section">
                 <button type="button" aria-label="Details button for alert component" class="buttons" onClick={openAlertDetail}>
                   Details
@@ -205,7 +201,7 @@ return(
               </div>
             ) :data === "Forms"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for forms component" class="buttons" onClick={openAlertDetail}>
+                <button type="button" aria-label="Details button for forms component" class="buttons" onClick={openFormComponentDetail}>
                   Details
                 </button>
                 <button type="button" aria-label="Componets button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
@@ -228,10 +224,8 @@ return(
         );
     })
     }
-    </div>
-     
+    </div>  
     </>
-   
 )
   
 };

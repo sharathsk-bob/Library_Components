@@ -17,7 +17,7 @@ const HeaderDetail =(props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
           <div className="detail-header">
-            <p>Headers</p>
+            <p>Header</p>
           <button className="close-button" aria-label="Close" onClick={close}>
             <img src={closeIcon}></img>
           </button>

@@ -41,11 +41,13 @@ const copyToClipboard = () => {
   //  console.log(css);
   return (
     <>
-      <button className='clipboard-btn' onClick={copyToClipboard}>
-          <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
-              {copied ? ' Copied!' : ' Copy Code'}
-          </i>
-      </button>
+      <div className='clipboard-div'>
+          <button className='clipboard-btn' onClick={copyToClipboard}>
+              <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                  {copied ? ' Copied!' : ' Copy Code'}
+              </i>
+          </button>
+      </div>
       <SyntaxHighlighter language="html" style={coy}>
         {formattedCode}
       </SyntaxHighlighter>

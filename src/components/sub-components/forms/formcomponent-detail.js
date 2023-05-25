@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import closeIcon from "../../asset/images/cross-white.png";
 import FocusTrap from "focus-trap-react";
 
-const AlertDetail = (props)=>{
+const FormComponentDetail = (props)=>{
 
     const{close} = props;
  
@@ -15,24 +15,24 @@ const AlertDetail = (props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
             <div className="detail-header">
-            <p>Alert</p>
-                <button className="close-button" aria-label="close tooltip details modal" onClick={close}>
+            <p>Form Components</p>
+                <button className="close-button" aria-label="close form component details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Tooltip Section are Below:
+            Details for the Form Component Section are Below:
             </h1>
-            <p>Please do follow the given instruction while creating the Alert component.</p>
+            <p>Please do follow the given instruction while creating the any of the Form component.</p>
+            <p>Form Components mainly consist of: </p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for Alert should not be more than 50 characters</li>
-                    <li>User can choose the alert type they wish</li>
-                    <li>Header of the alert is determined by the alert type and is mandatory</li>
-                    <li>User can select the width of the alert in the screen</li>
-                    <li>User can select the theme of the alert which applies to header from the dropdown</li>
+                    <li>Input Text</li>
+                    <li>CheckBoxes</li>
+                    <li>Radio Buttons</li>
+                    {/* <li>User can select the theme of the tooltip from the dropdown</li> */}
                 </ul>
             </div>
         </div>
@@ -41,4 +41,4 @@ const AlertDetail = (props)=>{
       </FocusTrap>
     ); 
 };
- export default AlertDetail;
+ export default FormComponentDetail;

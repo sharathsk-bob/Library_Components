@@ -126,17 +126,20 @@
 .button-section {
     text-align: center;
     margin-bottom: 1em;
-    .btn {
+    .btn-alert {
         padding: 0.25em 1.4em;
         font-size: 1em;
         border: 1px solid #999;
-        color: black;
-        background: white;
+        color: var(--color-black);
+        background: var(--color-white);
     }
-    .btn:hover {
-        background-color: #0070ad;
-        color: white;
+    .btn-alert:hover {
+        background-color: var(--color-capgemini-blue);
+        color: var(--color-white);
         outline: 0.6em auto -webkit-focus-ring-color;
         box-shadow: none;
+    }
+    .btn-alertert:focus-visible{
+        border: 1.5px var(--color-black) solid;
     }
 }
