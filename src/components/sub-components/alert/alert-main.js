@@ -49,8 +49,8 @@ function Alert(props) {
                     </div>
                     
                     <div className='button-section'>
-                        <button className={`btn`} onClick={close}>Okay</button>
-                        {/* <button className='btn' onClick={close}>No</button> */}
+                        <button className={`btn-alert`} onClick={close}>Okay</button>
+                        {/* <button className='btn-alert' onClick={close}>No</button> */}
                     </div>
                 </div>
             </div>

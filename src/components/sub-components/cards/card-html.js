@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Cards from './cards';
 import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
-import { useEffect } from 'react';
 import styled from "styled-components";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -24,12 +23,39 @@ function CardHtml(props) {
     }
 
 const formattedCode = lines.join('\n');
+
+const [copied, setCopied] = useState(false);
+
+const copyToClipboard = () => {
+    navigator.clipboard.writeText(formattedCode)
+    .then(() => {
+        setCopied(true);
+        setTimeout(() => {
+        setCopied(false);
+        }, 2000);
+    })
+    .catch((error) => {
+        console.error('Failed to copy to clipboard:', error);
+    });
+};
+
+
   console.log(formattedCode);
    console.log(css);
   return (
-    <SyntaxHighlighter language="html" style={coy}>
-    {formattedCode}
-  </SyntaxHighlighter>
+    <>
+      <div className='clipboard-div'>
+          <button className='clipboard-btn' onClick={copyToClipboard}>
+              <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                  {copied ? ' Copied!' : ' Copy Code'}
+              </i>
+          </button>
+      </div>
+      <SyntaxHighlighter language="html" style={coy}>
+        {formattedCode}
+      </SyntaxHighlighter>
+    </>
+    
   )
 }
 
