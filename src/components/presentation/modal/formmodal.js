@@ -9,9 +9,13 @@ const FormModal =()=>{
     
     const componentList =[
         "inputtext",
-        "checkbox",
-        "radiobutton"
-        
+        "TextArea",
+        "Checkbox",
+        "RadioButton",
+        "Select",
+        "DatePicker",
+        "FileUpload",
+        "Range"
     ];
 return(
     <>
@@ -22,8 +26,6 @@ return(
     
 
     {componentList.map((data, index) => {
-       
-           
         return (
           <div key={index} class="modal_section">
            <div className="modal-header">
