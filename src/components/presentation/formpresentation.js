@@ -9,7 +9,7 @@ const FormPresentation = () => {
     <>
     <div className="presentation">
       <div className="header-container">
-      <h1>Components  </h1><span> Library</span>
+      <h1>Form Inputs  </h1><span> Library</span>
       </div>
       <FormModal />
     </div>

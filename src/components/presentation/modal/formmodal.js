@@ -9,17 +9,24 @@ const FormModal =()=>{
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
     
     const componentList =[
-        "inputtext",
-        "checkbox",
-        "radiobutton"
-        
+        "Input Text",
+        "Text Area",
+        "Check Box",
+        "Radio Button",
+        "Select",
+        "Date Picker",
+        "File Upload",
+        "Switch Control",
+        "Progress Bar",
+        "Range"
     ];
+    
 return(
     <>
     <div className="modal-components">
     <ModalWrapperInputText>
         <InputModal close={closeInputText} />
-	</ModalWrapperInputText>
+	  </ModalWrapperInputText>
     
 
     {componentList.map((data, index) => {

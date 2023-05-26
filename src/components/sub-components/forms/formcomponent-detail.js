@@ -30,8 +30,15 @@ const FormComponentDetail = (props)=>{
             <div className="detail-content">
                 <ul>
                     <li>Input Text</li>
-                    <li>CheckBoxes</li>
+                    <li>Text Area</li>
+                    <li>Check Boxes</li>
                     <li>Radio Buttons</li>
+                    <li>Select</li>
+                    <li>Date Picker</li>
+                    <li>File Upload</li>
+                    <li>Switch Control</li>
+                    <li>Progress Bar</li>
+                    <li>Range</li>
                     {/* <li>User can select the theme of the tooltip from the dropdown</li> */}
                 </ul>
             </div>
