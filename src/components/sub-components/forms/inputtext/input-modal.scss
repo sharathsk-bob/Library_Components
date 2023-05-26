@@ -6,3 +6,32 @@
         max-height: none!important;
     }
 }
+
+.light-theme{
+    input{
+        background-color: rgb(241, 244, 248);
+        color: var(--color-capgemini-blue) !important;
+    }
+}
+
+.Dark{
+    input{
+        background-color: rgb(241, 244, 248);
+        color: var(--color-capgemini-blue) !important;
+    }
+}
+
+.cg1{
+    background-color: transparent;
+    input{
+        background-color: var(--color-capgemini-blue);
+        color: var(--color-white) !important;
+    }
+}
+
+.Cg2{
+    input{
+        background-color: rgb(241, 244, 248);
+        color: var(--color-capgemini-blue) !important;
+    }
+}

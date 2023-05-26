@@ -6,7 +6,7 @@ function InputMains(props) {
     const { inputVals }=props;
     console.log(inputVals, "valuessssssss");
   return (
-   <div className="input-output">
+   <div className= {`input-output ${inputVals?.themeValue == "Dark"?"Dark":inputVals?.themeValue == "cg1"?"cg1":inputVals?.themeValue == "cg2"?"Cg2":inputVals?.themeValue == "Normal"?"light-theme":"" }`}>
     <div  class="form-floating">
   <input
     type={inputVals.typeValue}

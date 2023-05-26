@@ -4,9 +4,11 @@ import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import './toaster-form.scss';
+
 function ToasterForm(props) {
     const { close } = props;
     const [toasterType, setToasterType] = useState('');
+    const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
     const [toastdirection,setDirection]=useState('');
@@ -15,6 +17,7 @@ function ToasterForm(props) {
     const [errors, setErrors] = useState({});
     const toasterProps = {
         toasterType,
+        title,
         message,
         buttonText,
         toastdirection,
@@ -26,10 +29,8 @@ function ToasterForm(props) {
       const validationErrors = validateForm();
   
       if (Object.keys(validationErrors).length === 0) {
- 
         displayToaster();
         history("/toaster", {state: {toasterProps}});
-      
       } else {
         setErrors(validationErrors);
       }
@@ -40,6 +41,10 @@ function ToasterForm(props) {
 
       if (!toasterType) {
         errors.toasterType = 'Toaster type is required.';
+      }
+
+      if (!title) {
+        errors.title = 'Toaster Title is required.';
       }
 
       if (!message) {
@@ -66,6 +71,7 @@ function ToasterForm(props) {
     };
     const resetToaster = () => {
         setToasterType('');
+        setTitle('')
         setMessage('');
         setButtonText('');
         setErrors({});
@@ -100,21 +106,32 @@ function ToasterForm(props) {
             <option value="warning">Warning</option>
             <option value="error">Error</option>
           </select>
-          {errors.toasterType && <span className="error">{errors.toasterType}</span>}
+          {errors.toasterType && <span className="error-message">{errors.toasterType}</span>}
         </div>
         <div className='toaster-fields'>
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="title">Toaster Title: </label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            maxlength="15" 
+          />
+          {errors.title && <span className="error-message">{errors.title}</span>}
+        </div>
+        <div className='toaster-fields'>
+          <label htmlFor="message">Description/Message: </label>
           <input
             type="text"
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            maxlength="40" 
+            maxlength="25" 
           />
-          {errors.message && <span className="error">{errors.message}</span>}
+          {errors.message && <span className="error-message">{errors.message}</span>}
         </div>
         <div className='toaster-fields'>
-          <label htmlFor="buttonText">Button Text:</label>
+          <label htmlFor="buttonText">Button Text: </label>
           <input
             type="text"
             id="buttonText"
@@ -122,7 +139,7 @@ function ToasterForm(props) {
             onChange={(e) => setButtonText(e.target.value)}
             maxlength="10" 
           />
-          {errors.buttonText && <span className="error">{errors.buttonText}</span>}
+          {errors.buttonText && <span className="error-message">{errors.buttonText}</span>}
         </div>
         <div className=" toaster-fields">
                 <label htmlFor="dir" aria-label="Direction for Asterik-Required">
@@ -138,7 +155,7 @@ function ToasterForm(props) {
                   <option value="Top">Top</option>
                   <option value="Bottom">Bottom</option>
                 </select> 
-                {errors.dir && <p className="error">{errors.dir}</p>}
+                {errors.dir && <p className="error-message">{errors.dir}</p>}
               </div>
         <div className=" toaster-fields theme-container">
                 <label htmlFor="theme" aria-label="Theme for Asterik-Required">
@@ -156,7 +173,7 @@ function ToasterForm(props) {
                   <option value="cg1">Blue</option>
                   <option value="cg2">Purple</option>
                 </select> 
-                {errors.theme && <p className="error">{errors.theme}</p>}
+                {errors.theme && <p className="error-message">{errors.theme}</p>}
               </div>
         <div className="button-section">
               <div className="link-button">
