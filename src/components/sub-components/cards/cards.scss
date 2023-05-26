@@ -338,3 +338,8 @@
         }
     }
 }
+
+@media screen and (max-width: $bp-sm-tablet){
+    .card-quaterwidth{
+        width:100% !important;}
+}

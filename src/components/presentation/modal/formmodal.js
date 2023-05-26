@@ -2,6 +2,7 @@ import React from "react";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import FormPresentation from "../formpresentation";
+import InputModal from "../../sub-components/forms/inputtext/input-modal";
 import { useNavigate } from "react-router-dom";
 const FormModal =()=>{
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
@@ -9,19 +10,15 @@ const FormModal =()=>{
     
     const componentList =[
         "inputtext",
-        "TextArea",
-        "Checkbox",
-        "RadioButton",
-        "Select",
-        "DatePicker",
-        "FileUpload",
-        "Range"
+        "checkbox",
+        "radiobutton"
+        
     ];
 return(
     <>
     <div className="modal-components">
     <ModalWrapperInputText>
-        {/* <HeaderDetail close={closeHeaderDetail} /> */}
+        <InputModal close={closeInputText} />
 	</ModalWrapperInputText>
     
 
@@ -34,7 +31,7 @@ return(
             <div className="modal-content">
             
             <p>This components help to create and customised the {data}.</p>
-            {data === "inputtext" ? (
+            {data === "Input Text" ? (
               <div className="modal-button_section">
                 <button title="Details button for header" type="button" class="buttons" onClick={openInputTextDetail}>
                   Details

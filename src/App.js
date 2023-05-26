@@ -15,6 +15,7 @@ import FooterComponent from "../src/components/sub-components/footer/footer";
 import AlertComponent from './components/sub-components/alert/alert';
 import Toaster from './components/sub-components/toaster/toaster';
 import FormPresentation from './components/presentation/formpresentation';
+import InputComponent from "../src/components/sub-components/forms/inputtext/inputtext";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="footer"element ={<FooterComponent/>} ></Route>
           <Route exact path="toaster"element ={<Toaster/>} ></Route>
           <Route exact path="/formcomponents"element ={<FormPresentation/>} ></Route>
+          <Route exact path="formcomponents/inputText"element ={<InputComponent/>} ></Route>
           
           </Routes>
         </AppProvider> 

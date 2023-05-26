@@ -6,7 +6,7 @@ import { FormField, Input } from "@fluentui/react-northstar";
 import closeIcon from "../../asset/images/cross-white.png";
 import "./header-modal.scss";
 
-const HeaderModal =(props)=>{
+const HeaderModal =(props)=>{ 
 	const [titleValue, setTitleValue] = useState();
   const [profileValue, setProfileValue] = useState();
   const [cgLogoValue, setCgLogoValue] = useState("");

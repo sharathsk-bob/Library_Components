@@ -1,6 +1,7 @@
 import React from 'react';
 import { Toast } from '@coreui/coreui';
 import "./toaster.scss";
+import closeIcon from "../../asset/images/cross-white.png";
 
 function ToasterMain(props) {
   const openToaster=()=>{
