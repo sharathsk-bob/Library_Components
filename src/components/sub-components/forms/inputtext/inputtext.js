@@ -1,11 +1,12 @@
 import InputMains from "./input-main";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const InputComponent = ( ) => {
     const location = useLocation();
     // const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
-    const props = location.state.headerProps;
-   
+    const props = location.state.inputProps;
+   console.log(props, "valuee mains props");
     
     return (
       <>
@@ -32,7 +33,7 @@ const InputComponent = ( ) => {
                 </div>
           </div>
         </div>
-      <InputMains headerVal={props}/>
+      <InputMains inputVals={props}/>
       </div>
       {/* <div className="card-tabs">
           <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>

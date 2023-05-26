@@ -25,7 +25,7 @@ const FormComponentDetail = (props)=>{
             <h1>
             Details for the Form Component Section are Below:
             </h1>
-            <p>Please do follow the given instruction while creating the any of the Form component.</p>
+            {/* <p>Please do follow the given instruction while creating the any of the Form component.</p> */}
             <p>Form Components mainly consist of: </p>
             <div className="detail-content">
                 <ul>

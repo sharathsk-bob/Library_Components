@@ -125,7 +125,7 @@ const HeaderComponent = ( ) => {
                   Edit
                 </button>
               </div>
-        </div>
+        </div> 
       </div>
     <Header headerVal={props}/>
     </div>

@@ -1,24 +1,25 @@
 import React from 'react';
-
+import "./inputtext.scss";
 
 function InputMains(props) {
-    console.log(props);
-  
+    
+    const { inputVals }=props;
+    console.log(inputVals, "valuessssssss");
   return (
-   
-    <div  class="form-floating mb-3 col-md-8">
+   <div className="input-output">
+    <div  class="form-floating">
   <input
-    type="text"
+    type={inputVals.typeValue}
     class="form-control form-control-lg"
     id="firstName"
     placeholder="First name"
     autocomplete="off"
   />
-  <label for="firstName">Label</label>
+  <label for="firstName">{inputVals.labelValue}</label>
   
   <div class="form-floating-bottom px-3"></div>
 </div>
-
+</div>
   )
 }
 

@@ -11,7 +11,7 @@ const FormModal =()=>{
     const componentList =[
         "Input Text",
         "Checkbox",
-        "adiobutton"
+        "Radiobutton"
         
     ];
 return(

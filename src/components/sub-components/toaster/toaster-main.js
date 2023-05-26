@@ -1,6 +1,7 @@
 import React from 'react';
 import { Toast } from '@coreui/coreui';
 import "./toaster.scss";
+import closeIcon from "../../asset/images/cross-white.png";
 
 function ToasterMain(props) {
   const openToaster=()=>{
@@ -22,7 +23,8 @@ function ToasterMain(props) {
       {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>:("")}
       <strong class="me-auto">{props.message}</strong>
       {/* <small>11 mins ago</small> */}
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+      </button>
     </div>
     {/* <div class="toast-body">
     {props.message}
