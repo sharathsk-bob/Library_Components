@@ -51,23 +51,19 @@
             font-size: 14px;
             button {
                 margin-right: 14px;
-        
-        padding: 0.5rem;
-        
-        font-weight: bold;
-        background-color: var(--color-capgemini-blue);
-        border-color: var(--color-capgemini-blue);
-        color: var(--color-white);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        
+                padding: 0.5rem;
+                font-weight: bold;
+                background-color: var(--color-capgemini-blue);
+                border-color: var(--color-capgemini-blue);
+                color: var(--color-white);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
             }
            .link-button{
                 margin-right: 14px;
-        text-decoration: none;
-                padding: 0.5rem;
-                
+                text-decoration: none;
+                padding: 0.5rem;  
                 font-weight: bold;
                 background-color: var(--color-capgemini-blue);
                 border-color: var(--color-capgemini-blue);
@@ -94,41 +90,57 @@
 }
 .toast-header{
     font-size: 1.2rem;
+    color: var(--color-white);
     padding: 0.6em 0.8em;
     justify-content: space-evenly;
 }
+.toast-text {
+    display: flex;
+    flex-direction: column;
+}
+
 .toast {
      --bs-toast-border-radius: 0rem  !important;
      --bs-toast-header-border-color: none ;
     //--bs-toast-header-color: #6c757d;
     --bs-toast-header-bg: none;
-    min-width: 550px;
+    min-width: 300px;
 }
 .success{
     //border-color: #178c3d !important; 
+    background-color: #51A351 !important; 
     border-radius: 15px;
        //--bs-toast-header-color: #178c3d !important; 
 }
 .warning{
     //border-color:#da681d !important;
+    background-color: #F89406 !important;
     border-radius: 15px;
         //--bs-toast-header-color: #da681d!important; 
 
 }
 .error{
     //border-color: red !important;
+    background-color:  #BD362F !important;
     border-radius: 15px;
         //--bs-toast-header-color: red !important; 
 }
 .info{
     //border-color: #177cb4 !important;
+    background-color: #2F96B4 !important;
     border-radius: 15px;
         //--bs-toast-header-color: #177cb4 !important; 
 }
-.btn-close{
+.toast-close{
     font-size: 0.875rem;
+    border: none;
+    background: transparent;
 }
 .toast-header strong{
     margin-left: 15px;
     font-size: 1rem;
+}
+
+.toaster-close {
+    color: var(--color-white);
 }

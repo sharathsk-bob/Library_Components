@@ -4,38 +4,45 @@ import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import './toaster-form.scss';
+
 function EditToasterForm(props) {
     const { close,data } = props;
     const [toasterType, setToasterType] = useState('');
+    const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
     const [toastdirection,setDirection]=useState('');
     const [toastTheme,setToastTheme]=useState('');
-    const initialValues={toasterType:data.toasterType,
-        message:data.message,
-        buttonText:data.buttonText,
-        toastdirection:data.toastdirection,
-      toastTheme:data.toastTheme};
+
+    const initialValues={
+      toasterType:data.toasterType,
+      title: data.title,
+      message:data.message,
+      buttonText:data.buttonText,
+      toastdirection:data.toastdirection,
+      toastTheme:data.toastTheme
+    };
+
     const [formValues,setFormValues]=useState(initialValues);
-  
     const [errors, setErrors] = useState({});
+
     const toasterProps = {
         toasterType:formValues.toasterType,
+        title: formValues.title,
         message:formValues.message,
         buttonText:formValues.buttonText,
         toastdirection:formValues.toastdirection,
         toastTheme:formValues.toastTheme
       };
+
     const history = useNavigate();
     const handleSubmit = (e) => {
       e.preventDefault();
       const validationErrors = validateForm();
   
       if (Object.keys(validationErrors).length === 0) {
- 
         displayToaster();
         history("/toaster", {state: {toasterProps}});
-      
       } else {
         setErrors(validationErrors);
       }
@@ -48,8 +55,12 @@ function EditToasterForm(props) {
         errors.toasterType = 'Toaster type is required.';
       }
 
+      if (!formValues.title) {
+        errors.title = 'Toaster Title is required.';
+      }
+
       if (!formValues.message) {
-        errors.message = 'Message is required.';
+        errors.message = 'Description message is required.';
       }
 
       if (!formValues.buttonText) {
@@ -71,6 +82,7 @@ function EditToasterForm(props) {
       };
     const displayToaster = () => {
         setToasterType(formValues.toasterType);
+        setTitle(formValues.title);
         setMessage(formValues.message);
         setButtonText(formValues.buttonText);
         setDirection(formValues.toastdirection);
@@ -108,19 +120,31 @@ function EditToasterForm(props) {
             <option value="warning">Warning</option>
             <option value="error">Error</option>
           </select>
-          {errors.toasterType && <span className="error">{errors.toasterType}</span>}
+          {errors.toasterType && <span className="error-message">{errors.toasterType}</span>}
         </div>
         <div className='toaster-fields'>
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="title">Toaster Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formValues.title}
+            onChange={handleChange}
+            maxlength="15" 
+          />
+          {errors.title && <span className="error-message">{errors.title}</span>}
+        </div>
+        <div className='toaster-fields'>
+          <label htmlFor="message">Description/Message: </label>
           <input
             type="text"
             id="message"
             name="message"
             value={formValues.message}
             onChange={handleChange}
-            maxlength="40" 
+            maxlength="25" 
           />
-          {errors.message && <span className="error">{errors.message}</span>}
+          {errors.message && <span className="error-message">{errors.message}</span>}
         </div>
         <div className='toaster-fields'>
           <label htmlFor="buttonText">Button Text:</label>
@@ -132,7 +156,7 @@ function EditToasterForm(props) {
             onChange={handleChange}
             maxlength="10" 
           />
-          {errors.buttonText && <span className="error">{errors.buttonText}</span>}
+          {errors.buttonText && <span className="error-message">{errors.buttonText}</span>}
         </div>
         <div className=" toaster-fields">
                 <label htmlFor="toastdirection" aria-label="Direction for Asterik-Required">
@@ -148,7 +172,7 @@ function EditToasterForm(props) {
                   <option value="Top">Top</option>
                   <option value="Bottom">Bottom</option>
                 </select> 
-                {errors.dir && <p className="error">{errors.dir}</p>}
+                {errors.dir && <p className="error-message">{errors.dir}</p>}
               </div>
         <div className=" toaster-fields theme-container">
                 <label htmlFor="toastTheme" aria-label="Theme for Asterik-Required">
@@ -166,7 +190,7 @@ function EditToasterForm(props) {
                   <option value="cg1">Blue</option>
                   <option value="cg2">Purple</option>
                 </select> 
-                {errors.theme && <p className="error">{errors.theme}</p>}
+                {errors.theme && <p className="error-message">{errors.theme}</p>}
               </div>
         <div className="button-section">
               <div className="link-button">

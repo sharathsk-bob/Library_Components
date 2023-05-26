@@ -11,24 +11,27 @@ function ToasterMain(props) {
   return (
     <>
     <div className='toaster-button'>
-          <button type="button" class="btn btn-primary" id="liveToastBtn" onClick={openToaster}>{props.buttonText}</button>
-          </div>
-    
-
-<div class={`toaster-main position-fixed ${props?.toastdirection == "Top"?"top-0":"bottom-0"} end-0 p-3 `} >
-  <div id="liveToast" class={`toast hide ${props?.toasterType=="success"?"success":props.toasterType=="warning"?"warning":props.toasterType=="info"?"info":props.toasterType=="error"?"error":"" } ${props?.toastTheme == "Dark"?"Dark":props?.toastTheme == "cg1"?"cg1":props?.toastTheme == "cg2"?"cg2":props?.toastTheme == "Normal"?"Normal":"" }`} role="alert" aria-live="assertive" aria-atomic="true">
-    <div class={`toast-header `}>
-      {/* <img src="..." class="rounded me-2" alt="..."/> */}
-      {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>:("")}
-      <strong class="me-auto">{props.message}</strong>
-      {/* <small>11 mins ago</small> */}
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <button type="button" class={` btn btn-primary ${props?.toastTheme == "Dark"?"Dark":props?.toastTheme == "cg1"?"cg1":props?.toastTheme == "cg2"?"cg2":props?.toastTheme == "Normal"?"Normal":"" }`} id="liveToastBtn" onClick={openToaster}>{props.buttonText}</button>
     </div>
-    {/* <div class="toast-body">
-    {props.message}
-    </div> */}
-  </div>
-</div>
+    <div class={`toaster-main position-fixed ${props?.toastdirection == "Top"?"top-0":"bottom-0"} end-0 p-3 `} >
+      <div id="liveToast" class={`toast hide ${props?.toasterType=="success"?"success":props.toasterType=="warning"?"warning":props.toasterType=="info"?"info":props.toasterType=="error"?"error":"" }`} role="alert" aria-live="assertive" aria-atomic="true">
+        <div class={`toast-header `}>
+          {/* <img src="..." class="rounded me-2" alt="..."/> */}
+          {props.toasterType=="success"?<i class="fa fa-check fa-lg" aria-hidden="true"></i>:props.toasterType=="warning"?<i class="fa fa-warning fa-lg" aria-hidden="true"></i>:props.toasterType=="info"?<i class="fa fa-info fa-lg" aria-hidden="true"></i>:props.toasterType=="error"?<i class="fa fa-times fa-lg" aria-hidden="true"></i>:("")}
+          <div class={`toast-text`}>
+            <strong class="me-auto">{props.title}</strong>
+            <strong class="me-auto">{props.message}</strong>
+          </div>
+          {/* <small>11 mins ago</small> */}
+          <button type="button" class="ms-auto toast-close" data-bs-dismiss="toast" aria-label="Close">
+            <i class="toaster-close fa fa-times fa-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+        {/* <div class="toast-body">
+        {props.message}
+        </div> */}
+      </div>
+    </div>
     </>
   )
 }
