@@ -110,26 +110,26 @@
     --bs-toast-header-bg: none;
     min-width: 300px;
 }
-.success{
+.success-toaster{
     //border-color: #178c3d !important; 
     background-color: #51A351 !important; 
     border-radius: 15px;
        //--bs-toast-header-color: #178c3d !important; 
 }
-.warning{
+.warning-toaster{
     //border-color:#da681d !important;
     background-color: #F89406 !important;
     border-radius: 15px;
         //--bs-toast-header-color: #da681d!important; 
 
 }
-.error{
+.error-toaster{
     //border-color: red !important;
     background-color:  #BD362F !important;
     border-radius: 15px;
         //--bs-toast-header-color: red !important; 
 }
-.info{
+.info-toaster{
     //border-color: #177cb4 !important;
     background-color: #2F96B4 !important;
     border-radius: 15px;

@@ -2,13 +2,20 @@ import React from "react";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import FormPresentation from "../formpresentation";
-import InputModal from "../../sub-components/forms/inputtext/input-modal";
 import { useNavigate } from "react-router-dom";
+import InputModal from "../../sub-components/forms/inputtext/input-modal";
+import DatePickerDetail from "../../sub-components/forms/datepicker/datepicker-detail";
+import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-form";
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import RangeForm from "../../sub-components/forms/range/range-form";
+import ProgressDetail from "../../sub-components/forms/progress-bar/progress-details";
+import SwitchDetail from "../../sub-components/forms/switch-control/switch-details";
+
 import InputDetail from "../../sub-components/forms/inputtext/inputtextdetails";
 const FormModal =()=>{
+    const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
+    const { open: openDatePickerForm, close: closeDatePickerForm, ModalWrapper: ModalWrapperDatePicker } = useModal();
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
     const { open: openProgressBar, close: closeProgressBar, ModalWrapper: ModalWrapperProgressBar } = useModal();
@@ -39,6 +46,14 @@ return(
     <ModalWrapperInputText>
         <InputModal close={closeInputText} />
 	  </ModalWrapperInputText>
+
+      <ModalWrapperDatePickerDetail>
+        <DatePickerDetail close={closeDatePickerDetail} />
+      </ModalWrapperDatePickerDetail>
+      <ModalWrapperDatePicker>
+        <DatePickerForm close={closeDatePickerForm} />
+      </ModalWrapperDatePicker>
+    
     <ModalWrapperProgressBar>
       <ProgressForm close={closeProgressBar}/>
     </ModalWrapperProgressBar>
@@ -48,9 +63,6 @@ return(
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
-    <ModalWrapperInputTextDetail>
-      <InputDetail close={closeInputTextDetail}/>
-    </ModalWrapperInputTextDetail>
 
     {componentList.map((data, index) => {
         return (
@@ -70,7 +82,16 @@ return(
                   Create
                 </button>
               </div>
-            ) :data === "Progress Bar" ? (
+            ) : data === "Date Picker" ? (
+              <div className="modal-button_section">
+                <button title="Details button for date picker" type="button" class="buttons" onClick={openDatePickerDetail}>
+                  Details
+                </button>
+                <button title="Create button for date picker" type="button" class="buttons" onClick={openDatePickerForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Progress Bar" ? (
               <div className="modal-button_section">
                 <button title="Details button for header" type="button" class="buttons" onClick={openProgressBarDetail}>
                   Details
@@ -88,7 +109,7 @@ return(
                   Create
                 </button>
               </div>
-            ):data === "Range" ? (
+            ) :data === "Range" ? (
               <div className="modal-button_section">
                 <button title="Details button for header" type="button" class="buttons" onClick={openRangeDetail}>
                   Details
@@ -97,7 +118,7 @@ return(
                   Create
                 </button>
               </div>
-            ):(
+            ) : (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openInputTextDetail}>
                   Details
