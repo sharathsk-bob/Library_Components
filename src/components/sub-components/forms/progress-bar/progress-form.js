@@ -145,8 +145,8 @@ function ProgressForm(props) {
             <option value="">-- Select Theme --</option>
             <option value="Light">Light</option>
             <option value="dark">Dark</option>
-            <option value="cg1">Blue</option>
-            <option value="cg2">Purple</option>
+            <option value="cg1blue">Blue</option>
+            <option value="cg2purple">Purple</option>
           </select>
           {errors.theme && <span className="error-message">{errors.theme}</span>}
         </div>
