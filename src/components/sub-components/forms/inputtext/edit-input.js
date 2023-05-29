@@ -14,13 +14,50 @@ const EditInputModal =(props)=>{
   
   
     const{close, data} = props;
-   
+    const navigationeditInput = useNavigate();
+    const [inputData, setInputData] = useState(data);
+    const [errorMsgEdit, setErrorMsgEdit] = useState({});
    
 
+     const handleSubmit = (event) => {
+       const { name, value } = event.target;
+      //  console.log(name, "event value");
+       if (event.target.name === "label-text") {
+         setInputData({ ...inputData, labelValue: event.target.value });
+       }
+       if (event.target.name === "type") {
+         setInputData({ ...inputData, typeValue: event.target.value });
+       }
+       if (event.target.name === "btnwidth") {
+         setInputData({ ...inputData, boxsizeValue: event.target.value });
+       }
+       if (event.target.name === "theme") {
+         setInputData({ ...inputData, themeValue: event.target.value });
+       }
+     };
   
-  
-  
-  
+     let editError = {};
+     const inputProps = inputData;  
+ const checkValidation =()=>{
+  let errorflag = true;
+  if (!inputData.labelValue) {
+    editError.editTitle = "Label text is required";
+    errorflag = false;
+  }
+  setErrorMsgEdit(editError);
+  return errorflag;
+ };
+
+ const onSubmit =  (event)=>{
+  event.preventDefault();
+  const checkEditValid =   checkValidation();
+console.log(checkEditValid, "valid value");
+  if(checkEditValid){
+    close();
+    navigationeditInput("", {state: {inputProps}});
+  }
+}
+  console.log(inputData, "edit dataa");
   return (
     <FocusTrap
     focusTrapOptions={{
@@ -47,15 +84,15 @@ const EditInputModal =(props)=>{
                   >
                     Label Text: <span className="asterik">*</span>
                     <Input
-                      id="input-text"
-                      className="text_modal__input"
+                      id="label-text"
+                      className="text_modal__input" 
                       autoComplete="off"
                       name="label-text"
                       aria-required="true"
                       maxLength="15"
                       // aria-describedby="name-err-title"
-                    //   value={labelValue}
-                    //   onChange={(event) => setLabelValue(event.target.value)}
+                      value={inputData.labelValue}
+                      onChange={handleSubmit}
                     />
                   </label>
                   {/* {inputerrorMsg.title ?<span className="error">{inputerrorMsg.title}</span>:""} */}
@@ -75,8 +112,8 @@ const EditInputModal =(props)=>{
                       <select
                         name="type"
                         id="type"
-                        // value={typeValue}
-                        // onChange={(event) => setTypeValue(event.target.value)}
+                        value={inputData.typeValue}
+                        onChange={handleSubmit}
                       >
                         <option value="text" selected>
                           Text
@@ -104,13 +141,13 @@ const EditInputModal =(props)=>{
                     <select
                       name="btnwidth"
                       id="fieldwidth"
-                    //   value={boxsizeValue}
-                    //   onChange={(event) => setBoxSizeValue(event.target.value)}
+                      value={inputData.boxsizeValue}
+                      onChange={handleSubmit}
                     >
-                      <option value="25">25 %</option>
-                      <option value="50">50 %</option>
-                      <option value="75">75 %</option>
-                      <option value="100">100 %</option>
+                      <option value="25%">25%</option>
+                      <option value="50%">50%</option>
+                      <option value="75%">75%</option>
+                      <option value="100%">100%</option>
                     </select>
                   </FormField>
                 </div>
@@ -130,10 +167,10 @@ const EditInputModal =(props)=>{
                       <select
                         name="theme"
                         id="theme"
-                        // value={themeValue}
-                        // onChange={(event) => setThemeValue(event.target.value)}
+                        value={inputData.themeValue}
+                        onChange={handleSubmit}
                       >
-                        {/* <option value=""></option>          */}
+                       
                         <option value="Normal" selected>
                           Light
                         </option>
@@ -151,7 +188,7 @@ const EditInputModal =(props)=>{
                 <div className="link-button margin-button">
                   <Link
                     className="btn btn-primary"
-                    // onClick={buttonSubmit}
+                    onClick={onSubmit}
                   >
                     Submit
                   </Link>

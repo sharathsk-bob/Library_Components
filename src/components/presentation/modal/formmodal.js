@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import RangeForm from "../../sub-components/forms/range/range-form";
+import InputDetail from "../../sub-components/forms/inputtext/inputtextdetails";
 const FormModal =()=>{
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
@@ -16,6 +17,7 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
+
     
     
     const componentList =[
@@ -46,6 +48,9 @@ return(
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
+    <ModalWrapperInputTextDetail>
+      <InputDetail close={closeInputTextDetail}/>
+    </ModalWrapperInputTextDetail>
 
     {componentList.map((data, index) => {
         return (

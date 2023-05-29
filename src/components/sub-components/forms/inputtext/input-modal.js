@@ -10,8 +10,6 @@ const InputModal =(props)=>{
 
 
     const [labelValue, setLabelValue] = useState();
-
- 
   const [inputerrorMsg, setInputErrorMsg] = useState({});
   const [typeValue, setTypeValue] = useState("Text");
   const [boxsizeValue, setBoxSizeValue] = useState("25%");

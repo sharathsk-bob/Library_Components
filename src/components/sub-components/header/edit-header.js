@@ -31,7 +31,7 @@ const EditHeaderModal =(props)=>{
 
   let editError = {};
   
-  const headerProps = headerData;
+  const headerProps = headerData;   
   const checkValidation = () => {
      
      let errorflag = true;
