@@ -16,6 +16,8 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
+    
+    
     const componentList =[
         "Input Text",
         "Text Area",
