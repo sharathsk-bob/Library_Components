@@ -8,6 +8,7 @@ const FormModal =()=>{
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
     
+    
     const componentList =[
         "Input Text",
         "Text Area",

@@ -5,33 +5,57 @@
     .modal-select{
         max-height: none!important;
     }
-}
 
+}
 .light-theme{
-    input{
-        background-color: rgb(241, 244, 248);
+    
+        background-color: rgb(241, 244, 248)!important;
         color: var(--color-capgemini-blue) !important;
-    }
+    
 }
 
 .Dark{
-    input{
-        background-color: rgb(241, 244, 248);
+   
+        background-color: rgb(241, 244, 248)!important;
         color: var(--color-capgemini-blue) !important;
-    }
+    
 }
 
 .cg1{
-    background-color: transparent;
-    input{
-        background-color: var(--color-capgemini-blue);
+    // background-color: transparent;
+    
+        background-color: var(--color-capgemini-blue)!important;
         color: var(--color-white) !important;
-    }
+    
 }
 
 .Cg2{
-    input{
-        background-color: rgb(241, 244, 248);
+    
+        background-color: rgb(241, 244, 248)!important;
         color: var(--color-capgemini-blue) !important;
+    
+}
+.full-width{
+    width: 100%;
+}
+.width-option{
+    width:75%;
+}
+.halfwidth{
+    width: 50%;
+}.one-fourth{
+    width: 25%;
+}
+
+.input-output {
+    .form-control-char-size{
+        color: #646464;
+        margin-left: auto;
+        font-size: .75rem;
+        font-weight: 300;
+        letter-spacing: .12px;
+        line-height: 1rem;
+        float: right;
+        margin-top: 4px;
     }
 }

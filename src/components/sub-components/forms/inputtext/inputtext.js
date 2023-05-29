@@ -1,18 +1,20 @@
 import InputMains from "./input-main";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import  EditInputModal from "../../forms/inputtext/edit-input";
+import useModal from "../../../sub-components/use-modal/use-modal";
 
 const InputComponent = ( ) => {
     const location = useLocation();
-    // const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
+    const { open: openEditInput, close: closeEditInput, ModalWrapper: ModalWrapperEditInput } = useModal();
     const props = location.state.inputProps;
    console.log(props, "valuee mains props");
     
     return (
       <>
-      {/* <ModalWrapperEditHeader>
-      <EditHeaderModal close={closeEditHeader} data={props} />
-              </ModalWrapperEditHeader> */}
+      <ModalWrapperEditInput>
+      < EditInputModal close={closeEditInput} data={props} />
+              </ModalWrapperEditInput>
       <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
         <div className="component-header">
           <div className="header-left">
@@ -22,12 +24,12 @@ const InputComponent = ( ) => {
           <div className="button-section">
          
           <Link
-                to="/"     
+                to="/formcomponents"     
                 className="link-button"     
               >
                 Back
               </Link>
-                  <button class="buttons"  >
+                  <button class="buttons" onClick={openEditInput}  >
                     Edit
                   </button>
                 </div>
