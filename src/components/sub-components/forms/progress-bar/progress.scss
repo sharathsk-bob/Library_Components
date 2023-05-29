@@ -1,0 +1,30 @@
+.Light{
+    --bs-progress-bar-bg:#f1f4f8 !important;    
+}
+.dark{
+    --bs-progress-bar-bg:black !important;
+}
+.cg1{
+    --bs-progress-bar-bg: var(--color-capgemini-blue) !important;
+    background-color: #e9ecef !important;
+}
+.cg2{
+    --bs-progress-bar-bg:#2b0a3d !important;
+    background-color: #e9ecef !important;
+}
+.progress-fullwidth{
+    width: 100% !important;
+}
+.progress-threefourthwidth{
+    width: 75% !important;
+}
+.progress-halfwidth{
+    width: 50% !important;
+}
+.progress-quaterwidth{
+    width: 25% !important;
+}
+.progress{
+    --bs-progress-height: 2rem !important;
+    border: 2px solid black;
+}
