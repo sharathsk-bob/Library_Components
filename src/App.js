@@ -16,6 +16,7 @@ import AlertComponent from './components/sub-components/alert/alert';
 import Toaster from './components/sub-components/toaster/toaster';
 import FormPresentation from './components/presentation/formpresentation';
 import InputComponent from "../src/components/sub-components/forms/inputtext/inputtext";
+import DatePickerComponent from './components/sub-components/forms/datepicker/datepicker';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="toaster"element ={<Toaster/>} ></Route>
           <Route exact path="/formcomponents"element ={<FormPresentation/>} ></Route>
           <Route exact path="formcomponents/inputText"element ={<InputComponent/>} ></Route>
+          <Route exact path="/formcomponents/datepicker" element ={<DatePickerComponent/>} ></Route>
           
           </Routes>
         </AppProvider> 

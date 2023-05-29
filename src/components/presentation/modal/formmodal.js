@@ -2,12 +2,17 @@ import React from "react";
 import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import FormPresentation from "../formpresentation";
-import InputModal from "../../sub-components/forms/inputtext/input-modal";
 import { useNavigate } from "react-router-dom";
+import InputModal from "../../sub-components/forms/inputtext/input-modal";
+import DatePickerDetail from "../../sub-components/forms/datepicker/datepicker-detail";
+import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-form";
+
 const FormModal =()=>{
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
-    
+    const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
+    const { open: openDatePickerForm, close: closeDatePickerForm, ModalWrapper: ModalWrapperDatePicker } = useModal();
+
     const componentList =[
         "Input Text",
         "Text Area",
@@ -27,6 +32,13 @@ return(
     <ModalWrapperInputText>
         <InputModal close={closeInputText} />
 	  </ModalWrapperInputText>
+
+      <ModalWrapperDatePickerDetail>
+        <DatePickerDetail close={closeDatePickerDetail} />
+      </ModalWrapperDatePickerDetail>
+      <ModalWrapperDatePicker>
+        <DatePickerForm close={closeDatePickerForm} />
+      </ModalWrapperDatePicker>
     
 
     {componentList.map((data, index) => {
@@ -44,6 +56,15 @@ return(
                   Details
                 </button>
                 <button title="Create button for header" type="button" class="buttons" onClick={openInputText}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Date Picker" ? (
+              <div className="modal-button_section">
+                <button title="Details button for date picker" type="button" class="buttons" onClick={openDatePickerDetail}>
+                  Details
+                </button>
+                <button title="Create button for date picker" type="button" class="buttons" onClick={openDatePickerForm}>
                   Create
                 </button>
               </div>
