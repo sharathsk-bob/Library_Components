@@ -9,6 +9,8 @@ import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-for
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import RangeForm from "../../sub-components/forms/range/range-form";
+import ProgressDetail from "../../sub-components/forms/progress-bar/progress-details";
+import SwitchDetail from "../../sub-components/forms/switch-control/switch-details";
 
 const FormModal =()=>{
     const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
@@ -59,6 +61,12 @@ return(
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
+    <ModalWrapperProgressBarDetail>
+      <ProgressDetail close={closeProgressBarDetail}/>
+    </ModalWrapperProgressBarDetail>
+    <ModalWrapperSwitchControlDetail>
+      <SwitchDetail close={closeSwitchControlDetail}/>
+    </ModalWrapperSwitchControlDetail>
 
     {componentList.map((data, index) => {
         return (
