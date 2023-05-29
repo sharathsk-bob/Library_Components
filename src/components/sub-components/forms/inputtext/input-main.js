@@ -10,7 +10,7 @@ function InputMains(props) {
     <div   className= {`form-floating ${inputVals?.boxsizeValue == "100"?"full-width":inputVals?.boxsizeValue == "75"?"width-option":inputVals?.boxsizeValue == "50"?"halfwidth":inputVals?.boxsizeValue == "25"?"one-fourth":"" }`}>
   <input
     type={inputVals.typeValue}
-    className= {`form-control form-control-lg ${inputVals?.themeValue == "Dark"?"Dark":inputVals?.themeValue == "cg1"?"cg1":inputVals?.themeValue == "cg2"?"Cg2":inputVals?.themeValue == "Normal"?"light-theme":"" }`}
+    className= {`form-control form-control-lg ${inputVals?.themeValue == "Dark"?"Dark":inputVals?.themeValue == "cg1"?"Cg1":inputVals?.themeValue == "cg2"?"Cg2":inputVals?.themeValue == "Normal"?"Normal":"" }`}
     id="firstName"
     placeholder="First name"
     autocomplete="off"

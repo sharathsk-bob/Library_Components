@@ -42,13 +42,13 @@ return(
     <ModalWrapperInputText>
         <InputModal close={closeInputText} />
 	  </ModalWrapperInputText>
-
-      <ModalWrapperDatePickerDetail>
-        <DatePickerDetail close={closeDatePickerDetail} />
-      </ModalWrapperDatePickerDetail>
-      <ModalWrapperDatePicker>
-        <DatePickerForm close={closeDatePickerForm} />
-      </ModalWrapperDatePicker>
+    
+    <ModalWrapperDatePickerDetail>
+      <DatePickerDetail close={closeDatePickerDetail} />
+    </ModalWrapperDatePickerDetail>
+    <ModalWrapperDatePicker>
+      <DatePickerForm close={closeDatePickerForm} />
+    </ModalWrapperDatePicker>
     
     <ModalWrapperProgressBar>
       <ProgressForm close={closeProgressBar}/>
@@ -96,7 +96,7 @@ return(
                   Create
                 </button>
               </div>
-            ): data === "Switch Control" ? (
+            ) : data === "Switch Control" ? (
               <div className="modal-button_section">
                 <button title="Details button for header" type="button" class="buttons" onClick={openSwitchControlDetail}>
                   Details
@@ -105,7 +105,7 @@ return(
                   Create
                 </button>
               </div>
-            ) :data === "Range" ? (
+            ) : data === "Range" ? (
               <div className="modal-button_section">
                 <button title="Details button for header" type="button" class="buttons" onClick={openRangeDetail}>
                   Details
