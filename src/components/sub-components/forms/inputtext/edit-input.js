@@ -190,7 +190,7 @@ console.log(checkEditValid, "valid value");
                     className="btn btn-primary"
                     onClick={onSubmit}
                   >
-                    Submit
+                    Update
                   </Link>
                 </div>
               </div>
