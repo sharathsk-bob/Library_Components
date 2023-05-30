@@ -10,25 +10,57 @@ import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // import "../header/header.scss";
 
 export const CustomStyleDatePicker = styled.div`
-    .dark {
-        background-color: var(--color-black);
-        color: var(--color-white);
+    .DatePicker-Content {
+        font-size:16px;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 290px;
+        margin-top: 32px;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size:12px;
+        }
     }
 
-    .normal {
-        background-color: var(--color-white);
-        color: var(--color-black);
-        border: 1px solid var(--color-black);
+    .dp-normal {
+        background-color: rgb(241, 244, 248)!important;
+        border-style: solid;
+        border-width: medium; 
+        border-color: var(--color-white)  !important;
     }
 
-    .blue {
-        background-color: var(--color-capgemini-blue);
-        color: var(--color-white);
+    .dp-dark {
+        background-color: rgb(241, 244, 248)!important;
+        border-style: solid;
+        border-width: medium; 
+        border-color: var(--color-black) !important;
     }
 
-    .purple {
-        background-color: var(--color-purple-wbh);
-        color: var(--color-white);
+    .dp-blue {
+        background-color: rgb(241, 244, 248)!important;
+        border-style: solid;
+        border-width: medium; 
+        border-color: var(--color-capgemini-blue) !important;
+    }
+
+    .dp-purple {
+        background-color: rgb(241, 244, 248)!important;
+        border-style: solid;
+        border-width: medium; 
+        border-color: var(--color-purple-wbh) !important;
+    }
+
+    .dp-small {
+        padding: 8px 8px;
+    }
+
+    .dp-medium {
+        padding: 16px 8px;
+    }
+
+    .dp-small {
+        padding: 24px 8px;
     }
 `;
 
@@ -105,7 +137,7 @@ const DatePickerComponent = ( ) => {
         </SyntaxHighlighter>
         </>
     ) : (
-        <DatePickerHtml ButtonProps = {props} />
+        <DatePickerHtml DatePickerProps = {props} />
     )}
     </div>
       

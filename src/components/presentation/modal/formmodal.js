@@ -4,20 +4,25 @@ import useModal from "../../sub-components/use-modal/use-modal";
 import FormPresentation from "../formpresentation";
 import { useNavigate } from "react-router-dom";
 import InputModal from "../../sub-components/forms/inputtext/input-modal";
+import InputTextDetail from "../../sub-components/forms/inputtext/inputtext-detail";
 import DatePickerDetail from "../../sub-components/forms/datepicker/datepicker-detail";
 import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-form";
+import TextAreaDetail from "../../sub-components/forms/textarea/textarea-detail";
+import TextAreaForm from "../../sub-components/forms/textarea/textarea-form";
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
+import ProgressDetail from "../../sub-components/forms/progress-bar/progress-detail";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
+import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
-import ProgressDetail from "../../sub-components/forms/progress-bar/progress-details";
-import SwitchDetail from "../../sub-components/forms/switch-control/switch-details";
 
-import InputDetail from "../../sub-components/forms/inputtext/inputtextdetails";
+
 const FormModal =()=>{
     const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
     const { open: openDatePickerForm, close: closeDatePickerForm, ModalWrapper: ModalWrapperDatePicker } = useModal();
-    const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
+    const { open: openTextAreaDetail, close: closeTextAreaDetail, ModalWrapper: ModalWrapperTextAreaDetail } = useModal();
+    const { open: openTextAreaForm, close: closeTextAreaForm, ModalWrapper: ModalWrapperTextArea } = useModal();
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
+    const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openProgressBar, close: closeProgressBar, ModalWrapper: ModalWrapperProgressBar } = useModal();
     const { open: openProgressBarDetail, close: closeProgressBarDetail, ModalWrapper: ModalWrapperProgressBarDetail } = useModal();
     const { open: openSwitchControl, close: closeSwitchControl, ModalWrapper: ModalWrapperSwitchControl } = useModal();
@@ -46,20 +51,39 @@ return(
     <ModalWrapperInputText>
         <InputModal close={closeInputText} />
 	  </ModalWrapperInputText>
-
-      <ModalWrapperDatePickerDetail>
-        <DatePickerDetail close={closeDatePickerDetail} />
-      </ModalWrapperDatePickerDetail>
-      <ModalWrapperDatePicker>
-        <DatePickerForm close={closeDatePickerForm} />
-      </ModalWrapperDatePicker>
+    <ModalWrapperInputTextDetail>
+      <InputTextDetail close={closeInputTextDetail} />
+    </ModalWrapperInputTextDetail>
     
+    <ModalWrapperDatePickerDetail>
+      <DatePickerDetail close={closeDatePickerDetail} />
+    </ModalWrapperDatePickerDetail>
+    <ModalWrapperDatePicker>
+      <DatePickerForm close={closeDatePickerForm} />
+    </ModalWrapperDatePicker>
+
+    <ModalWrapperTextAreaDetail>
+      <TextAreaDetail close={closeTextAreaDetail} />
+    </ModalWrapperTextAreaDetail>
+    <ModalWrapperTextArea>
+      <TextAreaForm close={closeTextAreaForm} />
+    </ModalWrapperTextArea>
+    
+    <ModalWrapperProgressBarDetail>
+      <ProgressDetail close={closeProgressBarDetail}/>
+    </ModalWrapperProgressBarDetail>
     <ModalWrapperProgressBar>
       <ProgressForm close={closeProgressBar}/>
     </ModalWrapperProgressBar>
+
     <ModalWrapperSwitchControl>
       <SwitchForm close={closeSwitchControl}/>
     </ModalWrapperSwitchControl>
+    <ModalWrapperSwitchControlDetail>
+      <SwitchDetail close={closeSwitchControlDetail}/>
+    </ModalWrapperSwitchControlDetail>
+
+
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
@@ -75,10 +99,10 @@ return(
             <p>This components help to create and customised the {data}.</p>
             {data === "Input Text" ? (
               <div className="modal-button_section">
-                <button title="Details button for header" type="button" class="buttons" onClick={openInputTextDetail}>
+                <button title="Details button for input text" type="button" class="buttons" onClick={openInputTextDetail}>
                   Details
                 </button>
-                <button title="Create button for header" type="button" class="buttons" onClick={openInputText}>
+                <button title="Create button for input text" type="button" class="buttons" onClick={openInputText}>
                   Create
                 </button>
               </div>
@@ -91,30 +115,39 @@ return(
                   Create
                 </button>
               </div>
+            ) : data === "Text Area" ? (
+              <div className="modal-button_section">
+                <button title="Details button for text area" type="button" class="buttons" onClick={openTextAreaDetail}>
+                  Details
+                </button>
+                <button title="Create button for text area" type="button" class="buttons" onClick={openTextAreaForm}>
+                  Create
+                </button>
+              </div>
             ) : data === "Progress Bar" ? (
               <div className="modal-button_section">
-                <button title="Details button for header" type="button" class="buttons" onClick={openProgressBarDetail}>
+                <button title="Details button for progress bar" type="button" class="buttons" onClick={openProgressBarDetail}>
                   Details
                 </button>
-                <button title="Create button for header" type="button" class="buttons" onClick={openProgressBar}>
+                <button title="Create button for progress bar" type="button" class="buttons" onClick={openProgressBar}>
                   Create
                 </button>
               </div>
-            ): data === "Switch Control" ? (
+            ) : data === "Switch Control" ? (
               <div className="modal-button_section">
-                <button title="Details button for header" type="button" class="buttons" onClick={openSwitchControlDetail}>
+                <button title="Details button for switch control" type="button" class="buttons" onClick={openSwitchControlDetail}>
                   Details
                 </button>
-                <button title="Create button for header" type="button" class="buttons" onClick={openSwitchControl}>
+                <button title="Create button for switch control" type="button" class="buttons" onClick={openSwitchControl}>
                   Create
                 </button>
               </div>
-            ) :data === "Range" ? (
+            ) : data === "Range" ? (
               <div className="modal-button_section">
-                <button title="Details button for header" type="button" class="buttons" onClick={openRangeDetail}>
+                <button title="Details button for range" type="button" class="buttons" onClick={openRangeDetail}>
                   Details
                 </button>
-                <button title="Create button for header" type="button" class="buttons" onClick={openRange}>
+                <button title="Create button for range" type="button" class="buttons" onClick={openRange}>
                   Create
                 </button>
               </div>

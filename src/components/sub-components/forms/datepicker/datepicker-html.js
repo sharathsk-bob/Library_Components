@@ -3,14 +3,12 @@ import ReactDOMServer from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import Button from './button-main';
+import DateSetter from './datepicker-main'
 
-function DatePickerHtml(props) {
+function DatePickerHtml (props) {
     const { DatePickerProps } = props;
     const sheet = new ServerStyleSheet();
-    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles
-        // (<Button ButtonProps = {DatePickerProps}/>)
-        );
+    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<DateSetter DatePickerProps = {DatePickerProps}/>));
     const css = sheet.getStyleTags();
     const lines = html.split('>');
     var indentSize = 2;
@@ -40,8 +38,8 @@ function DatePickerHtml(props) {
         });
     };
 
-    console.log(formattedHTML);
-    console.log(css);
+    // console.log(formattedHTML);
+    // console.log(css);
     return (
         <>
             <div className='clipboard-div'>

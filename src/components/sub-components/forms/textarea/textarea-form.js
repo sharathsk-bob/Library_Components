@@ -5,18 +5,13 @@ import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../../asset/images/cross-white.png";
 
-
-const DatePickerForm =(props)=>{
+const TextAreaForm =(props)=>{
     const navigate = useNavigate()
-
     const {close} = props;
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
     const [themeValue, setThemeValue] = useState();
-    const [dpWidth, setdpWidth] = useState();
-    const [datepickerType, setDatepickerType] = useState();
-    const [isBtnCheck, setBtnCheck] = useState(false);
-
+    const [textboxWidth, setTextboxWidth] = useState();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,23 +23,17 @@ const DatePickerForm =(props)=>{
         let errors = {};
 
         if (values.datepickerLabel == undefined || values.datepickerLabel === '') {
-            errors.datepickerLabel = "Label for date picker is required"; 
+            errors.datepickerLabel = "Label for Text area is required"; 
         } else if (values.datepickerLabel !== undefined) {
             if(values.datepickerLabel.length > 15){
-                errors.datepickerLabel = "Label for date picker should be shorter"; 
+                errors.datepickerLabel = "Label for Text area should be shorter"; 
             } 
         }
 
-        if(datepickerType === undefined || datepickerType === ''){
-            errors.datepickerType = "Please select the type of Date Picker from the dropdown";
+        if(textboxWidth === undefined || textboxWidth === ''){
+            errors.textboxWidth = "Please select the width of Text area from the dropdown";
         } else {
-            inputs.Choice_DateType = datepickerType;
-        }
-
-        if(dpWidth === undefined || dpWidth === ''){
-            errors.boxsize = "Please select the width of Date Picker from the dropdown";
-        } else {
-            inputs.Choice_DPWidth = dpWidth;
+            inputs.Choice_textboxWidth = textboxWidth;
         }
 
         if(themeValue === undefined || themeValue === ''){
@@ -62,18 +51,17 @@ const DatePickerForm =(props)=>{
         setInputErrors(validerrors);
         if(Object.keys(validerrors).length === 0)
         {
-        setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
-        navigate("/formcomponents/datepicker", {state: {inputs}});
+        navigate("/formcomponents/textarea", {state: {inputs}});
         } else {
         }
         
     };
 
-    const DatePickerProps = {
+    const TextAreaProps = {
         DateLabel: inputs.datepickerLabel,
-        Choice_DateType: inputs.datepickerType,
-        Choice_DPWidth: inputs.dpWidth,
+
+        Choice_textboxWidthh: inputs.textboxWidth,
         Choice_Theme: inputs.theme,
     };
 
@@ -103,7 +91,7 @@ return (
                 aria-label="Text for the Date picker label Asterik-Required"
                 for="datepickerLabel"
                 >
-                Text for the Label of Date Picker: <span className="asterik">*</span> 
+                Text for the Label of Text Area: <span className="asterik">*</span> 
                 <Input
                     id="datepickerLabel"
                     className="text_modal__input"
@@ -119,30 +107,14 @@ return (
             </FormField>
         </div>
 
-        <div className="input-field-container theme-field size-field">
-            <div className="modal-checkbox">
-            <FormField className="modal-content-theme">
-                <label for="datepickertype" aria-label="Select the date picker type Asterik-Required"> 
-                <p>Please select the date picker type<span className="asterik">*</span> </p>
-                    <select name="datepickertype" id="datepickertype"  value={datepickerType} onChange={(event) => setDatepickerType(event.target.value)}>
-                        <option value="">--</option>         
-                        <option value="date">Date</option>
-                        <option value="time">Time</option>
-                        <option value="date-time">Date-Time</option>
-                    </select>
-                </label>
-            </FormField>
-            </div>
-            <p className="error">{inputErrors.datepickerType}</p>
-        </div>
 
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="dpwidth" aria-label="Select date picker width value Asterik-Required"> 
-                <p>Please select width of the date picker: <span className="asterik">*</span> </p>
+                <label for="textboxWidth" aria-label="Select date picker width value Asterik-Required"> 
+                <p>Please select width of the text area: <span className="asterik">*</span> </p>
                 </label>
-                    <select name="dpwidth" id="dpwidth"  value={dpWidth} onChange={(event) => setdpWidth(event.target.value)}>
+                    <select name="textboxWidth" id="textboxWidth"  value={textboxWidth} onChange={(event) => setTextboxWidth(event.target.value)}>
                         <option value="">--</option>         
                         <option value="25">25 %</option>
                         <option value="50">50 %</option>
@@ -151,7 +123,7 @@ return (
                     </select>
             </FormField>
             </div>
-            <p className='error'>{inputErrors.dpwidth}</p>
+            <p className='error'>{inputErrors.textboxWidth}</p>
         </div>
 
         <div className="input-field-container theme-field size-field">
@@ -174,7 +146,7 @@ return (
 
         <div className="button-section">
             <div className="link-button">
-                <Link state={DatePickerProps} props={inputs} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                <Link state={TextAreaProps} props={inputs} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                     Submit
                 </Link>
             </div>
@@ -187,4 +159,4 @@ return (
     );
 };
 
-export default DatePickerForm;
+export default TextAreaForm;
