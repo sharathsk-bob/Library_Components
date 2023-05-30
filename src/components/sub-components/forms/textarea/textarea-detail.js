@@ -2,7 +2,7 @@ import React from "react";
 import closeIcon from "../../../asset/images/cross-white.png";
 import FocusTrap from "focus-trap-react";
 
-const DatePickerDetail = (props)=>{
+const TextAreaDetail = (props)=>{
 
     const{close} = props;
  
@@ -15,23 +15,23 @@ const DatePickerDetail = (props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
             <div className="detail-header">
-            <p>Date Picker</p>
-                <button className="close-button" aria-label="close date picker details modal" onClick={close}>
+            <p>Text Area</p>
+                <button className="close-button" aria-label="close text area details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Date Picker Section are Below:
+            Details for the Text Area Section are Below:
             </h1>
-            <p>Please do follow the given instruction while creating the Date Picker component.</p>
+            <p>Please do follow the given instruction while creating the Text Area component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for Label of date picker should not be more than 15 characters</li>
-                    <li>User can select the Date picker types as - Date, Time & Date-Time</li>
-                    <li>User can select width of the input from the dropdown</li>
-                    <li>User can select the theme of the date picker from the dropdown</li>
+                    <li>User can provide label text with maximum 15 characters.</li> 
+                    <li>User can select the type of text area from the dropdown.</li>
+                    <li>User can select the box size of text area.</li>
+                    <li>User can select the theme for the text area.</li>
                 </ul>
             </div>
         </div>
@@ -40,4 +40,4 @@ const DatePickerDetail = (props)=>{
       </FocusTrap>
     ); 
 };
- export default DatePickerDetail;
+ export default TextAreaDetail;

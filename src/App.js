@@ -16,6 +16,7 @@ import AlertComponent from './components/sub-components/alert/alert';
 import Toaster from './components/sub-components/toaster/toaster';
 import FormPresentation from './components/presentation/formpresentation';
 import InputComponent from "../src/components/sub-components/forms/inputtext/inputtext";
+import TextAreaComponent from './components/sub-components/forms/textarea/textarea';
 import DatePickerComponent from './components/sub-components/forms/datepicker/datepicker';
 import ProgressBar from './components/sub-components/forms/progress-bar/progress';
 import SwitchControl from './components/sub-components/forms/switch-control/switch-control';
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="toaster"element ={<Toaster/>} ></Route>
           <Route exact path="/formcomponents"element ={<FormPresentation/>} ></Route>
           <Route exact path="formcomponents/inputText"element ={<InputComponent/>} ></Route>
+          <Route exact path="/formcomponents/textarea" element={<TextAreaComponent/>}></Route>
           <Route exact path="/formcomponents/datepicker" element={<DatePickerComponent/>}></Route>
           <Route exact path="/formcomponents/progress"element ={<ProgressBar/>} ></Route>
           <Route exact path="/formcomponents/switch"element ={<SwitchControl/>} ></Route>
