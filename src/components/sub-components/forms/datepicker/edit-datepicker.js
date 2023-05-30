@@ -14,7 +14,7 @@ const EditDatePickerModal = (props)=>{
     const initialValues = {
         datepickerLabel: data.datepickerLabel,
         Choice_DateType: data.Choice_DateType,
-        Choice_BoxSize: data.Choice_BoxSize,
+        Choice_DPWidth: data.Choice_DPWidth,
         Choice_Theme: data.Choice_Theme,
     }
     //console.log("Check Initial values in edit component", initialValues);
@@ -32,7 +32,7 @@ const EditDatePickerModal = (props)=>{
     const DatePickerProps = {
         DateLabel: inputs.datepickerLabel,
         Choice_DateType: inputs.datepickerType,
-        Choice_BoxSize: inputs.boxSize,
+        Choice_DPWidth: inputs.dpWidth,
         Choice_Theme: inputs.theme,
     };
 
@@ -53,8 +53,8 @@ const EditDatePickerModal = (props)=>{
             errors.datepickerType = "Please select the type of Date Picker from the dropdown";
         }
 
-        if(values.Choice_BoxSize === undefined || values.Choice_BoxSize === ""){
-            errors.boxsize = "Please select the type of Date Picker from the dropdown";
+        if(values.Choice_DPWidth === undefined || values.Choice_DPWidth === ""){
+            errors.dpWidth = "Please select the width of Date Picker from the dropdown";
         }  
 
         if(values.Choice_Theme === undefined || values.Choice_Theme === ""){
@@ -140,14 +140,15 @@ const EditDatePickerModal = (props)=>{
             <div className="input-field-container theme-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="Choice_BoxSize" aria-label="Edit box size for date picker Asterik-Required"> 
-                    <p>Please select box size of the Date Picker: <span className="asterik">*</span> </p>
+                    <label for="Choice_DPWidth" aria-label="Edit date picker width value Asterik-Required"> 
+                    <p>Please select width of the date picker: <span className="asterik">*</span> </p>
                     </label>
-                        <select name="Choice_BoxSize" id="Choice_BoxSize" value={inputs.Choice_BoxSize} onChange={handleChange}>
-                            <option value="">--</option>
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
+                        <select name="Choice_DPWidth" id="Choice_DPWidth"  value={inputs.Choice_DPWidth} onChange={handleChange}>
+                            <option value="">--</option>         
+                            <option value="25">25 %</option>
+                            <option value="50">50 %</option>
+                            <option value="75">75 %</option>
+                            <option value="100">100 %</option>
                         </select>
                 </FormField>
                 </div>

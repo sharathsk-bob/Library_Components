@@ -13,7 +13,7 @@ const DatePickerForm =(props)=>{
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
     const [themeValue, setThemeValue] = useState();
-    const [boxSize, setBoxSize] = useState();
+    const [dpWidth, setdpWidth] = useState();
     const [datepickerType, setDatepickerType] = useState();
     const [isBtnCheck, setBtnCheck] = useState(false);
 
@@ -41,10 +41,10 @@ const DatePickerForm =(props)=>{
             inputs.Choice_DateType = datepickerType;
         }
 
-        if(boxSize === undefined || boxSize === ''){
-            errors.boxsize = "Please select the type of Date Picker from the dropdown";
+        if(dpWidth === undefined || dpWidth === ''){
+            errors.boxsize = "Please select the width of Date Picker from the dropdown";
         } else {
-            inputs.Choice_BoxSize = boxSize;
+            inputs.Choice_DPWidth = dpWidth;
         }
 
         if(themeValue === undefined || themeValue === ''){
@@ -73,7 +73,7 @@ const DatePickerForm =(props)=>{
     const DatePickerProps = {
         DateLabel: inputs.datepickerLabel,
         Choice_DateType: inputs.datepickerType,
-        Choice_BoxSize: inputs.boxSize,
+        Choice_DPWidth: inputs.dpWidth,
         Choice_Theme: inputs.theme,
     };
 
@@ -139,18 +139,19 @@ return (
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="boxsize" aria-label="Select box size for date picker Asterik-Required"> 
-                <p>Please select box size of the Date Picker: <span className="asterik">*</span> </p>
+                <label for="dpwidth" aria-label="Select date picker width value Asterik-Required"> 
+                <p>Please select width of the date picker: <span className="asterik">*</span> </p>
                 </label>
-                    <select name="boxsize" id="boxsize"  value={boxSize} onChange={(event) => setBoxSize(event.target.value)}>
-                        <option value="">--</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
+                    <select name="dpwidth" id="dpwidth"  value={dpWidth} onChange={(event) => setdpWidth(event.target.value)}>
+                        <option value="">--</option>         
+                        <option value="25">25 %</option>
+                        <option value="50">50 %</option>
+                        <option value="75">75 %</option>
+                        <option value="100">100 %</option>
                     </select>
             </FormField>
             </div>
-            <p className='error'>{inputErrors.boxsize}</p>
+            <p className='error'>{inputErrors.dpwidth}</p>
         </div>
 
         <div className="input-field-container theme-field size-field">

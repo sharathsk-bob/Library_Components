@@ -29,8 +29,8 @@ const DatePickerDetail = (props)=>{
             <div className="detail-content">
                 <ul>
                     <li>Text for Label of date picker should not be more than 15 characters</li>
-                    <li>User can select the TextBox size (Padding- Y) from the dropdown</li>
                     <li>User can select the Date picker types as - Date, Time & Date-Time</li>
+                    <li>User can select width of the input from the dropdown</li>
                     <li>User can select the theme of the date picker from the dropdown</li>
                 </ul>
             </div>

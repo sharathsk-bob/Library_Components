@@ -27,6 +27,7 @@ function DateSetter(props) {
                     showTimeSelect={showtime}
                     showTimeSelectOnly={showonlytime}
                     className={`form-control form-control-lg 
+                        ${DatePickerProps?.Choice_DPWidth == "25"?"dp-w25":DatePickerProps?.Choice_DPWidth == "50"?"dp-w50":DatePickerProps?.Choice_DPWidth == "75"?"dp-w75":DatePickerProps?.Choice_DPWidth == "100"?"dp-w100":"" }
                         ${DatePickerProps?.Choice_Theme == "Dark"?"dp-dark":DatePickerProps?.Choice_Theme == "cg1"?"dp-blue":DatePickerProps?.Choice_Theme == "cg2"?"dp-purple":DatePickerProps?.Choice_Theme == "Normal"?"dp-normal":"" }
                         ${DatePickerProps.Choice_BoxSize == "dp-small" ? 'small': DatePickerProps.Choice_BoxSize == "medium" ? 'dp-medium': DatePickerProps.Choice_BoxSize == "large" ? 'dp-large' : "0"}`}
                     //showTimeSelect={`${DatePickerProps.Choice_DateType == "date" ? 'false': DatePickerProps.Choice_DateType == "time" ? 'true': DatePickerProps.Choice_DateType == "date-time" ? 'true' : "false"}`}
