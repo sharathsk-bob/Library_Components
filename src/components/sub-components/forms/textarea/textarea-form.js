@@ -22,11 +22,11 @@ const TextAreaForm =(props)=>{
 
         let errors = {};
 
-        if (values.datepickerLabel == undefined || values.datepickerLabel === '') {
-            errors.datepickerLabel = "Label for Text area is required"; 
-        } else if (values.datepickerLabel !== undefined) {
-            if(values.datepickerLabel.length > 15){
-                errors.datepickerLabel = "Label for Text area should be shorter"; 
+        if (values.textareaLabel == undefined || values.textareaLabel === '') {
+            errors.textareaLabel = "Label for Text area is required"; 
+        } else if (values.textareaLabel !== undefined) {
+            if(values.textareaLabel.length > 15){
+                errors.textareaLabel = "Label for Text area should be shorter"; 
             } 
         }
 
@@ -59,9 +59,8 @@ const TextAreaForm =(props)=>{
     };
 
     const TextAreaProps = {
-        DateLabel: inputs.datepickerLabel,
-
-        Choice_textboxWidthh: inputs.textboxWidth,
+        TextAreaLabel: inputs.textareaLabel,
+        Choice_textboxWidth: inputs.textboxWidth,
         Choice_Theme: inputs.theme,
     };
 
@@ -76,8 +75,8 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>Date Picker</p>
-                <button className="close-button" aria-label="close create date picker modal" onClick={close}>
+            <p>Text Area</p>
+                <button className="close-button" aria-label="close create text area modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
@@ -88,25 +87,24 @@ return (
             <FormField className="form-modal__content">
                 <label
                 className="wbh-modal__label"
-                aria-label="Text for the Date picker label Asterik-Required"
-                for="datepickerLabel"
+                aria-label="Text for the Text area label Asterik-Required"
+                for="textareaLabel"
                 >
                 Text for the Label of Text Area: <span className="asterik">*</span> 
                 <Input
-                    id="datepickerLabel"
+                    id="textareaLabel"
                     className="text_modal__input"
                     autoComplete="off"
-                    name="datepickerLabel"
+                    name="textareaLabel"
                     maxLength="15"
-                    value={inputs.datepickerLabel || ""} 
+                    value={inputs.textareaLabel || ""} 
                     onChange={handleChange}
                     aria-required="true"
                 />
                 </label>
-                <p className='error' aria-atomic="true">{inputErrors.datepickerLabel}</p>
+                <p className='error' aria-atomic="true">{inputErrors.textareaLabel}</p>
             </FormField>
         </div>
-
 
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">

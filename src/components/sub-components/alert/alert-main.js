@@ -13,8 +13,8 @@ function Alert(props) {
         <>
         <FocusTrap focusTrapOptions={{ onDeactivate: close }}>
             <div className="alert_wrapper">
-            <div className={`alert-content ${AlertProps?.Choice_Width == "25"?"w-25":AlertProps?.Choice_Width == "50"?"w-50": 
-                    AlertProps?.Choice_Width == "75"?"w-75":AlertProps?.Choice_Width == "100"?"w-100":"" }`}>
+            <div className={`alert-content ${AlertProps?.Choice_Width == "25"?"alert-w25":AlertProps?.Choice_Width == "50"?"alert-w50": 
+                    AlertProps?.Choice_Width == "75"?"alert-w75":AlertProps?.Choice_Width == "100"?"alert-w100":"" }`}>
                 
                 <div className={`alert-header ${AlertProps?.Choice_Theme == "Dark"?"dark":AlertProps?.Choice_Theme == "cg1"?"blue": 
                 AlertProps?.Choice_Theme == "cg2"?"purple":AlertProps?.Choice_Theme == "Normal"?"normal":"" }`}>

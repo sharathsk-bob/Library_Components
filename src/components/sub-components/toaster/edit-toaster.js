@@ -198,9 +198,9 @@ function EditToasterForm(props) {
                   type="button"
                   className="btn btn-primary btn-lg"
                   onClick={handleSubmit}
-                  aria-label="Submit"
+                  aria-label="Update"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
             </div>
