@@ -21,13 +21,13 @@
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
+    width: 100%;
     justify-content: center;
     left: 0;
     margin: 0 auto;
     overflow-x: hidden;
     position: fixed;
     top: 0;
-    width: 100vw;
     z-index: 100;
 }
 
@@ -39,23 +39,29 @@
 }
 
 .alert-w25 {
-    width: 25vw;
+    width: 25%;
+    @media (max-width: 576px) {
+        width: 50% !important;
+    }
 }
 .alert-w50 {
-    width: 50vw;
+    width: 50%;
 }
 .alert-w75 {
-    width: 75vw;
+    width: 75%;
 }
 .alert-w100 {
     width: 100%;
-    margin: 0 1.8em;
+    margin: 0 24px;
+    @media (max-width: 576px) {
+        width: 95%;
+        margin: 0 12px !important;
+    }
 }
 
 .alert-container{
-    padding: 0 1em;
     overflow-x: auto;
-    margin: 20px;
+    margin: 16px auto;
 }
 
 .alert-header {
@@ -120,7 +126,9 @@
 }
 
 .text-section {
+    padding: 0 1em;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .button-section {

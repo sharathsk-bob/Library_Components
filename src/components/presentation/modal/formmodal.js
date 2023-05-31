@@ -12,7 +12,7 @@ import TextAreaForm from "../../sub-components/forms/textarea/textarea-form";
 import RadioButtonDetail from "../../sub-components/forms/radiobutton/radiobutton-detail";
 
 import CheckBoxDetail from "../../sub-components/forms/checkbox/checkbox-detail";
-
+import CheckBoxForm from "../../sub-components/forms/checkbox/checkbox-form";
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
 import ProgressDetail from "../../sub-components/forms/progress-bar/progress-detail";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
@@ -68,7 +68,7 @@ return(
       <CheckBoxDetail close={closeCheckBoxDetail} />
     </ModalWrapperCheckBoxDetail>
     <ModalWrapperCheckBox>
-      {/* <CheckBoxForm close={closeRadioButtonForm} /> */}
+      <CheckBoxForm close={closeCheckBoxForm} />
     </ModalWrapperCheckBox>
 
     <ModalWrapperTextAreaDetail>
@@ -79,7 +79,7 @@ return(
     </ModalWrapperTextArea>
 
     <ModalWrapperRadioButtonDetail>
-      <DatePickerDetail close={closeRadioButtonDetail} />
+      <RadioButtonDetail close={closeRadioButtonDetail} />
     </ModalWrapperRadioButtonDetail>
     <ModalWrapperRadioButton>
       {/* <RadioButtonForm close={closeRadioButtonForm} /> */}
