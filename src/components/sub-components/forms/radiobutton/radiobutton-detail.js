@@ -28,10 +28,11 @@ const RadioButtonDetail = (props)=>{
             <p>Please do follow the given instruction while creating the Radio Button component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for Label of radio button should not be more than 15 characters</li>
-                    <li>User can select the Date picker types as - Date, Time & Date-Time</li>
-                    <li>User can select width of the input from the dropdown</li>
-                    <li>User can select the theme of the date picker from the dropdown</li>
+                    <li>Text for label for fieldset of radio button should not be more than 15 characters</li>
+                    <li>User can the number of radio buttons they want, maximum upto 4</li>
+                    <li>User can select display layout as horizontal or vertical for radio button</li>
+                    <li>User can select width of the fieldset for radio button</li>
+                    <li>User can select the theme of the radio button from the dropdown</li>
                 </ul>
             </div>
         </div>
@@ -40,4 +41,4 @@ const RadioButtonDetail = (props)=>{
       </FocusTrap>
     ); 
 };
- export default RadioButtonDetail;
+export default RadioButtonDetail;

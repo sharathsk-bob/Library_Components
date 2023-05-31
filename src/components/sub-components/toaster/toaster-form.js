@@ -12,7 +12,6 @@ function ToasterForm(props) {
     const [message, setMessage] = useState('');
     const [buttonText, setButtonText] = useState('');
     const [toastdirection,setDirection]=useState('');
-    const [toastTheme,setToastTheme]=useState('');
   
     const [errors, setErrors] = useState({});
     const toasterProps = {
@@ -21,7 +20,6 @@ function ToasterForm(props) {
         message,
         buttonText,
         toastdirection,
-        toastTheme
       };
     const history = useNavigate();
     const handleSubmit = (e) => {
@@ -56,9 +54,6 @@ function ToasterForm(props) {
       }
       if (toastdirection == undefined || toastdirection == null || toastdirection == "") {
         errors.dir = "Direction is required";
-      }
-      if (toastTheme == undefined || toastTheme == null || toastTheme == "") {
-        errors.theme = "Theme is required";
       }
   
       return errors;
@@ -157,24 +152,7 @@ function ToasterForm(props) {
                 </select> 
                 {errors.dir && <p className="error-message">{errors.dir}</p>}
               </div>
-        <div className=" toaster-fields theme-container">
-                <label htmlFor="theme" aria-label="Theme for Asterik-Required">
-                  Theme:<span className="astrick">*</span>
-                </label>
-                <select
-                  id="theme"
-                  name="theme"
-                  value={toastTheme}
-                  onChange={(event) => setToastTheme(event.target.value)}
-                >
-                  <option value="">Select</option>
-                  <option value="Normal">Light</option>
-                  <option value="Dark">Dark</option>
-                  <option value="cg1">Blue</option>
-                  <option value="cg2">Purple</option>
-                </select> 
-                {errors.theme && <p className="error-message">{errors.theme}</p>}
-              </div>
+        
         <div className="button-section">
               <div className="link-button">
                 <Link

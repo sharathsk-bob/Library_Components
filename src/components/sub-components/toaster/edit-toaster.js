@@ -20,7 +20,6 @@ function EditToasterForm(props) {
       message:data.message,
       buttonText:data.buttonText,
       toastdirection:data.toastdirection,
-      toastTheme:data.toastTheme
     };
 
     const [formValues,setFormValues]=useState(initialValues);
@@ -32,7 +31,6 @@ function EditToasterForm(props) {
         message:formValues.message,
         buttonText:formValues.buttonText,
         toastdirection:formValues.toastdirection,
-        toastTheme:formValues.toastTheme
       };
 
     const history = useNavigate();
@@ -69,9 +67,6 @@ function EditToasterForm(props) {
       if (formValues.toastdirection == undefined || formValues.toastdirection == null || formValues.toastdirection == "") {
         errors.dir = "Direction is required";
       }
-      if (formValues.toastTheme == undefined || formValues.toastTheme == null || formValues.toastTheme == "") {
-        errors.theme = "Theme is required";
-      }
       return errors;
     };
     const handleChange = (e) => {
@@ -86,7 +81,6 @@ function EditToasterForm(props) {
         setMessage(formValues.message);
         setButtonText(formValues.buttonText);
         setDirection(formValues.toastdirection);
-        setToastTheme(formValues.toastTheme);
     };
    
     return (
@@ -174,24 +168,7 @@ function EditToasterForm(props) {
                 </select> 
                 {errors.dir && <p className="error-message">{errors.dir}</p>}
               </div>
-        <div className=" toaster-fields theme-container">
-                <label htmlFor="toastTheme" aria-label="Theme for Asterik-Required">
-                  Theme:<span className="astrick">*</span>
-                </label>
-                <select
-                  id="toastTheme"
-                  name="toastTheme"
-                  value={formValues.toastTheme}
-                  onChange={handleChange}
-                >
-                  <option value="">Select</option>
-                  <option value="Normal">Light</option>
-                  <option value="Dark">Dark</option>
-                  <option value="cg1">Blue</option>
-                  <option value="cg2">Purple</option>
-                </select> 
-                {errors.theme && <p className="error-message">{errors.theme}</p>}
-              </div>
+        
         <div className="button-section">
               <div className="link-button">
                 <Link

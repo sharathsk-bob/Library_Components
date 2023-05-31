@@ -12,7 +12,7 @@ function ToasterMain(props) {
   return (
     <>
     <div className='toaster-button'>
-      <button type="button" class={` btn btn-primary ${props?.toastTheme == "Dark"?"Dark":props?.toastTheme == "cg1"?"cg1":props?.toastTheme == "cg2"?"cg2":props?.toastTheme == "Normal"?"Normal":"" }`} id="liveToastBtn" onClick={openToaster}>{props.buttonText}</button>
+      <button type="button" class={`toaster-btn`} id="liveToastBtn" onClick={openToaster}>{props.buttonText}</button>
     </div>
     <div class={`toaster-main position-fixed ${props?.toastdirection == "Top"?"top-0":"bottom-0"} end-0 p-3 `} >
       <div id="liveToast" class={`toast hide ${props?.toasterType=="success"?"success-toaster":props.toasterType=="warning"?"warning-toaster":props.toasterType=="info"?"info-toaster":props.toasterType=="error"?"error-toaster":"" }`} role="alert" aria-live="assertive" aria-atomic="true">

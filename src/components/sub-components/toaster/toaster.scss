@@ -1,6 +1,17 @@
 
 @import "../../theme/breakpoints.scss";
 
+.toaster-btn {
+    padding: 0.5rem;
+    font-weight: bold;
+    background-color: var(--color-capgemini-blue);
+    border-color: var(--color-capgemini-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .Normal {
     background-color: #f1f4f8 !important;
   }
