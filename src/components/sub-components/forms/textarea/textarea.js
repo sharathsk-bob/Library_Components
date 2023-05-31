@@ -9,7 +9,76 @@ import TextAreaHtml from "./textarea-html";
 import  EditTextAreaModal from "../textarea/edit-textarea";
 
 export const CustomStyleTextArea = styled.div`
+.input-output{
+  margin: 20px;
+}
 
+.ta-normal {
+  background-color: rgb(241, 244, 248)!important;
+  border-style: solid;
+  border-width: medium; 
+  border-color: none !important;
+}
+
+.ta-dark {
+  background-color: rgb(241, 244, 248)!important;
+  border-style: solid;
+  border-width: medium; 
+  border-color: var(--color-black) !important;
+}
+
+.ta-blue {
+  background-color: rgb(241, 244, 248)!important;
+  border-style: solid;
+  border-width: medium; 
+  border-color: var(--color-capgemini-blue) !important;
+}
+
+.ta-purple {
+  background-color: rgb(241, 244, 248)!important;
+  border-style: solid;
+  border-width: medium; 
+  border-color: var(--color-purple-wbh) !important;
+}
+
+.cls-bordRadius {
+  border-radius: 8px;
+}
+
+.cls-noRadius {
+  border-radius: 0px;
+}
+
+.ta-w25 {
+  width: 25%;
+  // margin: 0 auto;
+}
+.ta-w50 {
+  width: 50%;
+}
+.ta-w75 {
+  width: 75%;
+}
+.ta-w100 {
+  width: 98%;
+}
+
+.positionw-25 {
+  position: relative;
+  right: 1070px;
+}
+.positionw-50 {
+  position: relative;
+  right: 710px;
+}
+.positionw-75 {
+  position: relative;
+  right: 350px;
+}
+.positionw-100 {
+  position: relative;
+  right: 10px;
+}
 `;
 
 const TextAreaComponent = ( ) => {

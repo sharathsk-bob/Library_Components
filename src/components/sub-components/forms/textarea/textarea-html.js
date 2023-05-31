@@ -8,7 +8,7 @@ import TextArea from './textarea-main'
 function TextAreaHtml (props) {
     const { TextAreaProps } = props;
     const sheet = new ServerStyleSheet();
-    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<TextArea DatePickerProps = {TextAreaProps}/>));
+    const html = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(<TextArea TextAreaProps = {TextAreaProps}/>));
     const css = sheet.getStyleTags();
     const lines = html.split('>');
     var indentSize = 2;

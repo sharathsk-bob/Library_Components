@@ -9,6 +9,10 @@ import DatePickerDetail from "../../sub-components/forms/datepicker/datepicker-d
 import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-form";
 import TextAreaDetail from "../../sub-components/forms/textarea/textarea-detail";
 import TextAreaForm from "../../sub-components/forms/textarea/textarea-form";
+import RadioButtonDetail from "../../sub-components/forms/radiobutton/radiobutton-detail";
+
+import CheckBoxDetail from "../../sub-components/forms/checkbox/checkbox-detail";
+
 import ProgressForm from "../../sub-components/forms/progress-bar/progress-form";
 import ProgressDetail from "../../sub-components/forms/progress-bar/progress-detail";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
@@ -21,6 +25,11 @@ const FormModal =()=>{
     const { open: openDatePickerForm, close: closeDatePickerForm, ModalWrapper: ModalWrapperDatePicker } = useModal();
     const { open: openTextAreaDetail, close: closeTextAreaDetail, ModalWrapper: ModalWrapperTextAreaDetail } = useModal();
     const { open: openTextAreaForm, close: closeTextAreaForm, ModalWrapper: ModalWrapperTextArea } = useModal();
+    const { open: openCheckBoxDetail, close: closeCheckBoxDetail, ModalWrapper: ModalWrapperCheckBoxDetail } = useModal();
+    const { open: openCheckBoxForm, close: closeCheckBoxForm, ModalWrapper: ModalWrapperCheckBox } = useModal();
+    const { open: openRadioButtonDetail, close: closeRadioButtonDetail, ModalWrapper: ModalWrapperRadioButtonDetail } = useModal();
+    const { open: openRadioButtonForm, close: closeRadioButtonForm, ModalWrapper: ModalWrapperRadioButton } = useModal();
+
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
     const { open: openProgressBar, close: closeProgressBar, ModalWrapper: ModalWrapperProgressBar } = useModal();
@@ -55,12 +64,12 @@ return(
       <InputTextDetail close={closeInputTextDetail} />
     </ModalWrapperInputTextDetail>
     
-    <ModalWrapperDatePickerDetail>
-      <DatePickerDetail close={closeDatePickerDetail} />
-    </ModalWrapperDatePickerDetail>
-    <ModalWrapperDatePicker>
-      <DatePickerForm close={closeDatePickerForm} />
-    </ModalWrapperDatePicker>
+    <ModalWrapperCheckBoxDetail>
+      <CheckBoxDetail close={closeCheckBoxDetail} />
+    </ModalWrapperCheckBoxDetail>
+    <ModalWrapperCheckBox>
+      {/* <CheckBoxForm close={closeRadioButtonForm} /> */}
+    </ModalWrapperCheckBox>
 
     <ModalWrapperTextAreaDetail>
       <TextAreaDetail close={closeTextAreaDetail} />
@@ -68,6 +77,20 @@ return(
     <ModalWrapperTextArea>
       <TextAreaForm close={closeTextAreaForm} />
     </ModalWrapperTextArea>
+
+    <ModalWrapperRadioButtonDetail>
+      <DatePickerDetail close={closeRadioButtonDetail} />
+    </ModalWrapperRadioButtonDetail>
+    <ModalWrapperRadioButton>
+      {/* <RadioButtonForm close={closeRadioButtonForm} /> */}
+    </ModalWrapperRadioButton>
+
+    <ModalWrapperDatePickerDetail>
+      <DatePickerDetail close={closeDatePickerDetail} />
+    </ModalWrapperDatePickerDetail>
+    <ModalWrapperDatePicker>
+      <DatePickerForm close={closeDatePickerForm} />
+    </ModalWrapperDatePicker>
     
     <ModalWrapperProgressBarDetail>
       <ProgressDetail close={closeProgressBarDetail}/>
@@ -121,6 +144,24 @@ return(
                   Details
                 </button>
                 <button title="Create button for text area" type="button" class="buttons" onClick={openTextAreaForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Check Box" ? (
+              <div className="modal-button_section">
+                <button title="Details button for check box" type="button" class="buttons" onClick={openCheckBoxDetail}>
+                  Details
+                </button>
+                <button title="Create button for check box" type="button" class="buttons" onClick={openCheckBoxForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Radio Button" ? (
+              <div className="modal-button_section">
+                <button title="Details button for radio button" type="button" class="buttons" onClick={openRadioButtonDetail}>
+                  Details
+                </button>
+                <button title="Create button for radio button" type="button" class="buttons" onClick={openRadioButtonForm}>
                   Create
                 </button>
               </div>

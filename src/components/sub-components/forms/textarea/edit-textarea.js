@@ -12,7 +12,8 @@ const EditTextAreaModal = (props)=>{
     console.log("Check Input in edit component", data);
 
     const initialValues = {
-        TextAreaLabel: data.textareaLabel,
+        textareaLabel: data.textareaLabel,
+        Choice_BorderRadius: data.Choice_BorderRadius,
         Choice_textboxWidth: data.Choice_textboxWidth,
         Choice_Theme: data.Choice_Theme,
     }
@@ -28,7 +29,8 @@ const EditTextAreaModal = (props)=>{
     };
 
     const TextAreaProps = {
-        TextAreaLabel: inputs.textareaLabel,
+        textareaLabel: inputs.textareaLabel,
+        Choice_BorderRadius: inputs.Choice_BorderRadius,
         Choice_textboxWidth: inputs.textboxWidth,
         Choice_Theme: inputs.theme,
     };
@@ -44,6 +46,10 @@ const EditTextAreaModal = (props)=>{
             if(values.textareaLabel.length > 15){
                 errors.textareaLabel = "Label for date picker should be shorter"; 
             } 
+        }
+
+        if (values.Choice_BorderRadius === "") {
+            errors.BorderRadius = "Please make decision for Border Radius field";
         }
 
         if(values.Choice_textboxWidth === undefined || values.Choice_textboxWidth === ""){
@@ -65,7 +71,7 @@ const EditTextAreaModal = (props)=>{
         if(Object.keys(validerrors).length === 0)
         {
         console.log("Inputs Sent!!!", inputs);
-        navigate("/formcomponents/datepicker", {state: {inputs}});
+        navigate("/formcomponents/textarea", {state: {inputs}});
         close();
         } else {
         }
@@ -111,6 +117,45 @@ const EditTextAreaModal = (props)=>{
                     <p className='error' aria-atomic="true">{inputErrors.textareaLabel}</p>
                 </FormField>
             </div>
+
+            <div className="input-field-container logo-field">
+            <p>Would you like to have Border Radius for Text Area?<span className="asterik">*</span></p>
+            <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusyes" aria-label="Select Yes forBorder radius value">
+                <input
+                    id="Choice_BorderRadiusyes"
+                    className="modal-input"
+                    type="radio"
+                    value="Yes"
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "Yes"}
+                    onChange={handleChange}
+                />
+                <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>         
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusno" aria-label="Select No for Border radius value">
+                <input
+                    id="Choice_BorderRadiusno"
+                    className="modal-input"
+                    type="radio"
+                    value="No"
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "No"}
+                    onChange={handleChange}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          </div>
+          <p className="error">{inputErrors.BorderRadius}</p>
+        </div>
 
             <div className="input-field-container theme-field">
                 <div className="modal-checkbox">
