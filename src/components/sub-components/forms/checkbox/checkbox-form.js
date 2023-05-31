@@ -5,7 +5,7 @@ import { FormField, Input } from "@fluentui/react-northstar";
 import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../../asset/images/cross-white.png";
 
-const TextAreaForm =(props)=>{
+const CheckBoxForm =(props)=>{
     const navigate = useNavigate()
     const {close} = props;
     const [inputs, setInputs] = useState({});
@@ -23,11 +23,11 @@ const TextAreaForm =(props)=>{
 
         let errors = {};
 
-        if (values.textareaLabel == undefined || values.textareaLabel === '') {
-            errors.textareaLabel = "Label for Text area is required"; 
-        } else if (values.textareaLabel !== undefined) {
-            if(values.textareaLabel.length > 15){
-                errors.textareaLabel = "Label for Text area should be shorter"; 
+        if (values.checkboxLabel == undefined || values.checkboxLabel === '') {
+            errors.checkboxLabel = "Label for Text area is required"; 
+        } else if (values.checkboxLabel !== undefined) {
+            if(values.checkboxLabel.length > 15){
+                errors.checkboxLabel = "Label for Text area should be shorter"; 
             } 
         }
 
@@ -66,7 +66,7 @@ const TextAreaForm =(props)=>{
     };
 
     const TextAreaProps = {
-        textareaLabel: inputs.textareaLabel,
+        checkboxLabel: inputs.checkboxLabel,
         Choice_BorderRadius: inputs.Choice_BorderRadius,
         Choice_textboxWidth: inputs.textboxWidth,
         Choice_Theme: inputs.theme,
@@ -83,8 +83,8 @@ return (
     <div className="modal_wapper">
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
-            <p>Text Area</p>
-                <button className="close-button" aria-label="close create text area modal" onClick={close}>
+            <p>Check Box</p>
+                <button className="close-button" aria-label="close create check box modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
@@ -95,65 +95,26 @@ return (
             <FormField className="form-modal__content">
                 <label
                 className="wbh-modal__label"
-                aria-label="Text for the Text area label Asterik-Required"
-                for="textareaLabel"
+                aria-label="Text for the Check box label Asterik-Required"
+                for="checkboxLabel"
                 >
-                Text for the Label of Text Area: <span className="asterik">*</span> 
+                Text for the Label of Check Box: <span className="asterik">*</span> 
                 <Input
-                    id="textareaLabel"
+                    id="checkboxLabel"
                     className="text_modal__input"
                     autoComplete="off"
-                    name="textareaLabel"
+                    name="checkboxLabel"
                     maxLength="15"
-                    value={inputs.textareaLabel || ""} 
+                    value={inputs.checkboxLabel || ""} 
                     onChange={handleChange}
                     aria-required="true"
                 />
                 </label>
-                <p className='error' aria-atomic="true">{inputErrors.textareaLabel}</p>
+                <p className='error' aria-atomic="true">{inputErrors.checkboxLabel}</p>
             </FormField>
         </div>
 
-        <div className="input-field-container logo-field">
-            <p>Would you like to have Border Radius for Text Area? <span className="asterik">*</span></p>
-            <div className="modal-checkbox">
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Select Yes for Border radius value">
-                <input
-                    className="modal-input"
-                    type="radio"
-                    value="Yes"
-                    name="Choice_BorderRadius"
-                    checked={BorderRadius === "Yes"}
-                    onChange={(e) => {
-                        setBorderRadius("Yes");
-                    }}
-                />
-                <div className="tag">
-                  <span className="tag__cat">Yes </span>
-                </div>         
-              </label>
-            </FormField>
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Select No for Border radius value">
-                <input
-                    className="modal-input"
-                    type="radio"
-                    value="No"
-                    name="Choice_BorderRadius"
-                    checked={BorderRadius === "No"}
-                    onChange={(e) => {
-                        setBorderRadius("No");
-                    }}
-                />
-                <div className="tag">
-                  <span className="tag__cat">No</span>
-                </div>
-              </label>
-            </FormField>
-          </div>
-          <p className="error" aria-atomic="true">{inputErrors.BorderRadius}</p>
-        </div>
+        
 
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
@@ -206,4 +167,4 @@ return (
     );
 };
 
-export default TextAreaForm;
+export default CheckBoxForm;

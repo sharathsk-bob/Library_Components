@@ -93,8 +93,8 @@ const EditSwitchForm = (props) => {
         <option value="">Select</option>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
-          <option value="cg1">Blue</option>
-          <option value="cg2">Purple</option>
+          <option value="cg1-blue">Blue</option>
+          <option value="cg2-purple">Purple</option>
         </select>
         {errors.theme && <span className='error-message'>{errors.theme}</span>}
       </div>

@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import closeIcon from "../../../asset/images/cross-white.png";
 // import "../header/header-modal.scss";
 
-const EditDatePickerModal = (props)=>{
+const EditTextAreaModal = (props)=>{
 
     const{close, data} = props;
     console.log("Check Input in edit component", data);
 
     const initialValues = {
-        datepickerLabel: data.datepickerLabel,
-        Choice_DateType: data.Choice_DateType,
-        Choice_DPWidth: data.Choice_DPWidth,
+        textareaLabel: data.textareaLabel,
+        Choice_BorderRadius: data.Choice_BorderRadius,
+        Choice_textboxWidth: data.Choice_textboxWidth,
         Choice_Theme: data.Choice_Theme,
     }
     //console.log("Check Initial values in edit component", initialValues);
@@ -22,17 +22,16 @@ const EditDatePickerModal = (props)=>{
     const [inputs, setInputs] = useState(initialValues);
     const navigate = useNavigate()
     const [inputErrors, setInputErrors] = useState({});
-    const [isBtnCheck, setBtnCheck] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputs({ ...inputs, [name]: value });
     };
 
-    const DatePickerProps = {
-        DateLabel: inputs.datepickerLabel,
-        Choice_DateType: inputs.datepickerType,
-        Choice_DPWidth: inputs.dpWidth,
+    const TextAreaProps = {
+        textareaLabel: inputs.textareaLabel,
+        Choice_BorderRadius: inputs.Choice_BorderRadius,
+        Choice_textboxWidth: inputs.textboxWidth,
         Choice_Theme: inputs.theme,
     };
 
@@ -41,20 +40,20 @@ const EditDatePickerModal = (props)=>{
 
         let errors = {};
 
-        if (values.datepickerLabel == undefined || values.datepickerLabel === '') {
-            errors.datepickerLabel = "Label for date picker is required"; 
-        } else if (values.datepickerLabel !== undefined) {
-            if(values.datepickerLabel.length > 15){
-                errors.datepickerLabel = "Label for date picker should be shorter"; 
+        if (values.textareaLabel == undefined || values.textareaLabel === '') {
+            errors.textareaLabel = "Label for date picker is required"; 
+        } else if (values.textareaLabel !== undefined) {
+            if(values.textareaLabel.length > 15){
+                errors.textareaLabel = "Label for date picker should be shorter"; 
             } 
         }
 
-        if(values.Choice_DateType === undefined || values.Choice_DateType === ""){
-            errors.datepickerType = "Please select the type of Date Picker from the dropdown";
+        if (values.Choice_BorderRadius === "") {
+            errors.BorderRadius = "Please make decision for Border Radius field";
         }
 
-        if(values.Choice_DPWidth === undefined || values.Choice_DPWidth === ""){
-            errors.dpWidth = "Please select the width of Date Picker from the dropdown";
+        if(values.Choice_textboxWidth === undefined || values.Choice_textboxWidth === ""){
+            errors.textboxWidth = "Please select the width of Date Picker from the dropdown";
         }  
 
         if(values.Choice_Theme === undefined || values.Choice_Theme === ""){
@@ -71,9 +70,8 @@ const EditDatePickerModal = (props)=>{
 
         if(Object.keys(validerrors).length === 0)
         {
-        setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
-        navigate("/formcomponents/datepicker", {state: {inputs}});
+        navigate("/formcomponents/textarea", {state: {inputs}});
         close();
         } else {
         }
@@ -101,49 +99,71 @@ const EditDatePickerModal = (props)=>{
                 <FormField className="form-modal__content">
                     <label
                     className="wbh-modal__label"
-                    aria-label="Text for the Date picker label Asterik-Required"
-                    for="datepickerLabel"
+                    aria-label="Text for the Text Area label Asterik-Required"
+                    for="textareaLabel"
                     >
-                    Text for the Label of Date Picker: <span className="asterik">*</span> 
+                    Text for the Label of Text Area: <span className="asterik">*</span> 
                     </label>
                     <Input
-                        id="datepickerLabel"
+                        id="textareaLabel"
                         className="text_modal__input"
                         autoComplete="off"
-                        name="datepickerLabel"
+                        name="textareaLabel"
                         maxLength="15"
-                        value={inputs.datepickerLabel} 
+                        value={inputs.textareaLabel} 
                         onChange={handleChange}
                         aria-required="true"
                     />   
-                    <p className='error' aria-atomic="true">{inputErrors.datepickerLabel}</p>
+                    <p className='error' aria-atomic="true">{inputErrors.textareaLabel}</p>
                 </FormField>
             </div>
 
-            <div className="input-field-container theme-field">
-                <div className="modal-checkbox">
-                <FormField className="modal-content-theme">
-                    <label for="Choice_DateType" aria-label="Edit the date picker type Asterik-Required"> 
-                    <p>Please select the date picker type.<span className="asterik">*</span> </p>
-                    </label>
-                        <select name="Choice_DateType" id="Choice_DateType" value={inputs.Choice_DateType} onChange={handleChange}>
-                            <option value="">--</option>
-                            <option value="date">Date</option>
-                            <option value="time">Time</option>
-                            <option value="date-time">Date-Time</option>
-                        </select>
-                </FormField>
+            <div className="input-field-container logo-field">
+            <p>Would you like to have Border Radius for Text Area?<span className="asterik">*</span></p>
+            <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusyes" aria-label="Select Yes forBorder radius value">
+                <input
+                    id="Choice_BorderRadiusyes"
+                    className="modal-input"
+                    type="radio"
+                    value="Yes"
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "Yes"}
+                    onChange={handleChange}
+                />
+                <div className="tag">
+                  <span className="tag__cat">Yes </span>
+                </div>         
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusno" aria-label="Select No for Border radius value">
+                <input
+                    id="Choice_BorderRadiusno"
+                    className="modal-input"
+                    type="radio"
+                    value="No"
+                    name="Choice_BorderRadius"
+                    checked={inputs.Choice_BorderRadius === "No"}
+                    onChange={handleChange}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
                 </div>
-                <p className="error">{inputErrors.datepickerType}</p>
-            </div>
+              </label>
+            </FormField>
+          </div>
+          <p className="error">{inputErrors.BorderRadius}</p>
+        </div>
 
             <div className="input-field-container theme-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="Choice_DPWidth" aria-label="Edit date picker width value Asterik-Required"> 
-                    <p>Please select width of the date picker: <span className="asterik">*</span> </p>
+                    <label for="Choice_textboxWidth" aria-label="Edit text area width value Asterik-Required"> 
+                    <p>Please select width of the Text Area: <span className="asterik">*</span> </p>
                     </label>
-                        <select name="Choice_DPWidth" id="Choice_DPWidth"  value={inputs.Choice_DPWidth} onChange={handleChange}>
+                        <select name="Choice_textboxWidth" id="Choice_textboxWidth"  value={inputs.Choice_textboxWidth} onChange={handleChange}>
                             <option value="">--</option>         
                             <option value="25">25 %</option>
                             <option value="50">50 %</option>
@@ -152,14 +172,14 @@ const EditDatePickerModal = (props)=>{
                         </select>
                 </FormField>
                 </div>
-                <p className="error">{inputErrors.dpWidth}</p>
+                <p className="error">{inputErrors.textboxWidth}</p>
             </div>
 
 
             <div className="input-field-container theme-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="Choice_Theme" aria-label="Edit the theme for the date picker Asterik-Required"> 
+                    <label for="Choice_Theme" aria-label="Edit the theme for the text area Asterik-Required"> 
                     <p>Please select the theme colour.<span className="asterik">*</span> </p>
                     </label>
                         <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
@@ -176,7 +196,7 @@ const EditDatePickerModal = (props)=>{
 
             <div className="button-section">
                 <div className="link-button">
-                    <Link state={DatePickerProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                    <Link state={TextAreaProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                         Update
                     </Link>
                 </div>
@@ -189,4 +209,4 @@ const EditDatePickerModal = (props)=>{
         );
 };
 
-export default EditDatePickerModal;
+export default EditTextAreaModal;
