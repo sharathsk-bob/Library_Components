@@ -11,10 +11,10 @@ input:checked + .light{
 input:checked + .dark{
     background-color:black !important;
 }
-input:checked + .cg1{
+input:checked + .cg1-blue{
     background-color: var(--color-capgemini-blue) !important;
 }
-input:checked + .cg2{
+input:checked + .cg2-purple{
     background-color:#2b0a3d !important;
 }
 .small {
