@@ -1,0 +1,103 @@
+.layout-field {
+    width: min-content !important;
+}
+
+.CheckBox-Content {
+    font-size:16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        font-size:12px;
+    }
+}
+
+fieldset {
+    // border: 1px solid #999999 !important;
+    margin-bottom: 1.25em !important;
+    padding: 0.6em !important;
+}
+
+fieldset legend {
+    float: none;
+    margin-bottom: 0px;
+    font-size: 0.9em;
+    width: auto;
+    display: block;
+    max-width: 100%;
+    padding: 0px 8px;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}
+
+.block-element {
+    display: flex;
+    align-items: center;
+}
+
+[type = radio] {
+    appearance: auto !important;
+}
+
+
+.disp-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.disp-row {
+    display: flex;
+    flex-direction: row;
+}
+
+fieldset label {
+    font-size: 0.9em;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.cb-normal {
+    background-color: rgb(241, 244, 248)!important;
+    border-style: solid;
+    border-width: medium; 
+    border-color: none !important;
+}
+
+.cb-dark {
+    background-color: rgb(241, 244, 248)!important;
+    border-style: solid;
+    border-width: medium; 
+    border-color: var(--color-black) !important;
+}
+
+.cb-blue {
+    background-color: rgb(241, 244, 248)!important;
+    border-style: solid;
+    border-width: medium; 
+    border-color: var(--color-capgemini-blue) !important;
+}
+
+.cb-purple {
+    background-color: rgb(241, 244, 248)!important;
+    border-style: solid;
+    border-width: medium; 
+    border-color: var(--color-purple-wbh) !important;
+}
+
+.cb-w25 {
+    width: 25%;
+    // margin: 0 auto;
+}
+.cb-w50 {
+    width: 50%;
+}
+.cb-w75 {
+    width: 75%;
+}
+.cb-w100 {
+    width: 98%;
+}
