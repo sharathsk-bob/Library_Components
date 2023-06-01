@@ -18,7 +18,17 @@ input:checked + .cg2-purple{
     background-color:#2b0a3d !important;
 }
 .small {
-    transform: scale(0.5);
+    transform: scale(0.8);
+  }
+  .small-label{
+    margin-left: 0px;
+  }
+  .medium-label{
+    margin-left: 11px;
+  }
+
+  .large-label{
+    margin-left:22px;
   }
   
   .medium {
@@ -28,13 +38,25 @@ input:checked + .cg2-purple{
   .large {
     transform: scale(1.5);
   }
-.switch-div{
-    text-align: center;
-    margin: 90px;
+// .switch-div{
+//     text-align: center;
+//     margin: 90px;
+// }
+// .switch-label{
+//     margin-left: 22px;
+// }
+.switch-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 90px;
 }
-.switch-label{
-    margin-left: 30px;
+
+.centered-container {
+  display: flex;
+  align-items: center;
 }
+
 .switch {
     position: relative;
     display: inline-block;
