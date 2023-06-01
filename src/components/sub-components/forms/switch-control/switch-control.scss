@@ -11,14 +11,24 @@ input:checked + .light{
 input:checked + .dark{
     background-color:black !important;
 }
-input:checked + .cg1{
+input:checked + .cg1-blue{
     background-color: var(--color-capgemini-blue) !important;
 }
-input:checked + .cg2{
+input:checked + .cg2-purple{
     background-color:#2b0a3d !important;
 }
 .small {
-    transform: scale(0.5);
+    transform: scale(0.8);
+  }
+  .small-label{
+    margin-left: 0px;
+  }
+  .medium-label{
+    margin-left: 11px;
+  }
+
+  .large-label{
+    margin-left:22px;
   }
   
   .medium {
@@ -28,13 +38,42 @@ input:checked + .cg2{
   .large {
     transform: scale(1.5);
   }
-.switch-div{
-    text-align: center;
-    margin: 90px;
+// .switch-div{
+//     text-align: center;
+//     margin: 90px;
+// }
+// .switch-label{
+//     margin-left: 22px;
+// }
+.switch {
+  outline: none;
 }
-.switch-label{
-    margin-left: 30px;
+
+.switch:focus {
+
+  box-shadow: 0 0 4px 2px black;
 }
+
+.switch-label {
+  outline: none;
+}
+
+.switch-label:focus {
+  box-shadow: 0 0 4px 2px black;
+}
+
+.switch-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 90px;
+}
+
+.centered-container {
+  display: flex;
+  align-items: center;
+}
+
 .switch {
     position: relative;
     display: inline-block;

@@ -22,6 +22,7 @@ import CheckBoxComponent from './components/sub-components/forms/checkbox/checkb
 import ProgressBar from './components/sub-components/forms/progress-bar/progress';
 import SwitchControl from './components/sub-components/forms/switch-control/switch-control';
 import Range from './components/sub-components/forms/range/range';
+import RangeComponent from './components/sub-components/forms/range/range';
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
           <Route exact path="/formcomponents/checkbox" element={<CheckBoxComponent/>}></Route>
           <Route exact path="/formcomponents/progress"element ={<ProgressBar/>} ></Route>
           <Route exact path="/formcomponents/switch"element ={<SwitchControl/>} ></Route>
-          <Route exact path="/formcomponents/range"element ={<Range/>} ></Route>
+          <Route exact path="/formcomponents/range"element ={<RangeComponent/>} ></Route>
           
           </Routes>
         </AppProvider> 
