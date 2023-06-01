@@ -45,6 +45,23 @@ input:checked + .cg2-purple{
 // .switch-label{
 //     margin-left: 22px;
 // }
+.switch {
+  outline: none;
+}
+
+.switch:focus {
+
+  box-shadow: 0 0 4px 2px black;
+}
+
+.switch-label {
+  outline: none;
+}
+
+.switch-label:focus {
+  box-shadow: 0 0 4px 2px black;
+}
+
 .switch-div {
   display: flex;
   justify-content: center;
