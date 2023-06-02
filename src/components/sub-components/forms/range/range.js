@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation } from "react-router-dom";
-import InputRange from 'react-input-range';
-import { Range, getTrackBackground } from "react-range";
 import RangeMain from './range-main';
 import { Link } from 'react-router-dom';
 import useModal from '../../use-modal/use-modal';
