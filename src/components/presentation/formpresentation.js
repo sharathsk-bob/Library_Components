@@ -1,6 +1,5 @@
 import React from "react";
 import {  Link } from "react-router-dom";
-import "../presentation/presentation.scss";
 import FormModal from "./modal/formmodal";
 import "../presentation/presentation.scss";
 

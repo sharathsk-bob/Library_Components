@@ -23,6 +23,7 @@ import ProgressBar from './components/sub-components/forms/progress-bar/progress
 import SwitchControl from './components/sub-components/forms/switch-control/switch-control';
 import Range from './components/sub-components/forms/range/range';
 import RangeComponent from './components/sub-components/forms/range/range';
+import FileComponent from "./components/sub-components/forms/file-select/file-select";
 
 function App() {
   return (
@@ -50,8 +51,8 @@ function App() {
           <Route exact path="/formcomponents/checkbox" element={<CheckBoxComponent/>}></Route>
           <Route exact path="/formcomponents/progress"element ={<ProgressBar/>} ></Route>
           <Route exact path="/formcomponents/switch"element ={<SwitchControl/>} ></Route>
-          <Route exact path="/formcomponents/range"element ={<RangeComponent/>} ></Route>
-          
+          <Route exact path="/formcomponents/range"element ={<Range/>} ></Route>
+          <Route exact path="/formcomponents/file"element ={<FileComponent/>} ></Route>
           </Routes>
         </AppProvider> 
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import FormPresentation from "../formpresentation";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,6 @@ import DatePickerDetail from "../../sub-components/forms/datepicker/datepicker-d
 import DatePickerForm from "../../sub-components/forms/datepicker/datepicker-form";
 import TextAreaDetail from "../../sub-components/forms/textarea/textarea-detail";
 import TextAreaForm from "../../sub-components/forms/textarea/textarea-form";
-import RadioButtonDetail from "../../sub-components/forms/radiobutton/radiobutton-detail";
 
 import CheckBoxDetail from "../../sub-components/forms/checkbox/checkbox-detail";
 import CheckBoxForm from "../../sub-components/forms/checkbox/checkbox-form";
@@ -18,7 +16,8 @@ import ProgressDetail from "../../sub-components/forms/progress-bar/progress-det
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
-
+import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
+import "./modal.scss";
 
 const FormModal =()=>{
     const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
@@ -27,8 +26,6 @@ const FormModal =()=>{
     const { open: openTextAreaForm, close: closeTextAreaForm, ModalWrapper: ModalWrapperTextArea } = useModal();
     const { open: openCheckBoxDetail, close: closeCheckBoxDetail, ModalWrapper: ModalWrapperCheckBoxDetail } = useModal();
     const { open: openCheckBoxForm, close: closeCheckBoxForm, ModalWrapper: ModalWrapperCheckBox } = useModal();
-    const { open: openRadioButtonDetail, close: closeRadioButtonDetail, ModalWrapper: ModalWrapperRadioButtonDetail } = useModal();
-    const { open: openRadioButtonForm, close: closeRadioButtonForm, ModalWrapper: ModalWrapperRadioButton } = useModal();
 
     const { open: openInputTextDetail, close: closeInputTextDetail, ModalWrapper: ModalWrapperInputTextDetail } = useModal();
     const { open: openInputText, close: closeInputText, ModalWrapper: ModalWrapperInputText } = useModal();
@@ -38,14 +35,13 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
-
+    const { open: openSelect, close: closeSlect, ModalWrapper: ModalWrapperSelect } = useModal();
     
     
     const componentList =[
         "Input Text",
         "Text Area",
         "Check Box",
-        "Radio Button",
         "Select",
         "Date Picker",
         "File Upload",
@@ -78,12 +74,6 @@ return(
       <TextAreaForm close={closeTextAreaForm} />
     </ModalWrapperTextArea>
 
-    <ModalWrapperRadioButtonDetail>
-      <RadioButtonDetail close={closeRadioButtonDetail} />
-    </ModalWrapperRadioButtonDetail>
-    <ModalWrapperRadioButton>
-      {/* <RadioButtonForm close={closeRadioButtonForm} /> */}
-    </ModalWrapperRadioButton>
 
     <ModalWrapperDatePickerDetail>
       <DatePickerDetail close={closeDatePickerDetail} />
@@ -106,7 +96,9 @@ return(
       <SwitchDetail close={closeSwitchControlDetail}/>
     </ModalWrapperSwitchControlDetail>
 
-
+    <ModalWrapperSelect>
+      <SelectModal close={closeSlect}/>
+    </ModalWrapperSelect>
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
@@ -156,15 +148,6 @@ return(
                   Create
                 </button>
               </div>
-            ) : data === "Radio Button" ? (
-              <div className="modal-button_section">
-                <button title="Details button for radio button" type="button" class="buttons" onClick={openRadioButtonDetail}>
-                  Details
-                </button>
-                <button title="Create button for radio button" type="button" class="buttons" onClick={openRadioButtonForm}>
-                  Create
-                </button>
-              </div>
             ) : data === "Progress Bar" ? (
               <div className="modal-button_section">
                 <button title="Details button for progress bar" type="button" class="buttons" onClick={openProgressBarDetail}>
@@ -192,6 +175,16 @@ return(
                   Create
                 </button>
               </div>
+              ): data === "File Upload" ? (
+                <div className="modal-button_section">
+                  <button title="Details button for range" type="button" class="buttons" onClick={openSelect}>
+                    Details
+                  </button>
+                  <button title="Create button for range" type="button" class="buttons" onClick={openSelect}>
+                    Create
+                  </button>
+                </div>
+              
             ) : (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openInputTextDetail}>
