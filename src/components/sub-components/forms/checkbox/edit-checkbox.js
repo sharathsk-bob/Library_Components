@@ -203,7 +203,7 @@ const EditCheckBoxModal = (props)=>{
                             checked={inputs.Choice_SelectionType === "Radio-Button"}
                             onChange={handleChange}
                         />
-                        <div className="tag">
+                        <div className="tag selecttype">
                         <span className="tag__cat">Radio Button </span>
                         </div>         
                     </label>
@@ -218,7 +218,7 @@ const EditCheckBoxModal = (props)=>{
                             checked={inputs.Choice_SelectionType === "Check-Box"}
                             onChange={handleChange}
                         />
-                        <div className="tag">
+                        <div className="tag selecttype">
                         <span className="tag__cat">Check Box</span>
                         </div>
                     </label>

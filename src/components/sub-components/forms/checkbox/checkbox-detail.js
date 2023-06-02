@@ -15,7 +15,7 @@ const CheckBoxDetail = (props)=>{
       <div className="modal_wapper">
         <div className="modal-content detail-container">
             <div className="detail-header">
-            <p>Check Box</p>
+            <p>Check Box/Radio Button</p>
                 <button className="close-button" aria-label="close check box details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
@@ -23,16 +23,16 @@ const CheckBoxDetail = (props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Check Box Section are Below:
+            Details for the Check Box/Radio Button Section are Below:
             </h1>
-            <p>Please do follow the given instruction while creating the Check Box component.</p>
+            <p>Please do follow the given instruction while creating the Check Box/Radio Button component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for label for fieldset of check box should not be more than 15 characters</li>
-                    <li>User can the number of check boxes they want, maximum upto 4</li>
-                    <li>User can select display layout as horizontal or vertical for check box</li>
-                    <li>User can select width of the fieldset for check box</li>
-                    <li>User can select the theme of the check box from the dropdown</li>
+                    <li>Text for label for fieldset of Check Box/Radio Button should not be more than 15 characters</li>
+                    <li>User can the number of Check Boxes/Radio Buttons they want, maximum upto 4</li>
+                    <li>User can select display layout as horizontal or vertical for Check Box/Radio Button</li>
+                    <li>User can select width of the fieldset for Check Box/Radio Button</li>
+                    <li>User can select the theme of the Check Box/Radio Button from the dropdown</li>
                 </ul>
             </div>
         </div>

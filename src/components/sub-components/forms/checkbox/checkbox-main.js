@@ -23,20 +23,20 @@ function CheckBox(props) {
                         <span class={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkmark":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radiomark":"" }`}></span>
                         </label> 
                     </div>
-                ) : CheckBoxProps.numMenus == 2 ? ( 
+                ) : CheckBoxProps.numSelects == 2 ? ( 
                     <>
                     <div class={`block-element ${CheckBoxProps?.Choice_Theme == "Dark"?"s-dark":CheckBoxProps?.Choice_Theme == "cg1"?"s-blue":CheckBoxProps?.Choice_Theme == "cg2"?"s-purple":CheckBoxProps?.Choice_Theme == "Normal"?"s-normal":"" }`}>
-                        <label className="label-container" for="Developer">{`${CheckBoxProps.selectorLabel1}`}
+                        <label className="label-container" for={`${CheckBoxProps.selectorLabel1}`}>{`${CheckBoxProps.selectorLabel1}`}
                         <input type={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkbox":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radio":"" }`}
-                        name="common" id="Developer" value={`${CheckBoxProps.selectorLabel1}`} aria-describedby="skills-err-text"/>
-                        <span class={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkmark":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radiomark":"" }`}></span>
+                        aria-label="Text1" name="common" id={`${CheckBoxProps.selectorLabel1}`} value={`${CheckBoxProps.selectorLabel1}`} />
+                        <span tabIndex="1" class={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkmark":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radiomark":"" }`}></span>
                         </label> 
                     </div>
                     <div class={`block-element ${CheckBoxProps?.Choice_Theme == "Dark"?"s-dark":CheckBoxProps?.Choice_Theme == "cg1"?"s-blue":CheckBoxProps?.Choice_Theme == "cg2"?"s-purple":CheckBoxProps?.Choice_Theme == "Normal"?"s-normal":"" }`}>
-                        <label className="label-container" for="Tester">{`${CheckBoxProps.selectorLabel2}`}
+                        <label className="label-container" for={`${CheckBoxProps.selectorLabel2}`}>{`${CheckBoxProps.selectorLabel2}`}
                         <input type={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkbox":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radio":"" }`} 
-                        name="common" id="Tester" value={`${CheckBoxProps.selectorLabel2}`} aria-describedby="skills-err-text"/>
-                        <span class={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkmark":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radiomark":"" }`}></span>
+                        aria-label="Text2" name="common" id={`${CheckBoxProps.selectorLabel2}`} value={`${CheckBoxProps.selectorLabel2}`} />
+                        <span tabIndex="1" class={`${CheckBoxProps?.Choice_SelectionType == "Check-Box"?"checkmark":CheckBoxProps?.Choice_SelectionType == "Radio-Button"?"radiomark":"" }`}></span>
                         </label>
                     </div>
                     </>

@@ -2,6 +2,10 @@
     width: min-content !important;
 }
 
+.form-modalcontainer .modal-container .selecttype {
+    width: max-content;
+}
+
 .CheckBox-Content {
     font-size:16px;
     margin-bottom: 32px;
@@ -15,20 +19,21 @@
     }
 }
 
-fieldset {
+.CheckBox-Content fieldset {
     // border: 1px solid #999999 !important;
     margin-bottom: 1.25em !important;
     padding: 0.6em !important;
 }
 
-fieldset legend {
+.CheckBox-Content fieldset legend {
     float: none;
     margin-bottom: 0px;
-    font-size: 0.9em;
+    font-size: 1.1em;
+    background-color: rgb(241, 244, 248)!important;
     width: auto;
     display: block;
     max-width: 100%;
-    padding: 0px 8px;
+    padding: 0px 6px;
     line-height: inherit;
     color: inherit;
     white-space: normal;
@@ -38,12 +43,12 @@ fieldset legend {
     display: flex;
     align-items: center;
     margin-right: 16px;
+
 }
 
-[type = radio] {
+.block-element input [type = radio] {
     appearance: auto !important;
 }
-
 
 .disp-col {
     display: flex;
@@ -55,7 +60,7 @@ fieldset legend {
     flex-direction: row;
 }
 
-fieldset label {
+.CheckBox-Content fieldset label {
     display: flex;
 }
 
@@ -68,12 +73,16 @@ fieldset label {
     user-select: none;
 }
 
-label input {
+.block-element label input {
     margin-right: 4px;
     position: absolute;
-    opacity: 0;
-    height: 0;
-    width: 0;
+    top: 0;
+    left: 0;
+    height: 1.5em;
+    width: 1.5em;
+    // opacity: 0;
+    // height: 0;
+    // width: 0;
     cursor: pointer;
 }
 
@@ -239,4 +248,8 @@ label input {
 .cb-w100 {
     width: 98%;
     flex-wrap: wrap;
+}
+
+.block-element input:focus-visible {
+    border: 5px black solid !important;
 }
