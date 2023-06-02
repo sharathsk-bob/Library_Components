@@ -226,7 +226,7 @@ return (
                         setSelectionType("Radio-Button");
                     }}
                 />
-                <div className="tag">
+                <div className="tag selecttype">
                   <span className="tag__cat">Radio Button </span>
                 </div>         
               </label>
@@ -243,7 +243,7 @@ return (
                         setSelectionType("Check-Box");
                     }}
                 />
-                <div className="tag">
+                <div className="tag selecttype">
                   <span className="tag__cat">Check Box</span>
                 </div>
               </label>

@@ -15,7 +15,9 @@ import ProgressForm from "../../sub-components/forms/progress-bar/progress-form"
 import ProgressDetail from "../../sub-components/forms/progress-bar/progress-detail";
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
+import RangeDetail from "../../sub-components/forms/range/range-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
+import FileSelectDetail from "../../sub-components/forms/file-select/fileselect-detail";
 import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
 import "./modal.scss";
 
@@ -35,13 +37,14 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
+    const { open: openFileUploadDetail, close: closeFileUploadDetail, ModalWrapper: ModalWrapperFileUploadDetail } = useModal();
     const { open: openSelect, close: closeSlect, ModalWrapper: ModalWrapperSelect } = useModal();
     
     
     const componentList =[
         "Input Text",
         "Text Area",
-        "Check Box",
+        "Check Box / Radio Button",
         "Select",
         "Date Picker",
         "File Upload",
@@ -96,9 +99,15 @@ return(
       <SwitchDetail close={closeSwitchControlDetail}/>
     </ModalWrapperSwitchControlDetail>
 
+    <ModalWrapperFileUploadDetail>
+      <FileSelectDetail close={closeFileUploadDetail} />
+    </ModalWrapperFileUploadDetail>
     <ModalWrapperSelect>
       <SelectModal close={closeSlect}/>
     </ModalWrapperSelect>
+    <ModalWrapperRangeDetail>
+      <RangeDetail close={closeRangeDetail} />
+    </ModalWrapperRangeDetail>
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
@@ -139,7 +148,7 @@ return(
                   Create
                 </button>
               </div>
-            ) : data === "Check Box" ? (
+            ) : data === "Check Box / Radio Button" ? (
               <div className="modal-button_section">
                 <button title="Details button for check box" type="button" class="buttons" onClick={openCheckBoxDetail}>
                   Details
@@ -177,10 +186,10 @@ return(
               </div>
               ): data === "File Upload" ? (
                 <div className="modal-button_section">
-                  <button title="Details button for range" type="button" class="buttons" onClick={openSelect}>
+                  <button title="Details button for file upload" type="button" class="buttons" onClick={openFileUploadDetail}>
                     Details
                   </button>
-                  <button title="Create button for range" type="button" class="buttons" onClick={openSelect}>
+                  <button title="Create button for file upload" type="button" class="buttons" onClick={openSelect}>
                     Create
                   </button>
                 </div>
