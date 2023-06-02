@@ -1,0 +1,40 @@
+.select-modal{
+    .type-field{
+        margin-top: 18px;
+        p{
+            margin-bottom: 4px;
+
+        }
+        .modal-content-checkbox{
+            width: auto!important;
+            .tag{
+                line-height: 30px;
+            }
+        }
+    }
+    .size-field{
+        margin-top: 4px!important;
+    }
+}
+
+
+.file-output{
+    .file-upload{
+        padding: 18px;
+    }
+    .file-Dark{
+        border: 2px solid black;
+        color: black;
+    }
+    .file-Cg1{
+        border:2px solid #0070AD; ;
+        color: var(--color-capgemini-blue);
+    }
+    .file-Cg2{
+        border: 2px solid #2b0a3d;
+        color: var(--color-purple-wbh);
+    }
+    .file-Normal{
+        background-color: rgb(241, 244, 248);
+    }
+}

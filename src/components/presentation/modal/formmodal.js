@@ -18,6 +18,7 @@ import ProgressDetail from "../../sub-components/forms/progress-bar/progress-det
 import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
+import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
 
 
 const FormModal =()=>{
@@ -38,7 +39,7 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
-
+    const { open: openSelect, close: closeSlect, ModalWrapper: ModalWrapperSelect } = useModal();
     
     
     const componentList =[
@@ -106,7 +107,9 @@ return(
       <SwitchDetail close={closeSwitchControlDetail}/>
     </ModalWrapperSwitchControlDetail>
 
-
+    <ModalWrapperSelect>
+      <SelectModal close={closeSlect}/>
+    </ModalWrapperSelect>
     <ModalWrapperRange>
       <RangeForm close={closeRange}/>
     </ModalWrapperRange>
@@ -192,6 +195,16 @@ return(
                   Create
                 </button>
               </div>
+              ): data === "File Upload" ? (
+                <div className="modal-button_section">
+                  <button title="Details button for range" type="button" class="buttons" onClick={openSelect}>
+                    Details
+                  </button>
+                  <button title="Create button for range" type="button" class="buttons" onClick={openSelect}>
+                    Create
+                  </button>
+                </div>
+              
             ) : (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openInputTextDetail}>
