@@ -9,7 +9,10 @@ function FileMains(props) {
       const array = new Uint32Array(10);
       let randomString = window.crypto.getRandomValues(array);
         SetInputKey(randomString);
-        
+        var output = document.getElementById('fileList');
+        if(output){
+          output.innerHTML='';
+        }
     };
     let fileNames=[];
     let filename =[];
@@ -56,6 +59,15 @@ function FileMains(props) {
   //   })
     
   //  };
+  const updateList = ()=> {
+    var input = document.getElementById('fileupload');
+    var output = document.getElementById('fileList');
+    var children = "";
+    for (var i = 0; i < input.files.length; ++i) {
+        children += '<li>' + input.files.item(i).name + '</li>';
+    }
+    output.innerHTML = '<ul>'+children+'</ul>';
+}
   return (
    <div className= "input-output file-output ">
     <div className= "file-conatiner ">
@@ -66,7 +78,9 @@ function FileMains(props) {
                                
                             
                              
-                       {fileVals.typeValue ==="Single"?<input type="file" id="fileupload" key = {theInputKey || ""}/>:<input type="file" id="fileupload" multiple="multiple" onChange={handleChange}/>
+                       {fileVals.typeValue ==="Single"?<input type="file" id="fileupload" key = {theInputKey || ""}/>:<><input type="file" id="fileupload" key = {theInputKey || ""} multiple="multiple" onChange={updateList}/><p>Selected files:</p>
+
+<div id="fileList"></div></>
 }       
                               </label>
                               <button
