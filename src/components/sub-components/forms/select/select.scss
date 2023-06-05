@@ -1,3 +1,5 @@
+@import "../../../theme/breakpoints.scss";
+
 .select-fullwidth{
     width:100%;
 }
@@ -10,3 +12,51 @@
 .select-quaterwidth{
     width: 25% !important;
 }
+.slect-output{
+    margin: 20px;
+
+#multiselectContainerReact{
+    .searchWrapper{
+        border: none !important; 
+    width: 100% !important;
+    }
+}
+}
+
+@media screen and (max-width: 300px){
+   .slect-output{
+      label{
+        font-size: 0.6rem;
+      }
+    }
+    }
+
+
+    @media screen and (max-width: $bp-sm-mobile){
+        .component-toaster{
+            display: block!important;
+            .toaster-left{
+                h1{
+                    font-size: 0.9rem!important;
+                }
+                span{
+                    font-size: 0.9rem!important;
+                }
+            }
+          
+            .toaster-right{
+                margin-left: 10px;
+                margin-top: 10px;
+                .buttons{
+                    // width: 12%;
+                    padding: 0.4rem!important;
+                    font-size: 12px;
+                }
+                .link-button{
+                    padding: 0.4rem!important;
+                    font-size: 12px;  
+                }
+            }
+        }
+    
+    }
