@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import closeIcon from "../../../asset/images/cross-icon.png";
 function FileMains(props) {
   const [ theInputKey, SetInputKey ] = useState("1");
-  const [listName, setListName] = useState({});
+  const [listName, setListName] = useState();
     const { fileVals }=props;
     const closefile = ()=> {
       const array = new Uint32Array(10);
@@ -12,40 +12,42 @@ function FileMains(props) {
         var output = document.getElementById('fileList');
         if(output){
           output.innerHTML='';
+          setListName();
         }
     };
     let fileNames=[];
     let filename =[];
   const handleChange=(event)=>{
   // console.log(event.target.files, "eventtt");
-  let filehold = [];
+  // let filehold = [];
  
   
    fileNames.push(event.target.files);
+   setListName(event.target.files);
   // console.log(fileNames, "namesss");
   // fileNames.forEach(element => {
-  //   console.log(element, "element");
+    console.log(listName, "element");
  
     
   // });
-  fileNames.forEach(function(item) {
-    Object.keys(item).forEach(function(key) {
-      // console.log("key:" + key + "value:" + item[key]); 
-      filehold.push(item[key])  ;
-      // setListName(item);
-      // console.log(listName, "holdsss");
-      // console.log(filehold, "holdsss");
+//   fileNames.forEach(function(item) {
+//     Object.keys(item).forEach(function(key) {
+//       // console.log("key:" + key + "value:" + item[key]); 
+//       filehold.push(item[key])  ;
+//       // setListName(item);
+//       // console.log(listName, "holdsss");
+//       // console.log(filehold, "holdsss");
    
 
-    });
-  });
-  filehold.forEach(function(items) {
-    // console.log(items.name, "valuesss")
-   filename.push(items.name);
-// setListName(filename);
+//     });
+//   });
+//   filehold.forEach(function(items) {
+//     // console.log(items.name, "valuesss")
+//    filename.push(items.name);
+// // setListName(filename);
 
-   console.log(filename, "nameee");
-  });
+//    console.log(filename, "nameee");
+//   });
 
   };
     // console.log(fileVals, "valuesssssssvvs");
@@ -67,6 +69,7 @@ function FileMains(props) {
         children += '<li>' + input.files.item(i).name + '</li>';
     }
     output.innerHTML = '<ul>'+children+'</ul>';
+    setListName(output);
 }
   return (
    <div className= "input-output file-output ">
@@ -78,18 +81,18 @@ function FileMains(props) {
                                
                             
                              
-                       {fileVals.typeValue ==="Single"?<input type="file" id="fileupload" key = {theInputKey || ""}/>:<><input type="file" id="fileupload" key = {theInputKey || ""} multiple="multiple" onChange={updateList}/><p>Selected files:</p>
+                       {fileVals.typeValue ==="Single"?<input type="file" id="fileupload" key = {theInputKey || ""} onChange={handleChange}/>:<><input type="file" id="fileupload" key = {theInputKey || ""} multiple="multiple" onChange={updateList}/><p>Selected files:</p>
 
 <div id="fileList"></div></>
 }       
                               </label>
-                              <button
+                           { listName?  <button
                 className="close-button"
                 aria-label="Close"
                 onClick={closefile}
               >
                 <img src={closeIcon}></img>
-              </button>
+              </button>: ""} 
                             </div>
                            
                            <div className="list-box">
