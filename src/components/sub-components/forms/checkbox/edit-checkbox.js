@@ -52,45 +52,97 @@ const EditCheckBoxModal = (props)=>{
 
         let errors = {};
         
-        if (values.btntext == undefined || values.btntext == "") {
-        errors.btntext = "Text is required!"; 
-        } else if (values.btntext !== undefined) {
-            if(values.btntext.length > 15){
-                errors.btntext = "Text should be shorter!"; 
+        if (values.boxLabel == undefined || values.boxLabel == "") {
+        errors.boxLabel = "Label for Field set is required"; 
+        } else if (values.boxLabel !== undefined) {
+            if(values.boxLabel.length > 15){
+                errors.boxLabel = "Label for Field set should be shorter"; 
             } 
-        }   
-
-        if (values.Choice_BorderRadius === "") {
-            errors.BorderRadius = "Please make decision for Border Radius field";
+        }  
+        
+        if (values.numSelects === undefined || values.numSelects === "") { 
+            errors.numSelects = "Please make decision for Number of Selectors";
         }
 
-        if (values.Choice_BorderRadius === "Yes") {     
-            if (values.border_radius == undefined) {
-                errors.border_radius = "Please enter a Border Radius value";
-            } else if (values.border_radius != undefined) {
-                if (values.border_radius < 0) {
-                    errors.border_radius = "Please enter a positive Border Radius value";
-                } else if (values.border_radius > 50) {
-                    errors.border_radius = "Border Radius shouldn't exceed 50px";
+        if(values.numSelects == 1) {
+            if (values.selectorLabel1 == undefined || values.selectorLabel1 === '') {
+                errors.selectorLabel1 = "Name is required"; 
+            } else if (values.selectorLabel1 !== undefined) {
+                if(values.selectorLabel1.length > 15){
+                    errors.selectorLabel1 = "Name should be shorter"; 
                 }
             }
-        } else if (values.Choice_BorderRadius === "No") {
-            values.border_radius = "0";
-        }
-        
-        if (!values.border_width) { 
-        errors.border_width = "Please enter a Border width value";
-        } else if (values.border_width != undefined) {
-            if (values.border_width < 0) {
-                errors.border_width = "Please enter a positive Border Width value";
-            } else if (values.border_width > 15) {
-                errors.border_width = "Border Width shouldn't exceed 15px";
+        } if(values.numSelects == 2) {
+            if (values.selectorLabel1 == undefined || values.selectorLabel1 === '') {
+                errors.selectorLabel1 = "Name is required"; 
+            } else if (values.selectorLabel1 !== undefined) {
+                if(values.selectorLabel1.length > 15){
+                    errors.selectorLabel1 = "Name should be shorter"; 
+                }
             }
-        }
-       
-        if(values.Choice_BoxShadow === ""){
-            errors.BoxShadow = "Please make decision for Box Shadow field";
+            if (values.selectorLabel2 == undefined || values.selectorLabel2 === '') {
+                errors.selectorLabel2 = "Name is required"; 
+            } else if (values.selectorLabel2 !== undefined) {
+                if(values.selectorLabel2.length > 15){
+                    errors.selectorLabel2 = "Name should be shorter"; 
+                }
+            }
+        } else if (values.numSelects == 3) {
+            if (values.selectorLabel1 == undefined || values.selectorLabel1 === '') {
+                errors.selectorLabel1 = "Name is required"; 
+            } else if (values.selectorLabel1 !== undefined) {
+                if(values.selectorLabel1.length > 15){
+                    errors.selectorLabel1 = "Name should be shorter"; 
+                }
+            }
+            if (values.selectorLabel2 == undefined || values.selectorLabel2 === '') {
+                errors.selectorLabel2 = "Name is required"; 
+            } else if (values.selectorLabel2 !== undefined) {
+                if(values.selectorLabel2.length > 15){
+                    errors.selectorLabel2 = "Name should be shorter"; 
+                }
+            }
+            if (values.selectorLabel3 == undefined || values.selectorLabel3 === '') {
+                errors.selectorLabel3 = "Name is required"; 
+            } else if (values.selectorLabel3 !== undefined) {
+                if(values.selectorLabel3.length > 15){
+                    errors.selectorLabel3 = "Name should be shorter"; 
+                }
+            }
+        } else if (values.numSelects == 4) {
+            if (values.selectorLabel1 == undefined || values.selectorLabel1 === '') {
+                errors.selectorLabel1 = "Name is required"; 
+            } else if (values.selectorLabel1 !== undefined) {
+                if(values.selectorLabel1.length > 15){
+                    errors.selectorLabel1 = "Name should be shorter"; 
+                }
+            }
+            if (values.selectorLabel2 == undefined || values.selectorLabel2 === '') {
+                errors.selectorLabel2 = "Name is required"; 
+            } else if (values.selectorLabel2 !== undefined) {
+                if(values.selectorLabel2.length > 15){
+                    errors.selectorLabel2 = "Name should be shorter"; 
+                }
+            }
+            if (values.selectorLabel3 == undefined || values.selectorLabel3 === '') {
+                errors.selectorLabel3 = "Name is required"; 
+            } else if (values.selectorLabel3 !== undefined) {
+                if(values.selectorLabel3.length > 15){
+                    errors.selectorLabel3 = "Name should be shorter"; 
+                }
+            }
+            if (values.selectorLabel4 == undefined || values.selectorLabel4 === '') {
+                errors.selectorLabel4 = "Name is required"; 
+            } else if (values.selectorLabel4 !== undefined) {
+                if(values.selectorLabel4.length > 15){
+                    errors.selectorLabel4 = "Name should be shorter"; 
+                }
+            }
         } 
+
+        if (values.Choice_SelectionType === undefined || values.Choice_SelectionType === "") { 
+            errors.selectionType = "Please make decision for Selection Type";
+        }
     
         if (values.Choice_Layout === undefined || values.Choice_Layout === "") { 
             errors.layout = "Please make decision for Layout display of Check Box field";
@@ -151,7 +203,7 @@ const EditCheckBoxModal = (props)=>{
                             checked={inputs.Choice_SelectionType === "Radio-Button"}
                             onChange={handleChange}
                         />
-                        <div className="tag">
+                        <div className="tag selecttype">
                         <span className="tag__cat">Radio Button </span>
                         </div>         
                     </label>
@@ -166,7 +218,7 @@ const EditCheckBoxModal = (props)=>{
                             checked={inputs.Choice_SelectionType === "Check-Box"}
                             onChange={handleChange}
                         />
-                        <div className="tag">
+                        <div className="tag selecttype">
                         <span className="tag__cat">Check Box</span>
                         </div>
                     </label>
@@ -222,6 +274,223 @@ const EditCheckBoxModal = (props)=>{
             </div>
 
 {/* Enter that 4 divs */}
+            { inputs.numSelects == "1" ? (
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 1: Asterik-Required`} for="selectorLabel1">
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 1: `}<span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="selectorLabel1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel1"
+                            maxLength="15"
+                            value={inputs.selectorLabel1} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel1}</p>
+                    </FormField>
+                    </div>
+                    )
+                : inputs.numSelects == "2" ? (
+                    <>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 1: Asterik-Required`} for="selectorLabel1">
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 1: `}<span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="selectorLabel1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel1"
+                            maxLength="15"
+                            value={inputs.selectorLabel1} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />  
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel1}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 2: Asterik-Required`}
+                        for="selectorLabel2"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 2: `}<span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="selectorLabel2"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel2"
+                            maxLength="15"
+                            value={inputs.selectorLabel2} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel2}</p>
+                    </FormField>
+                    </div>
+                    </>
+                ) : inputs.numSelects == "3" ? (
+                    <>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 1: Asterik-Required`} for="selectorLabel1">
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 1: `}<span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="selectorLabel1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel1"
+                            maxLength="15"
+                            value={inputs.selectorLabel1} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel1}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 2: Asterik-Required`}
+                        for="selectorLabel2"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 2: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel2"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel2"
+                            maxLength="15"
+                            value={inputs.selectorLabel2} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel2}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 3: Asterik-Required`}
+                        for="selectorLabel3"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 3: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel3"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel3"
+                            maxLength="15"
+                            value={inputs.selectorLabel3} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel3}</p>
+                    </FormField>
+                    </div>
+                    </>
+                ) : inputs.numSelects == "4" ? (
+                    <>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 1: Asterik-Required`} for="selectorLabel1">
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 1: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel1"
+                            maxLength="15"
+                            value={inputs.selectorLabel1} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel1}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 2: Asterik-Required`}
+                        for="selectorLabel2"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 2: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel2"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel2"
+                            maxLength="15"
+                            value={inputs.selectorLabel2} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel2}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 3: Asterik-Required`}
+                        for="selectorLabel3"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 3: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel3"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel3"
+                            maxLength="15"
+                            value={inputs.selectorLabel3} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel3}</p>
+                    </FormField>
+                    </div>
+                    <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Label of ${inputs.Choice_SelectionType} 4: Asterik-Required`}
+                        for="selectorLabel4"
+                        >
+                        {`Text for the Label of ${inputs.Choice_SelectionType} 4: `}<span className="asterik">*</span>
+                        </label>
+                        <Input
+                            id="selectorLabel4"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="selectorLabel4"
+                            maxLength="15"
+                            value={inputs.selectorLabel4} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        <p className='error' aria-atomic="true">{inputErrors.selectorLabel4}</p>
+                    </FormField>
+                    </div>
+                    </>
+                ) : ( " " )
+            }
 
 
             <div className="input-field-container logo-field">
@@ -276,7 +545,7 @@ const EditCheckBoxModal = (props)=>{
                         </select>
                 </FormField>
                 </div>
-                <p className='error'>{inputErrors.btnWidth}</p>
+                <p className='error'>{inputErrors.fieldsetWidth}</p>
             </div>
 
             <div className="input-field-container theme-field">

@@ -24,20 +24,6 @@ const CheckBoxForm =(props)=>{
         setInputs({ ...inputs, [name]: value });
     };
 
-    const handleNumSelectsChange = (event) => {
-        const value = parseInt(event.target.value);
-        console.log(value);
-        if (value >= 1 && value <= 4) {
-            //console.log("Number of checkboxes>>>>>>", value);
-            setNumSelects(value);
-            inputs.numSelects = value;
-            //setMenus(newMenus);
-            setInputErrors({});
-        } else {
-            setInputErrors({ numSelects: "Number of menus must be greater than 0" });
-        }
-    };
-
     // const handleMenuTextChange = (index, value) => {
     //     setMenus((prevMenus) => {
     //       const updatedMenus = [...prevMenus];
@@ -62,6 +48,12 @@ const CheckBoxForm =(props)=>{
             if(values.boxLabel.length > 15){
                 errors.boxLabel = "Label for Field set should be shorter"; 
             }
+        }
+
+        if (numSelects  === undefined || numSelects === 0 || numSelects === '') {
+            errors.numSelects = "Please make decision for Number of Selectors";
+        } else {
+            inputs.numSelects = numSelects;
         }
 
         if(numSelects == 1) {
@@ -138,7 +130,7 @@ const CheckBoxForm =(props)=>{
                     errors.selectorLabel4 = "Name should be shorter"; 
                 }
             }
-        }
+        } 
 
         // menus.forEach((menu, i) => {
         //     if (!menu.text) {
@@ -190,7 +182,7 @@ const CheckBoxForm =(props)=>{
     const CheckBoxProps = {
         Choice_SelectionType: inputs.Choice_SelectionType,
         checkboxLabel: inputs.checkboxLabel,
-        Checkbox_No: inputs.numSelects,
+        numSelects: inputs.numSelects,
         Selector_Name1: inputs.selectorLabel1,
         Selector_Name2: inputs.selectorLabel2,
         Selector_Name3: inputs.selectorLabel3,
@@ -234,7 +226,7 @@ return (
                         setSelectionType("Radio-Button");
                     }}
                 />
-                <div className="tag">
+                <div className="tag selecttype">
                   <span className="tag__cat">Radio Button </span>
                 </div>         
               </label>
@@ -251,7 +243,7 @@ return (
                         setSelectionType("Check-Box");
                     }}
                 />
-                <div className="tag">
+                <div className="tag selecttype">
                   <span className="tag__cat">Check Box</span>
                 </div>
               </label>
@@ -293,7 +285,7 @@ return (
                     id="num-selects"
                     name="num-selects"
                     value={numSelects}
-                    onChange={handleNumSelectsChange}
+                    onChange={(event) => setNumSelects(event.target.value)}
                 >
                     <option value="">Select</option>
                     <option value="1">1</option>
