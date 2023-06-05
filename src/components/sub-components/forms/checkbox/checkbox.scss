@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(241, 244, 248)!important;
 
     @media (max-width: 768px) {
         font-size:12px;
@@ -29,7 +30,6 @@
     float: none;
     margin-bottom: 0px;
     font-size: 1.1em;
-    background-color: rgb(241, 244, 248)!important;
     width: auto;
     display: block;
     max-width: 100%;
@@ -37,6 +37,9 @@
     line-height: inherit;
     color: inherit;
     white-space: normal;
+    .asterik{
+        color: red;
+    }
 }
 
 .block-element {
@@ -86,6 +89,10 @@
     cursor: pointer;
 }
 
+.block-element label input[type=radio] {
+    border-radius: 50%;
+}
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -102,19 +109,19 @@
 
 /* When the checkbox is checked, add a blue background */
 
-.s-dark .label-container input:checked ~ .checkmark {
+.cb-dark .label-container input:checked ~ .checkmark {
     background-color: var(--color-black);
 }
 
-.s-blue .label-container input:checked ~ .checkmark {
+.cb-blue .label-container input:checked ~ .checkmark {
     background-color: var(--color-capgemini-blue);
 }
 
-.s-purple .label-container input:checked ~ .checkmark {
+.cb-purple .label-container input:checked ~ .checkmark {
     background-color: var(--color-purple-wbh);
 }
 
-.s-normal .label-container input:checked ~ .checkmark {
+.cb-normal .label-container input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -162,19 +169,19 @@
 }
 
 /* When the radio button is checked, add a blue background */
-.s-dark .label-container input:checked ~ .radiomark {
+.cb-dark .label-container input:checked ~ .radiomark {
     background-color: var(--color-black);
 }
 
-.s-blue .label-container input:checked ~ .radiomark {
+.cb-blue .label-container input:checked ~ .radiomark {
     background-color: var(--color-capgemini-blue);
 }
 
-.s-purple .label-container input:checked ~ .radiomark {
+.cb-purple .label-container input:checked ~ .radiomark {
     background-color: var(--color-purple-wbh);
 }
 
-.s-normal .label-container input:checked ~ .radiomark {
+.cb-normal .label-container input:checked ~ .radiomark {
     background-color: #2196F3;
 }
 
@@ -205,7 +212,7 @@
     background-color: rgb(241, 244, 248)!important;
     border-style: solid;
     border-width: medium; 
-    border-color: none !important;
+    border-color: var(--color-white) !important;
 }
 
 .cb-dark {
@@ -250,6 +257,14 @@
     flex-wrap: wrap;
 }
 
-.block-element input:focus-visible {
-    border: 5px black solid !important;
+.block-element input[type =checkbox]:focus-visible {
+    border: 1.5px black solid !important;
+}
+
+.block-element input[type = radio]:focus-visible {
+    border: 1.5px black solid !important;
+    // border-color: red;
+    // border-style: solid;
+    // border-width: medium;
+    // border-radius: 50%;
 }
