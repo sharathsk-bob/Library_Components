@@ -48,12 +48,14 @@ function SwitchControl() {
       <div className="card-tabs">
   <button
     className={activeTab === 1 ? "active" : ""}
+    aria-label="HTML Page of Switch Control Component"
     onClick={() => setActiveTab(1)}
   >
     HTML
   </button>
   <button
     className={activeTab === 0 ? "active" : ""}
+    aria-label="CSS Page of Switch Control Component"
     onClick={() => setActiveTab(0)}
   >
     CSS

@@ -295,10 +295,10 @@ const CheckBoxComponent = ( ) => {
             </div>
             <div className="header-right"> 
                 <div className="button-section">
-                <Link to="/formcomponents" className="link-button">
+                <Link to="/formcomponents" className="link-button" aria-label="back to form component homepage">
                     Back
                 </Link>
-                <button class="buttons" onClick={openEditCheckBox}  >
+                <button class="buttons" aria-label="Edit values for Check Box or Radio Button Component" onClick={openEditCheckBox}  >
                     Edit
                 </button>
                 </div>
@@ -307,10 +307,10 @@ const CheckBoxComponent = ( ) => {
             <CheckBox CheckBoxProps={props}/>
         </div>
         <div className="card-tabs">
-            <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+            <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Check Box or Radio Button Component" onClick={() => setActiveTab(1)}>
                 HTML
             </button>
-            <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+            <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of Check Box or Radio Button Component" onClick={() => setActiveTab(0)}>
                 CSS
             </button>
         </div>
@@ -319,7 +319,7 @@ const CheckBoxComponent = ( ) => {
         {activeTab === 0 ? (
             <>
             <div className='clipboard-div'>
-                <button className='clipboard-btn' onClick={copyToClipboard}>
+                <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
                 <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
                     {copied ? ' Copied!' : ' Copy Code'}
                 </i>

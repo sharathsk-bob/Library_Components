@@ -14,17 +14,13 @@ const EditAlertModal = (props)=>{
     const initialValues = {
         alerttext: data.alerttext,
         Choice_Alerttype: data.Choice_Alerttype,
-        // Choice_HeaderIf: data.Choice_HeaderIf,
-        // alerthead: data.alerthead,
         Choice_Width: data.Choice_Width,
         Choice_Theme: data.Choice_Theme,
     }
 
     const [inputs, setInputs] = useState(initialValues);
-    const navigate = useNavigate()
-
     const [inputErrors, setInputErrors] = useState({});
-    const [isBtnCheck, setBtnCheck] = useState(false);
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,8 +30,6 @@ const EditAlertModal = (props)=>{
     const AlertProps = {
         alerttext: inputs.alerttext,
         Choice_Alerttype: inputs.Choice_Alerttype,
-        // Choice_HeaderIf: inputs.Choice_HeaderIf,
-        // alerthead: inputs.alerthead,
         Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.Choice_Theme,
     };
@@ -52,20 +46,6 @@ const EditAlertModal = (props)=>{
                 errors.alerttext = "Alert Text should be shorter"; 
             } 
         }
-
-        // if(values.Choice_HeaderIf === ""){
-        //     errors.Choice_HeaderIf = "Please make decision for Header field";
-        // }
-
-        // if( values.Choice_HeaderIf === "Yes" ) {
-        //     if (values.alerthead == undefined || values.alerthead === '' ) {
-        //         errors.alerthead = "Alert heading is required";
-        //     } else if (values.alerthead !== undefined) {
-        //         if(values.alerthead.length > 15){
-        //             errors.alerthead = "Alert Heading Text should be shorter"; 
-        //         } 
-        //     }
-        // }   
 
         if(values.Choice_Alerttype === undefined || values.Choice_Alerttype === ''){
             errors.Choice_Alerttype = "Please select the type of alert from the dropdown";
@@ -89,7 +69,6 @@ const EditAlertModal = (props)=>{
         //console.log("Errors aa rhe kya?????", validerrors);
         if(Object.keys(validerrors).length === 0)
         {
-            setBtnCheck(true);
             console.log("Inputs Sent!!!", inputs);
             navigate("/alert", {state: {inputs}});
             close();
@@ -107,7 +86,7 @@ return (
         <div className="modal-content form-modalcontainer">
             <div className="form-header">
             <p>Alert</p>
-                <button className="close-button" aria-label="close edit button modal" onClick={close}>
+                <button className="close-button" aria-label="close edit alert modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>
@@ -140,7 +119,7 @@ return (
         <div className="input-field-container theme-field size-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="Choice_Alerttype" aria-label="Please select the choice of alert needed Asterik-Required"> 
+                <label for="Choice_Alerttype" aria-label="Edit the choice of alert needed Asterik-Required"> 
                 <p>Please select the choice of alert needed<span className="asterik">*</span> </p>
                     <select name="Choice_Alerttype" id="Choice_Alerttype" value={inputs.Choice_Alerttype} onChange={handleChange}>
                         <option value="">--</option>         
@@ -155,75 +134,10 @@ return (
             <p className="error">{inputErrors.Choice_Alerttype}</p>
         </div>
 
-        {/* <div className="input-field-container logo-field">
-            <p>Would you like to have Header in Alert? <span className="asterik">*</span></p>
-            <div className="modal-checkbox">
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_HeaderIfyes" aria-label="Select Yes if header is needed Asterik-Required">
-                <input
-                    id="Choice_HeaderIfyes"
-                    className="modal-input"
-                    type="radio"
-                    value="Yes"
-                    name="Choice_HeaderIf"
-                    checked={inputs.Choice_HeaderIf === "Yes"}
-                    onChange={handleChange}
-                />
-                <div className="tag">
-                  <span className="tag__cat">Yes </span>
-                </div>         
-              </label>
-            </FormField>
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_HeaderIfno" aria-label="Select No if header is not needed">
-                <input
-                    id="Choice_HeaderIfno"
-                    className="modal-input"
-                    type="radio"
-                    value="No"
-                    name="Choice_HeaderIf"
-                    checked={inputs.Choice_HeaderIf === "No"}
-                    onChange={handleChange}
-                />
-                <div className="tag">
-                  <span className="tag__cat">No</span>
-                </div>
-              </label>
-            </FormField>
-          </div>
-          <p className="error">{inputErrors.Choice_HeaderIf}</p>
-        </div>
-
-    { inputs.Choice_HeaderIf === "Yes" ?
-        <div className="input-field-container">
-            <FormField className="form-modal__content">
-                <label
-                className="wbh-modal__label"
-                aria-label="Edit Text for the Alert Heading Asterik-Required"
-                for="alerthead"
-                >
-                Text for the Alert Heading: <span className="asterik">*</span> 
-                <Input
-                    id="alerthead"
-                    className="text_modal__input"
-                    autoComplete="off"
-                    name="alerthead"
-                    maxLength="15"
-                    value={inputs.alerthead} 
-                    onChange={handleChange}
-                    aria-required="true"
-                    aria-describedby="tooltip-err-text"
-                />
-                </label>
-                <p id="tooltip-err-text" className='error' aria-atomic="true">{inputErrors.alerthead}</p>
-            </FormField>
-        </div>
-        : "" } */}
-
         <div className="input-field-container size-field" >
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="Choice_Width" aria-label="Select alert width value Asterik-Required"> 
+                <label for="Choice_Width" aria-label="Edit alert width value Asterik-Required"> 
                 <p>Please select width of the Alert: <span className="asterik">*</span> </p>
                 </label>
                     <select name="Choice_Width" id="Choice_Width" value={inputs.Choice_Width} onChange={handleChange}>
@@ -241,7 +155,7 @@ return (
         <div className="input-field-container theme-field">
             <div className="modal-checkbox">
             <FormField className="modal-content-theme">
-                <label for="Choice_Theme" aria-label="Edit the theme for the button Asterik-Required"> 
+                <label for="Choice_Theme" aria-label="Edit the theme for the alert Asterik-Required"> 
                 <p>Please select the theme colour: <span className="asterik">*</span> </p>
                     <select name="Choice_Theme" id="Choice_Theme" value={inputs.Choice_Theme} onChange={handleChange}>
                         <option value="">--</option>         

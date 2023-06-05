@@ -155,37 +155,36 @@ export const CustomStyleToaster = styled.div`
 `;
 
 function Toaster() {
-    const location = useLocation();
-    const [activeTab, setActiveTab] = useState(1);
 
-    const props = location.state.toasterProps;
-    const { open: openEditToaster, close: closeEditToaster, ModalWrapper: ModalWrapperEditToaster } = useModal();
-   
-    
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(1);
+
+  const props = location.state.toasterProps;
+  const { open: openEditToaster, close: closeEditToaster, ModalWrapper: ModalWrapperEditToaster } = useModal();
+
   const formattedCSS = CustomStyleToaster.componentStyle.rules[0];
 
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
-      navigator.clipboard.writeText(formattedCSS)
-      .then(() => {
-          setCopied(true);
-          setTimeout(() => {
-          setCopied(false);
-          }, 2000);
-      })
-      .catch((error) => {
-          console.error('Failed to copy to clipboard:', error);
-      });
+    navigator.clipboard.writeText(formattedCSS)
+    .then(() => {
+      setCopied(true);
+      setTimeout(() => {
+      setCopied(false);
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error('Failed to copy to clipboard:', error);
+    });
   };
-    
-    
+ 
   return (
     <>
-           <ModalWrapperEditToaster>
+      <ModalWrapperEditToaster>
         <EditToaster close={closeEditToaster} data={props} />
 			</ModalWrapperEditToaster>
-     <div className="component-toaster">
+      <div className="component-toaster">
             <div className="toaster-left">
               <h1>Toaster</h1>
               <span> Component</span>
@@ -206,40 +205,42 @@ function Toaster() {
                 <button class="buttons" onClick={openEditToaster}>Edit</button>
               </div>
             </div>
+      </div>
+      <ToasterMain {...props}/>
+      <div className="card-tabs">
+        <button
+          className={activeTab === 1 ? "active" : ""}
+          aria-label="HTML Page of Toaster Component"
+          onClick={() => setActiveTab(1)}
+        >
+          HTML
+        </button>
+        <button
+          className={activeTab === 0 ? "active" : ""}
+          aria-label="CSS Page of Toaster Component"
+          onClick={() => setActiveTab(0)}
+        >
+          CSS
+        </button>
+      </div>
+      <div className="card-content">
+        {activeTab === 0 ? (
+          <>
+          <div className='clipboard-div'>
+            <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+                <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                    {copied ? ' Copied!' : ' Copy Code'}
+                </i>
+            </button>
           </div>
-          <ToasterMain {...props}/>
-          <div className="card-tabs">
-  <button
-    className={activeTab === 1 ? "active" : ""}
-    onClick={() => setActiveTab(1)}
-  >
-    HTML
-  </button>
-  <button
-    className={activeTab === 0 ? "active" : ""}
-    onClick={() => setActiveTab(0)}
-  >
-    CSS
-  </button>
-</div>
-<div className="card-content">
-  {activeTab === 0 ? (
-    <>
-    <div className='clipboard-div'>
-      <button className='clipboard-btn' onClick={copyToClipboard}>
-          <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
-              {copied ? ' Copied!' : ' Copy Code'}
-          </i>
-      </button>
-    </div>
-    <SyntaxHighlighter language="css" style={coy}>
-    {formattedCSS}
-    </SyntaxHighlighter>
-    </>
-  ) : (
-    <ToasterHtml {...props} />
-  )}
-</div>
+          <SyntaxHighlighter language="css" style={coy}>
+          {formattedCSS}
+          </SyntaxHighlighter>
+          </>
+        ) : (
+          <ToasterHtml {...props} />
+        )}
+      </div>
     </>
   )
 }

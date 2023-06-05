@@ -4,16 +4,13 @@ import './button.scss'
 function Button(props) {
     const { ButtonProps } = props;
 
-
     const CustomBStyle = {
-
         padding: `${ButtonProps.Choice_Size}px ${ButtonProps.Choice_Size}px`,
         width: `${ ButtonProps.Choice_Width}%`,
         border: `${ ButtonProps.border_width > 0 ? ButtonProps.border_width+'px solid #555555' : 'none'}` ,
         "border-radius": `${ButtonProps.Choice_BorderRadius == 'Yes' ? ButtonProps.border_radius+'px' : ButtonProps.Choice_BorderRadius == 'No' ? '0px' : 'none'}`,
         "box-shadow": `${ ButtonProps.Choice_BoxShadow == 'Yes' ? '2px 0px 8px #0000002b' : 'none'}`,
-      };
-
+    };
 
     return(
         <>
@@ -23,7 +20,7 @@ function Button(props) {
                 </button>
             </div>
         </>
-    )
+    );
 }
 
 export default Button;
