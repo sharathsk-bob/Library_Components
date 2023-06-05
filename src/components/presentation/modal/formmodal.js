@@ -23,6 +23,7 @@ import SelectForm from "../../sub-components/forms/select/select-form";
 import FileSelectDetail from "../../sub-components/forms/file-select/fileselect-detail";
 import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
 import "./modal.scss";
+import SelectDetail from "../../sub-components/forms/select/select-details";
 
 const FormModal =()=>{
     const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
@@ -126,6 +127,9 @@ return(
     <ModalWrapperFileUpload>
       <SelectModal close={closeFileUpload}/>
     </ModalWrapperFileUpload>
+    <ModalWrapperSelectDetail>
+      <SelectDetail close={closeSelectDetail}/>
+    </ModalWrapperSelectDetail>
 
     {componentList.map((data, index) => {
         return (

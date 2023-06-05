@@ -20,7 +20,7 @@ function SelectComponent() {
     </ModalWrapperEditSelect>
     <div className="component-toaster">
             <div className="toaster-left">
-              <h1>Range</h1>
+              <h1>Select</h1>
               <span> Component</span>
             </div>
             <div className="toaster-right">
