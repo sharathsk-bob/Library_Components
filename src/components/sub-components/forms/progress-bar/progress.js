@@ -188,6 +188,19 @@ function ProgressBar() {
     const [activeTab, setActiveTab] = useState(1);
     const { open: openEditProgress, close: closeEditProgress, ModalWrapper: ModalWrapperEditProgress } = useModal();
     const [copied, setCopied] = useState(false);
+
+    const copyToClipboard = () => {
+      navigator.clipboard.writeText(formattedCSS)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => {
+        setCopied(false);
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error('Failed to copy to clipboard:', error);
+      });
+    };
     const formattedCSS = CustomStyleProgress.componentStyle.rules[0];
 
   // const copyToClipboard = () => {
@@ -250,9 +263,18 @@ function ProgressBar() {
 </div>
 <div className="card-content">
   {activeTab === 0 ? (
-            <SyntaxHighlighter language="css" style={coy}>
-            {formattedCSS}
-            </SyntaxHighlighter>
+           <>
+           <div className='clipboard-div'>
+           <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+             <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+               {copied ? ' Copied!' : ' Copy Code'}
+             </i>
+           </button>
+         </div>
+           <SyntaxHighlighter language="css" style={coy}>
+             {formattedCSS}
+           </SyntaxHighlighter>
+           </>
   ) : (
     <ProgressHtml props={props} />
   )}
