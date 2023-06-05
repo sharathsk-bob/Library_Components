@@ -16,7 +16,7 @@ const CheckBoxDetail = (props)=>{
         <div className="modal-content detail-container">
             <div className="detail-header">
             <p>Check Box/Radio Button</p>
-                <button className="close-button" aria-label="close check box details modal" onClick={close}>
+                <button className="close-button" aria-label="close check box and radio button details modal" onClick={close}>
                     <img src={closeIcon}></img>
                 </button>
             </div>

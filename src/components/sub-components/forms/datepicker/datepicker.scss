@@ -1,6 +1,7 @@
 .DatePicker-Content {
     font-size:16px;
-  margin: 32px;
+    margin: 32px;
+    margin-bottom: 12em;
     // text-align: center;
 
     @media (max-width: 768px) {
@@ -8,21 +9,21 @@
     }
     .react-datepicker__input-container {
         position: relative;
-    display: inline-block;
-    width: 100%;
-    button{
-        cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    padding: 0 6px 0 0;
-    position: absolute;
-    top: 43px;
-    right: 385px;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    }
+        display: inline-block;
+        width: 100%;
+        button{
+            cursor: pointer;
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+            padding: 0 6px 0 0;
+            position: absolute;
+            top: 43px;
+            right: 385px;
+            height: 100%;
+            display: table-cell;
+            vertical-align: middle;
+        }
     }
 }
 
@@ -45,7 +46,6 @@
     width: 98%;
     margin: 0 auto;
 }
-
 
 .dp-normal {
     background-color: rgb(241, 244, 248)!important;
@@ -73,18 +73,6 @@
     border-style: solid;
     border-width: medium; 
     border-color: var(--color-purple-wbh) !important;
-}
-
-.dp-small {
-    padding: 8px 8px;
-}
-
-.dp-medium {
-    padding: 16px 8px;
-}
-
-.dp-large {
-    padding: 24px 8px;
 }
 
 // DatePicker Styling
@@ -260,12 +248,7 @@
     color: #fff;
 }
 
-
 // For Calender tooltip
-// .react-datepicker-popper[data-placement^=bottom] {
-//     padding-top: 10px;
-// }
-
 .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
     top: 0;
     margin-top: -8px;
@@ -334,24 +317,20 @@
     background-color: #216ba5;
     color: #fff;
     border-radius: 50%;
-    height: 16px;
-    width: 16px;
-    padding: 2px;
-    font-size: 12px;
-    line-height: 1;
+    height: 1.2em;
+    width: 1.2em;
+    padding: 0.25em;
+    font-size: 0.8em;
+    line-height: 0.9;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
     position: relative;
-    right: -350px;
-    top: -40px;
+    right: -29.5em;
+    top: -3.4em;
     content: "×";
 }
 
 .react-datepicker__input-container span {
     display: none;
-}
-
-.react-datepicker__input-container input {
-
 }

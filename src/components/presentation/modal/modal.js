@@ -1,16 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./modal.scss";
 import useModal from "../../sub-components/use-modal/use-modal";
 import HeaderModal from "../../sub-components/header/header-modal";
-// import HeaderComponent from "../../sub-components/header/header";
 import HeaderDetail from "../../sub-components/header/header-detail";
 import Form from "../../sub-components/cards/form";
 import CardDetail from "../../sub-components/cards/card-detail";
-import "../../sub-components/use-modal/use-modal.scss"
 import ButtonDetail from "../../sub-components/button/button-detail";
 import ButtonForm from "../../sub-components/button/button-form";
-import cgLogo from "../../asset/images/cg_logo.svg";
 import NavbarForm from "../../sub-components/navbar/navbar-form";
 import NavbarDetail from "../../sub-components/navbar/navbar-detail";
 import TooltipDetail from "../../sub-components/tooltip/tooltip-detail";
@@ -21,8 +17,9 @@ import FooterModal from "../../sub-components/footer/footer-modal";
 import FooterDetail from "../../sub-components/footer/footer-details";
 import ToasterForm from "../../sub-components/toaster/toaster-form";
 import ToasterDetail from "../../sub-components/toaster/toaster-detail";
-import FormPresentation from "../formpresentation";
 import FormComponentDetail from "../../sub-components/forms/formcomponent-detail";
+import "../../sub-components/use-modal/use-modal.scss";
+import "./modal.scss";
 
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
@@ -44,94 +41,89 @@ const Modal =()=>{
     const { open: openFormComponentDetail, close: closeFormComponentDetail, ModalWrapper: ModalWrapperFormComponentDetail } = useModal();
     const { open: openFormComp, close: closeFormComp, ModalWrapper: ModalWrapperForm } = useModal();
 
-
     const history=useNavigate();
 
     const componentList =[
-        "Header",
-        "Cards",
-        "Button",
-        "Navbar",
-        "ToolTip",    
-        "Footer",
-        "Alert",
-        "Toaster",
-        "Forms",
+      "Header",
+      "Cards",
+      "Button",
+      "Navbar",
+      "ToolTip",    
+      "Footer",
+      "Alert",
+      "Toaster",
+      "Forms",
     ];
-return(
+  return(
     <>
-    <div className="modal-components">
-      <ModalWrapperHeaderDetail>
-        <HeaderDetail close={closeHeaderDetail} />
-			</ModalWrapperHeaderDetail>
-      <ModalWrapperFooterDetail>
-        <FooterDetail close={closefooterDetail} />
-			</ModalWrapperFooterDetail>
-      <ModalWrapperHeader>
-        <HeaderModal close={closeHeader} />
-			</ModalWrapperHeader>
-      <ModalForm>
-        <Form close={closeForm} />
-			</ModalForm>
-      <ModalFormDetail>
-        <CardDetail close={closeFormDetail} />
-			</ModalFormDetail>
+      <div className="modal-components">
+        <ModalWrapperHeaderDetail>
+          <HeaderDetail close={closeHeaderDetail} />
+        </ModalWrapperHeaderDetail>
+        <ModalWrapperFooterDetail>
+          <FooterDetail close={closefooterDetail} />
+        </ModalWrapperFooterDetail>
+        <ModalWrapperHeader>
+          <HeaderModal close={closeHeader} />
+        </ModalWrapperHeader>
+        <ModalForm>
+          <Form close={closeForm} />
+        </ModalForm>
+        <ModalFormDetail>
+          <CardDetail close={closeFormDetail} />
+        </ModalFormDetail>
+        <ModalWrapperButtonDetail>
+          <ButtonDetail close={closeButtonDetail} />
+        </ModalWrapperButtonDetail>
+        <ModalWrapperButton>
+          <ButtonForm close={closeButtonForm} />
+        </ModalWrapperButton>
+        <ModalWrapperTooltipDetail>
+          <TooltipDetail close={closeTooltipDetail} />
+        </ModalWrapperTooltipDetail>
+        <ModalWrapperTooltip>
+          <TooltipForm close={closeTooltipForm} />
+        </ModalWrapperTooltip>
+        <ModalWrapperAlertDetail>
+          <AlertDetail close={closeAlertDetail} />
+        </ModalWrapperAlertDetail>
+        <ModalWrapperAlert>
+          <AlertForm close={closeAlertForm} />
+        </ModalWrapperAlert>
+        <ModalWrapperNavbar>
+          <NavbarForm close={closeNavbarForm} />
+        </ModalWrapperNavbar>
+        <ModalWrapperNavbarDetail>
+          <NavbarDetail close={closeNavbarDetail} />
+        </ModalWrapperNavbarDetail>
+        <ModalWrapperFooter>
+          <FooterModal close={closeFooter} />
+        </ModalWrapperFooter>
+        <ModalWrapperToasterDetail>
+        <ToasterDetail close={closeToasterDetail}/>
+        </ModalWrapperToasterDetail>
+        <ModalWrapperToaster>
+          <ToasterForm close={closeToasterForm}/>
+        </ModalWrapperToaster>
 
-      <ModalWrapperButtonDetail>
-        <ButtonDetail close={closeButtonDetail} />
-      </ModalWrapperButtonDetail>
-      <ModalWrapperButton>
-        <ButtonForm close={closeButtonForm} />
-      </ModalWrapperButton>
-      <ModalWrapperTooltipDetail>
-        <TooltipDetail close={closeTooltipDetail} />
-      </ModalWrapperTooltipDetail>
-      <ModalWrapperTooltip>
-        <TooltipForm close={closeTooltipForm} />
-      </ModalWrapperTooltip>
-      <ModalWrapperAlertDetail>
-        <AlertDetail close={closeAlertDetail} />
-      </ModalWrapperAlertDetail>
-      <ModalWrapperAlert>
-        <AlertForm close={closeAlertForm} />
-      </ModalWrapperAlert>
+        <ModalWrapperFormComponentDetail>
+          <FormComponentDetail close={closeFormComponentDetail} />
+        </ModalWrapperFormComponentDetail>
 
-      <ModalWrapperNavbar>
-        <NavbarForm close={closeNavbarForm} />
-      </ModalWrapperNavbar>
-      <ModalWrapperNavbarDetail>
-        <NavbarDetail close={closeNavbarDetail} />
-      </ModalWrapperNavbarDetail>
-      <ModalWrapperFooter>
-        <FooterModal close={closeFooter} />
-      </ModalWrapperFooter>
-      <ModalWrapperToasterDetail>
-      <ToasterDetail close={closeToasterDetail}/>
-      </ModalWrapperToasterDetail>
-      <ModalWrapperToaster>
-        <ToasterForm close={closeToasterForm}/>
-      </ModalWrapperToaster>
-
-      <ModalWrapperFormComponentDetail>
-        <FormComponentDetail close={closeFormComponentDetail} />
-      </ModalWrapperFormComponentDetail>
-
-    {componentList.map((data, index) => {
-       
+      {componentList.map((data, index) => {
         return (
           <div key={index} class="modal_section">
-           <div className="modal-header">
-            <h1>{data}</h1>
+            <div className="modal-header">
+              <h1>{data}</h1>
             </div>
             <div className="modal-content">
-            
             <p>This components help to create and customised the {data}.</p>
             {data === "Header" ? (
               <div className="modal-button_section">
-                <button title="Details button for header" type="button" class="buttons" onClick={openHeaderDetail}>
+                <button title="Details button for header component" type="button" class="buttons" onClick={openHeaderDetail}>
                   Details
                 </button>
-                <button title="Create button for header" type="button" class="buttons" onClick={openHeader}>
+                <button title="Create button for header component" type="button" class="buttons" onClick={openHeader}>
                   Create
                 </button>
               </div>
@@ -172,7 +164,7 @@ return(
                   Create
                 </button>
               </div>
-            ) :data === "Navbar" ? (
+            ) : data === "Navbar" ? (
               <div className="modal-button_section">
                 <button type="button" aria-label="Details button for navbar component" class="buttons" onClick={openNavbarDetail}>
                   Details
@@ -181,12 +173,12 @@ return(
                   Create
                 </button>
               </div>
-            ):data === "Toaster" ? (
+            ): data === "Toaster" ? (
               <div className="modal-button_section">
-                <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openToasterDetail}>
+                <button  type="button" aria-label="Details button for toaster component" class="buttons" onClick={openToasterDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Create button for navbar component" class="buttons" onClick={openToasterForm}>
+                <button type="button" aria-label="Create button for toaster component" class="buttons" onClick={openToasterForm}>
                   Create
                 </button>
               </div>
@@ -199,16 +191,16 @@ return(
                   Create
                 </button>
               </div>
-            ) :data === "Forms"? (
+            ) : data === "Forms"? (
               <div className="modal-button_section">
                 <button type="button" aria-label="Details button for forms component" class="buttons" onClick={openFormComponentDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Componets button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
+                <button type="button" aria-label="View components button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
                   Components
                 </button>
               </div>
-            ): (
+            ) : (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openFormDetail}>
                   Details
@@ -219,14 +211,12 @@ return(
               </div>
             )}
             </div>
-            
           </div>
         );
-    })
-    }
-    </div>  
+      })
+      }
+      </div>  
     </>
-)
-  
+  ) 
 };
 export default Modal;

@@ -10,79 +10,77 @@ import styled from "styled-components";
 import FileMains from "./file-main";
 import FileHtml from "./file-html";
 
-
-
-
-
 const FileComponent = ( ) => {
-    const location = useLocation();
-    const { open: openEditFile, close: closeEditFile, ModalWrapper: ModalWrapperEditFile } = useModal();
-    const props = location.state.fileProps;
+  const location = useLocation();
+  const { open: openEditFile, close: closeEditFile, ModalWrapper: ModalWrapperEditFile } = useModal();
+  const props = location.state.fileProps;
     
   const [activeTab, setActiveTab] = useState(1);
-    // console.log(props, "file component");
+  // console.log(props, "file component");
     
-    return (
-      <>
-     <ModalWrapperEditFile>
-      < EditFileModal close={closeEditFile} data={props} />
-              </ModalWrapperEditFile>
-    
-     <div className= "header-output">
+  return (
+    <>
+      <ModalWrapperEditFile>
+        < EditFileModal close={closeEditFile} data={props} />
+      </ModalWrapperEditFile>
+  
+      <div className= "header-output">
         <div className="component-header">
           <div className="header-left">
-           <h1>File-Select</h1><span> Component</span> 
+          <h1>File-Select</h1><span> Component</span> 
           </div>
           <div className="header-right"> 
           <div className="button-section">
-         
-          <Link
-                to="/formcomponents"     
-                className="link-button"     
-              >
-                Back
-              </Link>
-                  <button class="buttons" onClick={openEditFile}  >
-                    Edit
-                  </button>
-                </div>
+            <Link
+              to="/formcomponents"
+              aria-label="back to form component homepage"  
+              className="link-button"  
+            >
+              Back
+            </Link>
+              <button class="buttons" aria-label="Edit values for File Upload Component" onClick={openEditFile}  >
+                Edit
+              </button>
+            </div>
           </div>
         </div>
-      <FileMains fileVals={props}/>
+        <FileMains fileVals={props}/>
       </div>
       <div className="card-tabs">
-  <button
-    className={activeTab === 1 ? "active" : ""}
-    onClick={() => setActiveTab(1)}
-  >
-    HTML
-  </button>
-  <button
-    className={activeTab === 0 ? "active" : ""}
-    onClick={() => setActiveTab(0)}
-  >
-    CSS
-  </button>
-</div>
-<div className="card-content">
-  {activeTab === 0 ? (
-    <>
-    {/* <div className='clipboard-div'>
-      <button className='clipboard-btn' onClick={copyToClipboard}>
-          <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
-              {copied ? ' Copied!' : ' Copy Code'}
-          </i>
-      </button>
-    </div> */}
-    {/* <SyntaxHighlighter language="css" style={coy}>
-    {formattedCSS}
-    </SyntaxHighlighter> */}
+        <button
+          className={activeTab === 1 ? "active" : ""}
+          aria-label="HTML Page of File Upload Component"
+          onClick={() => setActiveTab(1)}
+        >
+          HTML
+        </button>
+        <button
+          className={activeTab === 0 ? "active" : ""}
+          aria-label="CSS Page of File Upload Component"
+          onClick={() => setActiveTab(0)}
+        >
+          CSS
+        </button>
+      </div>
+      <div className="card-content">
+        {activeTab === 0 ? (
+          <>
+          {/* <div className='clipboard-div'>
+            <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+                <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                    {copied ? ' Copied!' : ' Copy Code'}
+                </i>
+            </button>
+          </div> */}
+          {/* <SyntaxHighlighter language="css" style={coy}>
+          {formattedCSS}
+          </SyntaxHighlighter> */}
+          </>
+        ) : (
+          <FileHtml  fileVals={props}/>
+        )}
+      </div>
     </>
-  ) : (
-    <FileHtml  fileVals={props}/>
-  )}
-</div>
-      </>
-    );
-  };
-  export default FileComponent;
+  );
+};
+export default FileComponent;

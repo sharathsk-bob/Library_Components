@@ -1,5 +1,4 @@
 import React from "react";
-import "./cards.scss";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../app-context";
@@ -9,7 +8,7 @@ import EditCard from "./edit-card";
 import ReactDOMServer from 'react-dom/server';
 import CardHeader from "./card-header";
 import CardHtml from "./card-html";
-
+import "./cards.scss";
 
 function Cards(props) {
   //const { title,description,actionBtn,btn1,btn2,img }=props;

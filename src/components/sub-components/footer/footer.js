@@ -1,4 +1,3 @@
-import "../footer/footer.scss";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -9,6 +8,7 @@ import Footer from "./footer-main";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
+import "../footer/footer.scss";
 
 export const CustomStyleFooter = styled.div`
 .footer-section{
@@ -181,8 +181,6 @@ transition: all .2s ease-out;
 }
 `;
 
-
-
 const FooterComponent =()=>{
 
     const location = useLocation();
@@ -210,64 +208,64 @@ const FooterComponent =()=>{
     return (
       <>
        <ModalWrapperEditFooter>
-    <EditFooterModal close={closeEditFooter} data={props} />
-			</ModalWrapperEditFooter>
-      <div className="footer-output">
-        <div className="footer-section">
-          <div className="component-header">
-            <div className="header-left">
-              <h1>Footer</h1>
-              <span> Component</span>
+            <EditFooterModal close={closeEditFooter} data={props} />
+		</ModalWrapperEditFooter>
+        <div className="footer-output">
+            <div className="footer-section">
+            <div className="component-header">
+                <div className="header-left">
+                <h1>Footer</h1>
+                <span> Component</span>
+                </div>
+                <div className="header-right">
+                <div className="button-section">
+                    {/* <div  className="buttons"> */}
+                    <Link
+                    to="/"
+                    // state={headerData}
+                    className="link-button"
+                    >
+                    Back
+                    </Link>
+                    {/* </div> */}
+
+                    {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
+                    <button class="buttons" onClick={openEditFooter}>Edit</button>
+                </div>
+                </div>
             </div>
-            <div className="header-right">
-              <div className="button-section">
-                {/* <div  className="buttons"> */}
-                <Link
-                  to="/"
-                  // state={headerData}
-                  className="link-button"
-                >
-                  Back
-                </Link>
-                {/* </div> */}
-
-                {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-                <button class="buttons" onClick={openEditFooter}>Edit</button>
-              </div>
+            <Footer footerProps={props}/>
             </div>
-          </div>
-         <Footer footerProps={props}/>
-        </div>
 
 
-        <div className="card-tabs">
-        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
-            HTML
-        </button>
-        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
-            CSS
-        </button>
-    </div>
-
-    <div className="card-content">
-    {activeTab === 0 ? (
-        <> 
-        <div className='clipboard-div'>
-            <button className='clipboard-btn' onClick={copyToClipboard}>
-                <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
-                    {copied ? ' Copied!' : ' Copy Code'}
-                </i>
+            <div className="card-tabs">
+            <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Footer Component" onClick={() => setActiveTab(1)}>
+                HTML
+            </button>
+            <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of Footer Component" onClick={() => setActiveTab(0)}>
+                CSS
             </button>
         </div>
-        <SyntaxHighlighter language="css" style={coy}>
-            {formattedCSS}
-        </SyntaxHighlighter>
-        </>
-    ) : (
-        <FooterHtml footerProps={props} />
-    )}
-    </div>
-    </div>
+
+        <div className="card-content">
+        {activeTab === 0 ? (
+            <> 
+            <div className='clipboard-div'>
+                <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+                    <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                        {copied ? ' Copied!' : ' Copy Code'}
+                    </i>
+                </button>
+            </div>
+            <SyntaxHighlighter language="css" style={coy}>
+                {formattedCSS}
+            </SyntaxHighlighter>
+            </>
+        ) : (
+            <FooterHtml footerProps={props} />
+        )}
+        </div>
+        </div>
       </>
     );  
 };

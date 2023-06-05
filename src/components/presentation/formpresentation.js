@@ -15,9 +15,9 @@ const FormPresentation = () => {
         </div>
         <div className="d-flex align-items-center header-right"> 
           <div className="back-form">
-          <Link to="/" className="link-button">
+            <Link to="/" className="link-button">
               Back
-          </Link>
+            </Link>
           </div>
         </div>
       </div>

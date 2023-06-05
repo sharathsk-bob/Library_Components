@@ -42,7 +42,7 @@ const DatePickerForm =(props)=>{
         }
 
         if(dpWidth === undefined || dpWidth === ''){
-            errors.boxsize = "Please select the width of Date Picker from the dropdown";
+            errors.dpWidth = "Please select the width of Date Picker from the dropdown";
         } else {
             inputs.Choice_DPWidth = dpWidth;
         }
@@ -151,7 +151,7 @@ return (
                     </select>
             </FormField>
             </div>
-            <p className='error'>{inputErrors.dpwidth}</p>
+            <p className='error'>{inputErrors.dpWidth}</p>
         </div>
 
         <div className="input-field-container theme-field size-field">

@@ -114,10 +114,10 @@ const DatePickerComponent = ( ) => {
     </div>
 
     <div className="card-tabs">
-        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+        <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of DatePicker Component" onClick={() => setActiveTab(1)}>
             HTML
         </button>
-        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+        <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of DatePicker Component" onClick={() => setActiveTab(0)}>
             CSS
         </button>
     </div>
@@ -126,7 +126,7 @@ const DatePickerComponent = ( ) => {
     {activeTab === 0 ? (
         <>
         <div className='clipboard-div'>
-            <button className='clipboard-btn' onClick={copyToClipboard}>
+            <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
                 <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
                     {copied ? ' Copied!' : ' Copy Code'}
                 </i>

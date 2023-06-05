@@ -1,4 +1,3 @@
-import "./header.scss";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import EditHeaderModal from "./edit-header";
@@ -9,6 +8,7 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
+import "./header.scss";
 
 export const CustomStyleHeader = styled.div`
 .header-output{
@@ -90,74 +90,68 @@ const HeaderComponent = ( ) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
-      navigator.clipboard.writeText(formattedCSS)
-      .then(() => {
-          setCopied(true);
-          setTimeout(() => {
-          setCopied(false);
-          }, 2000);
-      })
-      .catch((error) => {
-          console.error('Failed to copy to clipboard:', error);
-      });
+    navigator.clipboard.writeText(formattedCSS)
+    .then(() => {
+      setCopied(true);
+      setTimeout(() => {
+      setCopied(false);
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error('Failed to copy to clipboard:', error);
+    });
   };
  
   return (
     <>
-    <ModalWrapperEditHeader>
-    <EditHeaderModal close={closeEditHeader} data={props} />
+      <ModalWrapperEditHeader>
+        <EditHeaderModal close={closeEditHeader} data={props} />
 			</ModalWrapperEditHeader>
-    <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
-      <div className="component-header">
-        <div className="header-left">
-         <h1>Header</h1><span> Component</span> 
+      <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
+        <div className="component-header">
+          <div className="header-left">
+          <h1>Header</h1><span> Component</span> 
+          </div>
+          <div className="header-right"> 
+            <div className="button-section">        
+              <Link to="/" className="link-button">
+                Back
+              </Link>
+              <button class="buttons" onClick={openEditHeader} >
+                Edit
+              </button>
+            </div>
+          </div> 
         </div>
-        <div className="header-right"> 
-        <div className="button-section">
-       
-        <Link
-              to="/"     
-              className="link-button"     
-            >
-              Back
-            </Link>
-                <button class="buttons" onClick={openEditHeader} >
-                  Edit
-                </button>
-              </div>
-        </div> 
+      <Header headerVal={props}/>
       </div>
-    <Header headerVal={props}/>
-    </div>
-    <div className="card-tabs">
-        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+      <div className="card-tabs">
+          <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Header Component" onClick={() => setActiveTab(1)}>
             HTML
-        </button>
-        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+          </button>
+          <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of Header Component" onClick={() => setActiveTab(0)}>
             CSS
-        </button>
-    </div>
+          </button>
+      </div>
 
-    <div className="card-content">
-    {activeTab === 0 ? (
-      <>
-        <div className='clipboard-div'>
-            <button className='clipboard-btn' onClick={copyToClipboard}>
-                <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
-                    {copied ? ' Copied!' : ' Copy Code'}
-                </i>
+      <div className="card-content">
+      {activeTab === 0 ? (
+        <>
+          <div className='clipboard-div'>
+            <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+              <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+                {copied ? ' Copied!' : ' Copy Code'}
+              </i>
             </button>
-        </div>
-
-        <SyntaxHighlighter language="css" style={coy}>
-          {formattedCSS}
-        </SyntaxHighlighter>
-      </>
-      
-    ) : (
+          </div>
+          <SyntaxHighlighter language="css" style={coy}>
+            {formattedCSS}
+          </SyntaxHighlighter>
+        </>
+      ) : (
         <HeaderHtml headerVal={props} />
-    )}
-    </div>
+      )}
+      </div>
     </>
   );
 };

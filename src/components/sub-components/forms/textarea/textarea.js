@@ -118,10 +118,10 @@ const TextAreaComponent = ( ) => {
         </div>
         <div className="header-right"> 
           <div className="button-section">
-            <Link to="/formcomponents" className="link-button">
+            <Link to="/formcomponents" className="link-button" aria-label="back to form component homepage">
               Back
             </Link>
-            <button class="buttons" onClick={openEditTextArea}  >
+            <button class="buttons" aria-label="Edit values for Text Area Component" onClick={openEditTextArea}  >
               Edit
             </button>
           </div>
@@ -130,10 +130,10 @@ const TextAreaComponent = ( ) => {
       <TextArea TextAreaProps={props}/>
     </div>
     <div className="card-tabs">
-        <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+        <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Text Area Component" onClick={() => setActiveTab(1)}>
           HTML
         </button>
-        <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+        <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of Text Area Component" onClick={() => setActiveTab(0)}>
           CSS
         </button>
     </div>
@@ -142,7 +142,7 @@ const TextAreaComponent = ( ) => {
     {activeTab === 0 ? (
       <>
         <div className='clipboard-div'>
-          <button className='clipboard-btn' onClick={copyToClipboard}>
+          <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
             <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
               {copied ? ' Copied!' : ' Copy Code'}
             </i>

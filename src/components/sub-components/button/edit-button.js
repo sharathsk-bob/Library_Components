@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import FocusTrap from "focus-trap-react";
@@ -24,10 +24,8 @@ const EditButtonModal = (props)=>{
     }
 
     const [inputs, setInputs] = useState(initialValues);
-    const navigate = useNavigate()
-
     const [inputErrors, setInputErrors] = useState({});
-    const [isBtnCheck, setBtnCheck] = useState(false);
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -111,7 +109,6 @@ const EditButtonModal = (props)=>{
 
         if(Object.keys(validerrors).length === 0)
         {
-        setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
         navigate("/button", {state: {inputs}});
         close();
@@ -119,10 +116,7 @@ const EditButtonModal = (props)=>{
         }
     };
 
-
-
-
-return (
+    return (
     <FocusTrap
         focusTrapOptions={{
         onDeactivate: close
@@ -167,7 +161,7 @@ return (
             <p>Would you like to have Border Radius for Button?<span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" htmlFor="Choice_BorderRadiusyes" aria-label="Select Yes forBorder radius value">
+              <label className="modal-label" htmlFor="Choice_BorderRadiusyes" aria-label="Select Yes for Border radius value">
                 <input
                     id="Choice_BorderRadiusyes"
                     className="modal-input"
@@ -252,7 +246,6 @@ return (
                     value={inputs.border_width} 
                     onChange={handleChange}         
                 />
-                
                 <p id="btn-err-widthvalue" className='error' aria-atomic="true">{inputErrors.border_width}</p>
             </FormField>
         </div>
@@ -309,7 +302,6 @@ return (
                         <option value="15">15px</option>
                         <option value="20">20 px</option>
                     </select>
-                
             </FormField>
             </div>
             <p className='error'>{inputErrors.size}</p>
@@ -328,7 +320,6 @@ return (
                         <option value="75">75 %</option>
                         <option value="100">100 %</option>
                     </select>
-                
             </FormField>
             </div>
             <p className='error'>{inputErrors.btnWidth}</p>
@@ -347,7 +338,6 @@ return (
                         <option value="cg1">Blue</option>
                         <option value="cg2">Purple</option>
                     </select>
-                
             </FormField>
             </div>
             <p className="error">{inputErrors.theme}</p>

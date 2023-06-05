@@ -10,7 +10,8 @@ import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import EditAlertModal from "./edit-alert";
 import './alert.scss'
 
-export const CustomStyleAlert = styled.div`.alert-section {
+export const CustomStyleAlert = styled.div`
+.alert-section {
     margin: 32px auto;
     text-align: center;
 }
@@ -33,13 +34,13 @@ export const CustomStyleAlert = styled.div`.alert-section {
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
+    width: 100%;
     justify-content: center;
     left: 0;
     margin: 0 auto;
     overflow-x: hidden;
     position: fixed;
     top: 0;
-    width: 100vw;
     z-index: 100;
 }
 
@@ -50,24 +51,30 @@ export const CustomStyleAlert = styled.div`.alert-section {
     // width: 46vw;
 }
 
-.w-25 {
-    width: 25vw;
+.alert-w25 {
+    width: 25%;
+    @media (max-width: 576px) {
+        width: 50% !important;
+    }
 }
-.w-50 {
-    width: 50vw;
+.alert-w50 {
+    width: 50%;
 }
-.w-75 {
-    width: 75vw;
+.alert-w75 {
+    width: 75%;
 }
-.w-100 {
-    width: 100vw;
-    margin: 0 1em;
+.alert-w100 {
+    width: 100%;
+    margin: 0 24px;
+    @media (max-width: 576px) {
+        width: 95%;
+        margin: 0 12px !important;
+    }
 }
 
 .alert-container{
-    padding: 0 1em;
     overflow-x: auto;
-    margin: 20px;
+    margin: 16px auto;
 }
 
 .alert-header {
@@ -102,7 +109,6 @@ export const CustomStyleAlert = styled.div`.alert-section {
     color: var(--color-white);
 }
 
-
 .close-button{
     border: none; 
     background: transparent;
@@ -132,26 +138,32 @@ export const CustomStyleAlert = styled.div`.alert-section {
 }
 
 .text-section {
+    padding: 0 1em;
     text-align: center;
+    word-wrap: break-word;
 }
 
-.button-section {
+.alertbtn-section {
     text-align: center;
     margin-bottom: 1em;
-    .btn {
+    .btn-alert {
         padding: 0.25em 1.4em;
         font-size: 1em;
         border: 1px solid #999;
-        color: black;
-        background: white;
+        color: var(--color-black);
+        background: var(--color-white);
     }
-    .btn:hover {
-        background-color: #0070ad;
-        color: white;
+    .btn-alert:hover {
+        background-color: var(--color-capgemini-blue);
+        color: var(--color-white);
         outline: 0.6em auto -webkit-focus-ring-color;
         box-shadow: none;
     }
+    .btn-alertert:focus-visible{
+        border: 1.5px var(--color-black) solid;
+    }
 }
+
 `;
 
 const AlertComponent = ( ) => {
@@ -217,10 +229,10 @@ const AlertComponent = ( ) => {
         </div>
 
         <div className="card-tabs">
-            <button className={activeTab === 1 ? "active" : ""} onClick={() => setActiveTab(1)}>
+            <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Alert Component" onClick={() => setActiveTab(1)}>
                 HTML
             </button>
-            <button className={activeTab === 0 ? "active" : ""} onClick={() => setActiveTab(0)}>
+            <button className={activeTab === 0 ? "active" : ""} aria-label="CSS Page of Alert Component" onClick={() => setActiveTab(0)}>
                 CSS
             </button>
         </div>
@@ -229,7 +241,7 @@ const AlertComponent = ( ) => {
         {activeTab === 0 ? (
             <>
                 <div className='clipboard-div'>
-                    <button className='clipboard-btn' onClick={copyToClipboard}>
+                    <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
                         <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
                             {copied ? ' Copied!' : ' Copy Code'}
                         </i>
@@ -243,7 +255,6 @@ const AlertComponent = ( ) => {
             <AlertHtml AlertProps ={props} />
         )}
         </div>
-        
         </>
     );
 };

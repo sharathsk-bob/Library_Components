@@ -225,7 +225,7 @@ const AlertForm =(props)=>{
             <div className="input-field-container size-field" >
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="alertwidth" aria-label="Select button width value Asterik-Required"> 
+                    <label for="alertwidth" aria-label="Select alert width value Asterik-Required"> 
                     <p>Please select width of the Alert: <span className="asterik">*</span> </p>
                     </label>
                         <select name="alertwidth" id="alertwidth"  value={alertWidth} onChange={(event) => setAlertWidth(event.target.value)}>
@@ -243,7 +243,7 @@ const AlertForm =(props)=>{
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="theme" aria-label="Select the theme for the button Asterik-Required"> 
+                    <label for="theme" aria-label="Select the theme for the alert Asterik-Required"> 
                     <p>Please select the theme colour: <span className="asterik">*</span> </p>
                         <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                             <option value="">--</option>         
@@ -260,7 +260,7 @@ const AlertForm =(props)=>{
 
             <div className="button-section">
                 <div className="link-button">
-                    <Link props={inputs} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                    <Link props={AlertProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                         Submit
                     </Link>
                 </div>

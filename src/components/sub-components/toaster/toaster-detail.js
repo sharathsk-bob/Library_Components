@@ -1,40 +1,40 @@
 import FocusTrap from "focus-trap-react";
 import React from "react";
 import closeIcon from "../../../components/asset/images/cross-white.png";
-// import "./card-detail.scss";
 
 const ToasterDetail =(props)=>{
-    const{close} = props; 
+    
+  const{close} = props; 
 
-    return (
-      <FocusTrap focusTrapOptions={{ onDeactivate: close }}>
+  return (
+    <FocusTrap focusTrapOptions={{ onDeactivate: close }}>
       <div className="modal_wapper">
         <div className="modal-content header-modalcontainer detail-container">
           <div className="detail-header">
             <p>Toaster</p>
-            <button className="close-button" aria-label="close modal" onClick={close}>
+            <button className="close-button" aria-label="close toaster details modal" onClick={close}>
               <img src={closeIcon}></img>
             </button>
           </div>
           <div className="modal-container details-section">
             <h1>
-             Details for the Toaster section are below.
+              Details for the Toaster section are below.
             </h1>
             <p>Please do follow the given instruction while creating the Toaster component.</p>
-           <div className="detail-content">
-            <ul>
-              <li>User can select the toaster type.</li>
-              <li>The Toaster title should only contain 15 characters.</li>
-              <li>User can add a description message of 25 words.</li>
-              <li>User can select the Button text on click of which the toaster appears.</li>
-              <li>User can select the Toaster direction top/bottom</li>
-              <li>User can select the Toaster theme</li>
-            </ul>
-           </div>
-        </div>
+            <div className="detail-content">
+              <ul>
+                <li>User can select the toaster type.</li>
+                <li>The Toaster title should only contain 15 characters.</li>
+                <li>User can add a description message of 25 words.</li>
+                <li>User can select the Button text on click of which the toaster appears.</li>
+                <li>User can select the Toaster direction top/bottom</li>
+                <li>User can select the Toaster theme</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      </FocusTrap>
-    );
+    </FocusTrap>
+  );
 };
  export default ToasterDetail;
