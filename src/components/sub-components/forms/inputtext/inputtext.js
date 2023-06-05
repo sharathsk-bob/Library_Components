@@ -96,7 +96,7 @@ const InputComponent = ( ) => {
       < EditInputModal close={closeEditInput} data={props} />
               </ModalWrapperEditInput>
       <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
-        <div className="component-header">
+        <div className="component-header input-textheader">
           <div className="header-left">
            <h1>Input Text</h1><span> Component</span> 
           </div>
