@@ -44,7 +44,7 @@ const FormModal =()=>{
     const { open: openSelectDetail, close: closeSelectDetail, ModalWrapper: ModalWrapperSelectDetail } = useModal();
 
     const { open: openFileUploadDetail, close: closeFileUploadDetail, ModalWrapper: ModalWrapperFileUploadDetail } = useModal();
-  
+    const { open: openFileUpload, close: closeFileUpload, ModalWrapper: ModalWrapperFileUpload } = useModal();
     
     
     const componentList =[
@@ -123,6 +123,9 @@ return(
     <ModalWrapperSelect>
       <SelectForm close={closeSelect}/>
     </ModalWrapperSelect>
+    <ModalWrapperFileUpload>
+      <SelectModal close={closeFileUpload}/>
+    </ModalWrapperFileUpload>
 
     {componentList.map((data, index) => {
         return (
@@ -210,7 +213,7 @@ return(
                   <button title="Details button for file upload" type="button" class="buttons" onClick={openFileUploadDetail}>
                     Details
                   </button>
-                  <button title="Create button for file upload" type="button" class="buttons" onClick={openSelect}>
+                  <button title="Create button for file upload" type="button" class="buttons" onClick={openFileUpload}>
                     Create
                   </button>
                 </div>
