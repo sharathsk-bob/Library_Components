@@ -14,9 +14,13 @@ import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
 import RangeDetail from "../../sub-components/forms/range/range-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
+//import RangeDetail from "../../sub-components/forms/range/range-details";
+import SelectForm from "../../sub-components/forms/select/select-form";
+
 import FileSelectDetail from "../../sub-components/forms/file-select/fileselect-detail";
 import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
 import "./modal.scss";
+import SelectDetail from "../../sub-components/forms/select/select-details";
 
 const FormModal =()=>{
     const { open: openDatePickerDetail, close: closeDatePickerDetail, ModalWrapper: ModalWrapperDatePickerDetail } = useModal();
@@ -33,8 +37,11 @@ const FormModal =()=>{
     const { open: openSwitchControlDetail, close: closeSwitchControlDetail, ModalWrapper: ModalWrapperSwitchControlDetail } = useModal();
     const { open: openRange, close: closeRange, ModalWrapper: ModalWrapperRange } = useModal();
     const { open: openRangeDetail, close: closeRangeDetail, ModalWrapper: ModalWrapperRangeDetail } = useModal();
+    const { open: openSelect, close: closeSelect, ModalWrapper: ModalWrapperSelect } = useModal();
+    const { open: openSelectDetail, close: closeSelectDetail, ModalWrapper: ModalWrapperSelectDetail } = useModal();
+
     const { open: openFileUploadDetail, close: closeFileUploadDetail, ModalWrapper: ModalWrapperFileUploadDetail } = useModal();
-    const { open: openSelect, close: closeSlect, ModalWrapper: ModalWrapperSelect } = useModal();
+    const { open: openFileUpload, close: closeFileUpload, ModalWrapper: ModalWrapperFileUpload } = useModal();
     
     const componentList =[
       "Input Text",
@@ -97,7 +104,7 @@ const FormModal =()=>{
         <FileSelectDetail close={closeFileUploadDetail} />
       </ModalWrapperFileUploadDetail>
       <ModalWrapperSelect>
-        <SelectModal close={closeSlect}/>
+        <SelectModal close={closeSelectDetail}/>
       </ModalWrapperSelect>
       <ModalWrapperRangeDetail>
         <RangeDetail close={closeRangeDetail} />
@@ -105,6 +112,18 @@ const FormModal =()=>{
       <ModalWrapperRange>
         <RangeForm close={closeRange}/>
       </ModalWrapperRange>
+    <ModalWrapperRangeDetail>
+      <RangeDetail close={closeRangeDetail}/>
+    </ModalWrapperRangeDetail>
+    <ModalWrapperSelect>
+      <SelectForm close={closeSelect}/>
+    </ModalWrapperSelect>
+    <ModalWrapperFileUpload>
+      <SelectModal close={closeFileUpload}/>
+    </ModalWrapperFileUpload>
+    <ModalWrapperSelectDetail>
+      <SelectDetail close={closeSelectDetail}/>
+    </ModalWrapperSelectDetail>
 
       {componentList.map((data, index) => {
         return (
@@ -177,12 +196,21 @@ const FormModal =()=>{
                   Create
                 </button>
               </div>
-            ) : data === "File Upload" ? (
+          ):data === "Select" ? (
+              <div className="modal-button_section">
+                <button title="Details button for range" type="button" class="buttons" onClick={openSelectDetail}>
+                  Details
+                </button>
+                <button title="Create button for range" type="button" class="buttons" onClick={openSelect}>
+                  Create
+                </button>
+              </div>
+            )  : data === "File Upload" ? (
               <div className="modal-button_section">
                 <button title="Details button for file upload component" type="button" class="buttons" onClick={openFileUploadDetail}>
                   Details
                 </button>
-                <button title="Create button for file upload component" type="button" class="buttons" onClick={openSelect}>
+                <button title="Create button for file upload component" type="button" class="buttons" onClick={openFileUpload}>
                   Create
                 </button>
               </div>
