@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { useLocation } from "react-router-dom";
-import RangeMain from './range-main';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import useModal from '../../use-modal/use-modal';
-import RangeHtml from './range-html';
-import EditRangeForm from './edit-range';
-import './range.scss';
+import { Link } from 'react-router-dom';
+import EditSelect from './edit-select';
+import SelectHtml from './select-html';
+import SelectMain from './select-main';
+import './select.scss';
 
-const RangeComponent = () => {
+
+function SelectComponent() {
   const location = useLocation();
-  const myrange = location.state.rangeProps;
+  const select = location.state.selectProps;
   const [activeTab, setActiveTab] = useState(1);
-  const { open: openEditRange, close: closeEditRange, ModalWrapper: ModalWrapperEditRange } = useModal();
-  const [copied, setCopied] = useState(false);
-
+  const { open: openEditSelect, close: closeEditSelect, ModalWrapper: ModalWrapperEditSelect } = useModal();
   return (
     <>
-    <ModalWrapperEditRange>
-      <EditRangeForm close={closeEditRange} data={myrange}/>
-    </ModalWrapperEditRange>
+    <ModalWrapperEditSelect>
+      <EditSelect close={closeEditSelect} data={select}/>
+    </ModalWrapperEditSelect>
     <div className="component-toaster">
             <div className="toaster-left">
               <h1>Range</h1>
@@ -37,12 +36,13 @@ const RangeComponent = () => {
                 {/* </div> */}
 
                 {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-                <button class="buttons" onClick={openEditRange}>Edit</button>
+                <button class="buttons" onClick={openEditSelect}>Edit</button>
               </div>
             </div>
           </div>
-    <RangeMain myrange={myrange}/>
-    <div className="card-tabs">
+  <SelectMain select={select}/>
+
+        <div className="card-tabs">
   <button
     className={activeTab === 1 ? "active" : ""}
     onClick={() => setActiveTab(1)}
@@ -71,13 +71,11 @@ const RangeComponent = () => {
     </SyntaxHighlighter> */}
     </>
   ) : (
-    <RangeHtml myrange={myrange} />
+    <SelectHtml />
   )}
 </div>
     </>
-    
-  );
+  )
+}
 
-};
-
-export default RangeComponent;
+export default SelectComponent;
