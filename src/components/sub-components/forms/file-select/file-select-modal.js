@@ -99,7 +99,7 @@ const SelectModal =(props)=>{
                       onChange={(event) => setSelectLabelValue(event.target.value)}
                     />
                   </label>
-                  {/* {inputerrorMsg.title ?<span className="error">{inputerrorMsg.title}</span>:""} */}
+                  {inputerrorMsg.title ?<span className="error">{inputerrorMsg.title}</span>:""}
                 </FormField>
               </div>
               <div className="input-field-container type-field">
