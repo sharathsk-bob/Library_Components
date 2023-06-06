@@ -29,7 +29,7 @@ const TextAreaDetail = (props)=>{
             <div className="detail-content">
                 <ul>
                     <li>User can provide label text with maximum 15 characters.</li> 
-                    <li>User can choose if border radius is to be applied to textarea.</li>
+                    <li>User can choose if border radius is to be applied to text area.</li>
                     <li>User can select the box size of text area.</li>
                     <li>User can select the theme for the text area.</li>
                 </ul>
