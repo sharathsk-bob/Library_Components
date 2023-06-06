@@ -96,7 +96,7 @@ console.log(checkEditValid, "valid value");
                       onChange={handleSubmit}
                     />
                   </label>
-                  {/* {inputerrorMsg.title ?<span className="error">{inputerrorMsg.title}</span>:""} */}
+                  {errorMsgEdit.editTitle ?<span className="error">{errorMsgEdit.editTitle}</span>:""}
                 </FormField>
               </div>
               <div className="input-field-container type-field">
