@@ -44,6 +44,10 @@ const Modal =()=>{
     const { open: openFormComp, close: closeFormComp, ModalWrapper: ModalWrapperForm } = useModal();
     const { open: openTableDetail, close: closeTableDetail, ModalWrapper: ModalWrapperTableDetail } = useModal();
     const { open: openTableForm, close: closeTableForm, ModalWrapper: ModalWrapperTable } = useModal();
+    const { open: openLoaderDetail, close: closeLoaderDetail, ModalWrapper: ModalWrapperLoaderDetail } = useModal();
+    const { open: openLoaderForm, close: closeLoaderForm, ModalWrapper: ModalWrapperLoader } = useModal();
+    const { open: openDynamicTabsDetail, close: closeDynamicTabsDetail, ModalWrapper: ModalWrapperDynamicTabsDetail } = useModal();
+    const { open: openDynamicTabsForm, close: closeDynamicTabsForm, ModalWrapper: ModalWrapperDynamicTabs } = useModal();
 
     const history=useNavigate();
 
@@ -117,12 +121,19 @@ const Modal =()=>{
           <FormComponentDetail close={closeFormComponentDetail} />
         </ModalWrapperFormComponentDetail>
 
-        <ModalWrapperTableDetail>
-          <TableDetail close={closeTableDetail} />
-        </ModalWrapperTableDetail>
-        <ModalWrapperTable>
-          <TableForm close={closeTableForm} />
-        </ModalWrapperTable>
+        <ModalWrapperLoaderDetail>
+          {/* <LoaderDetail close={closeLoaderDetail} /> */}
+        </ModalWrapperLoaderDetail>
+        <ModalWrapperLoader>
+          {/* <LoaderForm close={closeLoaderForm} /> */}
+        </ModalWrapperLoader>
+        <ModalWrapperDynamicTabs>
+          {/* <DynamicTabsForm close={closeDynamicTabsForm} /> */}
+        </ModalWrapperDynamicTabs>
+        <ModalWrapperDynamicTabsDetail>
+          {/* <DynamicTabsDetail close={closeDynamicTabsDetail} /> */}
+        </ModalWrapperDynamicTabsDetail>
+
 
       {componentList.map((data, index) => {
         return (
@@ -220,25 +231,25 @@ const Modal =()=>{
                   Details
                 </button>
                 <button type="button" aria-label="Create button for table component" class="buttons" onClick={openTableForm}>
-                  Components
+                  Create
                 </button>
               </div>
             ) : data === "Loader"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for loader component" class="buttons" onClick={openAlertDetail}>
+                <button type="button" aria-label="Details button for loader component" class="buttons" onClick={openLoaderDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Create button for loader component" class="buttons" onClick={openAlertForm}>
-                  Components
+                <button type="button" aria-label="Create button for loader component" class="buttons" onClick={openLoaderForm}>
+                  Create
                 </button>
               </div>
             ) : data === "Dynamic Tabs"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for dynamic tabs component" class="buttons" onClick={openAlertDetail}>
+                <button type="button" aria-label="Details button for dynamic tabs component" class="buttons" onClick={openDynamicTabsDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Create button for Dynamic tabs component" class="buttons" onClick={openAlertForm}>
-                  Components
+                <button type="button" aria-label="Create button for Dynamic tabs component" class="buttons" onClick={openDynamicTabsForm}>
+                  Create
                 </button>
               </div>
             ) : (
