@@ -1,3 +1,4 @@
+@import "../../../theme/breakpoints";
 .select-modal{
     .type-field{
         margin-top: 18px;
@@ -18,6 +19,16 @@
 }
 #fileupload{
     display: none;
+}
+.close-button{
+    float:right;
+}
+.file-item{
+    display: flex;
+    justify-content: space-between;
+}
+.file-name{
+    //float: left;
 }
 .file-upload-label{
     margin:0rem  1rem 0rem 0rem;
@@ -54,3 +65,12 @@
         background-color: rgb(241, 244, 248);
     }
 }
+
+@media screen and (max-width: $bp-sm-mobile){
+    .file-name{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }
