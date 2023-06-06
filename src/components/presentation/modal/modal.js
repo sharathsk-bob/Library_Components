@@ -122,6 +122,12 @@ const Modal =()=>{
           <FormComponentDetail close={closeFormComponentDetail} />
         </ModalWrapperFormComponentDetail>
 
+        <ModalWrapperTableDetail>
+          <TableDetail close={closeTableDetail} />
+        </ModalWrapperTableDetail>
+        <ModalWrapperTable>
+          <TableForm close={closeTableForm} />
+        </ModalWrapperTable>
         <ModalWrapperLoaderDetail>
           {/* <LoaderDetail close={closeLoaderDetail} /> */}
         </ModalWrapperLoaderDetail>

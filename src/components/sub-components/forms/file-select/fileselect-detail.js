@@ -23,15 +23,15 @@ const FileSelectDetail = (props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the File Upload Section are Below:
+            Details for the File Upload section are below:
             </h1>
             <p>Please do follow the given instruction while creating the File Upload component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for label for File Upload should not be more than 15 characters</li>
-                    <li>User can select if they want to upload single or multiple option for File Upload</li>
-                    <li>User can select width of the File Upload Section</li>
-                    <li>User can select the theme of the File Upload from the dropdown</li>
+                    <li>Text for label for file upload should not be more than 15 characters.</li>
+                    <li>User can select if they want to upload single or multiple option for file upload.</li>
+                    <li>User can select width of the file upload input section.</li>
+                    <li>User can select the theme of the file upload from the dropdown.</li>
                 </ul>
             </div>
         </div>

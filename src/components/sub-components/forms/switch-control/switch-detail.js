@@ -19,14 +19,14 @@ const SwitchDetail =(props)=>{
     
           <div className="modal-container details-section">
             <h1>
-              Details for the Switch section are below.
+              Details for the Switch section are below:
             </h1>
             <p>Please do follow the given instruction while creating the Switch component.</p>
             <div className="detail-content">
               <ul>
-                <li>Switch label should not be more than 25 characters.</li>
-                <li>User can select the size of Switch control.</li>
-                <li>User can select the theme for Switch control.</li>
+                <li>Text label for switch control should not be more than 25 characters.</li>
+                <li>User can select the size of switch control.</li>
+                <li>User can select the theme for switch control.</li>
               </ul>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import closeIcon from "../../asset/images/cross-white.png";
 import FocusTrap from "focus-trap-react";
 
@@ -23,23 +23,22 @@ const FormComponentDetail = (props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Form Component Section are Below:
+            Details for the Form Component section are below:
             </h1>
             {/* <p>Please do follow the given instruction while creating the any of the Form component.</p> */}
             <p>Form Components mainly consist of: </p>
             <div className="detail-content">
                 <ul>
-                    <li>Input Text</li>
-                    <li>Text Area</li>
-                    <li>Check Boxes</li>
-                    <li>Radio Buttons</li>
-                    <li>Select</li>
-                    <li>Date Picker</li>
-                    <li>File Upload</li>
-                    <li>Switch Control</li>
-                    <li>Progress Bar</li>
-                    <li>Range</li>
-                    {/* <li>User can select the theme of the tooltip from the dropdown</li> */}
+                    <li>Input Text - to enter text.</li>
+                    <li>Text Area - to enter large text.</li>
+                    <li>Check Boxes - to make multiple choices from provided options.</li>
+                    <li>Radio Buttons - to make a single choice from multiple options.</li>
+                    <li>Select - to make multiple choices from provided options.</li>
+                    <li>Date Picker - to select date related input.</li>
+                    <li>File Upload - to select file related input.</li>
+                    <li>Switch Control - to toggle between two values.</li>
+                    <li>Progress Bar - to show progress of any activity.</li>
+                    <li>Range - to show and select a range of values.</li>
                 </ul>
             </div>
         </div>

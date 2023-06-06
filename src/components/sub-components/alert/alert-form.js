@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
-import useModal from "../../sub-components/use-modal/use-modal";
 import { FormField, Input } from "@fluentui/react-northstar";
-import AlertComponent from "./alert";
 import closeIcon from "../../asset/images/cross-white.png";
-
 
 const AlertForm =(props)=>{
 
@@ -18,7 +15,7 @@ const AlertForm =(props)=>{
     const [alertType, setAlertType] = useState();
     // const [headerIf, setHeaderIf] = useState("");
     const [alertWidth, setAlertWidth] = useState();
-    const [isBtnCheck, setBtnCheck] = useState(false);
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -60,7 +57,7 @@ const AlertForm =(props)=>{
         }
 
         if (alertWidth === undefined) { 
-            errors.alertWidth = "Please select a width for button";
+            errors.alertWidth = "Please select a width for alert";
         } else {
             inputs.Choice_Width = alertWidth;
         }
@@ -80,7 +77,6 @@ const AlertForm =(props)=>{
         setInputErrors(validerrors);
         if(Object.keys(validerrors).length === 0)
         {
-        setBtnCheck(true);
         console.log("Inputs Sent!!!", inputs);
         navigate("/alert", {state: {inputs}});
         } else {

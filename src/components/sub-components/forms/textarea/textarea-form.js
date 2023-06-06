@@ -98,7 +98,7 @@ return (
                 aria-label="Text for the Text area label Asterik-Required"
                 for="textareaLabel"
                 >
-                Text for the Label of Text Area: <span className="asterik">*</span> 
+                Text for the label of text area: <span className="asterik">*</span> 
                 <Input
                     id="textareaLabel"
                     className="text_modal__input"
@@ -115,7 +115,7 @@ return (
         </div>
 
         <div className="input-field-container logo-field">
-            <p>Would you like to have Border Radius for Text Area? <span className="asterik">*</span></p>
+            <p>Would you like to have border radius for text area? <span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" aria-label="Select Yes for Border radius value">
