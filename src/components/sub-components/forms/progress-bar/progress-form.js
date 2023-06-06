@@ -105,7 +105,7 @@ function ProgressForm(props) {
     <div className="modal-container card-section">
       <form onSubmit={handleSubmit}>
         <div className='progress-fields'>
-          <label htmlFor="label">Progress Bar Label (25 characters max):</label><br />
+          <label htmlFor="label">Progress Bar Label (25 characters max):<span className="asterik">*</span></label><br />
           <input
             type="text"
             id="label"
@@ -119,7 +119,7 @@ function ProgressForm(props) {
         </div>
 
         <div className='progress-fields'>
-          <label htmlFor="percentage">Percentage (1-100):</label><br />
+          <label htmlFor="percentage">Percentage (1-100):<span className="asterik">*</span></label><br />
           <input
             type="number"
             id="percentage"
@@ -134,7 +134,7 @@ function ProgressForm(props) {
         </div>
 
         <div className='progress-fields'>
-          <label htmlFor="theme">Theme:</label><br />
+          <label htmlFor="theme">Theme:<span className="asterik">*</span></label><br />
           <select
             id="theme"
             name="theme"
@@ -151,7 +151,7 @@ function ProgressForm(props) {
           {errors.theme && <span className="error-message">{errors.theme}</span>}
         </div>
         <div className='progress-fields'>
-        <label for="size">Size:</label><br/>
+        <label for="size">Size:<span className="asterik">*</span></label><br/>
     <select id="size" name="size" value={size}
             onChange={handleInputChange}
             required>

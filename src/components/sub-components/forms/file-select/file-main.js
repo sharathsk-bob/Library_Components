@@ -54,7 +54,7 @@ function FileMains(props) {
           <p>Selected files:</p>
               {fileNames.map((file, index) => (
                 <div key={index} className="file-item">
-                  <span>{file.name}</span>
+                  <span className="file-name">{file.name}</span>
                   <button className="close-button" aria-label="Close" onClick={() => closeFile(index)}>
                     <img src={closeIcon} alt="Close" />
                   </button>

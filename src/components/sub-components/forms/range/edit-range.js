@@ -103,7 +103,7 @@ const EditRangeForm = (props) => {
         <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
       <div className='range-fields'>
-        <label>Input Label (25 characters max):</label>
+        <label>Input Label (25 characters max):<span className="asterik">*</span></label>
         <input
           type="text"
           name='inputLabel'
@@ -114,7 +114,7 @@ const EditRangeForm = (props) => {
         {errors.inputLabel && <span className="error-message">{errors.inputLabel}</span>}
       </div>
       <div className='range-fields'>
-        <label>Min Value:</label>
+        <label>Min Value:<span className="asterik">*</span></label>
         <input
           type="number"
           name="minValue"
@@ -124,7 +124,7 @@ const EditRangeForm = (props) => {
         {errors.minValue && <span className="error-message">{errors.minValue}</span>}
       </div>
       <div className='range-fields'>
-        <label>Max Value:</label>
+        <label>Max Value:<span className="asterik">*</span></label>
         <input
           type="number"
           name="maxValue"
@@ -134,7 +134,7 @@ const EditRangeForm = (props) => {
         {errors.maxValue && <span className="error-message">{errors.maxValue}</span>}
       </div>
       <div className='range-fields'>
-        <label>Theme:</label>
+        <label>Theme:<span className="asterik">*</span></label>
         <select value={formValues.theme} name="theme" onChange={handleChange}>
           <option value="">Select Theme</option>
           <option value="light">Light</option>
@@ -145,7 +145,7 @@ const EditRangeForm = (props) => {
         {errors.theme && <span className="error-message">{errors.theme}</span>}
       </div>
       <div className='range-fields'>
-        <label>Size:</label>
+        <label>Size:<span className="asterik">*</span></label>
         <select value={formValues.size} name="size" onChange={handleChange}>
           <option value="">Select Size</option>
           <option value="25%">25%</option>
