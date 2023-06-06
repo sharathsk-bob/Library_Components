@@ -112,23 +112,19 @@
             margin-bottom: 0px !important;
             button {
                 margin-right: 14px;
-        
-        padding: 0.5rem;
-        
-        font-weight: bold;
-        background-color:  var(--color-capgemini-blue);
-        border-color:  var(--color-capgemini-blue);
-        color:  var(--color-white);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        
+                padding: 0.35rem 0.5rem;   
+                font-weight: bold;
+                background-color:  var(--color-capgemini-blue);
+                border-color:  var(--color-capgemini-blue);
+                color:  var(--color-white);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer; 
             }
            .link-button{
                 margin-right: 14px;
-        text-decoration: none;
-                padding: 0.5rem;
-                
+                text-decoration: none;
+                padding: 0.5rem;   
                 font-weight: bold;
                 background-color:  var(--color-capgemini-blue);
                 border-color:  var(--color-capgemini-blue);
