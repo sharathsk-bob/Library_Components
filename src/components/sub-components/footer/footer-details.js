@@ -22,14 +22,14 @@ const FooterDetail =(props)=>{
         </div>
         <div className="modal-container details-section">
           <h1>
-            Details for the Footer section are below.
+            Details for the Footer section are below:
           </h1>
-          <p>Please do follow the given instruction while creating the footer component</p>
+          <p>Please do follow the given instruction while creating the Footer component.</p>
           <div className="detail-content">
             <ul>
               <li>Footer text should be less than 25 characters.</li>
-              <li>User can select the social icons </li>
-              <li>User can select the theme of the footer section</li>
+              <li>User can select the social icons he/she wishes to add.</li>
+              <li>User can select the theme of the footer section.</li>
             </ul>
           </div>
         </div>

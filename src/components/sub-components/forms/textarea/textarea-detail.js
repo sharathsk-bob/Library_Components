@@ -23,13 +23,13 @@ const TextAreaDetail = (props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Text Area Section are Below:
+            Details for the Text Area section are below:
             </h1>
             <p>Please do follow the given instruction while creating the Text Area component.</p>
             <div className="detail-content">
                 <ul>
                     <li>User can provide label text with maximum 15 characters.</li> 
-                    <li>User can select the type of text area from the dropdown.</li>
+                    <li>User can choose if border radius is to be applied to textarea.</li>
                     <li>User can select the box size of text area.</li>
                     <li>User can select the theme for the text area.</li>
                 </ul>

@@ -23,15 +23,15 @@ const RangeDetail = (props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Range Section are Below:
+            Details for the Range section are below:
             </h1>
             <p>Please do follow the given instruction while creating the Range component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Text for label for Range should not be more than 15 characters</li>
-                    <li>User can specify minimum and maximum values for Range</li>
-                    <li>User can select width of the Range Section</li>
-                    <li>User can select the theme of the Range from the dropdown</li>
+                    <li>Text for label of range should not be more than 15 characters.</li>
+                    <li>User can specify minimum and maximum values for range.</li>
+                    <li>User can select width of the range section.</li>
+                    <li>User can select the theme of the range from the dropdown.</li>
                 </ul>
             </div>
         </div>

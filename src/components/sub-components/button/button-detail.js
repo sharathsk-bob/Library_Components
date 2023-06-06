@@ -25,18 +25,17 @@ const ButtonDetail =(props)=>{
         
             <div className="modal-container details-section">
                 <h1>
-                Details for the Button Section are Below:
+                Details for the Button section are below:
                 </h1>
                 <p>Please do follow the given instruction while creating the Button component.</p>
                 <div className="detail-content">
                     <ul>
-                        <li>Text for button should not be more than 15 characters</li>
-                        <li>User can select if he/she want to add Border Radius or not and enter its value in pixels</li>
-                        <li>Border Width in pixels</li>
-                        <li>User can select the size of the button from the dropdown (padding both sides)</li>
-                        <li>User can select if he/she want to add a Box shadow</li>
-                        <li>User can select the width of the button in the screen</li>
-                        <li>User can select the theme of the button from the dropdown</li>
+                        <li>Text for button should not be more than 15 characters.</li>
+                        <li>User can select if he/she want to add border radius or not and enter its value in pixels.</li>
+                        <li>User can enter border width in pixels.</li>
+                        <li>User can choose if he/she wants to add a box shadow to button.</li>
+                        <li>User can select the width of the button in the screen.</li>
+                        <li>User can select the theme of the button from the dropdown.</li>
                     </ul>
                 </div>
             </div>

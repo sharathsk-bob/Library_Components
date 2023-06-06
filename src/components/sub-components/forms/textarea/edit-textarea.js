@@ -87,8 +87,8 @@ const EditTextAreaModal = (props)=>{
         <div className="modal_wapper">
             <div className="modal-content form-modalcontainer">
                 <div className="form-header">
-                <p>Date Picker</p>
-                    <button className="close-button" aria-label="close edit date picker modal" onClick={close}>
+                <p>Text Area</p>
+                    <button className="close-button" aria-label="close edit text area modal" onClick={close}>
                         <img src={closeIcon}></img>
                     </button>
                 </div>
@@ -102,7 +102,7 @@ const EditTextAreaModal = (props)=>{
                     aria-label="Text for the Text Area label Asterik-Required"
                     for="textareaLabel"
                     >
-                    Text for the Label of Text Area: <span className="asterik">*</span> 
+                    Text for the label of text area: <span className="asterik">*</span> 
                     </label>
                     <Input
                         id="textareaLabel"
@@ -119,7 +119,7 @@ const EditTextAreaModal = (props)=>{
             </div>
 
             <div className="input-field-container logo-field">
-            <p>Would you like to have Border Radius for Text Area?<span className="asterik">*</span></p>
+            <p>Would you like to have border radius for text area?<span className="asterik">*</span></p>
             <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" htmlFor="Choice_BorderRadiusyes" aria-label="Select Yes forBorder radius value">
@@ -161,7 +161,7 @@ const EditTextAreaModal = (props)=>{
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
                     <label for="Choice_textboxWidth" aria-label="Edit text area width value Asterik-Required"> 
-                    <p>Please select width of the Text Area: <span className="asterik">*</span> </p>
+                    <p>Please select width of the text area: <span className="asterik">*</span> </p>
                     </label>
                         <select name="Choice_textboxWidth" id="Choice_textboxWidth"  value={inputs.Choice_textboxWidth} onChange={handleChange}>
                             <option value="">--</option>         
