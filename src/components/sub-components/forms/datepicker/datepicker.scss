@@ -7,7 +7,7 @@
     margin-bottom: 14em;
     // text-align: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: $bp-mobile) {
         font-size:12px;
     }
     .react-datepicker__input-container {
@@ -94,7 +94,7 @@
     border-radius: 0.3em;
     display: inline-block;
     position: relative;
-    left: 40em;
+    left: 48em;
     top: 1em;
     @media screen and (max-width: $bp-xs-mobile){
         left: 8em;
