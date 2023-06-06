@@ -1,3 +1,5 @@
+@import "../../../theme/breakpoints.scss";
+
 .Light{
    // --bs-progress-bar-bg:#f1f4f8 !important;    
 }
@@ -8,14 +10,14 @@
   font-size: 20px;
 }
 .dark{
-    --bs-progress-bar-bg:black !important;
+    --bs-progress-bar-bg: var(--color-black) !important;
 }
 .cg1blue{
     --bs-progress-bar-bg: var(--color-capgemini-blue) !important;
     background-color: #e9ecef !important;
 }
 .cg2purple{
-    --bs-progress-bar-bg:#2b0a3d !important;
+    --bs-progress-bar-bg: var(--color-purple-wbh) !important;
     background-color: #e9ecef !important;
 }
 .progressbar-output{
@@ -32,10 +34,13 @@
 }
 .progress-quaterwidth{
     width: 25% !important;
+    @media (max-width: $bp-sm-mobile) {
+      width: 100% !important;
+    }
 }
 .progress{
     --bs-progress-height: 2rem !important;
-    border: 2px solid black;
+    border: 2px solid var(--color-black);
 }
 .demo-preview {
     padding-top: 100px;
