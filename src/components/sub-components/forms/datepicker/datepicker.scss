@@ -369,7 +369,7 @@
           @media screen and (min-width: 300px) and (max-width: $bp-mobile){
             .react-datepicker__input-container {
                 .form-control{
-                    font-size: 0.7 rem!important;
+                    font-size: 0.7rem!important;
                 }
                 button{
                     top: 32px !important;
@@ -378,3 +378,13 @@
             }
            
               }
+
+
+              @media screen and (max-width: $bp-mobile){
+               .DatePicker-Content{
+                .date-picker-container{
+                    width: 100%;
+                }
+               }
+               
+                  }

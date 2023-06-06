@@ -29,7 +29,7 @@ const CardDetail =(props)=>{
           <div className="detail-content">
             <ul>
               <li>Card title sholud not be more than 10 characters.</li>
-              <li>Card description should not be more than 200 words.</li>
+              <li>Card description should not be more than 100 words.</li>
               <li>User can select if he/she want to add a button</li>
               <li>If User select to add a Button then he can choose max upto two buttons and their respective text</li>
               <li>User can select if he/she want to add a Image</li>

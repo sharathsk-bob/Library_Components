@@ -188,3 +188,16 @@ label {
         }
        
     }
+
+    @media screen and (max-width:$bp-xs-mobile){
+       .headerModal{
+        .button-section{
+            .update-button{
+                margin-top: 54px!important;
+            }
+        }
+       }
+           
+        }
+
+    

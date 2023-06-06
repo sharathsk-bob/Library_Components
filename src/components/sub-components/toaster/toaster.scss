@@ -193,3 +193,22 @@
     }
 
 }
+
+
+
+@media screen and (max-width: $bp-xs-mobile){
+    .toaster-main{
+        right: 0px;
+        width: 100%;
+        .toast{
+            .toast-header {
+                .toast-text{
+                    .me-auto{
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
