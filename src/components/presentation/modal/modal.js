@@ -18,6 +18,8 @@ import FooterDetail from "../../sub-components/footer/footer-details";
 import ToasterForm from "../../sub-components/toaster/toaster-form";
 import ToasterDetail from "../../sub-components/toaster/toaster-detail";
 import FormComponentDetail from "../../sub-components/forms/formcomponent-detail";
+import TableDetail from "../../sub-components/table/table-detail";
+import TableForm from "../../sub-components/table/table-form";
 import "../../sub-components/use-modal/use-modal.scss";
 import "./modal.scss";
 
@@ -40,6 +42,12 @@ const Modal =()=>{
     const { open: openAlertForm, close: closeAlertForm, ModalWrapper: ModalWrapperAlert } = useModal();
     const { open: openFormComponentDetail, close: closeFormComponentDetail, ModalWrapper: ModalWrapperFormComponentDetail } = useModal();
     const { open: openFormComp, close: closeFormComp, ModalWrapper: ModalWrapperForm } = useModal();
+    const { open: openTableDetail, close: closeTableDetail, ModalWrapper: ModalWrapperTableDetail } = useModal();
+    const { open: openTableForm, close: closeTableForm, ModalWrapper: ModalWrapperTable } = useModal();
+    const { open: openLoaderDetail, close: closeLoaderDetail, ModalWrapper: ModalWrapperLoaderDetail } = useModal();
+    const { open: openLoaderForm, close: closeLoaderForm, ModalWrapper: ModalWrapperLoader } = useModal();
+    const { open: openDynamicTabsDetail, close: closeDynamicTabsDetail, ModalWrapper: ModalWrapperDynamicTabsDetail } = useModal();
+    const { open: openDynamicTabsForm, close: closeDynamicTabsForm, ModalWrapper: ModalWrapperDynamicTabs } = useModal();
 
     const history=useNavigate();
 
@@ -53,6 +61,9 @@ const Modal =()=>{
       "Alert",
       "Toaster",
       "Forms",
+      "Table",
+      "Loader",
+      "Dynamic Tabs"
     ];
   return(
     <>
@@ -109,6 +120,20 @@ const Modal =()=>{
         <ModalWrapperFormComponentDetail>
           <FormComponentDetail close={closeFormComponentDetail} />
         </ModalWrapperFormComponentDetail>
+
+        <ModalWrapperLoaderDetail>
+          {/* <LoaderDetail close={closeLoaderDetail} /> */}
+        </ModalWrapperLoaderDetail>
+        <ModalWrapperLoader>
+          {/* <LoaderForm close={closeLoaderForm} /> */}
+        </ModalWrapperLoader>
+        <ModalWrapperDynamicTabs>
+          {/* <DynamicTabsForm close={closeDynamicTabsForm} /> */}
+        </ModalWrapperDynamicTabs>
+        <ModalWrapperDynamicTabsDetail>
+          {/* <DynamicTabsDetail close={closeDynamicTabsDetail} /> */}
+        </ModalWrapperDynamicTabsDetail>
+
 
       {componentList.map((data, index) => {
         return (
@@ -198,6 +223,33 @@ const Modal =()=>{
                 </button>
                 <button type="button" aria-label="View components button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
                   Components
+                </button>
+              </div>
+            ) : data === "Table"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for table component" class="buttons" onClick={openTableDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for table component" class="buttons" onClick={openTableForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Loader"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for loader component" class="buttons" onClick={openLoaderDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for loader component" class="buttons" onClick={openLoaderForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Dynamic Tabs"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for dynamic tabs component" class="buttons" onClick={openDynamicTabsDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for Dynamic tabs component" class="buttons" onClick={openDynamicTabsForm}>
+                  Create
                 </button>
               </div>
             ) : (
