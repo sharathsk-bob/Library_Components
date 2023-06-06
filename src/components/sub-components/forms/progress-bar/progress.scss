@@ -172,4 +172,14 @@
   .progress-bar-danger {
      @include progress-bar-variant($brand-danger);
   }
-  
+  @media screen and (max-width: $bp-sm-mobile){
+    .progress-threefourthwidth{
+      width: 100% !important;
+  }
+  .progress-halfwidth{
+      width: 100% !important;
+  }
+  .progress-quaterwidth{
+      width: 100% !important;
+  }
+  }

@@ -15,17 +15,25 @@
 .slect-output{
     margin: 20px;
     .dp-normal{
-        border-color: black !important
+        border: 2px solid white !important; 
     }
 
 #multiselectContainerReact{
     .searchWrapper{
-        border: none !important; 
+        border: 2px solid white !important; 
     width: 100% !important;
     }
 }
 }
-
+.select-quaterwidth{
+    .multiselect-container {
+       .search-wrapper{
+        .searchBox {
+            width: 80%;
+        }
+       } 
+    }
+}
 @media screen and (max-width: 300px){
    .slect-output{
       label{
@@ -63,3 +71,14 @@
         }
     
     }
+    @media screen and (max-width: $bp-mobile){
+      .slect-output{
+        .form-select {
+            width: 100%!important;
+        }
+
+        .multi-select{
+            width: 100%!important;
+        }
+      }
+         }

@@ -8,7 +8,7 @@ function TextArea(props) {
     console.log(TextAreaProps, "valuessssssss");
 
     return (
-    <div className= "input-output ">
+    <div className= "input-output text-output ">
         <div className= {`form-floating `}>
         <textarea
             className= {`form-control form-control-lg textarea-input 

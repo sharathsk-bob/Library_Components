@@ -1,113 +1,70 @@
 import React, { useState } from "react";
-
 import closeIcon from "../../../asset/images/cross-icon.png";
+
 function FileMains(props) {
-  const [ theInputKey, SetInputKey ] = useState("1");
-  const [listName, setListName] = useState();
-    const { fileVals }=props;
-    const closefile = ()=> {
-      const array = new Uint32Array(10);
-      let randomString = window.crypto.getRandomValues(array);
-        SetInputKey(randomString);
-        var output = document.getElementById('fileList');
-        if(output){
-          output.innerHTML='';
-          setListName();
-        }
-    };
-    let fileNames=[];
-    let filename =[];
-  const handleChange=(event)=>{
-  // console.log(event.target.files, "eventtt");
-  // let filehold = [];
- 
-  
-   fileNames.push(event.target.files);
-   setListName(event.target.files);
-  // console.log(fileNames, "namesss");
-  // fileNames.forEach(element => {
-    console.log(listName, "element");
- 
-    
-  // });
-//   fileNames.forEach(function(item) {
-//     Object.keys(item).forEach(function(key) {
-//       // console.log("key:" + key + "value:" + item[key]); 
-//       filehold.push(item[key])  ;
-//       // setListName(item);
-//       // console.log(listName, "holdsss");
-//       // console.log(filehold, "holdsss");
-   
+  const [theInputKey, setInputKey] = useState("1");
+  const [fileNames, setFileNames] = useState([]);
 
-//     });
-//   });
-//   filehold.forEach(function(items) {
-//     // console.log(items.name, "valuesss")
-//    filename.push(items.name);
-// // setListName(filename);
-
-//    console.log(filename, "nameee");
-//   });
-
+  const closeFile = (index) => {
+    const updatedFileNames = [...fileNames];
+    updatedFileNames.splice(index, 1);
+    setFileNames(updatedFileNames);
   };
-    // console.log(fileVals, "valuesssssssvvs");
-    // console.log(filename,listName, "nameee");
-  //  const buttonFunction =() =>{
-  //   filename.forEach(function(item) {
-  //     console.log(item, "list");
-  //     return(
-  //       <div>hello</div>
-  //     );
-  //   })
-    
-  //  };
-  const updateList = ()=> {
-    var input = document.getElementById('fileupload');
-    var output = document.getElementById('fileList');
-    var children = "";
-    for (var i = 0; i < input.files.length; ++i) {
-        children += '<li>' + input.files.item(i).name + '</li>';
-    }
-    output.innerHTML = '<ul>'+children+'</ul>';
-    setListName(output);
-}
-  return (
-   <div className= "input-output file-output ">
-    <div className= "file-conatiner ">
-        <p className="file-label">{fileVals.selectlabelValue}</p>
-  <div  className= {`file-upload ${fileVals?.themeValue == "Dark"?"file-Dark":fileVals?.themeValue == "cg1"?"file-Cg1":fileVals?.themeValue == "cg2"?"file-Cg2":fileVals?.themeValue == "Normal"?"file-Normal":"" }
-   ${fileVals?.selectsizeValue== "100%"?"full-width":fileVals?.selectsizeValue == "75%"?"width-option":fileVals?.selectsizeValue == "50%"?"halfwidth":fileVals?.selectsizeValue == "25%"?"one-fourth":"" }`}>
-                            <label class="file-upload-label" for="fileupload" id="buttonlabel">
-                               
-                            
-                             
-                       {fileVals.typeValue ==="Single"?<input type="file" id="fileupload" key = {theInputKey || ""} onChange={handleChange}/>:<><input type="file" id="fileupload" key = {theInputKey || ""} multiple="multiple" onChange={updateList}/><p>Selected files:</p>
 
-<div id="fileList"></div></>
-}       
-                              </label>
-                           { listName?  <button
-                className="close-button"
-                aria-label="Close"
-                onClick={closefile}
-              >
-                <img src={closeIcon}></img>
-              </button>: ""} 
-                            </div>
-                           
-                           <div className="list-box">
-                           {filename.map((element) => {
-									
-									return (
-										<div> {element}</div>
-										
-									);
-								})}
-                {/* {buttonFunction()} */}
-                           </div>
-                            </div>
-</div>
-  )
+  const handleChange = (event) => {
+    const selectedFiles = Array.from(event.target.files);
+    setFileNames(selectedFiles);
+    setInputKey(Date.now().toString());
+  };
+  // const handleLabelClick = (e) => {
+  //   e.preventDefault();
+  // };
+  return (
+    <div className="input-output file-output">
+      <div className="file-conatiner">
+        <p className="file-label">{props.fileVals.selectlabelValue}</p>
+        <div
+          className={`file-upload ${
+            props.fileVals?.themeValue === "Dark"
+              ? "file-Dark"
+              : props.fileVals?.themeValue === "cg1"
+              ? "file-Cg1"
+              : props.fileVals?.themeValue === "cg2"
+              ? "file-Cg2"
+              : props.fileVals?.themeValue === "Normal"
+              ? "file-Normal"
+              : ""
+          } ${
+            props.fileVals?.selectsizeValue === "100%"
+              ? "full-width"
+              : props.fileVals?.selectsizeValue === "75%"
+              ? "width-option"
+              : props.fileVals?.selectsizeValue === "50%"
+              ? "halfwidth"
+              : props.fileVals?.selectsizeValue === "25%"
+              ? "one-fourth"
+              : ""
+          }`}
+        >
+          <label className="file-upload-label" htmlFor="fileupload" id="buttonlabel">
+            <input type="file" id="fileupload" key={theInputKey || ""} multiple={props.fileVals.typeValue === "Multiple"} onChange={handleChange} />
+            <p>Upload File</p>
+          </label>
+          <div id="fileList">
+          <p>Selected files:</p>
+              {fileNames.map((file, index) => (
+                <div key={index} className="file-item">
+                  <span className="file-name">{file.name}</span>
+                  <button className="close-button" aria-label="Close" onClick={() => closeFile(index)}>
+                    <img src={closeIcon} alt="Close" />
+                  </button>
+                </div>
+              ))}
+            </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default FileMains;

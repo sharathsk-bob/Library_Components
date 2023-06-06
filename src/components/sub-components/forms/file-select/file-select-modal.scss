@@ -1,3 +1,4 @@
+@import "../../../theme/breakpoints";
 .select-modal{
     .type-field{
         margin-top: 18px;
@@ -16,8 +17,33 @@
         margin-top: 4px!important;
     }
 }
-
-
+#fileupload{
+    display: none;
+}
+.close-button{
+    float:right;
+}
+.file-item{
+    display: flex;
+    justify-content: space-between;
+}
+.file-name{
+    //float: left;
+}
+.file-upload-label{
+    margin:0rem  1rem 0rem 0rem;
+      padding: 0.5rem 0.5rem;
+      font-weight: bold;
+      background-color: #0070AD;
+      border-color: #0070AD;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      p{
+        margin: 0px;
+      }
+}
 .file-output{
    
     .file-upload{
@@ -39,3 +65,12 @@
         background-color: rgb(241, 244, 248);
     }
 }
+
+@media screen and (max-width: $bp-sm-mobile){
+    .file-name{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }

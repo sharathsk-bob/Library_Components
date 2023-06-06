@@ -130,7 +130,7 @@ const InputModal =(props)=>{
                       aria-label="Select button width value Asterik-Required"
                     >
                       <p>
-                        Please select the size of the text box:{" "}
+                        Please select the size of the input box:{" "}
                         <span className="asterik">*</span>{" "}
                       </p>
                     </label>

@@ -141,7 +141,7 @@ const SelectForm = (props) => {
     <div className="modal-container card-section">
     <form onSubmit={handleSubmit} className="form">
     <div className='range-fields'>
-      <label>Label:</label>
+      <label>Label:<span className="asterik">*</span></label>
         <input
           type="text"
           value={label}
@@ -152,7 +152,7 @@ const SelectForm = (props) => {
         {errors.label && <span className="error-message">{errors.label}</span>}
       </div>
       <div className='range-fields'>
-      <label>Number of Options (1-5):</label>
+      <label>Number of Options (1-5):<span className="asterik">*</span></label>
         <input
           type="number"
           min={1}
@@ -165,7 +165,7 @@ const SelectForm = (props) => {
       </div>
         {renderOptionTextInputs()}
       <div className='range-fields'>
-      <label>Input Type:</label>
+      <label>Input Type:<span className="asterik">*</span></label>
         <select value={inputType} onChange={(e) => setInputType(e.target.value)}>
           {/* <option value="">Select</option> */}
           <option value="select">Single Select</option>
@@ -174,7 +174,7 @@ const SelectForm = (props) => {
         {errors.inputType && <span className="error-message">{errors.inputType}</span>}
       </div>
     <div className='range-fields'>
-        <label>Size:</label>
+        <label>Size:<span className="asterik">*</span></label>
         <select value={boxSize} onChange={(e) => setBoxSize(e.target.value)}>
           <option value="">Select Size</option>
           <option value="25%">25%</option>
@@ -185,7 +185,7 @@ const SelectForm = (props) => {
         {errors.boxSize && <span className="error-message">{errors.boxSize}</span>}
       </div>
     <div className='range-fields'>
-      <label> Theme: </label>
+      <label> Theme: <span className="asterik">*</span></label>
         <select value={theme} onChange={(e) => setTheme(e.target.value)}>
           <option value="select-light">Light</option>
           <option value="select-dark">Dark</option>

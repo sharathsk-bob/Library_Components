@@ -1,3 +1,6 @@
+@import "../../../theme/breakpoints.scss";
+
+
 .input-output{
     margin: 20px;
 }
@@ -71,3 +74,16 @@
 .textarea-input{
     min-height: 150px!important;
 }
+
+
+
+@media screen and (max-width: $bp-mobile){
+    .text-output  {
+     .form-floating{
+        .form-control{
+            width: 100%;
+        }
+         
+     }
+    }
+     }
