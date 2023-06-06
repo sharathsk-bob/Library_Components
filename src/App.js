@@ -24,6 +24,7 @@ import RangeComponent from './components/sub-components/forms/range/range';
 import SelectComponent from './components/sub-components/forms/select/select';
 import FileComponent from "./components/sub-components/forms/file-select/file-select";
 import './index.scss';
+import DynamicTabs from './components/sub-components/dynamic tabs/dynamic-tabs';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route exact path="/formcomponents/select"element ={<SelectComponent/>} ></Route>
           <Route exact path="/formcomponents/file"element ={<FileComponent/>} ></Route>
           {/* <Route exact path="/table"element ={<Table/>} ></Route> */}
+          <Route exact path="/dynamictabs"element ={<DynamicTabs/>} ></Route>
           </Routes>
         </AppProvider> 
     </div>
