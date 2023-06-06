@@ -6,7 +6,6 @@ import ButtonComponent from "../src/components/sub-components/button/button";
 import TooltipComponent from './components/sub-components/tooltip/tooltip';
 import { AppProvider } from './components/sub-components/app-context';
 import Cards from "./components/sub-components/cards/cards";
-import './index.scss';
 import Navbar from './components/sub-components/navbar/navbar';
 import CardHtml from './components/sub-components/cards/card-html';
 import CardHeader from './components/sub-components/cards/card-header';
@@ -21,11 +20,10 @@ import DatePickerComponent from './components/sub-components/forms/datepicker/da
 import CheckBoxComponent from './components/sub-components/forms/checkbox/checkbox';
 import ProgressBar from './components/sub-components/forms/progress-bar/progress';
 import SwitchControl from './components/sub-components/forms/switch-control/switch-control';
-import Range from './components/sub-components/forms/range/range';
 import RangeComponent from './components/sub-components/forms/range/range';
-import Select from './components/sub-components/forms/select/select';
 import SelectComponent from './components/sub-components/forms/select/select';
 import FileComponent from "./components/sub-components/forms/file-select/file-select";
+import './index.scss';
 
 function App() {
   return (
@@ -35,17 +33,17 @@ function App() {
           <Routes>
             
           <Route exact path="/"element ={<Presentation/>} ></Route>
-          <Route exact path="header"element ={<HeaderComponent/>} ></Route>
-          <Route exact path="cards"element ={<Cards/>} ></Route>
+          <Route exact path="/header"element ={<HeaderComponent/>} ></Route>
+          <Route exact path="/cards"element ={<Cards/>} ></Route>
           <Route path="/button" element ={<ButtonComponent/>} ></Route>
           <Route path="/tooltip" element ={<TooltipComponent/>} ></Route>
           <Route path="/alert" element ={<AlertComponent/>} ></Route>
-          <Route exact path="navbar"element ={<Navbar/>} ></Route>
+          <Route exact path="/navbar"element ={<Navbar/>} ></Route>
           <Route exact path="cardhtml"element ={<CardHtml/>} ></Route>
           <Route exact path="/cardheader"element ={<CardHeader/>} ></Route>
-          <Route exact path="navbarheader"element ={<NavbarHeader/>} ></Route>
-          <Route exact path="footer"element ={<FooterComponent/>} ></Route>
-          <Route exact path="toaster"element ={<Toaster/>} ></Route>
+          <Route exact path="/navbarheader"element ={<NavbarHeader/>} ></Route>
+          <Route exact path="/footer"element ={<FooterComponent/>} ></Route>
+          <Route exact path="/toaster"element ={<Toaster/>} ></Route>
           <Route exact path="/formcomponents"element ={<FormPresentation/>} ></Route>
           <Route exact path="formcomponents/inputText"element ={<InputComponent/>} ></Route>
           <Route exact path="/formcomponents/textarea" element={<TextAreaComponent/>}></Route>
@@ -56,6 +54,7 @@ function App() {
           <Route exact path="/formcomponents/range"element ={<RangeComponent/>} ></Route>
           <Route exact path="/formcomponents/select"element ={<SelectComponent/>} ></Route>
           <Route exact path="/formcomponents/file"element ={<FileComponent/>} ></Route>
+          {/* <Route exact path="/table"element ={<Table/>} ></Route> */}
           </Routes>
         </AppProvider> 
     </div>
