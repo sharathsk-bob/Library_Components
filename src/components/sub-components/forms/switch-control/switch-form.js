@@ -81,7 +81,7 @@ const SwitchForm = (props) => {
     <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
       <div className='switch-fields'>
-        <label>Switch Control Label:</label>
+        <label>Switch Control Label:<span className="asterik">*</span></label>
         <input
           type="text"
           name="label"
@@ -91,7 +91,7 @@ const SwitchForm = (props) => {
         {errors.label && <span className='error-message'>{errors.label}</span>}
       </div>
       <div className='switch-fields'>
-        <label>Theme:</label>
+        <label>Theme:<span className="asterik">*</span></label>
         <select name="theme" value={theme} onChange={handleInputChange}>
         <option value="">Select</option>
           <option value="light">Light</option>
@@ -102,7 +102,7 @@ const SwitchForm = (props) => {
         {errors.theme && <span className='error-message'>{errors.theme}</span>}
       </div>
       <div className='switch-fields'>
-        <label>Size:</label>
+        <label>Size:<span className="asterik">*</span></label>
         <select name="size" value={size} onChange={handleInputChange}>
             <option value="">Select</option>
           <option value="small">Small</option>

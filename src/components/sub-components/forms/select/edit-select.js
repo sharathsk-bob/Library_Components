@@ -149,7 +149,7 @@ const EditSelect = (props) => {
     <div className="modal-container card-section">
     <form onSubmit={handleSubmit} className="form">
     <div className='range-fields'>
-      <label>Label:</label>
+      <label>Label:<span className="asterik">*</span></label>
         <input
           type="text"
           name='label'
@@ -161,7 +161,7 @@ const EditSelect = (props) => {
         {errors.label && <span className="error-message">{errors.label}</span>}
       </div>
       <div className='range-fields'>
-      <label>Number of Options (1-5):</label>
+      <label>Number of Options (1-5):<span className="asterik">*</span></label>
         <input
           type="number"
           name="numOptions"
@@ -175,7 +175,7 @@ const EditSelect = (props) => {
       </div>
         {renderOptionTextInputs()}
       <div className='range-fields'>
-      <label>Input Type:</label>
+      <label>Input Type:<span className="asterik">*</span></label>
         <select name='inputType' value={formValues.inputType} onChange={handleChange}>
           {/* <option value="">Select</option> */}
           <option value="select">Single Select</option>
@@ -184,7 +184,7 @@ const EditSelect = (props) => {
         {errors.inputType && <span className="error-message">{errors.inputType}</span>}
       </div>
       <div className='range-fields'>
-        <label>Size:</label>
+        <label>Size:<span className="asterik">*</span></label>
         <select name="boxSize" value={formValues.boxSize} onChange={handleChange}>
           <option value="">Select Size</option>
           <option value="25%">25%</option>
@@ -195,7 +195,7 @@ const EditSelect = (props) => {
         {errors.boxSize && <span className="error-message">{errors.boxSize}</span>}
       </div>
     <div className='range-fields'>
-      <label> Theme: </label>
+      <label> Theme: <span className="asterik">*</span></label>
         <select name='theme' value={formValues.theme} onChange={handleChange}>
         <option value="select-light">Light</option>
           <option value="select-dark">Dark</option>
