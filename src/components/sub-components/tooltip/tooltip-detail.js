@@ -23,15 +23,15 @@ const TooltipDetail = (props)=>{
         
                 <div className="modal-container details-section">
                     <h1>
-                    Details for the Tooltip Section are Below:
+                    Details for the Tooltip section are below:
                     </h1>
                     <p>Please do follow the given instruction while creating the Tooltip component.</p>
                     <div className="detail-content">
                         <ul>
-                            <li>Text for Tooltip Icon should not be more than 15 characters</li>
-                            <li>Text for Tooltip Text on hover should not be more than 25 characters</li>
-                            <li>User can select among 8 primary directions to display the tooltip</li>
-                            <li>User can select the theme of the tooltip from the dropdown</li>
+                            <li>User can enter text for tooltip icon which should not be more than 15 characters.</li>
+                            <li>User can enter text for tooltip text which displays on hover having a limit of 25 characters.</li>
+                            <li>User can select among 8 primary directions to display the tooltip.</li>
+                            <li>User can select the theme of the tooltip from the dropdown.</li>
                         </ul>
                     </div>
                 </div>

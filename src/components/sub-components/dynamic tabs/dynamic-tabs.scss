@@ -1,0 +1,20 @@
+// .nav-item{
+  
+//     margin: 10px;
+//   }
+  .nav-pills .nav-item .nav-link{
+    background: transparent;
+    border: 1px solid #0070ad;
+    color: black;
+  }
+  .nav-pills .nav-item .nav-link.active{
+    background-color: #0070ad;
+    color: white;
+    border: 2px solid black;
+  
+  }
+  .nav-pills .nav-item .nav-link:hover{
+    background-color: #0070ad;
+    color: white;
+  
+  }

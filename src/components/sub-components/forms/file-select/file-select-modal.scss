@@ -16,8 +16,23 @@
         margin-top: 4px!important;
     }
 }
-
-
+#fileupload{
+    display: none;
+}
+.file-upload-label{
+    margin:0rem  1rem 0rem 0rem;
+      padding: 0.5rem 0.5rem;
+      font-weight: bold;
+      background-color: #0070AD;
+      border-color: #0070AD;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      p{
+        margin: 0px;
+      }
+}
 .file-output{
    
     .file-upload{

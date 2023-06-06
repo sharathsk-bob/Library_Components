@@ -18,17 +18,16 @@ const ToasterDetail =(props)=>{
           </div>
           <div className="modal-container details-section">
             <h1>
-              Details for the Toaster section are below.
+              Details for the Toaster section are below:
             </h1>
             <p>Please do follow the given instruction while creating the Toaster component.</p>
             <div className="detail-content">
               <ul>
                 <li>User can select the toaster type.</li>
-                <li>The Toaster title should only contain 15 characters.</li>
-                <li>User can add a description message of 25 words.</li>
-                <li>User can select the Button text on click of which the toaster appears.</li>
-                <li>User can select the Toaster direction top/bottom</li>
-                <li>User can select the Toaster theme</li>
+                <li>The toaster title should only contain 15 characters.</li>
+                <li>User can add a description message in toaster consisting of 25 words.</li>
+                <li>User can enter the button text on click of which the toaster appears.</li>
+                <li>User can choose the direction to display toaster as in top or bottom.</li>
               </ul>
             </div>
           </div>

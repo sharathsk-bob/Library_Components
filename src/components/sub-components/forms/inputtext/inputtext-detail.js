@@ -22,9 +22,9 @@ const InputTextDetail =(props)=>{
     
         <div className="modal-container details-section">
             <h1>
-            Details for the Input Text are Below:
+            Details for the Input Text section are below:
             </h1>
-            <p>Please do follow the given instruction while creating the Input text component.</p>
+            <p>Please do follow the given instruction while creating the Input Text component.</p>
             <div className="detail-content">
                 <ul>
                     <li>User can provide label text with maximum 15 characters.</li> 

@@ -23,17 +23,17 @@ const NavbarDetail =(props)=>{
   
         <div className="modal-container details-section">
           <h1>
-            Details for the Navbar section are below.
+            Details for the Navbar section are below:
           </h1>
           <p>Please do follow the given instruction while creating the Navbar component.</p>
           <div className="detail-content">
             <ul>
-              <li>User can choose the number of Navbar Menus</li>
-              <li>For each Navbar menu the user can choose the type of menu</li>
-              <li>In case user selects Basic Menu then he/she can choose the menu text</li>
-              <li>If User choose Dropdown then he/she can choose the number of options and menu text for each options </li>
-              <li>User can choose if he/she wants to add navbar icons</li>
-              <li>User can select the Navbar theme</li>
+              <li>User can choose the number of navbar menus.</li>
+              <li>For each navbar menu the user can choose the type of menu as basic or dropdown.</li>
+              <li>If user chooses type as basic menu then he/she is opted for entering the menu text.</li>
+              <li>If user chooses type as dropdown then he/she can choose the number of submenus and enter text for each submenus.</li>
+              <li>User can choose if he/she wants to add navbar icons.</li>
+              <li>User can select the theme for the navbar.</li>
             </ul>
           </div>
       </div>

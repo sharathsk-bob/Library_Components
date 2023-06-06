@@ -19,15 +19,15 @@ const ProgressDetail =(props)=>{
     
           <div className="modal-container details-section">
             <h1>
-             Details for the Progress Bar section are below.
+             Details for the Progress Bar section are below:
             </h1>
-            <p>Please do follow the given instruction while creating the Progress component.</p>
+            <p>Please do follow the given instruction while creating the Progress Bar component.</p>
             <div className="detail-content">
               <ul>
-                <li>Progress label should not be more than 25 characters.</li>
-                <li>User can select the Progress value in percentage</li>
-                <li>User can select the Progress bar size</li>
-                <li>User can select the theme for Progress bar from dropdown</li>
+                <li>User can enter progress bar label text limiting to 25 characters.</li>
+                <li>User can select the progress bar value in percentage.</li>
+                <li>User can select the progress bar size.</li>
+                <li>User can select the theme for progress bar from dropdown.</li>
               </ul>
             </div>
           </div>
