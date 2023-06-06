@@ -78,7 +78,7 @@ const TableForm =(props)=>{
         if(Object.keys(validerrors).length === 0)
         {
         console.log("Inputs Sent!!!", inputs);
-        navigate("/alert", {state: {inputs}});
+        navigate("/table", {state: {inputs}});
         } else {
         }   
     };
