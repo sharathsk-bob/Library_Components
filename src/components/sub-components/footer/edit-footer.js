@@ -94,7 +94,7 @@ return (
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
         <p> Edit Footer</p>
-        <button className="close-button" aria-label="Close" onClick={close}>
+        <button className="close-button" aria-label="close edit footer modal" onClick={close}>
           <img src={closeIcon}></img>
         </button>
       </div>
