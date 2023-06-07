@@ -123,8 +123,8 @@ const LoaderComponent = ( ) => {
               </div>
             </div> 
           </div>
-        <LoaderComponentMain loaderVal={props}/>
         </div>
+        <LoaderComponentMain loaderVal={props}/>
         <div className="card-tabs">
             <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Header Component" onClick={() => setActiveTab(1)}>
               HTML

@@ -23,3 +23,138 @@
         }
     }
 }
+.loaderDark{
+    border-top: 16px solid black !important;
+}
+.loadercg1{
+    border-top: 16px solid #0070AD !important;
+}
+.loadercg2{
+    border-top: 16px solid #2b0a3d !important ;
+}
+.loaderone{
+    animation: spin 1s linear infinite !important;
+}
+.loaderfive{
+    animation: spin 5s linear infinite !important;
+}
+.loaderhorizontalone{
+    .bar{
+        animation-duration: 1s !important;
+    }
+}
+.loaderhorizontalfive{
+    .bar{
+        animation-duration: 5s !important;
+    }
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: 100px auto;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+body{
+    margin:0;
+    padding:0;
+  }
+  @keyframes barWidth {
+      0%   {width: 0%;}
+      25%  {width: 50%;}
+      50%  {width: 100%;}
+      75%  {width: 50%;}
+      100% {width: 0%;}
+  }
+  @keyframes barWidth2 {
+      0%   {width: 0%;}
+      50%  {width: 50%;}
+      100% {width: 100%;}
+  }
+  .horizontal-bar-wrap{
+    height: 4px;
+    width: 100%;
+    margin: 80px 0px;
+    .bar{
+      position: relative;
+      width: 0%;
+      height: 100%;
+      margin: 0 auto;
+      animation: barWidth;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      &.bar1{
+        animation-delay: 0s;
+        background: #02a09a;
+        top: 0;
+        z-index: 1;
+      }
+  //     &.bar2{
+  //       animation-delay: 2s;
+  //       background: green;
+  //       top: -4px;
+  //       z-index: 2;
+  //     }
+  //     &.bar3{
+  //       animation-delay: 4s;
+  //       background: blue;
+  //       top: -8px;
+  //       z-index: 3;
+  //     }
+  //     &.bar4{
+       
+  //       animation-delay: 6s;
+  //       background: magenta;
+  //       top: -12px;
+  //       z-index: 4;
+  //     }
+    }
+  }
+
+  .loaderhorizontalDark{
+    .bar{
+        &.bar1{
+          background: black !important;
+        }
+ 
+      }
+}
+.loaderhorizontalcg1{
+    .bar{
+        &.bar1{
+          background: #0070AD !important;
+        }
+ 
+      }
+}
+.loaderhorizontalcg2{
+    .bar{
+        &.bar1{
+          background:  #2b0a3d !important ;
+        }
+ 
+      }
+}
+.loaderhorizontalNormal{
+    .bar{
+        &.bar1{
+          background:  #3498db!important ;
+        }
+ 
+      }
+}
