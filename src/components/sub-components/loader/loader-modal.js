@@ -4,269 +4,174 @@ import { useNavigate } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import { FormField, Input } from "@fluentui/react-northstar";
 import closeIcon from "../../asset/images/cross-white.png";
-import "./header-modal.scss";
+import "./loader-modal.scss";
 
 const LoaderModal =(props)=>{ 
-	const [titleValue, setTitleValue] = useState();
-  const [profileValue, setProfileValue] = useState();
-  const [cgLogoValue, setCgLogoValue] = useState("");
-  const [imageValue, setImageValue] = useState("");
-  const [profileLogo, setProfileLogo] = useState("");
+
   const [errorMsg, setErrorMsg] = useState({});
+  const [loadersizeValue, setLoaderSizeValue] = useState("Small");
   const [themeValue, setThemeValue] = useState("Normal");
+  const [loadertype, setLoaderType] = useState("");
+  const [ timeoutValue, setTimeOutValue] = useState("1000");
   // const { headerProps, setHeaderProps } = useContext(AppContext);
 	const{close} = props;
 	
 
-//   const headerProps = {
-//    titleValue,
-//    profileValue,
-//    cgLogoValue,
-//    imageValue,
-//    profileLogo,
-//    themeValue
-//   };
+  const loaderProps = {
+   loadersizeValue,
+   loadertype,
+   timeoutValue,
+   themeValue
+  };
 
-//   const navigationheader = useNavigate();
+  const navigationloader = useNavigate();
   
-//   let errors = {};
+  let errors = {};
   
 
 
-//    const checkValidation = () => {
-//     let isValid = true;
-//      if (titleValue === undefined) {
-//        errors.title = "Title is required";
-//        isValid = false;
-//      }
-//      if (profileValue === undefined) {
-//        errors.profile = "Profile Name is required";
-//        isValid = false;
-//      }
-//      if (cgLogoValue === "") {
-//        errors.logoValue = "Please select the above field";
-//        isValid = false;
-//      }if(imageValue === ""){
-//       errors.appLogo = "Please select the above field";
-//       isValid = false;
-//      }if(profileLogo === ""){
-//       errors.profileLogovalue = "Please select the above field";
-//       isValid = false;
-//      }if(themeValue === undefined){
-      
-//       errors.theme = "Please select the value from the dropdown";
-//       isValid = false;
-//      }
-//      setErrorMsg(errors);
-//       return isValid;
-
+   const checkValidation = () => {
+    let isValid = true;
     
-//    };
-// const buttonSubmit =(event)=>{
-//   event.preventDefault();
-//   const checkValid =   checkValidation();
-//   // setHeaderProps(propsValue);
-//   if (checkValid) {
+      
+      if(loadertype === ""){
+      errors.loadertype = "Please select the above field";
+      isValid = false;
+      }
+     setErrorMsg(errors);
+      return isValid;
+
+      
+   };
+const buttonSubmit =(event)=>{
+  event.preventDefault();
+  const checkValid =   checkValidation();
+  console.log(checkValid, "valid value")
+
+  if (checkValid) {
    
-   
-//    console.log(headerProps, "value");
-//   navigationheader("/header", {state: {headerProps}});
+   console.log(loaderProps, "propsss");
+
+  navigationloader("/loader", {state: {loaderProps}});
   
-//   }else{
-//     console.log(checkValid,"elsecondition");
-//   }
-//   console.log(themeValue, "theme valuee");
-// };
+  }
+};
   
 return (
   <FocusTrap
 			focusTrapOptions={{
 				// escapeDeactivates: false
-				// onDeactivate: close
+				onDeactivate: close
 			}}
 		>
   <div className="modal_wapper">
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
         <p>Loader</p>
-        <button className="close-button" aria-label="Close" >
+        <button className="close-button" aria-label="Close" onClick={close} >
           <img src={closeIcon}></img>
           
         </button>
       </div>
 
-      <div className="modal-container headerModal">
-        <div className="input-field-container">
-          <FormField className="form-modal__content">
-            <label
-              className="wbh-modal__label"
-              aria-label="Title for Header Asterik-Required"
-              for="title"
-            >
-              Title: <span className="asterik">*</span> 
-              <Input
-                id="title"
-                className="text_modal__input"
-                autoComplete="off"
-                name="title"
-                aria-required="true"
-                maxLength="15"
-                // aria-describedby="name-err-title"
-                value={titleValue}
-                onChange={(event) => setTitleValue(event.target.value)}
-              />
-              
-            </label>
-            {errorMsg.title ?<span className="error">{errorMsg.title}</span>:""}
-          </FormField>
-        </div>
-        <div className="input-field-container">
-          <FormField className="form-modal__content">
-            <label
-              className="modal__label"
-              aria-label="Profile Name Asterik-Required"
-              for="profile name"
-            >
-              Profile Name:<span className="asterik">*</span> 
-              <Input
-                id="profile name"
-                className=" text_modal__input"
-                autoComplete="off"
-                name="profile name"
-                aria-required="true"
-                maxLength="10"
-                aria-describedby="name-err-title"
-                value={profileValue}
-                onChange={(event) => setProfileValue(event.target.value)}
-              />
-              
-            </label>
-            {errorMsg.profile ? <span className="error">{errorMsg.profile}</span>: ""}
-          </FormField>
-        </div>
-        <div className="input-field-container logo-field">
-          <p>Would you like to have Capgemini logo in the header section <span className="asterik">*</span> </p>
+      <div className="modal-container headerModal loaderMoadl">
+      
+
+        <div className="input-field-container type-field">
+          <p>Select the type of loader<span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have capegeimi Logo Select yes ">
+              <label className="modal-label" aria-label="Select the type of loader ">
                 <input
                   className="modal-input"
                   type="radio"
-                  value="Yes"
-                  name="FilterType"
-                  checked={cgLogoValue === "Yes"}
+                  value="Horizontal"
+                  name="loadertype"
+                  checked={ loadertype === "Horizontal"}
                   onChange={(e) => {
-                    setCgLogoValue("Yes");
+                    setLoaderType("Horizontal");
                   }}
                 />
                 <div className="tag">
-                  <span className="tag__cat">Yes </span>
+                  <span className="tag__cat">Horizontal </span>
                 </div>
               </label>
             </FormField>
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label=" Select No ">
+              <label className="modal-label"  aria-label=" Select Circular ">
                 <input
                   className="modal-input"
                   type="radio"
-                  value="No"
-                  name="FilterType"
-                  checked={cgLogoValue === "No"}
+                  value="Circular"
+                  name="loadertype"
+                  checked={ loadertype === "Circular"}
                   onChange={(e) => {
-                    setCgLogoValue("No");
+                    setLoaderType("Circular");
                   }}
                 />
                 <div className="tag">
-                  <span className="tag__cat">No</span>
+                  <span className="tag__cat">Circular</span>
                 </div>
               </label>
             </FormField>
           
           </div>
-          {errorMsg.logoValue ? <span className="error">{errorMsg.logoValue}</span>: ""}
+          {/* {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""} */}
         </div>
-        <div className="input-field-container logo-field">
-          <p>Would you like to have App logo in the header section<span className="asterik">*</span> </p>
-          <div className="modal-checkbox">
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have app Logo Select yes ">
-                <input
-                  className="modal-input"
-                  type="radio"
-                  value="Yes"
-                  name="applogo"
-                  checked={imageValue === "Yes"}
-                  onChange={(e) => {
-                    setImageValue("Yes");
-                  }}
-                />
-                <div className="tag">
-                  <span className="tag__cat">Yes </span>
+      <div className="input-field-container size-field">
+                <div className="modal-checkbox">
+                  <FormField className="modal-content-theme">
+                    <label
+                      for="timeout"
+                      aria-label="Select timeout value Asterik-Required"
+                    >
+                      <p>
+                        Please select the timeout value
+                        <span className="asterik">*</span>{" "}
+                      </p>
+                    </label>
+                    <select
+                      name="timeout"
+                      id="timeout"
+                      value={timeoutValue}
+                      onChange={(event) => setTimeOutValue(event.target.value)}
+                    >
+                      <option value="1000">1000ms</option>
+                      <option value="2000">2000ms</option>
+                      <option value="5000">5000ms</option>
+                     
+                    </select>
+                  </FormField>
                 </div>
-              </label>
-            </FormField>
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label"  aria-label=" Select No ">
-                <input
-                  className="modal-input"
-                  type="radio"
-                  value="No"
-                  name="applogo"
-                  checked={imageValue === "No"}
-                  onChange={(e) => {
-                    setImageValue("No");
-                  }}
-                />
-                <div className="tag">
-                  <span className="tag__cat">No</span>
+                {/* <p className='error'>{inputErrors.btnWidth}</p> */}
+              </div>
+      <div className="input-field-container size-field">
+                <div className="modal-checkbox">
+                  <FormField className="modal-content-theme">
+                    <label
+                      for="fieldwidth"
+                      aria-label="Select button width value Asterik-Required"
+                    >
+                      <p>
+                        Please select the size of the input box:{" "}
+                        <span className="asterik">*</span>{" "}
+                      </p>
+                    </label>
+                    <select
+                      name="btnwidth"
+                      id="fieldwidth"
+                      value={loadersizeValue}
+                      onChange={(event) => setLoaderSizeValue(event.target.value)}
+                    >
+                      <option value="small">Small</option>
+                      <option value="medium">Medium</option>
+                      <option value="large">Largre</option>
+                     
+                    </select>
+                  </FormField>
                 </div>
-              </label>
-            </FormField>
-          
-          </div>
-          {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""}
-        </div>
-        <div className="input-field-container logo-field">
-          <p>Would you like to have profile logo in the header section <span className="asterik">*</span> </p>
-          <div className="modal-checkbox">
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
-                <input
-                  className="modal-input"
-                  type="radio"
-                  value="Yes"
-                  name="profilelogo"
-                  checked={profileLogo === "Yes"}
-                  onChange={(e) => {
-                    setProfileLogo("Yes");
-                  }}
-                />
-                <div className="tag"> 
-                  <span className="tag__cat">Yes </span>
-                </div>
-              </label>
-            </FormField>
-            <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Select No">
-                <input
-                  className="modal-input"
-                  type="radio"
-                  value="No"
-                  name="profilelogo"
-                  checked={profileLogo === "No"}
-                  onChange={(e) => {
-                    setProfileLogo("No");
-                  }}
-                />
-                <div className="tag">
-                  <span className="tag__cat">No</span>
-                </div>
-              </label>
-            </FormField>
-          
-          </div>
-          {errorMsg.profileLogovalue ? <span className="error">{errorMsg.profileLogovalue}</span>: ""}
-        </div>
+                {/* <p className='error'>{inputErrors.btnWidth}</p> */}
+              </div>
         <div className="input-field-container theme-field">
           
           <div className="modal-checkbox modal-select">
@@ -287,7 +192,7 @@ return (
             </FormField>
           
           </div>
-          {errorMsg.theme ? <span className="error">{errorMsg.theme}</span>: ""}
+          
         </div>
        
         <div className="button-section">
@@ -296,7 +201,7 @@ return (
            <Link
 
               className="btn btn-primary"
-            //   onClick={buttonSubmit}
+              onClick={buttonSubmit}
             >
               Submit
             </Link>
