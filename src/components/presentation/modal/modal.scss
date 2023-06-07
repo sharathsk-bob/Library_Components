@@ -33,15 +33,16 @@
     p{
         width: 100%;
         font-size: 0.9em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    // line-height: 20px;
-    -webkit-box-orient: vertical;
-    white-space: pre-line;
-    margin-top: 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        // line-height: 20px;
+        -webkit-box-orient: vertical;
+        white-space: pre-line;
+        margin-top: 0px;
+        min-height: 45px;
     }
     }
     .modal-button_section{
