@@ -14,11 +14,10 @@
   
 .Tooltip_Button .tooltiptext-top {
     visibility: hidden;
-    width: 200px;
-     
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     bottom: 115%;
@@ -38,16 +37,15 @@
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: var() transparent transparent transparent;
+    border-color: var(--color-black) transparent transparent transparent;
 }
 
 .Tooltip_Button .tooltiptext-bottom {
     visibility: hidden;
-    width: 200px;
-     
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     top: 115%;
@@ -68,11 +66,10 @@
 
 .Tooltip_Button .tooltiptext-right {
     visibility: hidden;
-    width: 200px;
-     
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     top: -5px;
@@ -92,11 +89,10 @@
 
 .Tooltip_Button .tooltiptext-left {
     visibility: hidden;
-    width: 200px;
-     
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     top: -5px;
@@ -116,10 +112,10 @@
 
 .Tooltip_Button .tooltiptext-topleft {
     visibility: hidden;
-    width: 200px;
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     bottom: 115%;
@@ -140,10 +136,10 @@
 
 .Tooltip_Button .tooltiptext-topright {
     visibility: hidden;
-    width: 200px;
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     bottom: 115%;
@@ -164,11 +160,10 @@
 
 .Tooltip_Button .tooltiptext-bottomright {
     visibility: hidden;
-    width: 200px;
-     
+    width: max-content;  
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     top: 115%;
@@ -189,11 +184,10 @@
 
 .Tooltip_Button .tooltiptext-bottomleft {
     visibility: hidden;
-    width: 240px;
-     
+    width: max-content;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 5px;
     position: absolute;
     z-index: 1;
     top: 115%;

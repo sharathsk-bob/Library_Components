@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useModal from "../../sub-components/use-modal/use-modal";
-// import EditAlertModal from "./edit-alert";
 import AlertHtml from "./alert-html";
 import Alert from "./alert-main";
 import styled from "styled-components";
