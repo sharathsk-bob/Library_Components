@@ -1,4 +1,4 @@
-import React, { useState, useMemo }  from 'react';
+import React, { useState, useMemo, useEffect }  from 'react';
 import DataTable from 'react-data-table-component';
 import './table.scss';
 
@@ -147,20 +147,19 @@ function Table(props) {
     let showstriped = false;
     let setpageNo = 0;
     let color = "";
-    let bgColor ="";
-    let searchTerm;
+    let bgColor = "";
 
-    const [filterText, setFilterText] = React.useState("");
-    const [resetPaginationToggle, setResetPaginationToggle] = React.useState(false);
+    const [filterText, setFilterText] = useState("");
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
     const filteredItems = data.filter(
         item =>
           JSON.stringify(item)
             .toLowerCase()
             .indexOf(filterText.toLowerCase()) !== -1
-      );
+    );
     
-      const subHeaderComponent = useMemo(() => {
+    const subHeaderComponent = useMemo(() => {
         const handleClear = () => {
           if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
@@ -170,14 +169,14 @@ function Table(props) {
     
         return (
             <>  
-                <div className='sub-Theader d-flex align-items-center'>
-                    <caption className='caption-position'>{TableProps.tablecaption}</caption>
-                    <div className='d-flex'>
+                <div className='sub-Theader'>               
+                    <caption className='caption-position'>{TableProps.tablecaption} </caption>
+                    <div className='d-flex ml-auto'>
                         <input
                             className='filter-input'
                             id="search"
                             type="text"
-                            placeholder="Filter table data..."
+                            placeholder="Search..."
                             value={filterText}
                             onChange={e => setFilterText(e.target.value)}
                         />
@@ -186,7 +185,7 @@ function Table(props) {
                 </div>
             </> 
         );
-      }, [filterText, resetPaginationToggle]);
+    }, [filterText, resetPaginationToggle]);
 
     if(TableProps.Choice_TableStriped == "Yes"){
         showstriped = true;
@@ -215,7 +214,7 @@ function Table(props) {
     } else if(TableProps.Choice_Theme == "cg2") {
         bgColor = "#2b0a3d"
         color = "#fff"
-    }
+    }    
 
     const tableCustomStyles = {
         headRow: {

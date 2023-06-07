@@ -15,7 +15,7 @@ const TableForm =(props)=>{
     const [tableStriped, setTableStriped] = useState("");
     const [pagination, setPagination] = useState("");
     const [pageNo, setPageNo] = useState();
-    const [tableWidth, setTableWidth] = useState();
+    // const [tableWidth, setTableWidth] = useState();
     const [themeValue, setThemeValue] = useState();
 
 
@@ -56,11 +56,11 @@ const TableForm =(props)=>{
             }
         }   
 
-        if (tableWidth === undefined) { 
-            errors.tableWidth = "Please select a width for table";
-        } else {
-            inputs.Choice_Width = tableWidth;
-        }
+        // if (tableWidth === undefined) { 
+        //     errors.tableWidth = "Please select a width for table";
+        // } else {
+        //     inputs.Choice_Width = tableWidth;
+        // }
 
         if(themeValue === undefined || themeValue === ''){
             errors.theme = "Please select the value from the dropdown";
@@ -86,9 +86,9 @@ const TableForm =(props)=>{
     const TableProps = {
         tablecaption: inputs.tablecaption,
         Choice_TableStriped: inputs.alerttype,
-        Choice_Pagination: inputs.pageNo,
-        Choice_pageNo: inputs.alerthead,
-        Choice_Width: inputs.Choice_Width,
+        Choice_Pagination: inputs.pagination,
+        Choice_pageNo: inputs.pageNo,
+        // Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.theme,
     };
 
@@ -231,7 +231,7 @@ const TableForm =(props)=>{
             </div>
             : ""}
 
-            <div className="input-field-container size-field" >
+            {/* <div className="input-field-container size-field" >
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
                     <label for="tablewidth" aria-label="Select table width value Asterik-Required"> 
@@ -247,7 +247,7 @@ const TableForm =(props)=>{
                 </FormField>
                 </div>
                 <p className='error'>{inputErrors.tableWidth}</p>
-            </div>
+            </div> */}
 
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">

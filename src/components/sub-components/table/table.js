@@ -11,7 +11,60 @@ import './table.scss'
 
 
 export const CustomStyleTable = styled.div`
+.Table-Content {
+    margin: 1.2em 0.8em;
+}
 
+.table-heading {
+    font-size: larger;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #0070ad;
+}
+
+.sub-Theader{
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Table-Content header {
+    display: block;
+    background: transparent;
+    justify-content: space-evenly;
+    padding: 4px 16px 4px 0px;
+
+}
+        
+.caption-position {
+    display: block;
+    caption-side: top;
+}
+
+.filter-input {
+    height: 32px;
+    width: 120px;
+    border-radius: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #e5e5e5;
+    padding: 0 32px 0 16px;
+}
+
+.filter-close {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 34px;
+    width: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 `;
 
 const TableComponent = ( ) => {

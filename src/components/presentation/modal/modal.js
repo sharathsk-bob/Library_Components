@@ -20,11 +20,12 @@ import ToasterDetail from "../../sub-components/toaster/toaster-detail";
 import FormComponentDetail from "../../sub-components/forms/formcomponent-detail";
 import TableDetail from "../../sub-components/table/table-detail";
 import TableForm from "../../sub-components/table/table-form";
-import "../../sub-components/use-modal/use-modal.scss";
-import "./modal.scss";
 import DynamicTabsForm from "../../sub-components/dynamic tabs/dynamic-form";
 import DynamicDetail from "../../sub-components/dynamic tabs/dynamic-details";
 import LoaderModal from "../../sub-components/loader/loader-modal";
+import LoaderDetail from "../../sub-components/loader/loader-detail";
+import "../../sub-components/use-modal/use-modal.scss";
+import "./modal.scss";
 
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
@@ -131,7 +132,7 @@ const Modal =()=>{
           <TableForm close={closeTableForm} />
         </ModalWrapperTable>
         <ModalWrapperLoaderDetail>
-          {/* <LoaderDetail close={closeLoaderDetail} /> */}
+          <LoaderDetail close={closeLoaderDetail} />
         </ModalWrapperLoaderDetail>
         <ModalWrapperLoader>
           <LoaderModal close={closeLoaderForm} />

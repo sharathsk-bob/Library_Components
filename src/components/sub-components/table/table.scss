@@ -11,22 +11,26 @@
 
 .sub-Theader{
     background: transparent;
+    display: flex;
+    justify-content: space-between;
 }
 
 .Table-Content header {
+    display: block;
     background: transparent;
+    justify-content: space-evenly;
+    padding: 4px 16px 4px 0px;
+
 }
         
 .caption-position {
     display: block;
     caption-side: top;
-    position: relative;
-    left: -820px;
 }
 
 .filter-input {
     height: 32px;
-    width: 200px;
+    width: 120px;
     border-radius: 3px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

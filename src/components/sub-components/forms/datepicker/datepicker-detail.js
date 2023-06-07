@@ -40,4 +40,4 @@ const DatePickerDetail = (props)=>{
       </FocusTrap>
     ); 
 };
- export default DatePickerDetail;
+export default DatePickerDetail;

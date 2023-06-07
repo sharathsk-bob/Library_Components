@@ -15,7 +15,7 @@ const EditTableModal = (props)=>{
         Choice_TableStriped: data.Choice_TableStriped,
         Choice_Pagination: data.Choice_Pagination,
         Choice_pageNo: data.Choice_pageNo,
-        Choice_Width: data.Choice_Width,
+        // Choice_Width: data.Choice_Width,
         Choice_Theme: data.Choice_Theme,
     }
 
@@ -33,7 +33,7 @@ const EditTableModal = (props)=>{
         Choice_TableStriped: inputs.Choice_TableStriped,
         Choice_Pagination: inputs.Choice_Pagination,
         Choice_pageNo: inputs.Choice_pageNo,
-        Choice_Width: inputs.Choice_Width,
+        // Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.Choice_Theme,
     };
 
@@ -64,9 +64,9 @@ const EditTableModal = (props)=>{
                 }
             }   
     
-            if (values.Choice_Width === undefined) { 
-                errors.Choice_Width = "Please select a width for table";
-            } 
+            // if (values.Choice_Width === undefined) { 
+            //     errors.Choice_Width = "Please select a width for table";
+            // } 
     
             if(values.Choice_Theme === undefined || values.Choice_Theme === ''){
                 errors.Choice_Theme = "Please select the value from the dropdown";
@@ -83,6 +83,7 @@ const EditTableModal = (props)=>{
         {
             console.log("Inputs Sent!!!", inputs);
             navigate("/table", {state: {inputs}});
+            window.location.reload();
             close();
         } else {
         }
@@ -225,7 +226,7 @@ const EditTableModal = (props)=>{
                     </div>
                 : ""}
 
-                <div className="input-field-container size-field" >
+                {/* <div className="input-field-container size-field" >
                     <div className="modal-checkbox">
                     <FormField className="modal-content-theme">
                         <label for="Choice_Width" aria-label="Edit table width value Asterik-Required"> 
@@ -241,7 +242,7 @@ const EditTableModal = (props)=>{
                     </FormField>
                     </div>
                     <p className='error'>{inputErrors.Choice_Width}</p>
-                </div>
+                </div> */}
 
                 <div className="input-field-container theme-field">
                     <div className="modal-checkbox">
