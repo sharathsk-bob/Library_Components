@@ -1,16 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import EditHeaderModal from "./edit-header";
 import useModal from "../../sub-components/use-modal/use-modal";
-import Loader from "./loader-mains";
-import LoaderHtml from "./loader-html";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
+import LoaderHtml from "./loader-html";
+import EditLoaderModal from "./edit-loader";
 import LoaderComponentMain from "./loader-mains";
 // import "./header.scss";
-export const CustomStyleHeader = styled.div`
+
+export const CustomStyleLoader = styled.div`
 .header-output{
   .component-header{
       display: flex;
@@ -80,12 +80,12 @@ export const CustomStyleHeader = styled.div`
 
 const LoaderComponent = ( ) => {
     const location = useLocation();
-    // const { open: openEditHeader, close: closeEditHeader, ModalWrapper: ModalWrapperEditHeader } = useModal();
+    const { open: openEditLoader, close: closeEditLoader, ModalWrapper: ModalWrapperEditLoader } = useModal();
     const props = location.state.loaderProps;
-    // console.log(location.state.headerProps, "props in header");
+    // console.log(location.state.loaderProps, "props in loader");
     const [activeTab, setActiveTab] = useState(0);
     
-    const formattedCSS = CustomStyleHeader.componentStyle.rules[0];
+    const formattedCSS = CustomStyleLoader.componentStyle.rules[0];
   
     const [copied, setCopied] = useState(false);
   
@@ -104,9 +104,9 @@ const LoaderComponent = ( ) => {
    
     return (
       <>
-        {/* <ModalWrapperEditHeader>
-          <EditHeaderModal close={closeEditHeader} data={props} />
-              </ModalWrapperEditHeader> */}
+        <ModalWrapperEditLoader>
+          <EditLoaderModal close={closeEditLoader} data={props} />
+        </ModalWrapperEditLoader>
         <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
           <div className="component-header">
             <div className="header-left">
@@ -117,7 +117,7 @@ const LoaderComponent = ( ) => {
                 <Link to="/" className="link-button">
                   Back
                 </Link>
-                <button class="buttons"  >
+                <button class="buttons" onClick={openEditLoader} >
                   Edit
                 </button>
               </div>
@@ -155,5 +155,5 @@ const LoaderComponent = ( ) => {
        
       </>
     );
-  };
-  export default LoaderComponent;
+};
+export default LoaderComponent;

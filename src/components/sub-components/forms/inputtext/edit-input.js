@@ -69,7 +69,7 @@ console.log(checkEditValid, "valid value");
       <div className="modal-content form-modalcontainer">
         <div className="form-header">
           <p> Edit Input-Text</p>
-          <button className="close-button" aria-label="Close" onClick={close} >
+          <button className="close-button" aria-label="close edit input text modal" onClick={close} >
             <img src={closeIcon}></img>
           </button>
         </div>

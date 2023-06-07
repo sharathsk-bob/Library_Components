@@ -165,7 +165,7 @@ return (
                     >
                       <option value="small">Small</option>
                       <option value="medium">Medium</option>
-                      <option value="large">Largre</option>
+                      <option value="large">Large</option>
                      
                     </select>
                   </FormField>
