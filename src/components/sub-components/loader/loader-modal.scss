@@ -1,0 +1,25 @@
+
+.form-modalcontainer{
+    .loaderMoadl{
+        .input-field-container{
+            margin-bottom: 24px;
+            .modal-checkbox{
+                p{
+                    margin-bottom: 8px;
+                }
+            }
+        }
+        .type-field{
+            margin-bottom: 0px;
+            p{
+                margin-bottom: 8px;
+            }
+            .modal-content-checkbox{
+                width: 110px;
+            }
+            .tag{
+                line-height: 30px;
+            }
+        }
+    }
+}
