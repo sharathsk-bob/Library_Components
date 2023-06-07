@@ -86,7 +86,7 @@ const TableForm =(props)=>{
     const TableProps = {
         tablecaption: inputs.tablecaption,
         Choice_TableStriped: inputs.alerttype,
-        Choice_Pagination: inputs.headerIf,
+        Choice_Pagination: inputs.pageNo,
         Choice_pageNo: inputs.alerthead,
         Choice_Width: inputs.Choice_Width,
         Choice_Theme: inputs.theme,
@@ -134,24 +134,6 @@ const TableForm =(props)=>{
                 </FormField>
             </div>
 
-            {/* <div className="input-field-container theme-field size-field">
-                <div className="modal-checkbox">
-                <FormField className="modal-content-theme">
-                    <label for="alerttype" aria-label="Please select the choice of alert needed Asterik-Required"> 
-                    <p>Please select the choice of alert needed<span className="asterik">*</span> </p>
-                        <select name="alerttype" id="alerttype"  value={alertType} onChange={(event) => setAlertType(event.target.value)}>
-                            <option value="">--</option>         
-                            <option value="success">Success</option>
-                            <option value="warning">Warning</option>
-                            <option value="info">Information</option>
-                            <option value="error">Error</option>
-                        </select>
-                    </label>
-                </FormField>
-                </div>
-                <p className="error">{inputErrors.alerttype}</p>
-            </div> */}
-
             <div className="input-field-container logo-field">
                 <p>Would you like table to be striped? <span className="asterik">*</span></p>
                 <div className="modal-checkbox">
@@ -188,7 +170,7 @@ const TableForm =(props)=>{
                 </label>
                 </FormField>
             </div>
-            <p id="btn-err-ifheader" className='error' aria-atomic="true">{inputErrors.tableStriped}</p>
+            <p className='error' aria-atomic="true">{inputErrors.tableStriped}</p>
             </div>
 
             <div className="input-field-container logo-field">

@@ -6,7 +6,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import TableHtml from "./table-html";
 import Table from "./table-main";
-// import EditAlertModal from "./edit-alert";
+import EditTableModal from "./edit-table";
 import './table.scss'
 
 
@@ -44,7 +44,7 @@ const TableComponent = ( ) => {
     return (
         <>
         <ModalWrapperEditTable >
-            {/* <EditTableModal close={closeEditTable} data={props} /> */}
+            <EditTableModal close={closeEditTable} data={props} />
         </ModalWrapperEditTable >
 
         <div className="header-output">
@@ -63,7 +63,7 @@ const TableComponent = ( ) => {
                     </div>
                 </div>
             </div>
-            <Table/>
+            <Table TableProps ={props} />
         </div>
 
         <div className="card-tabs">
