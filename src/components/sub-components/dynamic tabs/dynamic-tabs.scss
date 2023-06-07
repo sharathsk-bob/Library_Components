@@ -1,20 +1,91 @@
-// .nav-item{
-  
-//     margin: 10px;
-//   }
-  .nav-pills .nav-item .nav-link{
-    background: transparent;
-    border: 1px solid #0070ad;
-    color: black;
+.light{
+  background: #f1f4f8 !important;
+  color: black !important;
+  .react-tabs__tab--selected {
+    background: #a2d2ff;
   }
-  .nav-pills .nav-item .nav-link.active{
-    background-color: #0070ad;
-    color: white;
-    border: 2px solid black;
-  
+  .react-tabs__tab:hover {
+    background: #a2d2ff;
   }
-  .nav-pills .nav-item .nav-link:hover{
-    background-color: #0070ad;
-    color: white;
-  
+}
+.dark{
+  background: black !important;
+
+  .react-tabs__tab--selected {
+    background: white;
+    color: black !important ;
   }
+  
+  .react-tabs__tab:hover {
+    background: white;
+  }
+}
+.cg1-blue{
+  background:var(--color-capgemini-blue) !important;
+  .react-tabs__tab--selected {
+    background: #4f95d6;
+  }
+  .react-tabs__tab:hover {
+    background: #4f95d6;
+  }
+}
+.cg2-purple{
+  background: #2b0a3d !important;
+}
+/* Tab Container */
+.Tabs {
+  width: 80%;
+  height: auto;
+  min-height: 400px;
+  background: #7286d3;
+  margin: 3.5rem auto 1.5rem;
+  padding: 2rem 1rem;
+  color: #e8f0f2;
+  border-radius: 1rem;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0px;
+}
+
+.react-tabs__tab {
+  width: 50%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border:1px solid #8ea7e9; 
+  margin :5px;
+  border-radius: 10px;
+}
+
+.react-tabs__tab--selected {
+  background: #8ea7e9;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:hover {
+  background: #a2d2ff;
+}
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+  font-size: 1.25rem;
+}
