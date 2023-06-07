@@ -3,49 +3,62 @@ import FocusTrap from "focus-trap-react";
 import closeIcon from "../../../components/asset/images/cross-white.png";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-const DynamicTabsForm = (props) => {
-    const { close } = props;
+const EditDynamicTabs = (props) => {
+    const { close,data } = props;
   const [numTabs, setNumTabs] = useState(0);
   const [tabData, setTabData] = useState([]);
   const history=useNavigate();
   const [theme,setTheme]=useState('');
   const [errors, setErrors] = useState([]);
-  const tabsProps = {
-    numTabs,
-    tabData,
-    theme
+  const initialValues={
+    numTabs:data.numTabs,
+    tabData:data.tabData,
+    theme:data.theme
   };
+  const [formValues,setFormValues]=useState(initialValues);
+  const tabsProps = {
+    numTabs:formValues.numTabs,
+    tabData:formValues.tabData,
+    theme:formValues.theme
+  };
+  
   const handleNumTabsChange = (e) => {
     const value = parseInt(e.target.value);
-    setNumTabs(value);
-    setTabData(Array(value).fill({ heading: '', description: '' }));
-    setErrors([]);
+    if (value >= 1 && value <= 4) {
+      const newMenus = Array.from({ length: value }, (item, index) => {
+        return formValues.tabData[index] || { heading: '', description: '' };
+      });
+      const newFormValues = {...formValues, tabData: newMenus,numTabs:value};
+      setFormValues(newFormValues)
+      setErrors([]);
+      
+    } else {
+      setErrors([{ numTabs: "Number of menus must be greater than 0" }]);
+    }
   };
+  
+
   
   const handleInputChange = (event) => {
     const { name, value } = event.target;
      if (name === 'theme') {
-      setTheme(value);
+        setFormValues({...formValues,theme:value})
     } 
   };
-  const handleTabInputChange = (e, index, field) => {
+  const handleTabInputChange = (e,index, text) => {
     const { value } = e.target;
-  
-    setTabData((prevState) => {
-      const updatedTabData = [...prevState]; 
-      updatedTabData[index] = {
-        ...updatedTabData[index], 
-        [field]: value 
-      };
-      return updatedTabData;
-    });
+    const newMenus = [...formValues.tabData];
+  newMenus[index] = {...newMenus[index],[text]:value};
+  console.log(newMenus);
+  const newFormValues = {...formValues, tabData: newMenus};
+  setFormValues(newFormValues);
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
   
-    tabData.forEach((tab, index) => {
+    formValues.tabData.forEach((tab, index) => {
       const tabErrors = {}; 
   
       if (tab.heading.length > 15) {
@@ -54,9 +67,9 @@ const DynamicTabsForm = (props) => {
       if (!tab.heading) {
         tabErrors.heading = `Tab ${index + 1}: Heading is required`;
       }
-      if (tab.description.length > 150) {
-        tabErrors.description = `Tab ${index + 1}: Description exceeds 150 characters limit`;
-      }
+      // if (tab.description.length > 150) {
+      //   tabErrors.description = `Tab ${index + 1}: Description exceeds 150 characters limit`;
+      // }
       if (!tab.description) {
         tabErrors.description = `Tab ${index + 1}: Description is required`;
       }
@@ -66,16 +79,16 @@ const DynamicTabsForm = (props) => {
       }
     });
   
-    if (!numTabs) {
+    if (!formValues.numTabs) {
       newErrors.numTabs = `Number of tabs is required`;
     }
-    if (!theme) {
+    if (!formValues.theme) {
       newErrors.theme = 'Theme is required';
     }
   
     if (Object.keys(newErrors).length === 0) {
       console.log(tabData,numTabs,theme);
-      history("dynamictabs", {state: {tabsProps}});
+      history("/dynamictabs", {state: {tabsProps}});
     } else {
       setErrors(newErrors);
     }
@@ -100,9 +113,9 @@ const DynamicTabsForm = (props) => {
         <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
     <div className='switch-fields'>
-  <label>
+  <label htmlFor='numTabs'>
     Number of Tabs:
-    <select value={numTabs} onChange={handleNumTabsChange}>
+    <select  id="numTabs" name="numTabs" value={formValues.numTabs} onChange={handleNumTabsChange}>
       <option value="0">Select</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -113,27 +126,31 @@ const DynamicTabsForm = (props) => {
   </label>
 </div>
 
-      {[...Array(numTabs)].map((_, index) => (
+      {[...Array(formValues.numTabs)].map((_, index) => (
         <div key={index}>
           {/* <h4>Tab {index + 1}</h4> */}
           <div className='switch-fields'>
-          <label>
+          <label htmlFor={`tabData[${index}].heading`}>
             Tab-{index + 1} Heading (15 characters limit):
             <input
               type="text"
+              id={`tabData[${index}].heading`}
+              name={`tabData[${index}].heading`}
               maxLength="15"
-              value={tabData[index]?.heading || ''}
+              value={formValues.tabData[index]?.heading || ''}
               onChange={(e) => handleTabInputChange(e, index, 'heading')}
             />
           {errors[index]?.heading && <span className='error-message'>{errors[index]?.heading}</span>}
           </label>
           </div>
           <div className='switch-fields'>
-          <label>
+          <label htmlFor={`tabData[${index}].description`}>
             Tab-{index + 1} Description (150 characters limit):
             <textarea
               maxLength="1200"
-              value={tabData[index]?.description || ''}
+              id={`tabData[${index}].description`}
+              name={`tabData[${index}].description`}
+              value={formValues.tabData[index]?.description || ''}
               onChange={(e) => handleTabInputChange(e, index, 'description')}
             />
             {errors[index]?.description && <span className='error-message'>{errors[index]?.description}</span>}
@@ -144,7 +161,7 @@ const DynamicTabsForm = (props) => {
       ))}
 <div className='switch-fields'>
         <label>Theme:</label>
-        <select name="theme" value={theme} onChange={handleInputChange}>
+        <select name="theme" value={formValues.theme} onChange={handleInputChange}>
         <option value="">Select</option>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
@@ -184,4 +201,4 @@ const DynamicTabsForm = (props) => {
   );
 };
 
-export default DynamicTabsForm;
+export default EditDynamicTabs;

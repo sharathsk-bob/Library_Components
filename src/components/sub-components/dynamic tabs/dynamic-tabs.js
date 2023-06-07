@@ -2,35 +2,147 @@ import React,{useState} from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useModal from "../use-modal/use-modal";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
 import './dynamic-tabs.scss';
+import EditDynamicTabs from "./edit-dynamic";
+import DynamicMain from "./dynamic-tabsmain";
+import DynamicHtml from "./dynamic-html";
+export const CustomStyleDynamic = styled.div`
+.light{
+  background: #f1f4f8 !important;
+  color: black !important;
+  .react-tabs__tab--selected {
+    background: #a2d2ff;
+  }
+  .react-tabs__tab:hover {
+    background: #a2d2ff;
+  }
+}
+.dark{
+  background: black !important;
 
+  .react-tabs__tab--selected {
+    background: white;
+    color: black !important ;
+  }
+  
+  .react-tabs__tab:hover {
+    background: white;
+  }
+}
+.cg1-blue{
+  background:var(--color-capgemini-blue) !important;
+  .react-tabs__tab--selected {
+    background: #4f95d6;
+  }
+  .react-tabs__tab:hover {
+    background: #4f95d6;
+  }
+}
+.cg2-purple{
+  background: #2b0a3d !important;
+}
+/* Tab Container */
+.Tabs {
+  width: 80%;
+  height: auto;
+  min-height: 400px;
+  background: #7286d3;
+  margin: 3.5rem auto 1.5rem;
+  padding: 2rem 1rem;
+  color: #e8f0f2;
+  border-radius: 1rem;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0px;
+}
+
+.react-tabs__tab {
+  width: 50%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border:1px solid #8ea7e9; 
+  margin :5px;
+  border-radius: 10px;
+}
+
+.react-tabs__tab--selected {
+  background: #8ea7e9;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:hover {
+  background: #a2d2ff;
+}
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+  font-size: 1.25rem;
+}
+`;
 function DynamicTabs() {
     const location = useLocation();
-  const props = location.state.tabsProps;
+  const props = location.state?.tabsProps;
   const [activeTab, setActiveTab] = useState(1);
     const {
-        open: openEditSwitch,
-        close: closeEditSwitch,
-        ModalWrapper: ModalWrapperEditSwitch,
+        open: openEditTabs,
+        close: closeEditTabs,
+        ModalWrapper: ModalWrapperEditTabs,
       } = useModal();
+      console.log(props?.tabData);
+      const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(formattedCSS)
+    .then(() => {
+      setCopied(true);
+      setTimeout(() => {
+      setCopied(false);
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error('Failed to copy to clipboard:', error);
+    });
+  };
+  const formattedCSS = CustomStyleDynamic.componentStyle.rules[0];
   return (
     <>
-     <ModalWrapperEditSwitch>
-      {/* <EditSwitchForm close={closeEditSwitch} data={props}/> */}
-    </ModalWrapperEditSwitch>
+     <ModalWrapperEditTabs>
+      <EditDynamicTabs close={closeEditTabs} data={props}/>
+    </ModalWrapperEditTabs>
       <div className="component-toaster">
         <div className="toaster-left">
-          <h1>Switch Control</h1>
+          <h1>Dynamic Tabs</h1>
           <span> Component</span>
         </div>
         <div className="toaster-right">
           <div className="button-section">
             {/* <div  className="buttons"> */}
             <Link
-              to="/formcomponents"
+              to="/"
               // state={headerData}
               className="link-button"
             >
@@ -39,86 +151,47 @@ function DynamicTabs() {
             {/* </div> */}
 
             {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-            <button class="buttons" onClick={openEditSwitch}>
+            <button class="buttons" onClick={openEditTabs}>
               Edit
             </button>
           </div>
         </div>
       </div>
-    <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li className="nav-item" role="presentation">
-    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" >All Content</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" >Mental-Well-Being</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" >Physical-Well-Being</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" >Financial-Well-Being</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="false" >Healthy Culture</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-emo-tab" data-bs-toggle="pill" data-bs-target="#pills-emo" type="button" role="tab" aria-controls="pills-emo" aria-selected="false" >Emotional Mastery</button>
-  </li>
-  <li className="nav-item" role="presentation">
-    <button class="nav-link" id="pills-playing-tab" data-bs-toggle="pill" data-bs-target="#pills-playing" type="button" role="tab" aria-controls="pills-playing" aria-selected="false" >Podcast</button>
-  </li>
-</ul>
-<div className="tab-content" id="pills-tabContent">
-
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
- 
-    </div>
-  </div>
-  <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-   
-    </div>
-    
-  </div>
-  <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
- 
-
+      <DynamicMain props={props}/>
+      <div className="card-tabs">
+  <button
+    className={activeTab === 1 ? "active" : ""}
+    aria-label="HTML Page of Range Component"
+    onClick={() => setActiveTab(1)}
+  >
+    HTML
+  </button>
+  <button
+    className={activeTab === 0 ? "active" : ""}
+    aria-label="CSS Page of Range Component"
+    onClick={() => setActiveTab(0)}
+  >
+    CSS
+  </button>
 </div>
-
+<div className="card-content">
+  {activeTab === 0 ? (
+    <>
+    <div className='clipboard-div'>
+    <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
+      <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
+        {copied ? ' Copied!' : ' Copy Code'}
+      </i>
+    </button>
   </div>
-  <div className="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-  
+    <SyntaxHighlighter language="css" style={coy}>
+      {formattedCSS}
+    </SyntaxHighlighter>
+    </>
 
-</div>
-
-
-  </div>
-  <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
- 
-</div>
-
-
-  </div>
-  <div className="tab-pane fade" id="pills-emo" role="tabpanel" aria-labelledby="pills-emo-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-  
-</div>
-
-
-
-  </div>
-  <div className="tab-pane fade" id="pills-playing" role="tabpanel" aria-labelledby="pills-playing-tab" tabindex="0">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-
-</div>
-
-
-
-  </div>
+  ) : (
+    <DynamicHtml props={props} />
+  )}
 </div>
     </>
   )

@@ -23,9 +23,10 @@ import SwitchControl from './components/sub-components/forms/switch-control/swit
 import RangeComponent from './components/sub-components/forms/range/range';
 import SelectComponent from './components/sub-components/forms/select/select';
 import FileComponent from "./components/sub-components/forms/file-select/file-select";
-import './index.scss';
+import TableComponent from './components/sub-components/table/table';
 import DynamicTabs from './components/sub-components/dynamic tabs/dynamic-tabs';
 import LoaderComponent from "./components/sub-components/loader/loader";
+import './index.scss';
 function App() {
   return (
     <div className="App">
@@ -55,7 +56,7 @@ function App() {
           <Route exact path="/formcomponents/range"element ={<RangeComponent/>} ></Route>
           <Route exact path="/formcomponents/select"element ={<SelectComponent/>} ></Route>
           <Route exact path="/formcomponents/file"element ={<FileComponent/>} ></Route>
-          {/* <Route exact path="/table"element ={<Table/>} ></Route> */}
+          <Route exact path="/table"element ={<TableComponent/>} ></Route>
           <Route exact path="/dynamictabs"element ={<DynamicTabs/>} ></Route>
           <Route exact path="/loader"element ={<LoaderComponent/>} ></Route>
           </Routes>
