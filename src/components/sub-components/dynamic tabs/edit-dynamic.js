@@ -114,7 +114,7 @@ const EditDynamicTabs = (props) => {
     <form onSubmit={handleSubmit}>
     <div className='switch-fields'>
   <label htmlFor='numTabs'>
-    Number of Tabs:
+    Number of Tabs: </label>
     <select  id="numTabs" name="numTabs" value={formValues.numTabs} onChange={handleNumTabsChange}>
       <option value="0">Select</option>
       <option value="1">1</option>
@@ -123,7 +123,6 @@ const EditDynamicTabs = (props) => {
       <option value="4">4</option>
     </select>
     {errors.numTabs && <span className='error-message'>{errors.numTabs}</span>}
-  </label>
 </div>
 
       {[...Array(formValues.numTabs)].map((_, index) => (
@@ -131,7 +130,7 @@ const EditDynamicTabs = (props) => {
           {/* <h4>Tab {index + 1}</h4> */}
           <div className='switch-fields'>
           <label htmlFor={`tabData[${index}].heading`}>
-            Tab-{index + 1} Heading (15 characters limit):
+            Tab-{index + 1} Heading (15 characters limit): </label>
             <input
               type="text"
               id={`tabData[${index}].heading`}
@@ -141,11 +140,10 @@ const EditDynamicTabs = (props) => {
               onChange={(e) => handleTabInputChange(e, index, 'heading')}
             />
           {errors[index]?.heading && <span className='error-message'>{errors[index]?.heading}</span>}
-          </label>
           </div>
           <div className='switch-fields'>
           <label htmlFor={`tabData[${index}].description`}>
-            Tab-{index + 1} Description (150 characters limit):
+            Tab-{index + 1} Description (150 characters limit): </label>
             <textarea
               maxLength="1200"
               id={`tabData[${index}].description`}
@@ -154,7 +152,6 @@ const EditDynamicTabs = (props) => {
               onChange={(e) => handleTabInputChange(e, index, 'description')}
             />
             {errors[index]?.description && <span className='error-message'>{errors[index]?.description}</span>}
-          </label>
           </div>
 
         </div>

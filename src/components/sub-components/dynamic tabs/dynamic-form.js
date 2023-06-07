@@ -54,9 +54,9 @@ const DynamicTabsForm = (props) => {
       if (!tab.heading) {
         tabErrors.heading = `Tab ${index + 1}: Heading is required`;
       }
-      if (tab.description.length > 150) {
-        tabErrors.description = `Tab ${index + 1}: Description exceeds 150 characters limit`;
-      }
+      // if (tab.description.length > 150) {
+      //   tabErrors.description = `Tab ${index + 1}: Description exceeds 150 characters limit`;
+      // }
       if (!tab.description) {
         tabErrors.description = `Tab ${index + 1}: Description is required`;
       }
@@ -101,7 +101,7 @@ const DynamicTabsForm = (props) => {
     <form onSubmit={handleSubmit}>
     <div className='switch-fields'>
   <label>
-    Number of Tabs:
+    Number of Tabs:</label>
     <select value={numTabs} onChange={handleNumTabsChange}>
       <option value="0">Select</option>
       <option value="1">1</option>
@@ -110,7 +110,6 @@ const DynamicTabsForm = (props) => {
       <option value="4">4</option>
     </select>
     {errors.numTabs && <span className='error-message'>{errors.numTabs}</span>}
-  </label>
 </div>
 
       {[...Array(numTabs)].map((_, index) => (
@@ -118,7 +117,7 @@ const DynamicTabsForm = (props) => {
           {/* <h4>Tab {index + 1}</h4> */}
           <div className='switch-fields'>
           <label>
-            Tab-{index + 1} Heading (15 characters limit):
+            Tab-{index + 1} Heading (15 characters limit): </label>
             <input
               type="text"
               maxLength="15"
@@ -126,18 +125,16 @@ const DynamicTabsForm = (props) => {
               onChange={(e) => handleTabInputChange(e, index, 'heading')}
             />
           {errors[index]?.heading && <span className='error-message'>{errors[index]?.heading}</span>}
-          </label>
           </div>
           <div className='switch-fields'>
           <label>
-            Tab-{index + 1} Description (150 characters limit):
+            Tab-{index + 1} Description (150 characters limit): </label>
             <textarea
               maxLength="1200"
               value={tabData[index]?.description || ''}
               onChange={(e) => handleTabInputChange(e, index, 'description')}
             />
             {errors[index]?.description && <span className='error-message'>{errors[index]?.description}</span>}
-          </label>
           </div>
 
         </div>

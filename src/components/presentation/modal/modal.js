@@ -23,6 +23,7 @@ import TableForm from "../../sub-components/table/table-form";
 import "../../sub-components/use-modal/use-modal.scss";
 import "./modal.scss";
 import DynamicTabsForm from "../../sub-components/dynamic tabs/dynamic-form";
+import DynamicDetail from "../../sub-components/dynamic tabs/dynamic-details";
 import LoaderModal from "../../sub-components/loader/loader-modal";
 
 const Modal =()=>{
@@ -139,7 +140,7 @@ const Modal =()=>{
           <DynamicTabsForm close={closeDynamicTabsForm} />
         </ModalWrapperDynamicTabs>
         <ModalWrapperDynamicTabsDetail>
-          {/* <DynamicTabsDetail close={closeDynamicTabsDetail} /> */}
+          <DynamicDetail close={closeDynamicTabsDetail} />
         </ModalWrapperDynamicTabsDetail>
 
 
