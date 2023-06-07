@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
+import LoaderComponentMain from "./loader-mains";
 // import "./header.scss";
 export const CustomStyleHeader = styled.div`
 .header-output{
@@ -122,7 +123,7 @@ const LoaderComponent = ( ) => {
               </div>
             </div> 
           </div>
-        <Loader loaderVal={props}/>
+        <LoaderComponentMain loaderVal={props}/>
         </div>
         <div className="card-tabs">
             <button className={activeTab === 1 ? "active" : ""} aria-label="HTML Page of Header Component" onClick={() => setActiveTab(1)}>

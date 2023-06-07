@@ -1,12 +1,19 @@
 import React from 'react';
+import {Circles} from 'react-loader-spinner';
+import LoaderComponent from './loader';
 
 
-function Loader(props) {
+function LoaderComponentMain(props) {
   const { loaderVal }=props;
  console.log(loaderVal);
   return (
-    <div>hello</div>
+    <Circles
+  color="rgb color"
+  // height={number}
+  // width={number}
+  timeout={loaderVal.timeoutValue}
+/>
   )
 }
 
-export default Loader;
+export default LoaderComponentMain;
