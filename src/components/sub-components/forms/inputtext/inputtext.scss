@@ -1,23 +1,69 @@
 // @import "../../../theme/breakpoints.sccs";
 
-
-
 .input-output{
+    padding-bottom: 32px;
     margin: 20px;
 }
+.full-width{
+    width: 100%;
+}
+.width-option{
+    width:75%;
+}
+.halfwidth{
+    width: 50%;
+}.one-fourth{
+    width: 25%;
+}
+
+.input-output {
+    .light-theme{
+        background-color: rgb(241, 244, 248)!important;
+        color: var(--color-black) !important;  
+    }
+
+    .Dark{
+        background-color: transparent!important;
+        border: 2px solid black;
+        color: var(--color-black) !important;
+    }
+
+    .Cg1{
+        background-color: transparent!important;
+        border: 2px solid #0070AD;
+        // background-color: var(--color-capgemini-blue)!important;
+        color:var(--color-capgemini-blue)!important;   
+    }
+
+    .Cg2{
+        background-color: transparent!important;
+        border: 2px solid #2b0a3d;
+        // background-color: var(--color-capgemini-blue)!important;
+        color:var(--color-purple-wbh)!important; 
+    }
+    .form-control-char-size{
+        color: #646464;
+        margin-left: auto;
+        font-size: .75rem;
+        font-weight: 300;
+        letter-spacing: .12px;
+        line-height: 1rem;
+        float: right;
+        margin-top: 4px;
+    }
+}
 
 @media screen and (max-width: 480px){
-.component-header .header-left span {
-    font-size: 0.9rem !important;
-    display: none;
+    .component-header .header-left span {
+        font-size: 0.9rem !important;
+        display: none;
+    }
 }
-}
-
 
 @media screen and (max-width: 480px){
-   .input-output {
-    .form-floating{
-        width: 100%;
+    .input-output {
+        .form-floating{
+            width: 100%;
+        }
     }
-   }
-    }
+}

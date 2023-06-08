@@ -8,13 +8,12 @@ function TextArea(props) {
     console.log(TextAreaProps, "valuessssssss");
 
     return (
-    <div className= "input-output text-output ">
-        <div className= {`form-floating `}>
+    <div className= "text-output ">
+        <div className= {`form-floating ${TextAreaProps?.Choice_textboxWidth == "25"?"ta-w25":TextAreaProps?.Choice_textboxWidth == "50"?"ta-w50":TextAreaProps?.Choice_textboxWidth == "75"?"ta-w75":TextAreaProps?.Choice_textboxWidth == "100"?"ta-w100":"" }`}>
         <textarea
             className= {`form-control form-control-lg textarea-input 
             ${TextAreaProps?.Choice_Theme == "Dark"?"ta-dark":TextAreaProps?.Choice_Theme == "cg1"?"ta-blue":TextAreaProps?.Choice_Theme == "cg2"?"ta-purple":TextAreaProps?.Choice_Theme == "Normal"?"ta-normal":"" }
-            ${TextAreaProps?.Choice_BorderRadius == "Yes" ? "cls-bordRadius" : TextAreaProps?.Choice_BorderRadius == "No"?"cls-noRadius":"" }
-            ${TextAreaProps?.Choice_textboxWidth == "25"?"ta-w25":TextAreaProps?.Choice_textboxWidth == "50"?"ta-w50":TextAreaProps?.Choice_textboxWidth == "75"?"ta-w75":TextAreaProps?.Choice_textboxWidth == "100"?"ta-w100":"" }`}
+            ${TextAreaProps?.Choice_BorderRadius == "Yes" ? "cls-bordRadius" : TextAreaProps?.Choice_BorderRadius == "No"?"cls-noRadius":"" }`}
             id="textBox"
             placeholder="textBox"
             autocomplete="off"
@@ -25,8 +24,7 @@ function TextArea(props) {
         />
         <label for="textBox">{TextAreaProps.textareaLabel}</label>
         
-        <div className={`form-floating-bottom px-3
-        ${TextAreaProps?.Choice_textboxWidth == "25"?"positionw-25":TextAreaProps?.Choice_textboxWidth == "50"?"positionw-50":TextAreaProps?.Choice_textboxWidth == "75"?"positionw-75":TextAreaProps?.Choice_textboxWidth == "100"?"positionw-100":"" }`}>
+        <div class="form-floating-bottom px-3">
             <span class="form-control-char-size">{charcount}/200</span>
         </div>
         </div>

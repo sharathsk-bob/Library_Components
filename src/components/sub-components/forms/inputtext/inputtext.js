@@ -10,6 +10,27 @@ import styled from "styled-components";
 import InputHtml from "./input-html";
 
 export const CustomStyleHeader = styled.div`
+
+.input-output{
+  padding-bottom: 32px;
+  margin: 20px;
+}
+
+@media screen and (max-width: 480px){
+  .component-header .header-left span {
+      font-size: 0.9rem !important;
+      display: none;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .input-output {
+      .form-floating{
+          width: 100%;
+      }
+  }
+}
+
 .full-width{
   width: 100%;
 }
@@ -93,8 +114,8 @@ const InputComponent = ( ) => {
     return (
       <>
       <ModalWrapperEditInput>
-      < EditInputModal close={closeEditInput} data={props} />
-              </ModalWrapperEditInput>
+        < EditInputModal close={closeEditInput} data={props} />
+      </ModalWrapperEditInput>
       <div className= {`header-output ${props?.themeValue == "Normal"? "normal-header":""}`}>
         <div className="component-header input-textheader">
           <div className="header-left">

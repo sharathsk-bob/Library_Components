@@ -19,6 +19,7 @@ function DateSetter(props) {
         <>
             <div className={`DatePicker-Content form-floating`}>
                 <div className={`date-picker-container  ${DatePickerProps?.Choice_DPWidth == "25"?"dp-w25":DatePickerProps?.Choice_DPWidth == "50"?"dp-w50":DatePickerProps?.Choice_DPWidth == "75"?"dp-w75":DatePickerProps?.Choice_DPWidth == "100"?"dp-w100":"" }`}>
+                <label for="datePicker">{`${DatePickerProps.datepickerLabel}`}</label>
                     <DatePicker              
                         // style={`padding: ${DatePickerProps.Choice_BoxSize == "small" ? '8': DatePickerProps.Choice_BoxSize == "medium" ? '16': DatePickerProps.Choice_BoxSize == "large" ? '24' : "0"}px 8px`}
                         showTimeSelect={showtime}
@@ -30,7 +31,7 @@ function DateSetter(props) {
                         isClearable
                         placeholderText={`${DatePickerProps.datepickerLabel}`}
                         dateFormat={`${DatePickerProps.Choice_DateType == "date" ? 'MMMM d, yyyy': DatePickerProps.Choice_DateType == "time" ? 'h:mm aa': DatePickerProps.Choice_DateType == "date-time" ? 'MMMM d, yyyy h:mm aa' : " "}`}
-                    />
+                    />              
                 </div>
                 {/* <label for="datePicker">{DatePickerProps.datepickerLabel} </label> */}
                 {/* <input type={`${DatePickerProps.Choice_DateType == 'date' ? 'date' : DatePickerProps.Choice_DateType == 'time' ? 'time' : DatePickerProps.Choice_DateType == 'date-time' ? 'datetime-local' : "text"  }`} 

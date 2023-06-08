@@ -1,8 +1,18 @@
 @import "../../../theme/breakpoints.scss";
 
-
-.input-output{
+.text-output {
     margin: 20px;
+}
+
+.text-output .form-control-char-size {
+    color: #646464;
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.12px;
+    line-height: 1rem;
+    float: right;
+    margin-top: 4px;
 }
 
 .ta-normal {
@@ -43,10 +53,15 @@
 
 .ta-w25 {
     width: 25%;
-    // margin: 0 auto;
+    @media screen and (max-width: $bp-mobile){
+        width: 98%;
+    }
 }
 .ta-w50 {
     width: 50%;
+    @media screen and (max-width: $bp-sm-mobile){
+        width: 98%;
+    }
 }
 .ta-w75 {
     width: 75%;
@@ -55,35 +70,7 @@
     width: 98%;
 }
 
-.positionw-25 {
-    position: relative;
-    right: 1070px;
-}
-.positionw-50 {
-    position: relative;
-    right: 710px;
-}
-.positionw-75 {
-    position: relative;
-    right: 350px;
-}
-.positionw-100 {
-    position: relative;
-    right: 10px;
-}
 .textarea-input{
     min-height: 150px!important;
 }
 
-
-
-@media screen and (max-width: $bp-mobile){
-    .text-output  {
-     .form-floating{
-        .form-control{
-            width: 100%;
-        }
-         
-     }
-    }
-     }

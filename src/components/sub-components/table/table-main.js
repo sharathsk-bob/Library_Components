@@ -249,7 +249,7 @@ function Table(props) {
                     subHeader
                     subHeaderComponent={subHeaderComponent}
                     //selectableRows
-                    // paginationDefaultPage={currentPage}
+                    // paginationDefaultPage={currentPage}  
                     paginationRowsPerPageOptions={[setpageNo]}
                     paginationPerPage={setpageNo}
                     pagination = {showpagination}

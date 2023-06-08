@@ -48,16 +48,14 @@
     .modal-button_section{
         button {
             margin-right: 14px;
-    
+            margin-bottom: 8px;
             padding: 0.3em 0.8em;
-    
-    background-color: var(--color-capgemini-blue);
-    border-color: var(--color-capgemini-blue);
-    color: #fff;
-    border: none;
-    border-radius:var(--border-radius-btn);
-    cursor: pointer;
-  
+            background-color: var(--color-capgemini-blue);
+            border-color: var(--color-capgemini-blue);
+            color: #fff;
+            border: none;
+            border-radius:var(--border-radius-btn);
+            cursor: pointer;
         }
         button:focus{
             border: 2px solid black;
