@@ -64,10 +64,10 @@ const Modal =()=>{
       "Footer",
       "Alert",
       "Toaster",
-      "Forms",
+      "Form Components",
       "Table",
       "Loader",
-      "Dynamic Tabs"
+      "Tab / Panel"
     ];
   return(
     <>
@@ -226,13 +226,13 @@ const Modal =()=>{
                   Create
                 </button>
               </div>
-            ) : data === "Forms"? (
+            ) : data === "Form Components"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for forms component" class="buttons" onClick={openFormComponentDetail}>
+                <button type="button" aria-label="Details button for form components" class="buttons" onClick={openFormComponentDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="View components button for forms component" class="buttons" onClick={()=>{history("/formcomponents")}}>
-                  Components
+                <button type="button" aria-label="View components button for form components" class="buttons" onClick={()=>{history("/formcomponents")}}>
+                  View
                 </button>
               </div>
             ) : data === "Table"? (
@@ -253,7 +253,7 @@ const Modal =()=>{
                   Create
                 </button>
               </div>
-            ) : data === "Dynamic Tabs"? (
+            ) : data === "Tab / Panel"? (
               <div className="modal-button_section">
                 <button type="button" aria-label="Details button for dynamic tabs component" class="buttons" onClick={openDynamicTabsDetail}>
                   Details

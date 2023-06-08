@@ -19,8 +19,7 @@
     display: block;
     background: transparent;
     justify-content: space-evenly;
-    padding: 4px 16px 4px 0px;
-
+    padding: 4px 0px 4px 0px;
 }
         
 .caption-position {
@@ -28,16 +27,25 @@
     caption-side: top;
 }
 
-.filter-input {
-    height: 32px;
-    width: 120px;
+.search-box {
+    // height: 32px;
+    // width: 120px;
+    align-content: center;
+    background: white;
     border-radius: 3px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: 1px solid #e5e5e5;
-    padding: 0 32px 0 16px;
+    border: 1px solid var(--color-grey-light);
+    padding: 4px 8px 4px 8px;
+    i {
+        line-height: 1.65em;
+    }
+}
+
+.filter-input {
+    border: none;
 }
 
 .filter-close {

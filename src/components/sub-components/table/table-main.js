@@ -171,7 +171,8 @@ function Table(props) {
             <>  
                 <div className='sub-Theader'>               
                     <caption className='caption-position'>{TableProps.tablecaption} </caption>
-                    <div className='d-flex ml-auto'>
+                    <div className='search-box d-flex ml-auto'>
+                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
                         <input
                             className='filter-input'
                             id="search"
@@ -180,7 +181,7 @@ function Table(props) {
                             value={filterText}
                             onChange={e => setFilterText(e.target.value)}
                         />
-                        <button className='filter-close' onClick={handleClear}>X</button>
+                        {/* <button className='filter-close' onClick={handleClear}>X</button> */}
                     </div>
                 </div>
             </> 

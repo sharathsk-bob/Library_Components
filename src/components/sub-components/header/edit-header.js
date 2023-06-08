@@ -244,17 +244,17 @@ return (
              
             <label for="theme" aria-label="Select theme Asterik-Required"> 
             <p>Please select the theme colour.<span className="asterik">*</span> </p>
-  <select name="theme" id="theme"  value={headerData.themeValue}
+            <select name="theme" id="theme"  value={headerData.themeValue}
               onChange={handleSubmit}
                 >
                   {/* <option value=""></option> */}
-    <option value="Normal"  selected >Light</option>
-    <option value="Dark">Dark</option>
-    <option value="cg1">Blue</option>
-    <option value="cg2">Purple</option>
-   
-  </select>
-  </label>
+                  <option value="Normal"  selected >Light</option>
+                  <option value="Dark">Dark</option>
+                  <option value="cg1">Blue</option>
+                  <option value="cg2">Purple</option>
+                
+                </select>
+                </label>
             </FormField>
           
           </div>
