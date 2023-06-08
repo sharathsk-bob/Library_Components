@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import './dynamic-tabs.scss'
 
 function DynamicMain(values) {
     const { props }=values;

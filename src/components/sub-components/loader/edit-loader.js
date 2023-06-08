@@ -31,7 +31,7 @@ const EditLoaderModal =(props)=>{
     };
   
     let editError = {};
-    const inputProps = loaderData;  
+    const loaderProps = loaderData;  
 
     const checkValidation =()=>{
     let errorflag = true;
@@ -43,13 +43,14 @@ const EditLoaderModal =(props)=>{
     return errorflag;
     };
 
-    const onSubmit =  (event)=>{
+    const onSubmit = (event)=>{
         event.preventDefault();
         const checkEditValid = checkValidation();
         console.log(checkEditValid, "valid value");
         if(checkEditValid){
+            console.log("edit data gaya barar???????", loaderProps);
+            navigationLoader("/loader", {state: {loaderProps}});
             close();
-            navigationLoader("", {state: {inputProps}});
         }
     }
     console.log(loaderData, "edit dataa");
@@ -90,7 +91,7 @@ const EditLoaderModal =(props)=>{
                             </div>
                         </label>
                         </FormField>
-                        <FormField className="modal-content-checkbox">
+                        <FormField className="modal-content-checkbox" htmlFor="loadertype">
                         <label className="modal-label"  aria-label=" Select Circular ">
                             <input
                             className="modal-input"
