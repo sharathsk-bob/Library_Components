@@ -80,3 +80,9 @@
         }
         }
 }
+
+@media screen and (max-width: $bp-mobile) {
+    .modal-components .modal_section .modal-content p {
+        line-height: 20px;
+    }
+}
