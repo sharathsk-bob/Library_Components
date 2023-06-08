@@ -46,12 +46,14 @@ function FileMains(props) {
               : ""
           }`}
         >
-          <label className="file-upload-label" htmlFor="fileupload" id="buttonlabel">
+          <div className="file-upload-container">
+          <label className="file-upload-label" htmlFor="fileupload" aria-label="File Upload Button" id="buttonlabel" tabIndex="0">
             <input type="file" id="fileupload" key={theInputKey || ""} multiple={props.fileVals.typeValue === "Multiple"} onChange={handleChange} />
             <p>Upload File</p>
           </label>
+          <p className="file-text">Drop your Files Here</p>
+          </div>
           <div id="fileList">
-          <p>Selected files:</p>
               {fileNames.map((file, index) => (
                 <div key={index} className="file-item">
                   <span className="file-name">{file.name}</span>

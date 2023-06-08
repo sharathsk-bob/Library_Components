@@ -100,6 +100,7 @@
     height: 1.5em;
     width: 1.5em;
     background-color: #eee;
+    border: 2px var(--color-black) solid;
 }
 
 /* On mouse-over, add a grey background color */
@@ -161,6 +162,8 @@
     width: 1.5em;
     background-color: #eee;
     border-radius: 50%;
+    border: 2px var(--color-black) solid;
+
 }
 
 /* On mouse-over, add a grey background color */
@@ -212,7 +215,7 @@
     background-color: rgb(241, 244, 248)!important;
     border-style: solid;
     border-width: medium; 
-    border-color: var(--color-white) !important;
+    border-color:#cccc !important;
 }
 
 .cb-dark {

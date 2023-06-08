@@ -10,7 +10,7 @@ function SelectMain(props) {
      {select.inputType=="multiselect"?
    <> 
    <div className="slect-output">
-   <label>{select.label}:</label>
+   <label className='select-label'>{select.label}:</label>
    <div class={`multi-select 
    ${select.theme == "select-dark"?"dp-dark":select.theme == "select-blue"?"dp-blue":select.theme == "select-purple"?"dp-purple":select.theme == "select-light"?"dp-normal":"" }
    ${select?.boxSize=="100%"?"select-fullwidth":select?.boxSize=="75%"?"select-threefourthwidth":select?.boxSize=="50%"?"select-halfwidth":select?.boxSize=="25%"?"select-quaterwidth":""}`} aria-label="select Component" >
@@ -30,12 +30,12 @@ function SelectMain(props) {
     </>:
     <>
     <div className="slect-output">
-    <label>{select.label}:</label>
-        <select class={`form-select 
+    <label className='select-label'>{select.label}:</label>
+        <select class={`form-select  form-select-lg 
          ${select.theme == "select-dark"?"dp-dark":select.theme == "select-blue"?"dp-blue":select.theme == "select-purple"?"dp-purple":select.theme == "select-light"?"dp-normal":"" }
          ${select?.boxSize=="100%"?"select-fullwidth":select?.boxSize=="75%"?"select-threefourthwidth":select?.boxSize=="50%"?"select-halfwidth":select?.boxSize=="25%"?"select-quaterwidth":""}`} aria-label="select Component" >
-        <option selected>Open this select menu</option>
-          {select.optionTexts.map((x)=>{return(<option value={x}>{x}</option>)})}
+        <option className='select-options' selected>Open this select menu</option>
+          {select.optionTexts.map((x)=>{return(<option className='select-options' value={x}>{x}</option>)})}
           {/* <option value="dark">Dark</option> */}
         </select>
         </div>

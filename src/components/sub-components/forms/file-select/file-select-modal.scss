@@ -30,6 +30,23 @@
 .file-name{
     //float: left;
 }
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px; /* Adjust the height as needed */
+    border: 1px dashed gray; /* Optional: Add a dashed border */
+  }
+  
+  .file-upload-label {
+    cursor: pointer;
+  }
+  
+  .file-text {
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
 .file-upload-label{
     margin:0rem  1rem 0rem 0rem;
       padding: 0.5rem 0.5rem;
@@ -43,6 +60,9 @@
       p{
         margin: 0px;
       }
+}
+.file-upload-label:focus{
+    border: 2px solid black;
 }
 .file-output{
    
@@ -63,6 +83,7 @@
     }
     .file-Normal{
         background-color: rgb(241, 244, 248);
+        border: 2px solid  gray;
     }
 }
 

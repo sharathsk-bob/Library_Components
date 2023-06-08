@@ -1,4 +1,4 @@
-.light{
+.dynamic-light{
   background: #f1f4f8 !important;
   color: black !important;
   .react-tabs__tab--selected {
@@ -8,7 +8,7 @@
     background: #a2d2ff;
   }
 }
-.dark{
+.dynamic-dark{
   background: black !important;
 
   .react-tabs__tab--selected {
@@ -20,7 +20,7 @@
     background: white;
   }
 }
-.cg1-blue{
+.cg1-dynamic-blue{
   background:var(--color-capgemini-blue) !important;
   .react-tabs__tab--selected {
     background: #4f95d6;
@@ -29,7 +29,7 @@
     background: #4f95d6;
   }
 }
-.cg2-purple{
+.cg2-dynamic-purple{
   background: #2b0a3d !important;
 }
 /* Tab Container */

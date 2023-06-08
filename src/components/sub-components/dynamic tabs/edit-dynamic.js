@@ -143,7 +143,7 @@ const EditDynamicTabs = (props) => {
           </div>
           <div className='switch-fields'>
           <label htmlFor={`tabData[${index}].description`}>
-            Tab-{index + 1} Description (150 characters limit): </label>
+            Tab-{index + 1} Description (200 words limit): </label>
             <textarea
               maxLength="1200"
               id={`tabData[${index}].description`}
@@ -186,7 +186,7 @@ const EditDynamicTabs = (props) => {
                   onClick={handleSubmit}
                   aria-label="Submit"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
             </div>

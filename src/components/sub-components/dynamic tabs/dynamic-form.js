@@ -128,7 +128,7 @@ const DynamicTabsForm = (props) => {
           </div>
           <div className='switch-fields'>
           <label>
-            Tab-{index + 1} Description (150 characters limit): </label>
+            Tab-{index + 1} Description (200 words limit): </label>
             <textarea
               maxLength="1200"
               value={tabData[index]?.description || ''}

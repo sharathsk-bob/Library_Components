@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import FocusTrap from "focus-trap-react";
 import { FormField} from "@fluentui/react-northstar";
 import closeIcon from "../../asset/images/cross-white.png";
+import "./loader-modal.scss";
 
 const EditLoaderModal =(props)=>{
 	
