@@ -39,21 +39,21 @@
     animation: spin 5s linear infinite !important;
 }
 .loaderhorizontalone{
-    .bar{
-        animation-duration: 1s !important;
+   .progress-loader{
+        animation:progressing 1s infinite;
     }
 }
 .loaderhorizontalfive{
-    .bar{
-        animation-duration: 5s !important;
-    }
+  .progress-loader{
+    animation:progressing 5s infinite;
+}
 }
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
+    width: 300px;
+    height: 300px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
     margin: 100px auto;
@@ -127,38 +127,92 @@ body{
   }
 
   .loaderhorizontalDark{
-    .bar{
-        &.bar1{
+    .progress-loader{
           background: black !important;
         }
- 
-      }
 }
 .loaderhorizontalcg1{
-    .bar{
-        &.bar1{
+  .progress-loader{
           background: #0070AD !important;
         }
- 
-      }
 }
 .loaderhorizontalcg2{
-    .bar{
-        &.bar1{
+  .progress-loader{
           background:  #2b0a3d !important ;
         }
  
-      }
 }
 .loaderhorizontalNormal{
-    .bar{
-        &.bar1{
+  .progress-loader{
           background:  #3498db!important ;
         }
- 
-      }
+
 }
 
 .type-button {
   width: max-content !important;
+}
+
+.main {
+  height: 300px;
+  width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-shadow: 2px 3px 6px 0 rgba(0,0,0,0.2);
+}
+.wrap-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 60px;
+}
+.bar {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 3px 6px 0 rgba(0,0,0,0.2);
+}
+.loaderhorizontalmed{
+  width: 50% !important;
+}
+.loaderhorizontalsmall{
+  width: 25% !important;
+}
+.loadermed{
+    width: 150px !important;
+    height:150px !important;
+}
+.loadersmall{
+    width: 75px !important;
+    height:75px !important;
+}
+.progress-loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  animation: progressing 2s infinite;
+  background-color: #7abf70;
+}
+@keyframes progressing {
+  100% { width: 100%; }
+}
+.text {
+  position: relative;
+  overflow: hidden;
+}
+.text p {
+  margin-bottom: 0;
+}
+
+@keyframes masking {
+  100% { left: 100%; }
 }
