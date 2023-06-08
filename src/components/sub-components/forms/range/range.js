@@ -9,6 +9,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styled from "styled-components";
 import './range.scss';
+
 export const CustomStyleRange = styled.div`
 .range-fullwidth{
   width: 100% !important;

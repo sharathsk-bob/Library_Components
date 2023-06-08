@@ -143,6 +143,7 @@ function DynamicTabs() {
             {/* <div  className="buttons"> */}
             <Link
               to="/"
+              aria-label="back to various component homepage"
               // state={headerData}
               className="link-button"
             >
@@ -151,7 +152,7 @@ function DynamicTabs() {
             {/* </div> */}
 
             {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-            <button class="buttons" onClick={openEditTabs}>
+            <button class="buttons" aria-label="Edit values for Tab or Panel Component" onClick={openEditTabs}>
               Edit
             </button>
           </div>
@@ -161,14 +162,14 @@ function DynamicTabs() {
       <div className="card-tabs">
   <button
     className={activeTab === 1 ? "active" : ""}
-    aria-label="HTML Page of Range Component"
+    aria-label="HTML Page of Tab or Panel Component"
     onClick={() => setActiveTab(1)}
   >
     HTML
   </button>
   <button
     className={activeTab === 0 ? "active" : ""}
-    aria-label="CSS Page of Range Component"
+    aria-label="CSS Page of Tab or Panel Component"
     onClick={() => setActiveTab(0)}
   >
     CSS

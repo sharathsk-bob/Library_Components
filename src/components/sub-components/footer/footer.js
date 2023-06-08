@@ -223,6 +223,7 @@ const FooterComponent =()=>{
                     <Link
                     to="/"
                     // state={headerData}
+                    aria-label="back to various component homepage"
                     className="link-button"
                     >
                     Back
@@ -230,7 +231,7 @@ const FooterComponent =()=>{
                     {/* </div> */}
 
                     {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-                    <button class="buttons" onClick={openEditFooter}>Edit</button>
+                    <button class="buttons" aria-label="Edit values for Footer Component" onClick={openEditFooter}>Edit</button>
                 </div>
                 </div>
             </div>

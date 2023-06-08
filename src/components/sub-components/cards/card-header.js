@@ -370,8 +370,8 @@ function CardHeader() {
       </div> 
  
     <div  className="card-right">
-    <button className="backToHome" onClick={handleChange}>Back</button>
-    <button className="edit-card" onClick={openEditCards}>Edit</button>
+    <button className="backToHome" aria-label="back to various component homepage" onClick={handleChange}>Back</button>
+    <button className="edit-card" aria-label="Edit values for card Component" onClick={openEditCards}>Edit</button>
     </div>
   </div>
   <Cards {...newCard}/>

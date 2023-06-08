@@ -144,6 +144,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 `;
+
 function SwitchControl() {
   const location = useLocation();
   const props = location.state.switchProps;
@@ -185,13 +186,14 @@ function SwitchControl() {
               to="/formcomponents"
               // state={headerData}
               className="link-button"
+              aria-label="back to form component homepage"
             >
               Back
             </Link>
             {/* </div> */}
 
             {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-            <button class="buttons" onClick={openEditSwitch}>
+            <button class="buttons" aria-label="Edit values for Switch control Component" onClick={openEditSwitch}>
               Edit
             </button>
           </div>

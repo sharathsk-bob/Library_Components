@@ -195,6 +195,7 @@ function Toaster() {
                 <Link
                   to="/"
                   // state={headerData}
+                  aria-label="back to various component homepage"
                   className="link-button"
                 >
                   Back
@@ -202,7 +203,7 @@ function Toaster() {
                 {/* </div> */}
 
                 {/* <button className="backToHome" onClick={()=>{history("/")}}>Back</button> */}
-                <button class="buttons" onClick={openEditToaster}>Edit</button>
+                <button class="buttons" aria-label="Edit values for Toaster Component" onClick={openEditToaster}>Edit</button>
               </div>
             </div>
       </div>

@@ -44,7 +44,7 @@ function ButtonHtml(props) {
     return (
         <>
             <div className='clipboard-div'>
-                <button className='clipboard-btn' onClick={copyToClipboard}>
+                <button className='clipboard-btn' aria-label="copy to clipboard button" onClick={copyToClipboard}>
                     <i className={`fa ${copied ? 'fa-check' : 'fa-copy'}`} >
                         {copied ? ' Copied!' : ' Copy Code'}
                     </i>

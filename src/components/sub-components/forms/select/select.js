@@ -74,6 +74,7 @@ export const CustomStyleSelect = styled.div`
     
     }
 `;
+
 function SelectComponent() {
   const location = useLocation();
   const select = location.state.selectProps;

@@ -56,7 +56,7 @@ function TooltipHtml(props) {
 
             {/* <CopyClipboard {...formattedHTML}/> */}
 
-            <SyntaxHighlighter language="html" style={coy}>
+            <SyntaxHighlighter language="html" aria-label="copy to clipboard button" style={coy}>
                 {formattedHTML}
             </SyntaxHighlighter>
             {/* <SyntaxHighlighter language="css" style={coy}>
