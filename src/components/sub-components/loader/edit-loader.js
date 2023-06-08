@@ -77,7 +77,7 @@ const EditLoaderModal =(props)=>{
                 <div className="input-field-container type-field">
                     <p>Select the type of loader<span className="asterik">*</span> </p>
                     <div className="modal-checkbox">
-                        <FormField className="modal-content-checkbox" htmlFor="loadertype">
+                        <FormField className="modal-content-checkbox type-button" htmlFor="loadertype">
                         <label className="modal-label" aria-label="Select the type of loader ">
                             <input
                             className="modal-input"
@@ -92,7 +92,7 @@ const EditLoaderModal =(props)=>{
                             </div>
                         </label>
                         </FormField>
-                        <FormField className="modal-content-checkbox" htmlFor="loadertype">
+                        <FormField className="modal-content-checkbox type-button" htmlFor="loadertype">
                         <label className="modal-label"  aria-label=" Select Circular ">
                             <input
                             className="modal-input"
