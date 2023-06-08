@@ -9,7 +9,7 @@ import "./loader-modal.scss";
 const LoaderModal =(props)=>{ 
 
   const [errorMsg, setErrorMsg] = useState({});
-  const [loadersizeValue, setLoaderSizeValue] = useState("Small");
+  const [loadersizeValue, setLoaderSizeValue] = useState("small");
   const [themeValue, setThemeValue] = useState("Normal");
   const [loadertype, setLoaderType] = useState("");
   const [ timeoutValue, setTimeOutValue] = useState("1000");
