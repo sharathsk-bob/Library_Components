@@ -12,10 +12,16 @@
 .select-quaterwidth{
     width: 25% !important;
 }
+.select-options{
+    padding: 20px;
+}
 .slect-output{
     margin: 20px;
+    .select-label{
+        margin-bottom: 10px;
+    }
     .dp-normal{
-        border: 2px solid white !important; 
+        border: 2px solid grey  !important; 
     }
 
 #multiselectContainerReact{

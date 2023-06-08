@@ -162,15 +162,19 @@ const EditSelect = (props) => {
       </div>
       <div className='range-fields'>
       <label>Number of Options (1-5):<span className="asterik">*</span></label>
-        <input
-          type="number"
-          name="numOptions"
-          min={1}
-          max={5}
-          value={formValues.numOptions}
-          onChange={handleChange}
-          required
-        />
+        <select
+                id="numOptions"
+                name="numOptions"
+                value={formValues.numOptions}
+                onChange={handleChange}
+              >
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </select>
         {errors.numOptions && <span className="error-message">{errors.numOptions}</span>}
       </div>
         {renderOptionTextInputs()}
