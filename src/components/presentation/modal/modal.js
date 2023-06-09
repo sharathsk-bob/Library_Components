@@ -24,6 +24,8 @@ import DynamicTabsForm from "../../sub-components/dynamic tabs/dynamic-form";
 import DynamicDetail from "../../sub-components/dynamic tabs/dynamic-details";
 import LoaderModal from "../../sub-components/loader/loader-modal";
 import LoaderDetail from "../../sub-components/loader/loader-detail";
+import BreakpointLayoutDetail from "../../sub-components/breakpoint-layout/breakpointLayout-detail";
+import LoginSignDetail from "../../sub-components/login-signup/loginsign-detail";
 import "../../sub-components/use-modal/use-modal.scss";
 import "./modal.scss";
 
@@ -52,6 +54,10 @@ const Modal =()=>{
     const { open: openLoaderForm, close: closeLoaderForm, ModalWrapper: ModalWrapperLoader } = useModal();
     const { open: openDynamicTabsDetail, close: closeDynamicTabsDetail, ModalWrapper: ModalWrapperDynamicTabsDetail } = useModal();
     const { open: openDynamicTabsForm, close: closeDynamicTabsForm, ModalWrapper: ModalWrapperDynamicTabs } = useModal();
+    const { open: openBreakpointLayoutDetail, close: closeBreakpointLayoutDetail, ModalWrapper: ModalWrapperBreakpointLayoutDetail } = useModal();
+    const { open: openBreakpointLayoutForm, close: closeBreakpointLayoutForm, ModalWrapper: ModalWrapperBreakpointLayout } = useModal();
+    const { open: openLoginSignDetail, close: closeLoginSignDetail, ModalWrapper: ModalWrapperLoginSignDetail } = useModal();
+    const { open: openLoginSignForm, close: closeLoginSignForm, ModalWrapper: ModalWrapperLoginSign } = useModal();
 
     const history=useNavigate();
 
@@ -67,7 +73,10 @@ const Modal =()=>{
       "Form Components",
       "Table",
       "Loader",
-      "Tab / Panel"
+      "Tab / Panel",
+      "Carousel",
+      "Breakpoint Layout",
+      "Login / Signup"
     ];
   return(
     <>
@@ -143,6 +152,18 @@ const Modal =()=>{
         <ModalWrapperDynamicTabsDetail>
           <DynamicDetail close={closeDynamicTabsDetail} />
         </ModalWrapperDynamicTabsDetail>
+        <ModalWrapperBreakpointLayout>
+          {/* <BreakpointLayoutForm close={closeBreakpointLayoutForm} /> */}
+        </ModalWrapperBreakpointLayout>
+        <ModalWrapperBreakpointLayoutDetail>
+          <BreakpointLayoutDetail close={closeBreakpointLayoutDetail} />
+        </ModalWrapperBreakpointLayoutDetail>
+        <ModalWrapperLoginSign>
+          {/* <LoginSignForm close={closeLoginSignForm} /> */}
+        </ModalWrapperLoginSign>
+        <ModalWrapperLoginSignDetail>
+          <LoginSignDetail close={closeLoginSignDetail} />
+        </ModalWrapperLoginSignDetail>
 
 
       {componentList.map((data, index) => {
@@ -255,14 +276,41 @@ const Modal =()=>{
               </div>
             ) : data === "Tab / Panel"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for dynamic tabs component" class="buttons" onClick={openDynamicTabsDetail}>
+                <button type="button" aria-label="Details button for tabs and panels component" class="buttons" onClick={openDynamicTabsDetail}>
                   Details
                 </button>
-                <button type="button" aria-label="Create button for Dynamic tabs component" class="buttons" onClick={openDynamicTabsForm}>
+                <button type="button" aria-label="Create button for tabs and panels component" class="buttons" onClick={openDynamicTabsForm}>
                   Create
                 </button>
               </div>
-            ) : (
+            ) : data === "Carousel"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for Carousel component" class="buttons" >
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for Carousel component" class="buttons" >
+                  Create
+                </button>
+              </div>
+            ) : data === "Breakpoint Layout"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for Breakpoint Layout component" class="buttons" onClick={openBreakpointLayoutDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for Breakpoint Layout component" class="buttons" onClick={openBreakpointLayoutForm}>
+                  Create
+                </button>
+              </div>
+            ) : data === "Login / Signup"? (
+              <div className="modal-button_section">
+                <button type="button" aria-label="Details button for login and signup component" class="buttons" onClick={openLoginSignDetail}>
+                  Details
+                </button>
+                <button type="button" aria-label="Create button for login and signup component" class="buttons"  onClick={openLoginSignForm}>
+                  Create
+                </button>
+              </div>
+            ): (
               <div className="modal-button_section">
                 <button  type="button" aria-label="Details button for navbar component" class="buttons" onClick={openFormDetail}>
                   Details
