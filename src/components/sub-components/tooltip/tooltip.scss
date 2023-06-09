@@ -4,7 +4,7 @@
     position: relative;
     background-color: var(--color-capgemini-blue);
     color: var(--color-white);
-    width: 200px;
+    width: 150px;
     text-align: center;
     line-height: 44px;
     border-radius: 3px;
@@ -234,3 +234,16 @@
     color: var(--color-white);
 }
 
+@media (max-width: 600px) {
+    .Tooltip_Button {
+        font-size: 12px;
+        margin: 70px 5px 70px 5px !important;
+        width: 120px;
+    }
+    .onlyfor-left{
+        margin-left: auto !important;
+    }
+    .tooltiptext-top, .tooltiptext-right, .tooltiptext-topleft, .tooltiptext-bottomleft, .tooltiptext-bottom, .tooltiptext-left, .tooltiptext-topright, .tooltiptext-bottomright {
+        font-size: 12px;
+    }
+}
