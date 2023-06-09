@@ -25,6 +25,7 @@ import DynamicDetail from "../../sub-components/dynamic tabs/dynamic-details";
 import LoaderModal from "../../sub-components/loader/loader-modal";
 import LoaderDetail from "../../sub-components/loader/loader-detail";
 import BreakpointLayoutDetail from "../../sub-components/breakpoint-layout/breakpointLayout-detail";
+import BreakpointLayoutForm from "../../sub-components/breakpoint-layout/breakpointLayout-form";
 import LoginSignDetail from "../../sub-components/login-signup/loginsign-detail";
 import "../../sub-components/use-modal/use-modal.scss";
 import "./modal.scss";
@@ -153,7 +154,7 @@ const Modal =()=>{
           <DynamicDetail close={closeDynamicTabsDetail} />
         </ModalWrapperDynamicTabsDetail>
         <ModalWrapperBreakpointLayout>
-          {/* <BreakpointLayoutForm close={closeBreakpointLayoutForm} /> */}
+          <BreakpointLayoutForm close={closeBreakpointLayoutForm} />
         </ModalWrapperBreakpointLayout>
         <ModalWrapperBreakpointLayoutDetail>
           <BreakpointLayoutDetail close={closeBreakpointLayoutDetail} />

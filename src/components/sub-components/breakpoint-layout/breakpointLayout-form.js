@@ -8,13 +8,12 @@ const BreakpointLayoutForm =(props)=>{
 
     const {close} = props;
     const navigate = useNavigate()
-
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
+
+    const [numSelects, setNumSelects] = useState(0);
     const [themeValue, setThemeValue] = useState();
-    const [alertType, setAlertType] = useState();
-    // const [headerIf, setHeaderIf] = useState("");
-    const [alertWidth, setAlertWidth] = useState();
+    
 
 
     const handleChange = (e) => {
@@ -26,41 +25,10 @@ const BreakpointLayoutForm =(props)=>{
 
         let errors = {};
 
-        if (values.alerttext == undefined || values.alerttext === '') {
-        errors.alerttext = "Alert Text is required"; 
-        } else if (values.alerttext !== undefined) {
-            if(values.alerttext.length > 50){
-                errors.alerttext = "Alert Text should be shorter"; 
-            } 
-        }
+        
 
-        // if(headerIf === ""){
-        //     errors.Headerif = "Please make decision for Header field";
-        // } else {
-        //     inputs.Choice_HeaderIf = headerIf;
-        // }
-
-        // if( headerIf === "Yes" ) {
-        //     if (values.alerthead == undefined || values.alerthead === '' ) {
-        //         errors.alerthead = "Alert heading is required";
-        //     } else if (values.alerthead !== undefined) {
-        //         if(values.alerthead.length > 15){
-        //             errors.alerthead = "Alert Heading Text should be shorter"; 
-        //         } 
-        //     }
-        // }   
-
-        if(alertType === undefined || alertType === ''){
-            errors.alerttype = "Please select the choice for alert from the dropdown";
-        } else {
-            inputs.Choice_Alerttype = alertType;
-        }
-
-        if (alertWidth === undefined) { 
-            errors.alertWidth = "Please select a width for alert";
-        } else {
-            inputs.Choice_Width = alertWidth;
-        }
+        
+        
 
         if(themeValue === undefined || themeValue === ''){
             errors.theme = "Please select the value from the dropdown";
@@ -78,18 +46,13 @@ const BreakpointLayoutForm =(props)=>{
         if(Object.keys(validerrors).length === 0)
         {
         console.log("Inputs Sent!!!", inputs);
-        navigate("/alert", {state: {inputs}});
+        navigate("/breakpointlayout", {state: {inputs}});
         } else {
         }   
     };
 
-    const AlertProps = {
-        alerttext: inputs.alerttext,
-        Choice_Alerttype: inputs.alerttype,
-        // Choice_HeaderIf: inputs.headerIf,
-        // alerthead: inputs.alerthead,
-        Choice_Width: inputs.Choice_Width,
-        Choice_Theme: inputs.theme,
+    const BreakpointLayoutProps = {
+        
     };
 
     return (
@@ -103,143 +66,461 @@ const BreakpointLayoutForm =(props)=>{
         <div className="modal_wapper">
             <div className="modal-content form-modalcontainer">
                 <div className="form-header">
-                <p>Alert</p>
-                    <button className="close-button" aria-label="close create alert modal" onClick={close}>
+                <p>Breakpoint Layout</p>
+                    <button className="close-button" aria-label="close create Breakpoint Layout modal" onClick={close}>
                         <img src={closeIcon}></img>
                     </button>
                 </div>
 
             <div className="modal-container tool-tipcontainer">
 
-            <div className="input-field-container">
-                <FormField className="form-modal__content">
-                    <label
-                    className="wbh-modal__label"
-                    aria-label="Text for the Alert Asterik-Required"
-                    for="alerttext"
-                    >
-                    Text for the Alert: <span className="asterik">*</span> 
-                    <Input
-                        id="alerttext"
-                        className="text_modal__input"
-                        autoComplete="off"
-                        name="alerttext"
-                        maxLength="50"
-                        value={inputs.alerttext || ""} 
-                        onChange={handleChange}
-                        aria-required="true"
-                        aria-describedby="alert-err-text"
-                    />
-                    </label>
-                    <p id="alert-err-text" className='error' aria-atomic="true">{inputErrors.alerttext}</p>
-                </FormField>
-            </div>
-
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
-                <FormField className="modal-content-theme">
-                    <label for="alerttype" aria-label="Please select the choice of alert needed Asterik-Required"> 
-                    <p>Please select the choice of alert needed<span className="asterik">*</span> </p>
-                        <select name="alerttype" id="alerttype"  value={alertType} onChange={(event) => setAlertType(event.target.value)}>
-                            <option value="">--</option>         
-                            <option value="success">Success</option>
-                            <option value="warning">Warning</option>
-                            <option value="info">Information</option>
-                            <option value="error">Error</option>
-                        </select>
+                <FormField className="modal-content-theme">           
+                    <label htmlFor="num-selects" aria-label={`Number of Breakpoint Layout Asterik-Required`}>
+                        {`Number of Breakpoint Layout:`}<span className="asterik" >*</span>
                     </label>
+                    <select
+                        id="num-selects"
+                        name="num-selects"
+                        value={numSelects}
+                        onChange={(event) => setNumSelects(event.target.value)}
+                    >
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </FormField>
+                </div>    
+                <p className="error" aria-atomic="true">{inputErrors.numSelects}</p>
+            </div>
+
+            { numSelects == "1" ? (
+                <>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Title of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutTitle1">
+                        {`Text for the Title of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutTitle1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutTitle1"
+                            maxLength="15"
+                            value={inputs.breakpointLayoutTitle1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle1}</p>
+                    </FormField>
                 </div>
-                <p className="error">{inputErrors.alerttype}</p>
-            </div>
-
-            {/* <div className="input-field-container logo-field">
-                <p>Would you like to have Header in Alert? <span className="asterik">*</span></p>
-                <div className="modal-checkbox">
-                <FormField className="modal-content-checkbox">
-                <label className="modal-label" htmlFor="Headerifyes" aria-label="Select Yes if header is needed Asterik-Required">
-                    <input
-                        id="Headerifyes"
-                        className="modal-input"
-                        type="radio"
-                        value="Yes"
-                        name="Headerif"
-                        checked={headerIf === "Yes"}
-                        onChange={(e) => {setHeaderIf("Yes");}}
-                    />
-                    <div className="tag">
-                    <span className="tag__cat">Yes </span>
-                    </div>            
-                </label>
-                </FormField>
-                <FormField className="modal-content-checkbox" htmlFor="Headerifno" aria-label="Select No if header is not needed">
-                <label className="modal-label">
-                    <input
-                        id="Headerifno"
-                        className="modal-input"
-                        type="radio"
-                        value="No"
-                        name="Headerif"
-                        checked={headerIf === "No"}
-                        onChange={(e) => {setHeaderIf("No");}}
-                    />
-                    <div className="tag">
-                    <span className="tag__cat">No</span>
-                    </div>
-                </label>
-                </FormField>
-            </div>
-            <p id="btn-err-ifheader" className='error' aria-atomic="true">{inputErrors.Headerif}</p>
-            </div> */}
-
-            {/* { headerIf === "Yes" ?
-            <div className="input-field-container">
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutText1">
+                        {`Text for the Description of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText1"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText1}</p>
+                    </FormField>
+                </div>
+                </>    
+                )
+            : numSelects == "2" ? (
+                <>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Title of Breakpoint Layout 1: Asterik-Required`}
+                        for="breakpointLayoutTitle1"
+                        >
+                        {`Text for the Title of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutTitle1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutTitle1"
+                            maxLength="15"
+                            value={inputs.breakpointLayoutTitle1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutText1">
+                        {`Text for the Description of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText1"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
                 <FormField className="form-modal__content">
                     <label
                     className="wbh-modal__label"
-                    aria-label="Text for the Alert Heading Asterik-Required"
-                    for="alerthead"
+                    aria-label={`Text for the Title of Breakpoint Layout 2: Asterik-Required`}
+                    for="breakpointLayoutTitle2"
                     >
-                    Text for the Alert Heading: <span className="asterik">*</span> 
+                    {`Text for the Title of Breakpoint Layout 2: `}<span className="asterik">*</span> 
                     <Input
-                        id="alerthead"
+                        id="breakpointLayoutTitle2"
                         className="text_modal__input"
                         autoComplete="off"
-                        name="alerthead"
+                        name="breakpointLayoutTitle2"
                         maxLength="15"
-                        value={inputs.alerthead || ""} 
+                        value={inputs.breakpointLayoutTitle2 || ""} 
                         onChange={handleChange}
                         aria-required="true"
-                        aria-describedby="alerthead-err-text"
                     />
                     </label>
-                    <p id="alerthead-err-text" className='error' aria-atomic="true">{inputErrors.alerthead}</p>
-                </FormField>
-            </div>
-            : ""} */}
-
-            <div className="input-field-container size-field" >
-                <div className="modal-checkbox">
-                <FormField className="modal-content-theme">
-                    <label for="alertwidth" aria-label="Select alert width value Asterik-Required"> 
-                    <p>Please select width of the Alert: <span className="asterik">*</span> </p>
-                    </label>
-                        <select name="alertwidth" id="alertwidth"  value={alertWidth} onChange={(event) => setAlertWidth(event.target.value)}>
-                            <option value="">--</option>         
-                            <option value="25">25 %</option>
-                            <option value="50">50 %</option>
-                            <option value="75">75 %</option>
-                            <option value="100">100 %</option>
-                        </select>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle2}</p>
                 </FormField>
                 </div>
-                <p className='error'>{inputErrors.alertWidth}</p>
-            </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 2: Asterik-Required`} for="breakpointLayoutText2">
+                        {`Text for the Description of Breakpoint Layout 2: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText2"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText2"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText2 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText2}</p>
+                    </FormField>
+                </div>
+                </>
+            ) : numSelects == "3" ? (
+                <>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Title of Breakpoint Layout 1: Asterik-Required`}
+                        for="breakpointLayoutTitle1"
+                        >
+                        {`Text for the Title of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutTitle1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutTitle1"
+                            maxLength="15"
+                            value={inputs.breakpointLayoutTitle1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutText1">
+                        {`Text for the Description of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText1"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 2: Asterik-Required`}
+                    for="breakpointLayoutTitle2"
+                    >
+                    {`Text for the Title of Breakpoint Layout 2: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle2"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle2"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle2 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle2}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 2: Asterik-Required`}
+                    for="breakpointLayoutTitle2"
+                    >
+                    {`Text for the Title of Breakpoint Layout 2: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle2"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle2"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle2 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle2}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 3: Asterik-Required`}
+                    for="breakpointLayoutTitle3"
+                    >
+                    {`Text for the Title of Breakpoint Layout 3: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle3"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle3"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle3 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle3}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutText3">
+                        {`Text for the Description of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText3"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText3"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText3 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText3}</p>
+                    </FormField>
+                </div>
+                </>
+            ) : numSelects == "4" ? (
+                <>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="wbh-modal__label"
+                        aria-label={`Text for the Title of Breakpoint Layout 1: Asterik-Required`}
+                        for="breakpointLayoutTitle1"
+                        >
+                        {`Text for the Title of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutTitle1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutTitle1"
+                            maxLength="15"
+                            value={inputs.breakpointLayoutTitle1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 1: Asterik-Required`} for="breakpointLayoutText1">
+                        {`Text for the Description of Breakpoint Layout 1: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText1"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText1"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText1 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText1}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 2: Asterik-Required`}
+                    for="breakpointLayoutTitle2"
+                    >
+                    {`Text for the Title of Breakpoint Layout 2: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle2"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle2"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle2 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle2}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 2: Asterik-Required`}
+                    for="breakpointLayoutTitle2"
+                    >
+                    {`Text for the Title of Breakpoint Layout 2: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle2"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle2"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle2 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle2}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 3: Asterik-Required`}
+                    for="breakpointLayoutTitle3"
+                    >
+                    {`Text for the Title of Breakpoint Layout 3: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle3"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle3"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle3 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle3}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 3: Asterik-Required`} for="breakpointLayoutText3">
+                        {`Text for the Description of Breakpoint Layout 3: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText3"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText3"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText3 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText3}</p>
+                    </FormField>
+                </div>
+                <div className="input-field-container">
+                <FormField className="form-modal__content">
+                    <label
+                    className="wbh-modal__label"
+                    aria-label={`Text for the Title of Breakpoint Layout 4: Asterik-Required`}
+                    for="breakpointLayoutTitle4"
+                    >
+                    {`Text for the Title of Breakpoint Layout 4: `}<span className="asterik">*</span> 
+                    <Input
+                        id="breakpointLayoutTitle4"
+                        className="text_modal__input"
+                        autoComplete="off"
+                        name="breakpointLayoutTitle4"
+                        maxLength="15"
+                        value={inputs.breakpointLayoutTitle4 || ""} 
+                        onChange={handleChange}
+                        aria-required="true"
+                    />
+                    </label>
+                    <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutTitle4}</p>
+                </FormField>
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label className="wbh-modal__label" aria-label={`Text for the Description of Breakpoint Layout 4: Asterik-Required`} for="breakpointLayoutText4">
+                        {`Text for the Description of Breakpoint Layout 4: `}<span className="asterik">*</span> 
+                        <Input
+                            id="breakpointLayoutText4"
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="breakpointLayoutText4"
+                            maxLength="250"
+                            value={inputs.breakpointLayoutText4 || ""} 
+                            onChange={handleChange}
+                            aria-required="true"
+                        />
+                        </label>
+                        <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText4}</p>
+                    </FormField>
+                </div>
+                </>
+            ) : ( " " )
+            }
 
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">
-                    <label for="theme" aria-label="Select the theme for the alert Asterik-Required"> 
+                    <label for="theme" aria-label="Select the theme for the Breakpoint Layout Asterik-Required"> 
                     <p>Please select the theme colour: <span className="asterik">*</span> </p>
                         <select name="theme" id="theme"  value={themeValue} onChange={(event) => setThemeValue(event.target.value)}>
                             <option value="">--</option>         
@@ -256,7 +537,7 @@ const BreakpointLayoutForm =(props)=>{
 
             <div className="button-section">
                 <div className="link-button">
-                    <Link props={AlertProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
+                    <Link props={BreakpointLayoutProps} className="btn btn-primary btn-lg" onClick={OnSubmit}>
                         Submit
                     </Link>
                 </div>

@@ -221,8 +221,8 @@ const EditSelect = (props) => {
         <select name='theme' value={formValues.theme} onChange={handleChange}>
         <option value="select-light">Light</option>
           <option value="select-dark">Dark</option>
-          <option value="select-blue">blue</option>
-          <option value="select-purple">purple</option>
+          <option value="select-blue">Blue</option>
+          <option value="select-purple">Purple</option>
         </select>
         {errors.theme && <span className="error-message">{errors.theme}</span>}
     </div>

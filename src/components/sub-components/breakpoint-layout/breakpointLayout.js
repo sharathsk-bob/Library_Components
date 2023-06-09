@@ -49,7 +49,7 @@ const BreakpointLayoutComponent = ( ) => {
         <div className="header-output">
             <div className="component-header">
                 <div className="header-left">
-                    <h1>BreakpointLayout </h1> <span> Component</span> 
+                    <h1>Breakpoint Layout </h1> <span> Component</span> 
                 </div>
                 <div className="header-right">
                     <div className="button-section">

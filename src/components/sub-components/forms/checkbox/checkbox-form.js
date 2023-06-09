@@ -13,7 +13,7 @@ const CheckBoxForm =(props)=>{
     const [inputErrors, setInputErrors] = useState({});
 
     const [numSelects, setNumSelects] = useState(0);
-    const [menus, setMenus] = useState([{ text: "" }]);
+    // const [menus, setMenus] = useState([{ text: "" }]);
     const [layout, setLayout] = useState("");
     const [selectionType, setSelectionType] = useState("");
     const [themeValue, setThemeValue] = useState();
