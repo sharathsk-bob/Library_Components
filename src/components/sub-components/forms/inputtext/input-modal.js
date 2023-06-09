@@ -140,10 +140,10 @@ const InputModal =(props)=>{
                       value={boxsizeValue}
                       onChange={(event) => setBoxSizeValue(event.target.value)}
                     >
-                      <option value="25">25 %</option>
-                      <option value="50">50 %</option>
-                      <option value="75">75 %</option>
-                      <option value="100">100 %</option>
+                      <option value="25%">25 %</option>
+                      <option value="50%">50 %</option>
+                      <option value="75%">75 %</option>
+                      <option value="100%">100 %</option>
                     </select>
                   </FormField>
                 </div>
