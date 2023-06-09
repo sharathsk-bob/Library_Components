@@ -36,7 +36,15 @@ const RangeForm = (props) => {
     if (!maxValue) {
       errors.maxValue = 'maxValue is required.';
     }
-
+    if(maxValue<minValue){
+      errors.maxValue = 'minValue must be less than maxValue';
+    }
+    if(maxValue>=10000){
+      errors.maxValue = 'maxValue limit is 9999';
+    }
+    if(minValue>=9999){
+      errors.minValue = 'minValue limit is 9998';
+    }
     if (!theme) {
       errors.theme = 'Theme is required.';
     }

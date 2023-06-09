@@ -137,6 +137,7 @@ const EditSelect = (props) => {
          // key={i}
           type="text"
           name="optionTexts"
+          maxLength={25}
          // placeholder={`Option ${i + 1} Text`}
           value={formValues.optionTexts[i] || ''}
           onChange={(e) => handleOptionTextChange(i, e.target.value)}

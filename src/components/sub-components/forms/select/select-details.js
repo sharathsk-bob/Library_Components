@@ -29,7 +29,7 @@ const SelectDetail = (props)=>{
             <div className="detail-content">
                 <ul>
                     <li>Text for label for select should not be more than 25 characters.</li>
-                    <li>User can specify number of options for the select dropdown and the the option text for each of them.</li>
+                    <li>User can specify number of options for the select dropdown and the option text for each of them.</li>
                     <li>User can select the type of select either single/multiple.</li>
                     <li>User can select the width of the select from the dropdown.</li>
                     <li>User can select the theme of the select from the dropdown.</li>
