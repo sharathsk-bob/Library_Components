@@ -118,6 +118,7 @@ const SelectForm = (props) => {
         <input
          // key={i}
           type="text"
+          maxLength={25}
          // placeholder={`Option ${i + 1} Text`}
           value={optionTexts[i] || ''}
           onChange={(e) => handleOptionTextChange(i, e.target.value)}
