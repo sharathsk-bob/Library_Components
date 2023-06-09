@@ -135,7 +135,7 @@ function DynamicTabs() {
     </ModalWrapperEditTabs>
       <div className="component-toaster">
         <div className="toaster-left">
-          <h1>Dynamic Tabs</h1>
+          <h1>Tab / Panel</h1>
           <span> Component</span>
         </div>
         <div className="toaster-right">
