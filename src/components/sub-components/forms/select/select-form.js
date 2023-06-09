@@ -44,6 +44,7 @@ const SelectForm = (props) => {
       newErrors.numOptions = 'Number of Options should be between 1 and 5';
       valid = false;
     }
+    console.log(optionTexts);
     optionTexts.forEach((optionText, index) => {
       console.log(optionText);
       if (!optionText || optionText==undefined) {
@@ -86,10 +87,15 @@ const SelectForm = (props) => {
       setErrors(validationError);
     }
   };
-  const handleOptionTextChange = (index, value) => {
-    if (!Array.isArray(optionTexts)) {
-      setOptionTexts(new Array(numOptions).fill(''));
+  const handleNumChnage=(e)=>{
+    setNumOptions(parseInt(e.target.value));
+    console.log(Array.isArray(optionTexts))
+    if (Array.isArray(optionTexts)) {
+      for(let i=0;i<parseInt(e.target.value);i++)
+      optionTexts.push('')
     }
+  }
+  const handleOptionTextChange = (index, value) => {
     const updatedOptionTexts = [...optionTexts];
     updatedOptionTexts[index] = value;
     setOptionTexts(updatedOptionTexts);
@@ -157,7 +163,7 @@ const SelectForm = (props) => {
                 id="num-options"
                 name="num-options"
                 value={numOptions}
-                onChange={(e) => setNumOptions(parseInt(e.target.value))}
+                onChange={handleNumChnage}
               >
                 <option value="">Select</option>
                 <option value="1">1</option>

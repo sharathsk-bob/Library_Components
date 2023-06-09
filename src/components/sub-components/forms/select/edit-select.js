@@ -34,10 +34,25 @@ const EditSelect = (props) => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("change");
-    setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
+    
+    if (name === "numOptions") {
+      const numOptions = parseInt(value);
+      const newOptionTexts = [];
+      
+      for (let i = 0; i < numOptions; i++) {
+        if (i < formValues.optionTexts.length) {
+          newOptionTexts.push(formValues.optionTexts[i]);
+        } else {
+          newOptionTexts.push("");
+        }
+      }
+      
+      setFormValues({ ...formValues, [name]: value, optionTexts: newOptionTexts });
+    } else {
+      setFormValues({ ...formValues, [name]: value });
+    }
   };
+  
   const validateForm = () => {
     let valid = true;
     const newErrors = {};
@@ -82,7 +97,7 @@ const EditSelect = (props) => {
       } 
 
     setErrors(newErrors);
-    return valid;
+    return newErrors;
   };
 
   const handleSubmit = (event) => {
@@ -99,14 +114,16 @@ const EditSelect = (props) => {
     }else {
       setErrors(validationError);
     }
-  };
+  };//i want the options array to be set based on the number of options selected
+  
   const handleOptionTextChange = (index, value) => {
     if (!Array.isArray(formValues.optionTexts)) {
-      setOptionTexts(new Array(formValues.numOptions).fill(''));
+      setFormValues({...formValues,optionTexts:new Array(formValues.numOptions).fill('')})
     }
     const updatedOptionTexts = [...formValues.optionTexts];
     updatedOptionTexts[index] = value;
-    setOptionTexts(updatedOptionTexts);
+    console.log(updatedOptionTexts)
+    setFormValues({...formValues,optionTexts:updatedOptionTexts})
   };
 
   const renderOptionTextInputs = () => {
