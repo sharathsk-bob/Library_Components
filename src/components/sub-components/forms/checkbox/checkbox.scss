@@ -152,6 +152,10 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+    @media screen and (max-width: $bp-mobile) {
+        left: 0.45em;
+        top: 0.15em;
+    }
 }
 
 // custom radio button 

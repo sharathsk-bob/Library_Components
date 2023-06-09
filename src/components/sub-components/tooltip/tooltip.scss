@@ -237,11 +237,30 @@
 @media (max-width: 600px) {
     .Tooltip_Button {
         font-size: 12px;
-        margin: 70px 5px 70px 5px !important;
         width: 120px;
+        margin: 70px 5px 70px 5px !important;
     }
-    .onlyfor-left{
+    .onlyfor-left {
         margin-left: auto !important;
+    }
+    .onlyfor-topleft {
+        margin-left: auto !important;
+    }
+    .onlyfor-bottomleft {
+        margin-left: auto !important;
+    }
+
+    .onlyfor-right {
+        margin: 70px 5px 70px 5px !important;
+    }
+    .tooltiptext-topright {
+        margin-right: auto !important;
+    }
+    .tooltiptext-bottomright {
+        margin-right: auto !important;
+    }
+    .onlyfor-top, .onlyfor-bottom {
+        margin: 70px auto !important;
     }
     .tooltiptext-top, .tooltiptext-right, .tooltiptext-topleft, .tooltiptext-bottomleft, .tooltiptext-bottom, .tooltiptext-left, .tooltiptext-topright, .tooltiptext-bottomright {
         font-size: 12px;
