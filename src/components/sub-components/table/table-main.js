@@ -1,6 +1,160 @@
 import React, { useState, useMemo, useEffect }  from 'react';
 import DataTable from 'react-data-table-component';
+import ReactPaginate from 'react-paginate';
+// import styled from "styled-components";
+// import { MDBDataTable } from 'mdbreact';
 import './table.scss';
+
+// const Styles = styled.div`
+// .table thead [data-test=table-foot] {
+//     display: none;
+// }
+// `;
+
+// const enterdata = {
+//     columns: [
+//         {
+//             label: 'GGID',
+//             field: 'Employee_Id',
+//             // selector: row => row.Employee_Id,
+//         },
+//         {
+//             label: 'Employee Name',
+//             field: 'Name',
+//             // selector: row => row.Name,
+//         },
+//         {
+//             label: 'Employee Mail id',
+//             field: 'email',
+//             // selector: row => row.email,
+//         },
+//         {
+//             label: 'Designation',
+//             field: 'designation',
+//             // selector: row => row.designation,
+//         },
+//         {
+//             label: 'Grade',
+//             field: 'grade',
+//             // selector: row => row.grade,
+//         },
+//         {
+//             label: 'Location',
+//             field: 'location',
+//             // selector: row => row.location,
+//             // sortable: true,
+//         },
+//     ],
+
+//     rows: [
+//         {
+//             Employee_Id: 46092137,
+//             Name: "Vaishali Tyagi",
+//             email: "vaishali.tyagi@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Gurgaon",
+//         },
+//         {
+//             Employee_Id: 46267043,
+//             Name: "Sharath Sashi Kumar",
+//             email: "sharath.sashi-kumar@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Mumbai",
+//         },
+//         {
+//             Employee_Id: 46273399,
+//             Name: "Anand Manohar Udare",
+//             email: "anand.udare@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Mumbai",
+//         },
+//         {
+//             Employee_Id: 46273491,
+//             Name: "Tanya",
+//             email: "tanya.a.tanya@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Mumbai",
+//         },
+//         {
+//             Employee_Id: 46263383,
+//             Name: "Muskan Tyagi",
+//             email: "muskan.tyagi@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Gurgaon",
+//         },
+//         {
+//             Employee_Id: 46205868,
+//             Name: "Chithira P Nair",
+//             email: "chithira.p-nair@capgemini.com",
+//             designation: "Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Banglore",
+//         },
+//         {
+//             Employee_Id: 46165402,
+//             Name: "Chetan Ramesh Ningoo",
+//             email: "chetan.ningoo@capgemini.com",
+//             designation: "Senior Manager",
+//             grade: "D",
+//             location: "Mumbai",
+//         },
+//         {
+//             Employee_Id: 46083526,
+//             Name: "Kanika Singla",
+//             email: "kanika.singla@capgemini.com",
+//             designation: "Associate Consultant",
+//             grade: "B",
+//             location: "Gurgaon",
+//         },
+//         {
+//             Employee_Id: 46020611,
+//             Name: "Lalith Rawal",
+//             email: "lalith.rawal@capgemini.com",
+//             designation: "Senior Consultant",
+//             grade: "C",
+//             location: "Mumbai",
+//         },
+//         {
+//             Employee_Id: 46205869,
+//             Name: "Sowmya Ranjan Rana",
+//             email: "sowmya.ranjan-rana@capgemini.com",
+//             designation: "Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Mumbai",
+//         },
+    
+//         {
+//             Employee_Id: 46264260,
+//             Name: "Saurav Nitin Trivedi",
+//             email: "saurav-nitin.trivedi@capgemini.com",
+//             designation: "Sr Analyst / Software Engineer",
+//             grade: "A",
+//             location: "Bangalore",
+//         },
+//         {
+//             Employee_Id: 46184203,
+//             Name: "Gaurav Kumar Srivastav",
+//             email: "gaurav-kumar.a.shrivastav@capgemini.com",
+//             designation: "Associate Consultant",
+//             grade: "B",
+//             location: "Gurgaon",
+//         },
+//         {
+//             Employee_Id: 75022762,
+//             Name: "Vishnu Kumar Nishad",
+//             email: "vishnu-kumar.nishad@capgemini.com",
+//             designation: "Associate Consultant",
+//             grade: "B",
+//             location: "Gurgaon",
+//         },
+//     ]
+// }
+
 
 const columns = [
     {
@@ -26,7 +180,7 @@ const columns = [
     {
         name: 'Location',
         selector: row => row.location,
-        sortable: true,
+        // sortable: true,
     },
 ];
 
@@ -149,44 +303,9 @@ function Table(props) {
     let color = "";
     let bgColor = "";
 
-    const [filterText, setFilterText] = useState("");
-    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-
-    const filteredItems = data.filter(
-        item =>
-          JSON.stringify(item)
-            .toLowerCase()
-            .indexOf(filterText.toLowerCase()) !== -1
-    );
     
-    const subHeaderComponent = useMemo(() => {
-        const handleClear = () => {
-          if (filterText) {
-            setResetPaginationToggle(!resetPaginationToggle);
-            setFilterText("");
-          }
-        };
     
-        return (
-            <>  
-                <div className='sub-Theader'>               
-                    <caption className='caption-position'>{TableProps.tablecaption} </caption>
-                    <div className='search-box d-flex ml-auto'>
-                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
-                        <input
-                            className='filter-input'
-                            id="search"
-                            type="text"
-                            placeholder="Search..."
-                            value={filterText}
-                            onChange={e => setFilterText(e.target.value)}
-                        />
-                        {/* <button className='filter-close' onClick={handleClear}>X</button> */}
-                    </div>
-                </div>
-            </> 
-        );
-    }, [filterText, resetPaginationToggle]);
+    
 
     if(TableProps.Choice_TableStriped == "Yes"){
         showstriped = true;
@@ -215,7 +334,95 @@ function Table(props) {
     } else if(TableProps.Choice_Theme == "cg2") {
         bgColor = "#2b0a3d"
         color = "#fff"
-    }    
+    }
+
+
+    function PaginatedItems({ itemsPerPage }) {
+
+        const [itemOffset, setItemOffset] = useState(0);
+      
+        const endOffset = itemOffset + itemsPerPage;
+        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        const currentItems = data.slice(itemOffset, endOffset);
+        console.log("This is current start page????", currentItems);
+        const pageCount = Math.ceil(data.length / itemsPerPage);
+      
+        // Invoke when user click to request another page.
+        const handlePageClick = (event) => {
+          const newOffset = (event.selected * itemsPerPage) % data.length;
+          console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+          setItemOffset(newOffset);
+        };
+
+        const [filterText, setFilterText] = useState("");
+        const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+
+        const filteredItems = data.filter(
+            item =>
+            JSON.stringify(item)
+                .toLowerCase()
+                .indexOf(filterText.toLowerCase()) !== -1
+        );
+
+        const subHeaderComponent = useMemo(() => {
+            const handleClear = () => {
+              if (filterText) {
+                setResetPaginationToggle(!resetPaginationToggle);
+                setFilterText("");
+              }
+            };
+        
+            return (
+                <>  
+                    <div className='sub-Theader'>               
+                        <caption className='caption-position'>{TableProps.tablecaption} </caption>
+                        <div className='search-box d-flex ml-auto'>  
+                            <input
+                                className='filter-input'
+                                // id="search"
+                                type="text"
+                                placeholder="Search..."
+                                value={filterText}
+                                onChange={e => setFilterText(e.target.value)}
+                            />
+                            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                            {/* <button className='filter-close' onClick={handleClear}>X</button> */}
+                        </div>
+                    </div>
+                </> 
+            );
+        }, [filterText, resetPaginationToggle]);
+      
+        return (
+          <>
+                <DataTable
+                    columns={columns}
+                    data={ (filterText == '') ? currentItems : filteredItems }
+                    subHeader
+                    subHeaderComponent={subHeaderComponent}
+                    //selectableRows
+                    // paginationDefaultPage={currentItems}
+                    // paginationTotalRows = { data.length / pageCount }  
+                    paginationRowsPerPageOptions={[setpageNo]}
+                    paginationPerPage={setpageNo}
+                    pagination = {showpagination}
+                    highlightOnHover
+                    striped = {showstriped}
+                    customStyles={tableCustomStyles}
+                />
+                <ReactPaginate
+                    // breakLabel="..."
+                    previousLabel="< previous"
+                    nextLabel="next >"
+                    onPageChange={handlePageClick}
+                    // pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    renderOnZeroPageCount={null}
+                    activeClassName={`${TableProps.Choice_Theme}`}
+                />
+          </>
+        );
+      }
 
     const tableCustomStyles = {
         headRow: {
@@ -242,22 +449,20 @@ function Table(props) {
 
     return(
         <>
-            <div class="Table-Content">
-                <h2 class="table-heading">Table:</h2>
-                <DataTable
-                    columns={columns}
-                    data={filteredItems}
-                    subHeader
-                    subHeaderComponent={subHeaderComponent}
-                    //selectableRows
-                    // paginationDefaultPage={currentPage}  
-                    paginationRowsPerPageOptions={[setpageNo]}
-                    paginationPerPage={setpageNo}
-                    pagination = {showpagination}
-                    highlightOnHover
-                    striped = {showstriped}
-                    customStyles={tableCustomStyles}
-                />
+            <div class={`Table-Content`}>
+                {/* <h2 class="table-heading">Table:</h2> */}
+                
+                <PaginatedItems itemsPerPage={setpageNo} />,
+                {/* <Styles>
+                    <MDBDataTable
+                        striped
+                        bordered
+                        small
+                        hover
+                        data={enterdata}
+                        />
+                </Styles> */}
+
                 {/* <table class="table table-striped table-bordered">
                     <caption className='caption-position'>Events</caption>
                     <thead>

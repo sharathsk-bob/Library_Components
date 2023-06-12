@@ -11,10 +11,9 @@ const BreakpointLayoutForm =(props)=>{
     const [inputs, setInputs] = useState({});
     const [inputErrors, setInputErrors] = useState({});
 
-    const [numSelects, setNumSelects] = useState(0);
+    const [numLayouts, setNumLayouts] = useState(0);
     const [themeValue, setThemeValue] = useState();
     
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,10 +24,157 @@ const BreakpointLayoutForm =(props)=>{
 
         let errors = {};
 
-        
+        if (numLayouts  === undefined || numLayouts === 0 || numLayouts === '') {
+            errors.numLayouts = "Please make decision for Number of Layouts";
+        } else {
+            inputs.numLayouts = numLayouts;
+        }
 
-        
-        
+        if(numLayouts == 1) {
+            if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
+                errors.breakpointLayoutTitle1 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle1 !== undefined) {
+                if(values.breakpointLayoutTitle1.length > 15){
+                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
+                errors.breakpointLayoutText1 = "Text is required"; 
+            } else if (values.breakpointLayoutText1 !== undefined) {
+                if(values.breakpointLayoutText1.length > 250){
+                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                }
+            }
+        } else if (numLayouts == 2) {
+            if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
+                errors.breakpointLayoutTitle1 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle1 !== undefined) {
+                if(values.breakpointLayoutTitle1.length > 15){
+                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
+                errors.breakpointLayoutText1 = "Text is required"; 
+            } else if (values.breakpointLayoutText1 !== undefined) {
+                if(values.breakpointLayoutText1.length > 250){
+                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
+                errors.breakpointLayoutTitle2 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle2 !== undefined) {
+                if(values.breakpointLayoutTitle2.length > 15){
+                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                }
+            }  
+            if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
+                errors.breakpointLayoutText2 = "Text is required"; 
+            } else if (values.breakpointLayoutText2 !== undefined) {
+                if(values.breakpointLayoutText2.length > 250){
+                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                }
+            }
+        } else if (numLayouts == 3) {
+            if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
+                errors.breakpointLayoutTitle1 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle1 !== undefined) {
+                if(values.breakpointLayoutTitle1.length > 15){
+                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
+                errors.breakpointLayoutText1 = "Text is required"; 
+            } else if (values.breakpointLayoutText1 !== undefined) {
+                if(values.breakpointLayoutText1.length > 250){
+                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
+                errors.breakpointLayoutTitle2 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle2 !== undefined) {
+                if(values.breakpointLayoutTitle2.length > 15){
+                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
+                errors.breakpointLayoutText2 = "Text is required"; 
+            } else if (values.breakpointLayoutText2 !== undefined) {
+                if(values.breakpointLayoutText2.length > 250){
+                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle3 == undefined || values.breakpointLayoutTitle3 === '') {
+                errors.breakpointLayoutTitle3 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle3 !== undefined) {
+                if(values.breakpointLayoutTitle3.length > 15){
+                    errors.breakpointLayoutTitle3 = "Title should be shorter"; 
+                }
+            }         
+            if (values.breakpointLayoutText3 == undefined || values.breakpointLayoutText3 === '') {
+                errors.breakpointLayoutText3 = "Text is required"; 
+            } else if (values.breakpointLayoutText3 !== undefined) {
+                if(values.breakpointLayoutText3.length > 250){
+                    errors.breakpointLayoutText3 = "Text should be shorter"; 
+                }
+            }
+        } else if (numLayouts == 4) {
+            if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
+                errors.breakpointLayoutTitle1 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle1 !== undefined) {
+                if(values.breakpointLayoutTitle1.length > 15){
+                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
+                errors.breakpointLayoutText1 = "Text is required"; 
+            } else if (values.breakpointLayoutText1 !== undefined) {
+                if(values.breakpointLayoutText1.length > 250){
+                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
+                errors.breakpointLayoutTitle2 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle2 !== undefined) {
+                if(values.breakpointLayoutTitle2.length > 15){
+                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
+                errors.breakpointLayoutText2 = "Text is required"; 
+            } else if (values.breakpointLayoutText2 !== undefined) {
+                if(values.breakpointLayoutText2.length > 250){
+                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle3 == undefined || values.breakpointLayoutTitle3 === '') {
+                errors.breakpointLayoutTitle3 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle3 !== undefined) {
+                if(values.breakpointLayoutTitle3.length > 15){
+                    errors.breakpointLayoutTitle3 = "Title should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutText3 == undefined || values.breakpointLayoutText3 === '') {
+                errors.breakpointLayoutText3 = "Text is required"; 
+            } else if (values.breakpointLayoutText3 !== undefined) {
+                if(values.breakpointLayoutText3.length > 250){
+                    errors.breakpointLayoutText3 = "Text should be shorter"; 
+                }
+            }
+            if (values.breakpointLayoutTitle4 == undefined || values.breakpointLayoutTitle4 === '') {
+                errors.breakpointLayoutTitle4 = "Title is required"; 
+            } else if (values.breakpointLayoutTitle4 !== undefined) {
+                if(values.breakpointLayoutTitle4.length > 15){
+                    errors.breakpointLayoutTitle4 = "Title should be shorter"; 
+                }
+            }   
+            if (values.breakpointLayoutText4 == undefined || values.breakpointLayoutText4 === '') {
+                errors.breakpointLayoutText4 = "Text is required"; 
+            } else if (values.breakpointLayoutText4 !== undefined) {
+                if(values.breakpointLayoutText4.length > 250){
+                    errors.breakpointLayoutText4 = "Text should be shorter"; 
+                }
+            }
+        } 
 
         if(themeValue === undefined || themeValue === ''){
             errors.theme = "Please select the value from the dropdown";
@@ -47,12 +193,20 @@ const BreakpointLayoutForm =(props)=>{
         {
         console.log("Inputs Sent!!!", inputs);
         navigate("/breakpointlayout", {state: {inputs}});
-        } else {
-        }   
+        } 
     };
 
     const BreakpointLayoutProps = {
-        
+        numLayouts: inputs.numLayouts,
+        breakpointLayoutTitle1: inputs.breakpointLayoutTitle1,
+        breakpointLayoutText1: inputs.breakpointLayoutText1,
+        breakpointLayoutTitle2: inputs.breakpointLayoutTitle2,
+        breakpointLayoutText2: inputs.breakpointLayoutText2,
+        breakpointLayoutTitle3: inputs.breakpointLayoutTitle3,
+        breakpointLayoutText3: inputs.breakpointLayoutText3,
+        breakpointLayoutTitle4: inputs.breakpointLayoutTitle4,
+        breakpointLayoutText4: inputs.breakpointLayoutText4,
+        Choice_Theme: inputs.theme,
     };
 
     return (
@@ -77,14 +231,14 @@ const BreakpointLayoutForm =(props)=>{
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">           
-                    <label htmlFor="num-selects" aria-label={`Number of Breakpoint Layout Asterik-Required`}>
+                    <label htmlFor="num-layouts" aria-label={`Number of Breakpoint Layout Asterik-Required`}>
                         {`Number of Breakpoint Layout:`}<span className="asterik" >*</span>
                     </label>
                     <select
-                        id="num-selects"
-                        name="num-selects"
-                        value={numSelects}
-                        onChange={(event) => setNumSelects(event.target.value)}
+                        id="num-layouts"
+                        name="num-layouts"
+                        value={numLayouts}
+                        onChange={(event) => setNumLayouts(event.target.value)}
                     >
                         <option value="">Select</option>
                         <option value="1">1</option>
@@ -94,10 +248,10 @@ const BreakpointLayoutForm =(props)=>{
                     </select>
                 </FormField>
                 </div>    
-                <p className="error" aria-atomic="true">{inputErrors.numSelects}</p>
+                <p className="error" aria-atomic="true">{inputErrors.numLayouts}</p>
             </div>
 
-            { numSelects == "1" ? (
+            { numLayouts == "1" ? (
                 <>
                 <div className="input-field-container">
                     <FormField className="form-modal__content">
@@ -137,7 +291,7 @@ const BreakpointLayoutForm =(props)=>{
                 </div>
                 </>    
                 )
-            : numSelects == "2" ? (
+            : numLayouts == "2" ? (
                 <>
                 <div className="input-field-container">
                     <FormField className="form-modal__content">
@@ -220,7 +374,7 @@ const BreakpointLayoutForm =(props)=>{
                     </FormField>
                 </div>
                 </>
-            ) : numSelects == "3" ? (
+            ) : numLayouts == "3" ? (
                 <>
                 <div className="input-field-container">
                     <FormField className="form-modal__content">
@@ -347,7 +501,7 @@ const BreakpointLayoutForm =(props)=>{
                     </FormField>
                 </div>
                 </>
-            ) : numSelects == "4" ? (
+            ) : numLayouts == "4" ? (
                 <>
                 <div className="input-field-container">
                     <FormField className="form-modal__content">

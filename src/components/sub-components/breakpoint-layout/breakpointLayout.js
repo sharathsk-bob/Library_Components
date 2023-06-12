@@ -4,7 +4,7 @@ import useModal from "../../sub-components/use-modal/use-modal";
 import styled from "styled-components";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import EditBreakpointLayoutModal from "./edit-breakpointLayout";
+import EditBreakpointLayoutModal from "./edit-breakpointLayout";
 import BreakpointLayoutHtml from "./breakpointLayout-html";
 import BreakpointLayout from "./breakpointLayout-main";
 import './breakpointLayout.scss'
@@ -43,7 +43,7 @@ const BreakpointLayoutComponent = ( ) => {
     return (
         <>
         <ModalWrapperEditBreakpointLayout >
-            {/* <EditBreakpointLayoutModal close={closeEditBreakpointLayout} data={props} /> */}
+            <EditBreakpointLayoutModal close={closeEditBreakpointLayout} data={props} />
         </ModalWrapperEditBreakpointLayout >
 
         <div className="header-output">
@@ -62,7 +62,7 @@ const BreakpointLayoutComponent = ( ) => {
                     </div>
                 </div>
             </div>
-            <BreakpointLayout />
+            <BreakpointLayout BreakpointLayoutProps={props}/>
         </div>
 
         <div className="card-tabs">
