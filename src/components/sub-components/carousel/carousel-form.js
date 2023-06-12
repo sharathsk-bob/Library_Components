@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import FocusTrap from "focus-trap-react";
 import closeIcon from "../../asset/images/cross-white.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const CarouselForm = (props) => {
   const {close}=props;
+  const history=useNavigate();
   const [cardCount, setCardCount] = useState(1);
   const [wantImage, setWantImage] = useState('');
   const [theme, setTheme] = useState('');
   const [width, setWidth] = useState('');
   const [errors, setErrors] = useState({});
-
+  const carouselProps = {
+    cardCount,
+    wantImage,
+    theme,
+    width
+  };
   const validateForm = () => {
     const errors = {};
 
@@ -45,6 +52,7 @@ const CarouselForm = (props) => {
       console.log('Want Image:', wantImage);
       console.log('Theme:', theme);
       console.log('Width:', width);
+      history("/carousel", {state: {carouselProps}});
     }
   };
 
