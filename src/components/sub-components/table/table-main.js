@@ -1,15 +1,8 @@
 import React, { useState, useMemo, useEffect }  from 'react';
 import DataTable from 'react-data-table-component';
 import ReactPaginate from 'react-paginate';
-// import styled from "styled-components";
 // import { MDBDataTable } from 'mdbreact';
 import './table.scss';
-
-// const Styles = styled.div`
-// .table thead [data-test=table-foot] {
-//     display: none;
-// }
-// `;
 
 // const enterdata = {
 //     columns: [
@@ -154,7 +147,6 @@ import './table.scss';
 //         },
 //     ]
 // }
-
 
 const columns = [
     {
@@ -303,10 +295,6 @@ function Table(props) {
     let color = "";
     let bgColor = "";
 
-    
-    
-    
-
     if(TableProps.Choice_TableStriped == "Yes"){
         showstriped = true;
     }
@@ -320,13 +308,15 @@ function Table(props) {
         } else if(TableProps.Choice_pageNo === "15" ) {
             setpageNo = 15;
         }
+    } else {
+        setpageNo = data.length;
     }
 
     if(TableProps.Choice_Theme == "Dark") {
         bgColor = "#242424"
         color = "#fff"
     } else if(TableProps.Choice_Theme == "Normal") {
-        bgColor = "#fff"
+        bgColor = "#F1F4F8"
         color = "#242424"
     } else if(TableProps.Choice_Theme == "cg1") {
         bgColor = "#0070AD"
@@ -335,7 +325,6 @@ function Table(props) {
         bgColor = "#2b0a3d"
         color = "#fff"
     }
-
 
     function PaginatedItems({ itemsPerPage }) {
 
@@ -410,16 +399,27 @@ function Table(props) {
                     striped = {showstriped}
                     customStyles={tableCustomStyles}
                 />
-                <ReactPaginate
-                    // breakLabel="..."
-                    previousLabel="< previous"
-                    nextLabel="next >"
-                    onPageChange={handlePageClick}
-                    // pageRangeDisplayed={5}
-                    pageCount={pageCount}
-                    renderOnZeroPageCount={null}
-                    activeClassName={`${TableProps.Choice_Theme}`}
-                />
+                <div class="pagination-footer">
+                    
+                { TableProps.Choice_Pagination === "Yes" ?
+                    (
+                        <>
+                            <p>Displaying {TableProps.Choice_pageNo} entries per page</p>
+                            <ReactPaginate
+                                // breakLabel="..."
+                                previousLabel="previous"
+                                nextLabel="next"
+                                onPageChange={handlePageClick}
+                                // pageRangeDisplayed={5}
+                                pageCount={pageCount}
+                                renderOnZeroPageCount={null}
+                                activeClassName={`${TableProps.Choice_Theme}`}
+                            />
+                        </>
+                    ) : ( <p>Displaying All entries</p> )
+                }
+                </div>
+                
           </>
         );
       }
@@ -430,7 +430,8 @@ function Table(props) {
             fontSize: '16px',
             fontWeight: 'bold', 
             color: color,
-            backgroundColor: bgColor
+            backgroundColor: bgColor,
+            // borderRight: '2px solid white'
           },
         },
         rows: {
@@ -452,7 +453,7 @@ function Table(props) {
             <div class={`Table-Content`}>
                 {/* <h2 class="table-heading">Table:</h2> */}
                 
-                <PaginatedItems itemsPerPage={setpageNo} />,
+                <PaginatedItems itemsPerPage={setpageNo} />
                 {/* <Styles>
                     <MDBDataTable
                         striped

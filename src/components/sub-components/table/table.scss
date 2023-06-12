@@ -1,5 +1,8 @@
 .Table-Content {
     margin: 1.2em 0.8em;
+    // div:nth-child(3) {
+    //     display: none;
+    // }
 }
 
 .table-heading {
@@ -61,9 +64,22 @@
     justify-content: center;
 }
 
-.rdt_Pagination {
-    display: none;
-    visibility: hidden;
+.rdt_TableHead {
+    .rdt_TableCol {
+        border-right: 2px white solid;
+    }
+    :last-child {
+        border-right: none;
+    }
+}
+
+.rdt_TableRow {
+    .rdt_TableCell {
+        border-right: 2px #ccc solid;
+    }
+    :last-child {
+        border-right: none;
+    }
 }
 
 // .Table-Content div + div {
@@ -94,27 +110,43 @@
     display: none;
 }
 
+div:has(> nav) {
+    display: none;
+}
+
+.pagination-footer {
+    padding: 8px;
+    display: flex;
+    background-color: white;
+    ul, p {
+        margin-bottom: 0 !important;
+    }
+}
+
 .Table-Content ul {
     display: flex;
+    margin-left: auto;
     list-style: none;
     justify-content: center;
-    background-color: white;
-    li {
-        padding: 8px;
+    li {   
         background-color: white;
         color: black;
         border: 1px black solid;
         margin-right: 8px;
+        cursor: pointer;
         a {
+            padding: 8px;
             text-decoration: none;
         }
     }
-    .selected {
-        background-color: black;
-        color: white;
-    }
     .disabled {
         background-color: #cccc;
-        color: #a0a0a0;
+        a{
+            color: #a0a0a0 !important;
+        }
     }
+    // .selected {
+    //     background-color: black;
+    //     color: white;
+    // }
 }
