@@ -1,6 +1,7 @@
 import React from 'react'
 
-function CarouselMain() {
+function CarouselMain(props) {
+  const { data }=props;
   return (
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
