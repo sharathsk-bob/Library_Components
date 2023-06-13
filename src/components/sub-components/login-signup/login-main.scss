@@ -1,0 +1,105 @@
+.login-container{
+    margin: 20px;
+    .login-form{
+        border-radius: 4px;
+        min-height: 65vh;
+        // padding: 20px;
+        .form-header{
+         border-bottom: 2px solid black;
+         box-shadow: var(--box-shadow);
+p{
+    font-size: 28px;
+    margin: 0px;
+    padding: 10px 0px 10px 20px;
+    font-weight: 700;
+}
+        }
+        .form-container{
+            padding: 20px;
+            .form-floating{
+                margin-bottom: 10px;
+                label{
+                    font-weight: 500;
+                }
+            }
+          
+        }
+        .login-button{
+            .link-button{
+                float: right;
+    padding: 0px 20px;
+                .submit-button{
+                    background-color: var(--color-capgemini-blue);
+    border-color: var(--color-capgemini-blue);
+    border-radius: 4px;
+    color: var(--color-white);
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 16px;
+    text-decoration: none;
+                }
+            }
+            
+        }
+    }
+    .form-Normal{
+        background-color: rgb(241, 244, 248);
+        border: 2px solid black;
+    }
+    .form-Dark{
+        background-color:black;
+        .form-header{
+            border-bottom: 2px solid white;
+            p{
+                color: white;
+            }
+        }
+       
+
+       
+    }
+   .form-Cg1{
+    background-color:var(--color-capgemini-blue);
+    color: white!important;
+   .form-container{
+    color: var(--color-capgemini-blue);       
+}
+
+.login-button{
+    .link-button{
+       
+        .submit-button{
+            background-color: var(--color-white);
+border-color: var(--color-capgemini-blue);
+
+color: var(--color-capgemini-blue);
+
+        }
+    }
+    
+}
+}
+.form-Cg2{
+    background-color:var(--color-purple-wbh);
+    color: white!important;
+    .form-header{
+        border-bottom: 1px solid white;
+        p{
+            color: white;
+        }
+    }
+   
+    .form-container{
+        color: var(--color-purple-wbh);       
+    }
+}
+    .width-form{
+width: 75%;
+    }
+    .half-form{
+        width: 50%;
+    }
+    .one-fourth-form{
+        width: 25%;
+    }
+}

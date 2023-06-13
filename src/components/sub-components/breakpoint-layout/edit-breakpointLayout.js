@@ -58,146 +58,146 @@ const EditBreakpointLayoutModal = (props)=>{
 
         if(values.numLayouts == 1) {
             if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
-                errors.breakpointLayoutTitle1 = "Title is required"; 
+                errors.breakpointLayoutTitle1 = "Title 1 is required"; 
             } else if (values.breakpointLayoutTitle1 !== undefined) {
                 if(values.breakpointLayoutTitle1.length > 15){
-                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle1 = "Title 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
-                errors.breakpointLayoutText1 = "Text is required"; 
+                errors.breakpointLayoutText1 = "Text 1 is required"; 
             } else if (values.breakpointLayoutText1 !== undefined) {
                 if(values.breakpointLayoutText1.length > 250){
-                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                    errors.breakpointLayoutText1 = "Text 1 should be shorter"; 
                 }
             }
         } if(values.numLayouts == 2) {
             if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
-                errors.breakpointLayoutTitle1 = "Title is required"; 
+                errors.breakpointLayoutTitle1 = "Title 1 is required"; 
             } else if (values.breakpointLayoutTitle1 !== undefined) {
                 if(values.breakpointLayoutTitle1.length > 15){
-                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle1 = "Title 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
-                errors.breakpointLayoutText1 = "Text is required"; 
+                errors.breakpointLayoutText1 = "Text 1 is required"; 
             } else if (values.breakpointLayoutText1 !== undefined) {
                 if(values.breakpointLayoutText1.length > 250){
-                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                    errors.breakpointLayoutText1 = "Text 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
-                errors.breakpointLayoutTitle2 = "Title is required"; 
+                errors.breakpointLayoutTitle2 = "Title 2 is required"; 
             } else if (values.breakpointLayoutTitle2 !== undefined) {
                 if(values.breakpointLayoutTitle2.length > 15){
-                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle2 = "Title 2 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
-                errors.breakpointLayoutText2 = "Text is required"; 
+                errors.breakpointLayoutText2 = "Text 2 is required"; 
             } else if (values.breakpointLayoutText2 !== undefined) {
                 if(values.breakpointLayoutText2.length > 250){
-                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                    errors.breakpointLayoutText2 = "Text 2 should be shorter"; 
                 }
             }
         } else if (values.numLayouts == 3) {
             if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
-                errors.breakpointLayoutTitle1 = "Title is required"; 
+                errors.breakpointLayoutTitle1 = "Title 1 is required"; 
             } else if (values.breakpointLayoutTitle1 !== undefined) {
                 if(values.breakpointLayoutTitle1.length > 15){
-                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle1 = "Title 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
-                errors.breakpointLayoutText1 = "Text is required"; 
+                errors.breakpointLayoutText1 = "Text 1 is required"; 
             } else if (values.breakpointLayoutText1 !== undefined) {
                 if(values.breakpointLayoutText1.length > 250){
-                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                    errors.breakpointLayoutText1 = "Text 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
-                errors.breakpointLayoutTitle2 = "Title is required"; 
+                errors.breakpointLayoutTitle2 = "Title 2 is required"; 
             } else if (values.breakpointLayoutTitle2 !== undefined) {
                 if(values.breakpointLayoutTitle2.length > 15){
-                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle2 = "Title 2 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
-                errors.breakpointLayoutText2 = "Text is required"; 
+                errors.breakpointLayoutText2 = "Text 2 is required"; 
             } else if (values.breakpointLayoutText2 !== undefined) {
                 if(values.breakpointLayoutText2.length > 250){
-                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                    errors.breakpointLayoutText2 = "Text 2 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle3 == undefined || values.breakpointLayoutTitle3 === '') {
-                errors.breakpointLayoutTitle3 = "Title is required"; 
+                errors.breakpointLayoutTitle3 = "Title 3 is required"; 
             } else if (values.breakpointLayoutTitle3 !== undefined) {
                 if(values.breakpointLayoutTitle3.length > 15){
-                    errors.breakpointLayoutTitle3 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle3 = "Title 3 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText3 == undefined || values.breakpointLayoutText3 === '') {
-                errors.breakpointLayoutText3 = "Text is required"; 
+                errors.breakpointLayoutText3 = "Text 3 is required"; 
             } else if (values.breakpointLayoutText3 !== undefined) {
                 if(values.breakpointLayoutText3.length > 250){
-                    errors.breakpointLayoutText3 = "Text should be shorter"; 
+                    errors.breakpointLayoutText3 = "Text 3 should be shorter"; 
                 }
             }
         } else if (values.numLayouts == 4) {
             if (values.breakpointLayoutTitle1 == undefined || values.breakpointLayoutTitle1 === '') {
-                errors.breakpointLayoutTitle1 = "Title is required"; 
+                errors.breakpointLayoutTitle1 = "Title 1 is required"; 
             } else if (values.breakpointLayoutTitle1 !== undefined) {
                 if(values.breakpointLayoutTitle1.length > 15){
-                    errors.breakpointLayoutTitle1 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle1 = "Title 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText1 == undefined || values.breakpointLayoutText1 === '') {
-                errors.breakpointLayoutText1 = "Text is required"; 
+                errors.breakpointLayoutText1 = "Text 1 is required"; 
             } else if (values.breakpointLayoutText1 !== undefined) {
                 if(values.breakpointLayoutText1.length > 250){
-                    errors.breakpointLayoutText1 = "Text should be shorter"; 
+                    errors.breakpointLayoutText1 = "Text 1 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle2 == undefined || values.breakpointLayoutTitle2 === '') {
-                errors.breakpointLayoutTitle2 = "Title is required"; 
+                errors.breakpointLayoutTitle2 = "Title 2 is required"; 
             } else if (values.breakpointLayoutTitle2 !== undefined) {
                 if(values.breakpointLayoutTitle2.length > 15){
-                    errors.breakpointLayoutTitle2 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle2 = "Title 2 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText2 == undefined || values.breakpointLayoutText2 === '') {
-                errors.breakpointLayoutText2 = "Text is required"; 
+                errors.breakpointLayoutText2 = "Text 2 is required"; 
             } else if (values.breakpointLayoutText2 !== undefined) {
                 if(values.breakpointLayoutText2.length > 250){
-                    errors.breakpointLayoutText2 = "Text should be shorter"; 
+                    errors.breakpointLayoutText2 = "Text 2 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle3 == undefined || values.breakpointLayoutTitle3 === '') {
-                errors.breakpointLayoutTitle3 = "Title is required"; 
+                errors.breakpointLayoutTitle3 = "Title 3 is required"; 
             } else if (values.breakpointLayoutTitle3 !== undefined) {
                 if(values.breakpointLayoutTitle3.length > 15){
-                    errors.breakpointLayoutTitle3 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle3 = "Title 3 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutText3 == undefined || values.breakpointLayoutText3 === '') {
-                errors.breakpointLayoutText3 = "Text is required"; 
+                errors.breakpointLayoutText3 = "Text 3 is required"; 
             } else if (values.breakpointLayoutText3 !== undefined) {
                 if(values.breakpointLayoutText3.length > 250){
-                    errors.breakpointLayoutText3 = "Text should be shorter"; 
+                    errors.breakpointLayoutText3 = "Text 3 should be shorter"; 
                 }
             }
             if (values.breakpointLayoutTitle4 == undefined || values.breakpointLayoutTitle4 === '') {
-                errors.breakpointLayoutTitle4 = "Title is required"; 
+                errors.breakpointLayoutTitle4 = "Title 4 is required"; 
             } else if (values.breakpointLayoutTitle4 !== undefined) {
                 if(values.breakpointLayoutTitle4.length > 15){
-                    errors.breakpointLayoutTitle4 = "Title should be shorter"; 
+                    errors.breakpointLayoutTitle4 = "Title 4 should be shorter"; 
                 }
             }   
             if (values.breakpointLayoutText4 == undefined || values.breakpointLayoutText4 === '') {
-                errors.breakpointLayoutText4 = "Text is required"; 
+                errors.breakpointLayoutText4 = "Text 4 is required"; 
             } else if (values.breakpointLayoutText4 !== undefined) {
                 if(values.breakpointLayoutText4.length > 250){
-                    errors.breakpointLayoutText4 = "Text should be shorter"; 
+                    errors.breakpointLayoutText4 = "Text 4 should be shorter"; 
                 }
             }
         } 
@@ -635,12 +635,9 @@ const EditBreakpointLayoutModal = (props)=>{
                             <p className='error' aria-atomic="true">{inputErrors.breakpointLayoutText4}</p>
                         </FormField>
                     </div>
-
-                    
                     </>
                 ) : ( " " )
             }
-
 
             <div className="input-field-container theme-field">
                 <div className="modal-checkbox">

@@ -23,15 +23,15 @@
         }
     }
 }
-.loaderDark{
-    border-top: 16px solid black !important;
-}
-.loadercg1{
-    border-top: 16px solid #0070AD !important;
-}
-.loadercg2{
-    border-top: 16px solid #2b0a3d !important ;
-}
+// .loaderDark{
+//     border-top: 16px solid black !important;
+// }
+// .loadercg1{
+//     border-top: 16px solid #0070AD !important;
+// }
+// .loadercg2{
+//     border-top: 16px solid #2b0a3d !important ;
+// }
 .loaderone{
     animation: spin 1s linear infinite !important;
 }
@@ -48,6 +48,39 @@
     animation:progressing 5s infinite;
 }
 }
+.loader-section{
+  margin-top: 20px;
+  .loader-container{
+    width: 160px;
+    height: 160px;
+    margin: auto;
+  }
+  .loaderDark{
+    .CircularProgressbar .CircularProgressbar-path{
+      stroke: black!important;
+    }
+    .CircularProgressbar .CircularProgressbar-text{
+      fill: black;
+    }
+  }
+  .loadercg1{
+    .CircularProgressbar .CircularProgressbar-path{
+      stroke: var(--color-capgemini-blue )!important;
+    }
+    .CircularProgressbar .CircularProgressbar-text{
+      fill: var(--color-capgemini-blue)
+    }
+  }
+  .loadercg2{
+    .CircularProgressbar .CircularProgressbar-path{
+      stroke: var(--color-purple-wbh )!important;
+    }
+    .CircularProgressbar .CircularProgressbar-text{
+      fill: var(--color-purple-wbh)
+    }
+  }
+}
+
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -186,8 +219,8 @@ body{
   width: 25% !important;
 }
 .loadermed{
-    width: 150px !important;
-    height:150px !important;
+    width: 100px !important;
+    height:100px !important;
 }
 .loadersmall{
     width: 75px !important;
