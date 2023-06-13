@@ -96,7 +96,7 @@ const BreakpointLayoutComponent = ( ) => {
         </ModalWrapperEditBreakpointLayout >
 
         <div className="header-output">
-            <div className="component-header">
+            <div className="component-header break-pointHeader">
                 <div className="header-left">
                     <h1>Breakpoint Layout </h1> <span> Component</span> 
                 </div>

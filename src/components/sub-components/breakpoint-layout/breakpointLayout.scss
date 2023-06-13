@@ -57,3 +57,12 @@
     background-color: var(--color-purple-wbh);
     color: var(--color-white);
 }
+
+@media screen and (max-width: 520px) {
+    .header-output{
+        .break-pointHeader{
+            display: block;
+           }
+    }
+  
+}

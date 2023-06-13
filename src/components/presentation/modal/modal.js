@@ -28,6 +28,7 @@ import BreakpointLayoutDetail from "../../sub-components/breakpoint-layout/break
 import BreakpointLayoutForm from "../../sub-components/breakpoint-layout/breakpointLayout-form";
 import LoginSignDetail from "../../sub-components/login-signup/loginsign-detail";
 import "../../sub-components/use-modal/use-modal.scss";
+ import LogInModal from "../../sub-components/login-signup/login-modal";
 import "./modal.scss";
 import CarouselForm from "../../sub-components/carousel/carousel-form";
 
@@ -162,7 +163,7 @@ const Modal =()=>{
           <BreakpointLayoutDetail close={closeBreakpointLayoutDetail} />
         </ModalWrapperBreakpointLayoutDetail>
         <ModalWrapperLoginSign>
-          {/* <LoginSignForm close={closeLoginSignForm} /> */}
+          <LogInModal close={closeLoginSignForm} />
         </ModalWrapperLoginSign>
         <ModalWrapperLoginSignDetail>
           <LoginSignDetail close={closeLoginSignDetail} />
