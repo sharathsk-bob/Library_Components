@@ -12,6 +12,9 @@ const LogInModal =(props)=>{
     const [passValue, setPassValue] = useState();
     const [formValue, setFormValue] = useState("25%");
     const [themeValue, setThemeValue] = useState("Normal");
+    const [captialValue, setCapitalValue] = useState("");
+    const [numericValue, setNumericValue] = useState("");
+    const [smallValue, setSmallValue] = useState("");
     const [errorMsg, setErrorMsg] = useState({});
    
 	const{close} = props;
@@ -21,6 +24,9 @@ const LogInModal =(props)=>{
    userValue,
   passValue,
    formValue,
+   captialValue,
+   smallValue,
+   numericValue,
    themeValue
   };
 
@@ -37,6 +43,18 @@ const LogInModal =(props)=>{
       if(userValue === undefined){
       errors.user = "Lable is required ";
       isValid = false;
+      }
+      if(captialValue === ""){
+        errors.capitalvalue = "Please select the above field";
+        isValid = false;
+      }
+      if(smallValue === ""){
+        errors.smallvalue = "Please select the above field";
+        isValid = false;
+      }
+      if(numericValue === ""){
+        errors.numbervalue = "Please select the above field";
+        isValid = false;
       }
       if(passValue === undefined){
         errors.pass = "Lable is required ";
@@ -126,6 +144,129 @@ return (
                   {errorMsg.pass ?<span className="error">{errorMsg.pass}</span>:""}
                 </FormField>
               </div>
+              <div className="input-field-container logo-field">
+          <p>Would you like to have capital letter validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="capital-letter"
+                  checked={captialValue === "Yes"}
+                  onChange={(e) => {
+                    setCapitalValue("Yes");
+                  }}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="capital-letter"
+                  checked={captialValue === "No"}
+                  onChange={(e) => {
+                    setCapitalValue("No");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {errorMsg.capitalvalue ? <span className="error">{errorMsg.capitalvalue}</span>: ""}
+        </div>
+        <div className="input-field-container logo-field">
+          <p>Would you like to have small letter validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="small-letter"
+                  checked={smallValue === "Yes"}
+                  onChange={(e) => {
+                    setSmallValue("Yes");
+                  }}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="small-letter"
+                  checked={smallValue === "No"}
+                  onChange={(e) => {
+                    setSmallValue("No");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {errorMsg.smallvalue ? <span className="error">{errorMsg.smallvalue}</span>: ""}
+        </div>
+        <div className="input-field-container logo-field">
+          <p>Would you like to have numeric values validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="numeric-letter"
+                  checked={numericValue === "Yes"}
+                  onChange={(e) => {
+                    setNumericValue("Yes");
+                  }}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="mumeric-letter"
+                  checked={numericValue === "No"}
+                  onChange={(e) => {
+                    setNumericValue("No");
+                  }}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {errorMsg.numbervalue ? <span className="error">{errorMsg.numbervalue}</span>: ""}
+        </div>
       <div className="input-field-container size-field">
                 <div className="modal-checkbox">
                   <FormField className="modal-content-theme">

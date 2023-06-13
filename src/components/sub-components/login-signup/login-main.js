@@ -49,7 +49,10 @@ if(flag=== true){
               : props.loginVal?.themeValue === "Normal"
               ? "form-Normal"
               : ""
-          } ${
+          }`}
+        >
+          <div 
+          className={`login-subcontainer ${
             props.loginVal?.formValue === "100%"
               ? "full-form"
               : props.loginVal?.formValue === "75%"
@@ -59,64 +62,68 @@ if(flag=== true){
               : props.loginVal?.formValue === "25%"
               ? "one-fourth-form"
               : ""
-          }`}
-        >
-        <div className='form-header'> <p>Login Here</p></div>
+          }`}>
+          <div className='form-header'> <p>Login Here</p></div>
    
-<div className='form-container'>
-    <div className= "form-floating">
-   
-    <input
-          type="text"
-          className= " form-control form-control-lg"
-          id="firstName"
-          // placeholder="First name"
-          autocomplete="off"
-          maxLength="50"
-          
-        />
-        <label for="firstName">{props.loginVal.userValue}</label>
-    </div>
-    <div  className= "form-floating">
-   
-    <input
-          type="password"
-          className= "form-control form-control-lg"
-          id="firstName"
-          value={passWordvalue}
-          onChange={(event) => setPassWordValue(event.target.value)}
-          autocomplete="off"
-          maxLength="15"
-          
-        />
-        <label for="firstName">{props.loginVal.passValue}</label> 
-        <div class="form-floating-bottom px-3">
-          <span class="form-control-char-size"></span>
-        </div>
-    </div>
-    <div className= "form-floating">
-   
-    <input
-          type="password"
-          className= " form-control form-control-lg"
-          id="passwordValue"
-          value={confrimpass}
-          onChange={(event) => setconfrimPass(event.target.value)}
-          autocomplete="off"
-          maxLength="15"
-          
-        />
-        <label for="firstName">Confirm PassWord</label> 
-    </div>
-</div>
-<div className='login-button'>
-  <div className="link-button">
-<button className='submit-button' onClick={passwordCheck} >
-           Submit
-          
-          </button>
+   <div className='form-container'>
+    <p>{props.loginVal.userValue}</p>
+       <div className= "form-floating">
+      
+       <input
+             type="text"
+             className= " form-control form-control-lg"
+             id="firstName"
+             // placeholder="First name"
+             autocomplete="off"
+             maxLength="50"
+             
+           />
+           <label for="firstName">{props.loginVal.userValue}</label>
+       </div>
+       <p>{props.loginVal.passValue}</p>
+       <div  className= "form-floating">
+     
+       <input
+             type="password"
+             className= "form-control form-control-lg"
+             id="firstName"
+             value={passWordvalue}
+             onChange={(event) => setPassWordValue(event.target.value)}
+             autocomplete="off"
+             maxLength="15"
+             
+           />
+           <label for="firstName">{props.loginVal.passValue}</label> 
+           <div class="form-floating-bottom px-3">
+             <span class="form-control-char-size"></span>
+           </div>
+       </div>
+       <p>Confirm Password</p>
+       <div className= "form-floating">
+      
+       <input
+             type="password"
+             className= " form-control form-control-lg"
+             id="passwordValue"
+             value={confrimpass}
+             onChange={(event) => setconfrimPass(event.target.value)}
+             autocomplete="off"
+             maxLength="15"
+             
+           />
+           <label for="firstName">Confirm Password</label> 
+       </div>
+   </div>
+   <div className='login-button'>
+     <div className="link-button">
+   <button className='submit-button' onClick={passwordCheck} >
+              Login
+             
+             </button>
+             </div>
+   </div>
           </div>
-</div>
+        
     
 
     </div>

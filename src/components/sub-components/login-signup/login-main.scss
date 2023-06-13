@@ -2,11 +2,13 @@
     margin: 20px;
     .login-form{
         border-radius: 4px;
-        min-height: 65vh;
+        min-height: 100vh;
         // padding: 20px;
         .form-header{
-         border-bottom: 2px solid black;
+        //  border-bottom: 1px solid black;
          box-shadow: var(--box-shadow);
+         background-color: black;
+         color: white;
 p{
     font-size: 28px;
     margin: 0px;
@@ -16,8 +18,16 @@ p{
         }
         .form-container{
             padding: 20px;
+            p{
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
             .form-floating{
                 margin-bottom: 10px;
+                input{
+                   min-height:2.8rem;
+                   height: 2.8rem;
+                }
                 label{
                     font-weight: 500;
                 }
@@ -26,15 +36,17 @@ p{
         }
         .login-button{
             .link-button{
-                float: right;
+                // float: right;
+                text-align: center;
     padding: 0px 20px;
                 .submit-button{
                     background-color: var(--color-capgemini-blue);
     border-color: var(--color-capgemini-blue);
-    border-radius: 4px;
+    border-radius: 6px;
+    width: 50%;
     color: var(--color-white);
     cursor: pointer;
-    padding: 4px 8px;
+    padding: 8px 8px;
     font-size: 16px;
     text-decoration: none;
                 }
@@ -43,26 +55,78 @@ p{
         }
     }
     .form-Normal{
-        background-color: rgb(241, 244, 248);
-        border: 2px solid black;
+        // background-color: #ececec;
+         background: rgb(238, 242, 248);
+        padding: 20px;
+        .login-subcontainer{
+            background-color: #ececec;
+            box-shadow: var(--box-shadow-grey);
+// border: 1px solid black;
+height: 75vh;
+        // width: 70%;
+        margin: auto;
+        border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+        }
+        
     }
     .form-Dark{
         background-color:black;
+        padding: 20px;
         .form-header{
-            border-bottom: 2px solid white;
-            p{
-                color: white;
-            }
+           background-color: transparent;
+           color: black;
+           
         }
        
-
+        .login-subcontainer{
+            background-color: #ececec;
+// border: 1px solid black;
+height: 80vh;
+        // width: 70%;
+        margin: auto;
+        border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    .submit-button{
+        background-color: black !important;
+        border: black;
+    }
+        }
        
     }
    .form-Cg1{
-    background-color:var(--color-capgemini-blue);
+    background-color: #ececec;
+    padding: 20px;
     color: white!important;
+    .form-header{
+        background-color: transparent;
+        
+        color: white!important;
+     }
+    .login-subcontainer{
+        background-color:var(--color-capgemini-blue);
+    
+        // background-color: #ececec;
+// border: 1px solid black;
+height: 75vh;
+    // width: 70%;
+    margin: auto;
+    border-radius: 10px;
+backdrop-filter: blur(10px);
+border: 2px solid rgba(255,255,255,0.1);
+p{
+    color: white;
+}
+.submit-button{
+    background-color:white!important;
+    border: white !important;
+    color:var(--color-capgemini-blue)
+}
+    }
    .form-container{
-    color: var(--color-capgemini-blue);       
+    color: grey;       
 }
 
 .login-button{
@@ -95,11 +159,20 @@ color: var(--color-capgemini-blue);
 }
     .width-form{
 width: 75%;
+ .submit-button {
+    width: 90% !important; 
+}
     }
     .half-form{
         width: 50%;
+        .submit-button {
+            width: 90%!important;
+        }
     }
     .one-fourth-form{
         width: 25%;
+        .submit-button {
+            width: 90% !important;
+        }
     }
 }
