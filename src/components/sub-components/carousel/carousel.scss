@@ -70,3 +70,46 @@
 }
 
 }
+
+.carouselw-25 {
+    width: 25%;
+    margin: 0 auto;
+}
+
+.carouselw-50 {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.carouselw-75 {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.carouselw-100 {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.carousel-dark {
+    background-image: linear-gradient(244deg,black,white);
+}
+
+.carousel-light {
+    background-image: linear-gradient(244deg,#ccc,white);
+}
+
+.carousel-blue {
+    background-image: linear-gradient(244deg,#0070AD,white);
+}
+
+.carousel-purple {
+    background-image: linear-gradient(244deg,#2b0a3d,white);
+}
+
+// .carousel-indicators {
+//     .btn-carousel-dark {
+//         // border: 1px black solid;
+//         background-color: black;
+//     }
+// }
