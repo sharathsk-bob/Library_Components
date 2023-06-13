@@ -26,6 +26,7 @@ import FileComponent from "./components/sub-components/forms/file-select/file-se
 import TableComponent from './components/sub-components/table/table';
 import DynamicTabs from './components/sub-components/dynamic tabs/dynamic-tabs';
 import LoaderComponent from "./components/sub-components/loader/loader";
+import LoginComponent from "../src/components/sub-components/login-signup/login"
 import './index.scss';
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route exact path="/table"element ={<TableComponent/>} ></Route>
           <Route exact path="/dynamictabs"element ={<DynamicTabs/>} ></Route>
           <Route exact path="/loader"element ={<LoaderComponent/>} ></Route>
+          <Route exact path="/login"element ={<LoginComponent/>} ></Route>
           </Routes>
         </AppProvider> 
     </div>

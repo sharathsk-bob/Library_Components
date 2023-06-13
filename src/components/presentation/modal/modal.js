@@ -27,6 +27,7 @@ import LoaderDetail from "../../sub-components/loader/loader-detail";
 import BreakpointLayoutDetail from "../../sub-components/breakpoint-layout/breakpointLayout-detail";
 import LoginSignDetail from "../../sub-components/login-signup/loginsign-detail";
 import "../../sub-components/use-modal/use-modal.scss";
+ import LogInModal from "../../sub-components/login-signup/login-modal";
 import "./modal.scss";
 
 const Modal =()=>{
@@ -159,7 +160,7 @@ const Modal =()=>{
           <BreakpointLayoutDetail close={closeBreakpointLayoutDetail} />
         </ModalWrapperBreakpointLayoutDetail>
         <ModalWrapperLoginSign>
-          {/* <LoginSignForm close={closeLoginSignForm} /> */}
+          <LogInModal close={closeLoginSignForm} />
         </ModalWrapperLoginSign>
         <ModalWrapperLoginSignDetail>
           <LoginSignDetail close={closeLoginSignDetail} />
