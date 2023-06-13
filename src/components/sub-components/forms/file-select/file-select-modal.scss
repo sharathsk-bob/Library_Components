@@ -62,6 +62,7 @@
 }
 .file-item{
     display: flex;
+    word-break: break-all;
     justify-content: space-between;
 }
 .file-name{
@@ -123,6 +124,12 @@
     }
 }
 
+@media screen and (max-width: $bp-mobile){
+    .one-fourth{
+        width: 100% !important;
+    }
+}
+
 @media screen and (max-width: $bp-sm-mobile){
     .file-name{
         display: -webkit-box;
@@ -131,16 +138,12 @@
         text-overflow: ellipsis;
     }
     .full-width{
-        width: 100%!important;
-    }
-    .width-option{
-        width:100%!important;
-    }
-    .halfwidth{
-        width: 100%!important;
-    }.one-fourth{
         width: 100% !important;
     }
-    
-
-  }
+    .width-option{
+        width:100% !important;
+    }
+    .halfwidth{
+        width: 100% !important;
+    }
+}

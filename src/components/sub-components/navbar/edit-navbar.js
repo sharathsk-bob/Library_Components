@@ -230,6 +230,7 @@ function EditNav(props) {
                     id={`menu-${i}-text`}
                     name={`menu-${i}-text`}
                     value={formValues.menus[i].text}
+                    maxLength={25}
                     onChange={(event) =>
                       handleMenuTextChange(i, event.target.value)
                     }
@@ -280,6 +281,7 @@ function EditNav(props) {
                             id={`menu-${i}-option-${j}`}
                             name={`menu-${i}-option-${j}`}
                             value={formValues.menus[i].options[j]}
+                            maxLength={25}
                             onChange={(event) =>
                               handleOptionTextChange(i, j, event.target.value)
                             }

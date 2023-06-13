@@ -25,10 +25,12 @@ import DynamicDetail from "../../sub-components/dynamic tabs/dynamic-details";
 import LoaderModal from "../../sub-components/loader/loader-modal";
 import LoaderDetail from "../../sub-components/loader/loader-detail";
 import BreakpointLayoutDetail from "../../sub-components/breakpoint-layout/breakpointLayout-detail";
+import BreakpointLayoutForm from "../../sub-components/breakpoint-layout/breakpointLayout-form";
 import LoginSignDetail from "../../sub-components/login-signup/loginsign-detail";
 import "../../sub-components/use-modal/use-modal.scss";
  import LogInModal from "../../sub-components/login-signup/login-modal";
 import "./modal.scss";
+import CarouselForm from "../../sub-components/carousel/carousel-form";
 
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
@@ -59,7 +61,8 @@ const Modal =()=>{
     const { open: openBreakpointLayoutForm, close: closeBreakpointLayoutForm, ModalWrapper: ModalWrapperBreakpointLayout } = useModal();
     const { open: openLoginSignDetail, close: closeLoginSignDetail, ModalWrapper: ModalWrapperLoginSignDetail } = useModal();
     const { open: openLoginSignForm, close: closeLoginSignForm, ModalWrapper: ModalWrapperLoginSign } = useModal();
-
+    const { open: openCarouselDetail, close: closeCarouselDetail, ModalWrapper: ModalWrapperCarouselDetail } = useModal();
+    const { open: openCarouselForm, close: closeCarouselForm, ModalWrapper: ModalWrapperCarousel } = useModal();
     const history=useNavigate();
 
     const componentList =[
@@ -154,7 +157,7 @@ const Modal =()=>{
           <DynamicDetail close={closeDynamicTabsDetail} />
         </ModalWrapperDynamicTabsDetail>
         <ModalWrapperBreakpointLayout>
-          {/* <BreakpointLayoutForm close={closeBreakpointLayoutForm} /> */}
+          <BreakpointLayoutForm close={closeBreakpointLayoutForm} />
         </ModalWrapperBreakpointLayout>
         <ModalWrapperBreakpointLayoutDetail>
           <BreakpointLayoutDetail close={closeBreakpointLayoutDetail} />
@@ -165,6 +168,9 @@ const Modal =()=>{
         <ModalWrapperLoginSignDetail>
           <LoginSignDetail close={closeLoginSignDetail} />
         </ModalWrapperLoginSignDetail>
+        <ModalWrapperCarousel>
+          <CarouselForm close={closeCarouselForm}/>
+        </ModalWrapperCarousel>
 
 
       {componentList.map((data, index) => {
@@ -289,7 +295,7 @@ const Modal =()=>{
                 <button type="button" aria-label="Details button for Carousel component" class="buttons" >
                   Details
                 </button>
-                <button type="button" aria-label="Create button for Carousel component" class="buttons" >
+                <button type="button" aria-label="Create button for Carousel component" class="buttons" onClick={openCarouselForm}>
                   Create
                 </button>
               </div>

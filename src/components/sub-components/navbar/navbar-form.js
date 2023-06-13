@@ -237,6 +237,7 @@ function NavbarForm(props) {
                     id={`menu-${i}-text`}
                     name={`menu-${i}-text`}
                     value={menus[i].text}
+                    maxLength={25}
                     onChange={(event) =>
                       handleMenuTextChange(i, event.target.value)
                     }
@@ -286,6 +287,7 @@ function NavbarForm(props) {
                             id={`menu-${i}-option-${j}`}
                             name={`menu-${i}-option-${j}`}
                             value={menus[i].options[j]}
+                            maxLength={25}
                             onChange={(event) =>
                               handleOptionTextChange(i, j, event.target.value)
                             }

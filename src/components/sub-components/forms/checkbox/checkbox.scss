@@ -1,3 +1,5 @@
+@import "../../../theme/breakpoints";
+
 .layout-field {
     width: min-content !important;
 }
@@ -150,6 +152,10 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+    @media screen and (max-width: $bp-mobile) {
+        left: 0.45em;
+        top: 0.15em;
+    }
 }
 
 // custom radio button 
@@ -243,13 +249,16 @@
     width: 25%;
     flex-wrap: wrap;
     // margin: 0 auto;
-    @media (max-width: 575px) {
+    @media (max-width: $bp-mobile) {
         width: 98%;
     }
 }
 .cb-w50 {
     width: 50%;
     flex-wrap: wrap;
+    @media (max-width: $bp-sm-mobile) {
+        width: 98%;
+    }
 }
 .cb-w75 {
     width: 75%;

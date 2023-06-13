@@ -11,7 +11,7 @@ function SelectMain(props) {
    <> 
    <div className="slect-output">
    <label className='select-label'>{select.label}:</label>
-   <div class={`multi-select 
+   <div class={`multi-select form-select-lg
    ${select.theme == "select-dark"?"dp-dark":select.theme == "select-blue"?"dp-blue":select.theme == "select-purple"?"dp-purple":select.theme == "select-light"?"dp-normal":"" }
    ${select?.boxSize=="100%"?"select-fullwidth":select?.boxSize=="75%"?"select-threefourthwidth":select?.boxSize=="50%"?"select-halfwidth":select?.boxSize=="25%"?"select-quaterwidth":""}`} aria-label="select Component" >
          <Multiselect

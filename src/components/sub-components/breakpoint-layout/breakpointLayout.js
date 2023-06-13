@@ -4,13 +4,62 @@ import useModal from "../../sub-components/use-modal/use-modal";
 import styled from "styled-components";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import EditBreakpointLayoutModal from "./edit-breakpointLayout";
+import EditBreakpointLayoutModal from "./edit-breakpointLayout";
 import BreakpointLayoutHtml from "./breakpointLayout-html";
 import BreakpointLayout from "./breakpointLayout-main";
 import './breakpointLayout.scss'
 
 export const CustomStyleBreakpointLayout = styled.div`
+.BreakpointLayout-Content {
+    margin: 8px auto;
+    margin-top: 32px;
+}
 
+.row {
+    margin-top: 0;
+    margin-right: 0; 
+    margin-left: 0;
+}
+
+.row>* {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.column {
+    border: 0.5px #cccc solid;
+    margin: 4px;
+    background-color: rgb(241, 244, 248)!important;
+    height: 100%;
+    h5 {
+        padding: 8px 8px;
+    }
+    p {
+        padding: 8px 8px;
+        word-break: break-all;
+    }
+} 
+
+.BL-dark {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.BL-normal {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    // border: 1px solid var(--color-black);
+}
+
+.BL-blue {
+    background-color: var(--color-capgemini-blue);
+    color: var(--color-white);
+}
+
+.BL-purple {
+    background-color: var(--color-purple-wbh);
+    color: var(--color-white);
+}
 `;
 
 const BreakpointLayoutComponent = ( ) => {
@@ -43,13 +92,13 @@ const BreakpointLayoutComponent = ( ) => {
     return (
         <>
         <ModalWrapperEditBreakpointLayout >
-            {/* <EditBreakpointLayoutModal close={closeEditBreakpointLayout} data={props} /> */}
+            <EditBreakpointLayoutModal close={closeEditBreakpointLayout} data={props} />
         </ModalWrapperEditBreakpointLayout >
 
         <div className="header-output">
             <div className="component-header">
                 <div className="header-left">
-                    <h1>BreakpointLayout </h1> <span> Component</span> 
+                    <h1>Breakpoint Layout </h1> <span> Component</span> 
                 </div>
                 <div className="header-right">
                     <div className="button-section">
@@ -62,7 +111,7 @@ const BreakpointLayoutComponent = ( ) => {
                     </div>
                 </div>
             </div>
-            <BreakpointLayout />
+            <BreakpointLayout BreakpointLayoutProps={props}/>
         </div>
 
         <div className="card-tabs">
