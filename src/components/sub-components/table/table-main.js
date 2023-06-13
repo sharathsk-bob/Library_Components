@@ -316,7 +316,7 @@ function Table(props) {
         bgColor = "#242424"
         color = "#fff"
     } else if(TableProps.Choice_Theme == "Normal") {
-        bgColor = "#F1F4F8"
+        bgColor = "#B7C9E2"
         color = "#242424"
     } else if(TableProps.Choice_Theme == "cg1") {
         bgColor = "#0070AD"
@@ -364,7 +364,7 @@ function Table(props) {
             return (
                 <>  
                     <div className='sub-Theader'>               
-                        <caption className='caption-position'>{TableProps.tablecaption} </caption>
+                        <caption className='caption-position'>{TableProps.tablecaption} :</caption>
                         <div className='search-box d-flex ml-auto'>  
                             <input
                                 className='filter-input'
@@ -413,7 +413,7 @@ function Table(props) {
                                 // pageRangeDisplayed={5}
                                 pageCount={pageCount}
                                 renderOnZeroPageCount={null}
-                                activeClassName={`${TableProps.Choice_Theme}`}
+                                activeClassName={`Tbtn-${TableProps.Choice_Theme}`}
                             />
                         </>
                     ) : ( <p>Displaying All entries</p> )
