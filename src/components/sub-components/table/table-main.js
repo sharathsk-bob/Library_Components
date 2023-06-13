@@ -152,27 +152,32 @@ const columns = [
     {
         name: 'GGID',
         selector: row => row.Employee_Id,
+        sortable: true,
     },
     {
         name: 'Employee Name',
         selector: row => row.Name,
+        sortable: true,
     },
     {
         name: 'Employee Mail id',
         selector: row => row.email,
+        sortable: true,
     },
     {
         name: 'Designation',
         selector: row => row.designation,
+        sortable: true,
     },
     {
         name: 'Grade',
         selector: row => row.grade,
+        sortable: true,
     },
     {
         name: 'Location',
         selector: row => row.location,
-        // sortable: true,
+        sortable: true,
     },
 ];
 
@@ -375,7 +380,9 @@ function Table(props) {
                                 onChange={e => setFilterText(e.target.value)}
                             />
                             {/* <i class="fa fa-search fa-lg" aria-hidden="true"></i> */}
-                            {/* <button className='filter-close' onClick={handleClear}>X</button> */}
+                            { filterText == '' ? ( " " ) : (
+                                <button className={`filter-close Tbtn-${TableProps.Choice_Theme}`} onClick={handleClear}>x</button>
+                            )}
                         </div>
                     </div>
                 </> 

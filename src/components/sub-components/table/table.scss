@@ -2,7 +2,7 @@
 
 .Table-Content {
     margin: 1.2em 0.8em;
-    padding: 0.8em 0.8em;
+    padding: 0em 0.8em;
     background-color: var(--color-white);
     border: 2px var(--color-black) solid;
 }
@@ -57,12 +57,13 @@
 }
 
 .filter-close {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    height: 34px;
-    width: 32px;
+    border: 1px var(--color-black) solid;
+    border-left: none;
+    // border-radius: 50%;
+    // height: 34px;
+    // width: 32px;
+    font-weight: 600;
+    padding: 2px 8px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -71,6 +72,7 @@
 
 .rdt_Table {
     border: 0.5px var(--color-black) solid;
+    margin-bottom: 0.5em;
 }
 
 .rdt_TableHead {
@@ -104,9 +106,13 @@
     display: flex;
     background-color: var(--color-white);
     align-items: center;
+    margin-bottom: 0.5em;
     ul, p {
         margin-bottom: 0 !important;
         padding: 0 !important;
+        @media screen and (max-width: 576px) {
+            margin-bottom: 0.5rem !important;
+        }
     }
     @media screen and (max-width: 576px) {
         flex-direction: column;
