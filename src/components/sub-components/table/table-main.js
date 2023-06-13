@@ -374,7 +374,7 @@ function Table(props) {
                                 value={filterText}
                                 onChange={e => setFilterText(e.target.value)}
                             />
-                            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                            {/* <i class="fa fa-search fa-lg" aria-hidden="true"></i> */}
                             {/* <button className='filter-close' onClick={handleClear}>X</button> */}
                         </div>
                     </div>
@@ -407,8 +407,8 @@ function Table(props) {
                             <p>Displaying {TableProps.Choice_pageNo} entries per page</p>
                             <ReactPaginate
                                 // breakLabel="..."
-                                previousLabel="previous"
-                                nextLabel="next"
+                                previousLabel="Previous"
+                                nextLabel="Next"
                                 onPageChange={handlePageClick}
                                 // pageRangeDisplayed={5}
                                 pageCount={pageCount}
@@ -431,7 +431,7 @@ function Table(props) {
             fontWeight: 'bold', 
             color: color,
             backgroundColor: bgColor,
-            // borderRight: '2px solid white'
+            borderRight: '2px black solid'
           },
         },
         rows: {
