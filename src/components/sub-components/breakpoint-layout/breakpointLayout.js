@@ -29,8 +29,9 @@ export const CustomStyleBreakpointLayout = styled.div`
 .column {
     border: 0.5px #cccc solid;
     margin: 4px;
-    background-color: rgb(241, 244, 248)!important;
+    background-color: white !important;
     height: 100%;
+    
     h5 {
         padding: 8px 8px;
     }
@@ -46,7 +47,7 @@ export const CustomStyleBreakpointLayout = styled.div`
 }
 
 .BL-normal {
-    background-color: var(--color-white);
+    background-color: rgb(241, 244, 248);
     color: var(--color-black);
     // border: 1px solid var(--color-black);
 }
@@ -59,6 +60,19 @@ export const CustomStyleBreakpointLayout = styled.div`
 .BL-purple {
     background-color: var(--color-purple-wbh);
     color: var(--color-white);
+}
+
+@media screen and (max-width: 520px) {
+    .header-output{
+        .break-pointHeader{
+            display: block;
+           }
+    }
+}
+@media screen and (max-width: $bp-mobile) {
+    .col-md-3, .col-md-4, .col-md-6 {
+        margin-bottom: 16px;
+    }
 }
 `;
 

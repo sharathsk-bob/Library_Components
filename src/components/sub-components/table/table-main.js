@@ -152,27 +152,32 @@ const columns = [
     {
         name: 'GGID',
         selector: row => row.Employee_Id,
+        sortable: true,
     },
     {
         name: 'Employee Name',
         selector: row => row.Name,
+        sortable: true,
     },
     {
         name: 'Employee Mail id',
         selector: row => row.email,
+        sortable: true,
     },
     {
         name: 'Designation',
         selector: row => row.designation,
+        sortable: true,
     },
     {
         name: 'Grade',
         selector: row => row.grade,
+        sortable: true,
     },
     {
         name: 'Location',
         selector: row => row.location,
-        // sortable: true,
+        sortable: true,
     },
 ];
 
@@ -316,7 +321,7 @@ function Table(props) {
         bgColor = "#242424"
         color = "#fff"
     } else if(TableProps.Choice_Theme == "Normal") {
-        bgColor = "#F1F4F8"
+        bgColor = "#B7C9E2"
         color = "#242424"
     } else if(TableProps.Choice_Theme == "cg1") {
         bgColor = "#0070AD"
@@ -364,7 +369,7 @@ function Table(props) {
             return (
                 <>  
                     <div className='sub-Theader'>               
-                        <caption className='caption-position'>{TableProps.tablecaption} </caption>
+                        <caption className='caption-position'>{TableProps.tablecaption} :</caption>
                         <div className='search-box d-flex ml-auto'>  
                             <input
                                 className='filter-input'
@@ -375,7 +380,9 @@ function Table(props) {
                                 onChange={e => setFilterText(e.target.value)}
                             />
                             {/* <i class="fa fa-search fa-lg" aria-hidden="true"></i> */}
-                            {/* <button className='filter-close' onClick={handleClear}>X</button> */}
+                            { filterText == '' ? ( " " ) : (
+                                <button className={`filter-close Tbtn-${TableProps.Choice_Theme}`} onClick={handleClear}>x</button>
+                            )}
                         </div>
                     </div>
                 </> 
@@ -413,7 +420,7 @@ function Table(props) {
                                 // pageRangeDisplayed={5}
                                 pageCount={pageCount}
                                 renderOnZeroPageCount={null}
-                                activeClassName={`${TableProps.Choice_Theme}`}
+                                activeClassName={`Tbtn-${TableProps.Choice_Theme}`}
                             />
                         </>
                     ) : ( <p>Displaying All entries</p> )
