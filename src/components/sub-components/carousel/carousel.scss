@@ -74,39 +74,57 @@
 }
 
 .carouselw-25 {
-    width: 25%;
-    margin: 0 auto;
+    .carousel{
+    width: 25% !important;
+    }
 }
 
 .carouselw-50 {
-    width: 50%;
-    margin: 0 auto;
+    .carousel{
+    width: 50% !important;
+    }
 }
 
 .carouselw-75 {
-    width: 75%;
-    margin: 0 auto;
+    .carousel{
+    width: 75% !important;
+    }
 }
 
-.carouselw-100 {
-    width: 98%;
-    margin: 0 auto;
-}
+// .carouselw-100 {
+//     width: 98%;
+//     margin: 0 auto;
+// }
 
 .carousel-dark {
-    background-image: linear-gradient(244deg,black,white);
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.308),rgba(0, 0, 0, 0.916));
 }
-
+.carousel-prev-dark,.carousel-next-dark {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.637),rgba(0, 0, 0, 0.902)) !important;
+}
 .carousel-light {
-    background-image: linear-gradient(244deg,#ccc,white);
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.356),#ccc);
+}
+.carousel-prev-light,.carousel-next-light {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.619),#ccc) !important;
 }
 
 .carousel-blue {
-    background-image: linear-gradient(244deg,#0070AD,white);
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
 }
 
 .carousel-purple {
-    background-image: linear-gradient(244deg,#2b0a3d,white);
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,#52037d3c,#2b0a3d);
+}
+.carousel-prev-purple,.carousel-next-purple {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,#52037d98,#2b0a3d) !important;
 }
 
 // .carousel-indicators {
