@@ -1,21 +1,21 @@
 @import "../../theme/breakpoints.scss";
 
 .dynamic-light{
-  background: white !important;
+  background: var(--color-white) !important;
   .react-tabs__tab--selected {
     background: #ccc !important;
   }
-  .react-tabs__tab:hover {
-    background: #a2d2ff;
-  }
+  // .react-tabs__tab:hover {
+  //   background: #a2d2ff;
+  // }
 }
 
 .dynamic-dark{
-  background: white !important;
+  background: var(--color-white) !important;
 
   .react-tabs__tab--selected {
-    background: black !important;
-    color: white !important ;
+    background: var(--color-black) !important;
+    color: var(--color-white) !important ;
   }
   
   .react-tabs__tab:hover {
@@ -24,21 +24,21 @@
 }
 
 .cg1-dynamic-blue{
-  background: white !important;
+  background: var(--color-white) !important;
   .react-tabs__tab--selected {
     background: var(--color-capgemini-blue) !important;
-    color: white !important ;
+    color: var(--color-white) !important ;
   }
   .react-tabs__tab:hover {
     //background: #4f95d6;
   }
 }
 .cg2-dynamic-purple{
-  background: white !important;
+  background: var(--color-white) !important;
 
   .react-tabs__tab--selected {
-    background: #2b0a3d !important;
-    color: white !important ;
+    background: var(--color-purple-wbh) !important;
+    color: var(--color-white) !important ;
   }
   
   .react-tabs__tab:hover {
@@ -55,7 +55,7 @@
   margin: 3.5rem auto 1.5rem;
   // padding: 0.5rem 1rem 2rem 1rem;
   //border-radius: 1rem;
-  color: black;
+  color: var(--color-black);
   box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
 }
 
@@ -101,9 +101,9 @@
   cursor: default;
 }
 
-.react-tabs__tab:hover {
-  background: #a2d2ff;
-}
+// .react-tabs__tab:hover {
+//   background: #a2d2ff;
+// }
 .react-tabs__tab-panel {
   display: none;
 }

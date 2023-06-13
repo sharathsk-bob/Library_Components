@@ -1,11 +1,5 @@
 @import "../../theme/breakpoints.scss";
 
-@media screen and (max-width: $bp-mobile) {
-    .col-md-3, .col-md-4, .col-md-6 {
-        margin-bottom: 16px;
-    }
-}
-
 .BreakpointLayout-Content {
     margin: 8px auto;
     margin-top: 32px;
@@ -64,5 +58,9 @@
             display: block;
            }
     }
-  
+}
+@media screen and (max-width: $bp-mobile) {
+    .col-md-3, .col-md-4, .col-md-6 {
+        margin-bottom: 16px;
+    }
 }

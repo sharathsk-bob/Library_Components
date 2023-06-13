@@ -2,49 +2,61 @@ import React,{useState} from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useModal from "../use-modal/use-modal";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styled from "styled-components";
-import './dynamic-tabs.scss';
 import EditDynamicTabs from "./edit-dynamic";
 import DynamicMain from "./dynamic-tabsmain";
 import DynamicHtml from "./dynamic-html";
+import styled from "styled-components";
+import './dynamic-tabs.scss';
+
 export const CustomStyleDynamic = styled.div`
-.light{
-  background: #f1f4f8 !important;
-  color: black !important;
+.dynamic-light{
+  background: var(--color-white) !important;
   .react-tabs__tab--selected {
-    background: #a2d2ff;
+    background: #ccc !important;
   }
-  .react-tabs__tab:hover {
-    background: #a2d2ff;
-  }
+  // .react-tabs__tab:hover {
+  //   background: #a2d2ff;
+  // }
 }
-.dark{
-  background: black !important;
+
+.dynamic-dark{
+  background: var(--color-white) !important;
 
   .react-tabs__tab--selected {
-    background: white;
-    color: black !important ;
+    background: var(--color-black) !important;
+    color: var(--color-white) !important ;
   }
   
   .react-tabs__tab:hover {
-    background: white;
+    //text-decoration: underline !important;
   }
 }
-.cg1-blue{
-  background:var(--color-capgemini-blue) !important;
+
+.cg1-dynamic-blue{
+  background: var(--color-white) !important;
   .react-tabs__tab--selected {
-    background: #4f95d6;
+    background: var(--color-capgemini-blue) !important;
+    color: var(--color-white) !important ;
   }
   .react-tabs__tab:hover {
-    background: #4f95d6;
+    //background: #4f95d6;
   }
 }
-.cg2-purple{
-  background: #2b0a3d !important;
+.cg2-dynamic-purple{
+  background: var(--color-white) !important;
+
+  .react-tabs__tab--selected {
+    background: var(--color-purple-wbh) !important;
+    color: var(--color-white) !important ;
+  }
+  
+  .react-tabs__tab:hover {
+    //text-decoration: underline !important;
+  }
 }
+
 /* Tab Container */
 .Tabs {
   width: 80%;
@@ -52,9 +64,9 @@ export const CustomStyleDynamic = styled.div`
   min-height: 400px;
   background: #7286d3;
   margin: 3.5rem auto 1.5rem;
-  padding: 2rem 1rem;
-  color: #e8f0f2;
-  border-radius: 1rem;
+  // padding: 0.5rem 1rem 2rem 1rem;
+  //border-radius: 1rem;
+  color: var(--color-black);
   box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.168627451);
 }
 
@@ -66,40 +78,51 @@ export const CustomStyleDynamic = styled.div`
   margin: 0 auto 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding-left: 0px;
+  background-color: #F3F3F3;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  @media screen and (max-width: $bp-mobile){
+    display: block;
+  }
 }
 
 .react-tabs__tab {
-  width: 50%;
+  // width: 50%;
   padding: 1rem;
   list-style: none;
   text-align: center;
   cursor: pointer;
   transition: all 0.7s;
-  border:1px solid #8ea7e9; 
-  margin :5px;
-  border-radius: 10px;
+  @media screen and (max-width: $bp-mobile){
+    width: 100%;
+  }
+  // border:1px solid #8ea7e9; 
+  // margin :5px;
+  // border-radius: 10px;
 }
 
-.react-tabs__tab--selected {
-  background: #8ea7e9;
-}
+// .react-tabs__tab--selected {
+//   background: #8ea7e9;
+// }
 
 .react-tabs__tab--disabled {
   color: GrayText;
   cursor: default;
 }
 
-.react-tabs__tab:hover {
-  background: #a2d2ff;
-}
+// .react-tabs__tab:hover {
+//   background: #a2d2ff;
+// }
 .react-tabs__tab-panel {
   display: none;
 }
 
 .react-tabs__tab-panel--selected {
   display: block;
+  word-break: break-all;
+  padding: 0.5rem 1rem 2rem 1rem;
   font-size: 1.25rem;
 }
 `;
