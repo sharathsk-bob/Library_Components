@@ -15,6 +15,8 @@ const LogInModal =(props)=>{
     const [captialValue, setCapitalValue] = useState("");
     const [numericValue, setNumericValue] = useState("");
     const [smallValue, setSmallValue] = useState("");
+    const [minRange, setMinRange] = useState("");
+    const [maxRange, setMaxRange] = useState("");
     const [errorMsg, setErrorMsg] = useState({});
    
 	const{close} = props;
@@ -27,7 +29,9 @@ const LogInModal =(props)=>{
    captialValue,
    smallValue,
    numericValue,
-   themeValue
+   themeValue,
+   minRange,
+   maxRange
   };
 
   const navigationlogin = useNavigate();
@@ -60,6 +64,34 @@ const LogInModal =(props)=>{
         errors.pass = "Lable is required ";
         isValid = false;
         }
+        if(minRange === ""){
+          errors.min = "Please select the minimum range ";
+        isValid = false; 
+        }else if(minRange != ""){
+          if (minRange < 8) {
+            errors.min = "Minimum character should not be less than 8";
+            isValid = false; 
+          }
+           else if (minRange > 15) {
+            errors.min ="Minimum character range should not be greater than 15";
+            isValid = false; 
+        }
+      }
+        if(maxRange === ""){
+          console.log("if max condtion");
+          errors.max= "Please select the maximum range ";
+        isValid = false; 
+        }else if(maxRange != ""){
+          if (maxRange <=8) {
+            errors.max = "Maximum character should be equal or greater than 8";
+            isValid = false; 
+          
+          }
+        //   } else if (minRange > 15) {
+        //     errors.min ="Minimum character range should not be greater than 15";
+        //     isValid = false; 
+        // }
+        }
      setErrorMsg(errors);
       return isValid;
 
@@ -68,7 +100,7 @@ const LogInModal =(props)=>{
 const buttonSubmit =(event)=>{
   event.preventDefault();
   const checkValid =   checkValidation();
-  console.log(checkValid, "valid value")
+  console.log(loginProps, "valid value")
 
   if (checkValid) {
    
@@ -267,6 +299,56 @@ return (
           </div>
           {errorMsg.numbervalue ? <span className="error">{errorMsg.numbervalue}</span>: ""}
         </div>
+        <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="modal__label"
+                        aria-label="Border Width Asterik-Required"
+                        for="min-range"
+                        >
+                       Select the minimum characters range: <span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="min-range"
+                            type="number" 
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="min-range"
+                            min="0"
+                            max="15"
+                            aria-required="true"
+                            value={minRange}
+                            onChange={(event) => setMinRange(event.target.value)}      
+                        />
+                        
+                    </FormField>
+                    {errorMsg.min ? <span className="error">{errorMsg.min}</span>: ""}
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="modal__label"
+                        aria-label="Border Width Asterik-Required"
+                        for="max-range"
+                        >
+                       Select the maximum characters range: <span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="max-range"
+                            type="number" 
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="max-range"
+                            min="0"
+                            maxLength="15"
+                            aria-required="true"
+                            value={maxRange}
+                            onChange={(event) => setMaxRange(event.target.value)}      
+                        />
+                        
+                    </FormField>
+                    {errorMsg.max ? <span className="error">{errorMsg.max}</span>: ""}
+                </div>
       <div className="input-field-container size-field">
                 <div className="modal-checkbox">
                   <FormField className="modal-content-theme">

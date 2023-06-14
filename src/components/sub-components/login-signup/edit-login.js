@@ -28,6 +28,21 @@ console.log(loginData, "edit propssss");
       if (event.target.name === "theme") {
         setLoginData({ ...loginData, themeValue : event.target.value });
       }
+      if (event.target.name === "capital-letter") {
+        setLoginData({ ...loginData, captialValue : event.target.value });
+      }
+      if (event.target.name === "small-letter") {
+        setLoginData({ ...loginData, smallValue : event.target.value });
+      }
+      if (event.target.name === "mumeric-letter") {
+        setLoginData({ ...loginData, numericValue : event.target.value });
+      }
+      if (event.target.name === "min-range") {
+        setLoginData({ ...loginData, minRange : event.target.value });
+      }
+      if (event.target.name === "max-range") {
+        setLoginData({ ...loginData, maxRange : event.target.value });
+      }
   };
 
   let editError = {};
@@ -44,6 +59,19 @@ console.log(loginData, "edit propssss");
           editError.pass = "Lable is required ";
           errorflag = false;
           }
+          if(loginData.minRange === ""){
+            editError.min = "Please select the minimum range ";
+            errorflag = false; 
+          }else if(loginData.minRange != ""){
+            if (loginData.minRange < 8) {
+              editError.min = "Minimum character should not be less than 8";
+              errorflag = false; 
+            }
+             else if (loginData.minRange > 15) {
+              editError.min ="Minimum character range should not be greater than 15";
+              errorflag = false; 
+          }
+        }
    
      setErrorMsgEdit(editError);
      return errorflag;
@@ -97,7 +125,7 @@ return (
                       onChange={handleSubmit}
                     />
                   </label>
-                  {errorMsgEdit.user ?<span className="error">{errorMsgEdit.user}</span>:""}
+                  {/* {errorMsgEdit.user ?<span className="error">{errorMsgEdit.user}</span>:""} */}
                 </FormField>
               </div>
 
@@ -124,6 +152,168 @@ return (
                   {errorMsgEdit.pass ?<span className="error">{errorMsgEdit.pass}</span>:""}
                 </FormField>
               </div>
+              <div className="input-field-container logo-field">
+          <p>Would you like to have capital letter validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="capital-letter"
+                  checked={loginData.captialValue === "Yes"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="capital-letter"
+                  checked={loginData.captialValue === "No"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {/* {errorMsg.capitalvalue ? <span className="error">{errorMsg.capitalvalue}</span>: ""} */}
+        </div>
+              <div className="input-field-container logo-field">
+          <p>Would you like to have small letter validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="small-letter"
+                 
+                  checked={loginData.smallValue === "Yes"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="small-letter"
+                  checked={loginData.smallValue === "No"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {/* {errorMsg.smallvalue ? <span className="error">{errorMsg.smallvalue}</span>: ""} */}
+        </div>
+        <div className="input-field-container logo-field">
+          <p>Would you like to have numeric values validation in password <span className="asterik">*</span> </p>
+          <div className="modal-checkbox">
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="Yes"
+                  name="numeric-letter"
+                  checked={loginData.numericValue === "Yes"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag"> 
+                  <span className="tag__cat">Yes </span>
+                </div>
+              </label>
+            </FormField>
+            <FormField className="modal-content-checkbox">
+              <label className="modal-label" aria-label="Select No">
+                <input
+                  className="modal-input"
+                  type="radio"
+                  value="No"
+                  name="mumeric-letter"
+                  checked={loginData.numericValue === "No"}
+                  onChange={handleSubmit}
+                />
+                <div className="tag">
+                  <span className="tag__cat">No</span>
+                </div>
+              </label>
+            </FormField>
+          
+          </div>
+          {/* {errorMsg.numbervalue ? <span className="error">{errorMsg.numbervalue}</span>: ""} */}
+        </div>
+        <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="modal__label"
+                        aria-label="Border Width Asterik-Required"
+                        for="min-range"
+                        >
+                       Select the minimum characters range: <span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="min-range"
+                            type="number" 
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="min-range"
+                            min="0"
+                            max="15"
+                            aria-required="true"
+                            value={loginData.minRange}
+                            onChange={handleSubmit}
+                        />
+                        
+                    </FormField>
+                    {errorMsgEdit.min ? <span className="error">{errorMsgEdit.min}</span>: ""}
+                </div>
+                <div className="input-field-container">
+                    <FormField className="form-modal__content">
+                        <label
+                        className="modal__label"
+                        aria-label="Border Width Asterik-Required"
+                        for="max-range"
+                        >
+                       Select the maximum characters range: <span className="asterik">*</span> 
+                        </label>
+                        <Input
+                            id="max-range"
+                            type="number" 
+                            className="text_modal__input"
+                            autoComplete="off"
+                            name="max-range"
+                            min="0"
+                            maxLength="15"
+                            aria-required="true"
+                            value={loginData.maxRange}
+                            onChange={handleSubmit}
+                        />
+                        
+                    </FormField>
+                    {/* {errorMsg.max ? <span className="error">{errorMsg.max}</span>: ""} */}
+                </div>
       <div className="input-field-container size-field">
                 <div className="modal-checkbox">
                   <FormField className="modal-content-theme">
