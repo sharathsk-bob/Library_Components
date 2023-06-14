@@ -14,7 +14,7 @@ const LogInModal =(props)=>{
     const [themeValue, setThemeValue] = useState("Normal");
     const [captialValue, setCapitalValue] = useState("");
     const [numericValue, setNumericValue] = useState("");
-    const [smallValue, setSmallValue] = useState("");
+    const [specialValue, setSpecialValue] = useState("");
     const [minRange, setMinRange] = useState("");
     const [maxRange, setMaxRange] = useState("");
     const [errorMsg, setErrorMsg] = useState({});
@@ -27,8 +27,8 @@ const LogInModal =(props)=>{
   passValue,
    formValue,
    captialValue,
-   smallValue,
    numericValue,
+   specialValue,
    themeValue,
    minRange,
    maxRange
@@ -52,7 +52,7 @@ const LogInModal =(props)=>{
         errors.capitalvalue = "Please select the above field";
         isValid = false;
       }
-      if(smallValue === ""){
+      if(specialValue === ""){
         errors.smallvalue = "Please select the above field";
         isValid = false;
       }
@@ -86,11 +86,12 @@ const LogInModal =(props)=>{
             errors.max = "Maximum character should be equal or greater than 8";
             isValid = false; 
           
-          }
-        //   } else if (minRange > 15) {
-        //     errors.min ="Minimum character range should not be greater than 15";
-        //     isValid = false; 
-        // }
+          
+          } else if (maxRange > 15) {
+
+            errors.max ="Maximum character range should not be greater than 15";
+            isValid = false; 
+        }
         }
      setErrorMsg(errors);
       return isValid;
@@ -218,7 +219,7 @@ return (
           {errorMsg.capitalvalue ? <span className="error">{errorMsg.capitalvalue}</span>: ""}
         </div>
         <div className="input-field-container logo-field">
-          <p>Would you like to have small letter validation in password <span className="asterik">*</span> </p>
+          <p>Would you like to have special character validation in password <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
@@ -227,9 +228,9 @@ return (
                   type="radio"
                   value="Yes"
                   name="small-letter"
-                  checked={smallValue === "Yes"}
+                  checked={specialValue === "Yes"}
                   onChange={(e) => {
-                    setSmallValue("Yes");
+                    setSpecialValue("Yes");
                   }}
                 />
                 <div className="tag"> 
@@ -244,9 +245,9 @@ return (
                   type="radio"
                   value="No"
                   name="small-letter"
-                  checked={smallValue === "No"}
+                  checked={specialValue === "No"}
                   onChange={(e) => {
-                    setSmallValue("No");
+                    setSpecialValue("No");
                   }}
                 />
                 <div className="tag">
@@ -284,7 +285,7 @@ return (
                   className="modal-input"
                   type="radio"
                   value="No"
-                  name="mumeric-letter"
+                  name="numeric-letter"
                   checked={numericValue === "No"}
                   onChange={(e) => {
                     setNumericValue("No");

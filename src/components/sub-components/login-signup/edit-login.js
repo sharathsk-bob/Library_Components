@@ -32,9 +32,9 @@ console.log(loginData, "edit propssss");
         setLoginData({ ...loginData, captialValue : event.target.value });
       }
       if (event.target.name === "small-letter") {
-        setLoginData({ ...loginData, smallValue : event.target.value });
+        setLoginData({ ...loginData, specialValue : event.target.value });
       }
-      if (event.target.name === "mumeric-letter") {
+      if (event.target.name === "numeric-letter") {
         setLoginData({ ...loginData, numericValue : event.target.value });
       }
       if (event.target.name === "min-range") {
@@ -72,6 +72,19 @@ console.log(loginData, "edit propssss");
               errorflag = false; 
           }
         }
+        if(loginData.maxRange === ""){
+          editError.max = "Please select the minimum range ";
+          errorflag = false; 
+        }else if(loginData.maxRange != ""){
+          if (loginData.maxRange < 8) {
+            editError.max= "Maximum character should not be less than 8";
+            errorflag = false; 
+          }
+           else if (loginData.maxRange > 15) {
+            editError.max ="Maximum character range should not be greater than 15";
+            errorflag = false; 
+        }
+      }
    
      setErrorMsgEdit(editError);
      return errorflag;
@@ -190,7 +203,7 @@ return (
           {/* {errorMsg.capitalvalue ? <span className="error">{errorMsg.capitalvalue}</span>: ""} */}
         </div>
               <div className="input-field-container logo-field">
-          <p>Would you like to have small letter validation in password <span className="asterik">*</span> </p>
+          <p>Would you like to have special character validation in password<span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
               <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
@@ -200,7 +213,7 @@ return (
                   value="Yes"
                   name="small-letter"
                  
-                  checked={loginData.smallValue === "Yes"}
+                  checked={loginData.specialValue === "Yes"}
                   onChange={handleSubmit}
                 />
                 <div className="tag"> 
@@ -215,7 +228,7 @@ return (
                   type="radio"
                   value="No"
                   name="small-letter"
-                  checked={loginData.smallValue === "No"}
+                  checked={loginData.specialValue === "No"}
                   onChange={handleSubmit}
                 />
                 <div className="tag">
@@ -251,7 +264,7 @@ return (
                   className="modal-input"
                   type="radio"
                   value="No"
-                  name="mumeric-letter"
+                  name="numeric-letter"
                   checked={loginData.numericValue === "No"}
                   onChange={handleSubmit}
                 />
@@ -312,7 +325,7 @@ return (
                         />
                         
                     </FormField>
-                    {/* {errorMsg.max ? <span className="error">{errorMsg.max}</span>: ""} */}
+                    {errorMsgEdit.max ? <span className="error">{errorMsgEdit.max}</span>: ""}
                 </div>
       <div className="input-field-container size-field">
                 <div className="modal-checkbox">
