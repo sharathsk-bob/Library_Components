@@ -17,16 +17,18 @@
 .carousel-caption {
     font-size: 1.5rem !important;
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(37, 36, 36, 0.9),rgba(0,63,97,.9));
+    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
 }
 .carousel-indicators {
     margin-bottom: 0rem !important;
 }
 .carousel-caption p:hover{
     background-size: 100% 90%;
+    color: black !important;
 }
 .carousel-caption h5:hover{
     background-size: 25% 100%;
+    color: black !important;
 }
 .carousel-caption p{
     background: linear-gradient(to right,#00e6e3 0%,#00e6e3 100%) no-repeat 0px 100%/0px 100%;
@@ -70,3 +72,64 @@
 }
 
 }
+
+.carouselw-25 {
+    .carousel{
+    width: 25% !important;
+    }
+}
+
+.carouselw-50 {
+    .carousel{
+    width: 50% !important;
+    }
+}
+
+.carouselw-75 {
+    .carousel{
+    width: 75% !important;
+    }
+}
+
+// .carouselw-100 {
+//     width: 98%;
+//     margin: 0 auto;
+// }
+
+.carousel-dark {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.308),rgba(0, 0, 0, 0.916));
+}
+.carousel-prev-dark,.carousel-next-dark {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.637),rgba(0, 0, 0, 0.902)) !important;
+}
+.carousel-light {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.356),#ccc);
+}
+.carousel-prev-light,.carousel-next-light {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.619),#ccc) !important;
+}
+
+.carousel-blue {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
+}
+
+.carousel-purple {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,#52037d3c,#2b0a3d);
+}
+.carousel-prev-purple,.carousel-next-purple {
+    box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
+    background-image: linear-gradient(244deg,#52037d98,#2b0a3d) !important;
+}
+
+// .carousel-indicators {
+//     .btn-carousel-dark {
+//         // border: 1px black solid;
+//         background-color: black;
+//     }
+// }
