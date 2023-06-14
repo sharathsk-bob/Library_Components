@@ -32,6 +32,7 @@
 //     color: black !important;
 // }
 .carousel-caption p{
+    color: #fff !important;
     background: linear-gradient(to right,#00e6e3 0%,#00e6e270 100%) no-repeat 0px 100%/0px 100%;
     transition: all .2s ease-in-out;
 }
@@ -106,12 +107,15 @@
     background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.758),rgba(0, 0, 0, 0.902)) !important;
 }
 .carousel-light {
+    h5,p{
+        color: black !important;
+    }
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.642),#ccc);
+    background-image: linear-gradient(244deg,#dadcdf99,#f1f4f8);
 }
 .carousel-prev-light,.carousel-next-light {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.619),#ccc) !important;
+    background-image: linear-gradient(244deg,#dadcdf99,#f1f4f8) !important;
 }
 
 .carousel-blue {
