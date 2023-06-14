@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
-import "./login-main.scss";
 import { Link } from "react-router-dom";
+import "./login-main.scss";
+
 function LoginMain(props) {
- const[passWordvalue, setPassWordValue] = useState("");
-const[confrimpass, setconfrimPass] = useState("");
+  const[passWordvalue, setPassWordValue] = useState("");
+  const[confrimpass, setconfrimPass] = useState("");
 
   function passwordCheck() {
    console.log(passWordvalue, confrimpass, "valueeee");
@@ -114,21 +114,15 @@ if(flag=== true){
            <label for="firstName">Confirm Password</label> 
        </div>
    </div>
-   <div className='login-button'>
-     <div className="link-button">
-   <button className='submit-button' onClick={passwordCheck} >
-              Login
-             
-             </button>
-             </div>
-   </div>
-          </div>
-        
-    
-
+    <div className='login-button'>
+      <div className="link-button">
+        <button className='submit-button' onClick={passwordCheck} >
+          Login
+        </button>
+      </div>
     </div>
-
-    
+    </div>
+    </div>
   </div>
   </>
   );

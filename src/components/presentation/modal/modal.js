@@ -31,6 +31,7 @@ import "../../sub-components/use-modal/use-modal.scss";
  import LogInModal from "../../sub-components/login-signup/login-modal";
 import "./modal.scss";
 import CarouselForm from "../../sub-components/carousel/carousel-form";
+import CarouselDetail from "../../sub-components/carousel/carousel-detail";
 
 const Modal =()=>{
     const { open: openHeader, close: closeHeader, ModalWrapper: ModalWrapperHeader } = useModal();
@@ -171,6 +172,9 @@ const Modal =()=>{
         <ModalWrapperCarousel>
           <CarouselForm close={closeCarouselForm}/>
         </ModalWrapperCarousel>
+        <ModalWrapperCarouselDetail>
+          <CarouselDetail close={closeCarouselDetail}/>
+        </ModalWrapperCarouselDetail>
 
 
       {componentList.map((data, index) => {
@@ -292,7 +296,7 @@ const Modal =()=>{
               </div>
             ) : data === "Carousel"? (
               <div className="modal-button_section">
-                <button type="button" aria-label="Details button for Carousel component" class="buttons" >
+                <button type="button" aria-label="Details button for Carousel component" class="buttons" onClick={openCarouselDetail}>
                   Details
                 </button>
                 <button type="button" aria-label="Create button for Carousel component" class="buttons" onClick={openCarouselForm}>
