@@ -129,7 +129,6 @@ const CarouselForm = (props) => {
         Width:</label>
         <select value={width} onChange={handleWidthChange}>
         <option value="">-- Select --</option>
-          <option value="25">25%</option>
           <option value="50">50%</option>
           <option value="75">75%</option>
           <option value="100">100%</option>

@@ -99,15 +99,15 @@
 
 .carousel-dark {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.308),rgba(0, 0, 0, 0.916));
+    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.621),rgba(0, 0, 0, 0.916));
 }
 .carousel-prev-dark,.carousel-next-dark {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.637),rgba(0, 0, 0, 0.902)) !important;
+    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.758),rgba(0, 0, 0, 0.902)) !important;
 }
 .carousel-light {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.356),#ccc);
+    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.642),#ccc);
 }
 .carousel-prev-light,.carousel-next-light {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
@@ -116,7 +116,7 @@
 
 .carousel-blue {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
+    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.623),rgba(0,63,97,.9));
 }
 
 .carousel-purple {
@@ -171,6 +171,6 @@
     bottom: 100px !important;
 }
 .carousel .carousel-image-none .carousel-item .carousel-caption {
-    padding: 1.25em 2.25em !important;
+    padding: 1.25em 4.25em !important;
 }
 }
