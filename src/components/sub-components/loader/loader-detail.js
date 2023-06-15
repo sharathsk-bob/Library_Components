@@ -29,7 +29,7 @@ const LoaderDetail = (props)=>{
             <div className="detail-content">
                 <ul>
                     <li>User can select the loader type as from  mainly - horizontal or circular.</li>
-                    <li>Ussr can select the timeout value from - 1000ms,2000ms,5000ms for disappearing loader.</li>
+                    <li>User can select the timeout value from - 1000ms,2000ms,5000ms for disappearing loader.</li>
                     <li>User can select size of the loader from the dropdown.</li>
                     <li>User can select the theme of the loader from the dropdown.</li>
                 </ul>
