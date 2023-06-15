@@ -22,17 +22,17 @@ const LoginSignDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Login / Signup section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Login / Signup component.</p>
             <div className="detail-content">
                 <ul>
-                    <li>Label text for login / signup should not be more than 50 characters.</li>
-                    <li>Password created by user should have a limit between 10-20 characters.</li>
-                    <li>Password created needs to have one numeric digit and one capital alplabet.</li>
-                    <li>User can select the width of the login / signup in the screen.</li>
-                    <li>User can select the theme of the login / signup from the dropdown.</li>
+                    <li>User can give label for user name and password</li>
+                    <li>Password created by user should have a limit between 8-15 characters.</li>
+                    <li>User can select validation criteria.</li>
+                    <li>User can select the width of the login form</li>
+                    <li>User can select the theme of the login form</li>
                 </ul>
             </div>
         </div>

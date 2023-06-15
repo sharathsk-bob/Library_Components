@@ -116,7 +116,7 @@ return (
             </FormField>
           
           </div>
-          {/* {errorMsg.appLogo ? <span className="error">{errorMsg.appLogo}</span>: ""} */}
+          {errorMsg.loadertype ? <span className="error">{errorMsg.loadertype}</span>: ""}
         </div>
       <div className="input-field-container size-field">
                 <div className="modal-checkbox">

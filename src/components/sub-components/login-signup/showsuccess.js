@@ -27,7 +27,7 @@ function ShowSuccess(props) {
                         </div>
 
                         <div className='text-section'>
-                            <p>{ "User is Logged or signed in successfully !! "}</p>
+                            <p>{ "You are Logged in successfully !! "}</p>
                         </div>
                         
                         <div className='alertbtn-section'>
