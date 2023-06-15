@@ -20,6 +20,7 @@
 .sub-Theader{
     background: var(--color-white);
     display: flex;
+    flex-wrap: wrap-reverse;
 }
 
 .Table-Content header {
@@ -33,6 +34,7 @@
     font-size: large;
     font-weight: 600;
     caption-side: top;
+    word-break: break-all;
     color: var(--color-black);
 }
 
