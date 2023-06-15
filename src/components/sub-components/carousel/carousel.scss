@@ -1,3 +1,4 @@
+@import "../../theme/breakpoints.scss";
 .carousel{
     max-width: 1500px;
     width: 100%;
@@ -15,7 +16,7 @@
     bottom: 200px !important;
 }
 .carousel-caption {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
     background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
 }
@@ -26,12 +27,13 @@
     background-size: 100% 90%;
     color: black !important;
 }
-.carousel-caption h5:hover{
-    background-size: 25% 100%;
-    color: black !important;
-}
+// .carousel-caption h5:hover{
+//     background-size: 25% 100%;
+//     color: black !important;
+// }
 .carousel-caption p{
-    background: linear-gradient(to right,#00e6e3 0%,#00e6e3 100%) no-repeat 0px 100%/0px 100%;
+    color: #fff !important;
+    background: linear-gradient(to right,#00e6e3 0%,#00e6e270 100%) no-repeat 0px 100%/0px 100%;
     transition: all .2s ease-in-out;
 }
 .carousel-caption h5{
@@ -41,9 +43,9 @@
 }
 .carousel-caption {
     position: absolute;
-    right: 45%;
+    right: 0%;
     bottom: 1.5em;
-    left: 1%;
+    left: 0%;
     color: #fff;
     text-align:start;
     padding: 1.25rem 1.25rem;
@@ -75,7 +77,7 @@
 
 .carouselw-25 {
     .carousel{
-    width: 25% !important;
+    width: 50% !important;
     }
 }
 
@@ -98,33 +100,36 @@
 
 .carousel-dark {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.308),rgba(0, 0, 0, 0.916));
+    background-image: linear-gradient(244deg,rgba(0, 0, 0, 0.621),rgba(0, 0, 0, 0.916));
 }
 .carousel-prev-dark,.carousel-next-dark {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.637),rgba(0, 0, 0, 0.902)) !important;
+    background-image: linear-gradient(244deg,rgba(26, 25, 25, 0.758),rgba(0, 0, 0, 0.902)) !important;
 }
 .carousel-light {
+    h5,p{
+        color: black !important;
+    }
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.356),#ccc);
+    background-image: linear-gradient(244deg,#dadcdf99,#f1f4f8);
 }
 .carousel-prev-light,.carousel-next-light {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(204, 204, 204, 0.619),#ccc) !important;
+    background-image: linear-gradient(244deg,#dadcdf99,#f1f4f8) !important;
 }
 
 .carousel-blue {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.29),rgba(0,63,97,.9));
+    background-image: linear-gradient(244deg,rgba(0, 123, 189, 0.623),rgba(0,63,97,.9));
 }
 
 .carousel-purple {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,#52037d3c,#2b0a3d);
+    background-image: linear-gradient(244deg,#52037da8,#2b0a3d);
 }
 .carousel-prev-purple,.carousel-next-purple {
     box-shadow: 0 25px 100px 0 rgba(0,0,0,.15), 0 2px 4px 0 rgba(0,0,0,.5);
-    background-image: linear-gradient(244deg,#52037d98,#2b0a3d) !important;
+    background-image: linear-gradient(244deg,#52037ddf,#2b0a3d) !important;
 }
 
 // .carousel-indicators {
@@ -133,3 +138,43 @@
 //         background-color: black;
 //     }
 // }
+
+@media screen and (max-width: $bp-mobile){
+    .carousel-item img{
+        width: 100%;
+        height: 300px;
+    }
+    .carousel-caption {
+        right: 10% !important;
+        bottom: 1.5em !important;
+        left: 10% !important;
+    }
+    .carousel-caption {
+        font-size: 0.875rem !important;
+    }
+    .carouselw-25 {
+        .carousel{
+        width: 100% !important;
+        }
+    }
+    
+    .carouselw-50 {
+        .carousel{
+        width: 100% !important;
+        }
+    }
+    
+    .carouselw-75 {
+        .carousel{
+        width: 100% !important;
+        }
+    }
+.carousel-control-next, .carousel-control-prev {
+    width: 7% !important;
+    top: 100px !important;
+    bottom: 100px !important;
+}
+.carousel .carousel-image-none .carousel-item .carousel-caption {
+    padding: 1.25em 4.25em !important;
+}
+}

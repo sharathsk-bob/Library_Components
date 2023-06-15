@@ -82,8 +82,8 @@ const LogInModal =(props)=>{
           errors.max= "Please select the maximum range ";
         isValid = false; 
         }else if(maxRange != ""){
-          if (maxRange <=8) {
-            errors.max = "Maximum character should be equal or greater than 8";
+          if (maxRange <8) {
+            errors.max = "Maximum character should be not be less than 8";
             isValid = false; 
           
           

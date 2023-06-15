@@ -1,89 +1,111 @@
 import React, { useState } from 'react';
-
-import "./login-main.scss";
 import { Link } from "react-router-dom";
+import "./login-main.scss";
+
 function LoginMain(props) {
  const[passWordvalue, setPassWordValue] = useState("");
+ const[usernameValue, setUserNameValue] = useState("");
 const[confrimpass, setconfrimPass] = useState("");
 const[passwordError, setpassWordError] = useState({});
+const [passwordType, setPasswordType] = useState("password");
+const [confirmpasswordType, setConfirmPasswordType] = useState("password");
 console.log(props, "props in main");
 
 let passError = {};
 const passwordCheck =()=>{
-  let flag= false;
+  let flag= true;
   var lowerCaseLetters = /[a-z]/g;
    var upperCaseLetters = /[A-Z]/g;
    var numbers = /[0-9]/g;
    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g;
-
+  
+ if(!usernameValue){
+  passError.user = " Please enter the user Name";
+flag= false;
+ }
+ if(!confrimpass){
+  passError.confirm = " Please enter the confirm password";
+flag= false;
+ }
  if(!passWordvalue){
 console.log("password is empty");
-passError.text=" Please Enter the password";
+passError.text=" Please enter the password";
 flag= false;
  }else{
-  console.log("password  not is empty");
+  // console.log("password  not is empty");
  
   if(props.loginVal.captialValue === "Yes"){
     console.log(passWordvalue, confrimpass, "valueeee");
-    if(passWordvalue.match(upperCaseLetters)){
+    if(!upperCaseLetters.test(passWordvalue)){
       console.log("password  cpaital matched");
-      
-    flag= true;
-    }else{
-        passError.text=" Password must contain Capital alphabet ";
-        console.log("password not  cpaital matched");
-        flag= false;
+      passError.capital=" Password must contain atleast one capital alphabet";
+    flag= false;
     }
   }
   if(props.loginVal.numericValue === "Yes"){
     console.log(passWordvalue, confrimpass, "valueeee");
-    if(passWordvalue.match(numbers)){
+    if(!numbers.test(passWordvalue)){
       console.log("password numeric matched");
-      
-    flag= true;
-    }else{
-        passError.text=" Password must contain atleast one numeric value ";
-        flag= false;
-        console.log("password not  numeric matched");
+      passError.number=" Password must contain atleast one numeric value ";
+    flag= false;
     }
   }
   if(props.loginVal.specialValue === "Yes"){
     console.log(passWordvalue, confrimpass, "valueeee");
-    if(passWordvalue.match(specialChars)){
+    if(!specialChars.test(passWordvalue)){
       console.log("password special matched");
-      
-    flag= true;
-    }else{
-        passError.text=" Password must contain atleast one special character ";
-        flag= false;
-        console.log("password not special matched");
+      passError.special=" Password must contain atleast one special character ";
+    flag= false;
     }
   }
-  if(props.loginVal.minRange > passWordvalue.length || props.loginVal.maxRange < passWordvalue.length){
+  if(props.loginVal.minRange > passWordvalue.length || props.loginVal.maxRange > passWordvalue.length){
     console.log("min range",props.loginVal.minRange,passWordvalue.length,props.loginVal.maxRange );
-    passError.text=`Password must contain atleast ${props.loginVal.minRange} and ${props.loginVal.maxRange}`;
+    passError.range=`Password must contain minimum ${props.loginVal.minRange} and maximum ${props.loginVal.maxRange} characters`;
     flag= false;
-  }else{
-    flag= true;
-    console.log("else condition");
-
   }
- 
- }
+  if(passWordvalue != confrimpass){
+    console.log(passWordvalue, confrimpass, "va;uess");
+    flag= false;
+    passError.confirm="Confirm password and password value should match";
+  }
+}
 
  setpassWordError(passError);
- console.log(flag , "flag valueee");
+//  console.log(flag ,passError, "flag valueee");
      return flag;
      
 
 };
 
-//  const onSubmit =(event)=>{
-//   event.preventDefault();
-//   const checkEditValid =   passwordCheck();
-//   console.log(checkEditValid, "valid value");
-//  }
+ const onSubmit =(event)=>{
+  event.preventDefault();
+  const checkEditValid =   passwordCheck();
+  console.log(checkEditValid, "valid value");
+  if(checkEditValid){
+    alert("You have login successfully");
+  }
 
+ }
+ const displayPassword = ()=> {
+  if(passwordType ==="password")
+      {
+       setPasswordType("text")
+       
+      }else{
+        setPasswordType("password")
+      }
+     
+};
+const displayConfirmPassword = ()=> {
+  if(confirmpasswordType ==="password")
+      {
+       setConfirmPasswordType("text")
+       
+      }else{
+        setConfirmPasswordType("password")
+      }
+     
+};
 
 
 
@@ -129,34 +151,42 @@ flag= false;
              // placeholder="First name"
              autocomplete="off"
              maxLength="50"
+             value={usernameValue}
+             onChange={(event)=> setUserNameValue(event.target.value)}
              
            />
-           <label for="firstName">{props.loginVal.userValue}</label>
+           {/* <label for="firstName">{props.loginVal.userValue}</label> */}
+           {passwordError.user? <p className="error">{passwordError.user}</p>: ""}
        </div>
        <p>{props.loginVal.passValue}</p>
        <div  className= "form-floating">
      
        <input
-             type="password"
+             type={passwordType}
              className= "form-control form-control-lg"
-             id="firstName"
+             id="password-set"
              value={passWordvalue}
              onChange={(event) => setPassWordValue(event.target.value)}
              autocomplete="off"
              maxLength="15"
              
            />
-           <label for="firstName">{props.loginVal.passValue}</label> 
+           {/* <label for="firstName">{props.loginVal.passValue}</label>  */}
            <div class="form-floating-bottom px-3">
-             <span class="form-control-char-size"></span>
+             <span class="form-control-char-size"><input  type="checkbox" onClick={displayPassword} /><span>Show Password</span></span>
            </div>
-           {passwordError.text? <span className="error">{passwordError.text}</span>: ""}
+           
        </div>
+       {passwordError.text? <p className="error">{passwordError.text}</p>: ""}
+           {passwordError.capital? <p className="error">{passwordError.capital}</p>: ""}
+           {passwordError.number? <p className="error">{passwordError.number}</p>: ""}
+           {passwordError.special? <p className="error">{passwordError.special}</p>: ""}
+           {passwordError.range? <p className="error">{passwordError.range}</p>: ""}
        <p>Confirm Password</p>
        <div className= "form-floating">
       
        <input
-             type="password"
+             type={confirmpasswordType}
              className= " form-control form-control-lg"
              id="passwordValue"
              value={confrimpass}
@@ -165,14 +195,18 @@ flag= false;
              maxLength="15"
              
            />
-           <label for="firstName">Confirm Password</label> 
+           {/* <label for="firstName">Confirm Password</label>  */}
+           <div class="form-floating-bottom px-3">
+             <span class="form-control-char-size"><input  type="checkbox" onClick={displayConfirmPassword} /><span>Show Confirm Password</span></span>
+           </div>
+           {passwordError.confirm? <p className="error">{passwordError.confirm}</p>: ""}
        </div>
-        
+       
    </div>
    <div className='login-button'>
      <div className="link-button">
    <button className='submit-button' 
-   onClick={passwordCheck}
+   onClick={onSubmit}
     >
               Login
              
@@ -184,8 +218,6 @@ flag= false;
     
 
     </div>
-
-    
   </div>
   </>
   );
