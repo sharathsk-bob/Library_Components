@@ -1,6 +1,9 @@
 import React from 'react'
 import "./carousel.scss";
-
+import Carousel1 from "../../asset/images/carousel-img1.jpg";
+import Carousel2 from "../../asset/images/carousel-img2.jpg";
+import Carousel3 from "../../asset/images/carousel-img3.jpg";
+import Carousel4 from "../../asset/images/carousel-img4.JPG";
 function CarouselMain(props) {
 
   const{ CarouselProps } = props;
@@ -44,7 +47,7 @@ function CarouselMain(props) {
         <div class={`carousel-inner ${CarouselProps.wantImage=='No'?"carousel-image-none":"" }`}>
           { CarouselProps.cardCount == 1 ? (
             <div class="carousel-item active">
-              <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/DotCom_Banner_2880X1800.jpg" class="d-block w-100" alt="..."/>       
+              <img src={Carousel1} class="d-block w-100" alt="..."/>       
             <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
               <h5>First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
@@ -53,14 +56,14 @@ function CarouselMain(props) {
           ) : CarouselProps.cardCount == 2 ? (
             <>
               <div class="carousel-item active">
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/DotCom_Banner_2880X1800.jpg" class="d-block w-100" alt="..."/>       
+                <img src={Carousel1} class="d-block w-100" alt="..."/>       
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2021/07/Capgemini_people_diversity_inclusion-1-e1632829912313.jpg" class="d-block w-100" alt="..."/>
+                  <img src={Carousel2} class="d-block w-100" alt="..."/>
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
@@ -70,21 +73,21 @@ function CarouselMain(props) {
           ) : CarouselProps.cardCount == 3 ?  (
             <>
               <div class="carousel-item active">
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/DotCom_Banner_2880X1800.jpg" class="d-block w-100" alt="..."/>       
+                <img src={Carousel1} class="d-block w-100" alt="..."/>       
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2021/07/Capgemini_people_diversity_inclusion-1-e1632829912313.jpg" class="d-block w-100" alt="..."/>  
+                  <img src={Carousel2} class="d-block w-100" alt="..."/>  
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/world-wealth-report-2023.jpg" class="d-block w-100" alt="..."/>
+                  <img src={Carousel3} class="d-block w-100" alt="..."/>
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Third slide label</h5>
                   <p>Some representative placeholder content for the third slide.</p>
@@ -95,7 +98,7 @@ function CarouselMain(props) {
             <>
               <div class="carousel-item active">
               { CarouselProps.wantImage == 'Yes' ? (
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/DotCom_Banner_2880X1800.jpg" class="d-block w-100" alt="..."/>
+                <img src={Carousel1} class="d-block w-100" alt="..."/>
               ) 
               : ("")}        
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
@@ -104,21 +107,21 @@ function CarouselMain(props) {
               </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2021/07/Capgemini_people_diversity_inclusion-1-e1632829912313.jpg" class="d-block w-100" alt="..."/> 
+                  <img src={Carousel2} class="d-block w-100" alt="..."/> 
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/world-wealth-report-2023.jpg" class="d-block w-100" alt="..."/>
+                  <img src={Carousel3} class="d-block w-100" alt="..."/>
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Third slide label</h5>
                   <p>Some representative placeholder content for the third slide.</p>
                 </div>
               </div> 
               <div class="carousel-item">
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2022/11/Capgemin_Inside-Stories_Women-in-rugby_Hero.jpg" class="d-block w-100" alt="..."/>
+                <img src={Carousel4} class="d-block w-100" alt="..."/>
 
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>Fourth slide label</h5>
@@ -129,35 +132,35 @@ function CarouselMain(props) {
           ) : CarouselProps.cardCount == 5 ? (
             <>
               <div class="carousel-item active">
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/DotCom_Banner_2880X1800.jpg" class="d-block w-100" alt="..."/>    
+                <img src={Carousel1} class="d-block w-100" alt="..."/>    
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2021/07/Capgemini_people_diversity_inclusion-1-e1632829912313.jpg" class="d-block w-100" alt="..."/> 
+                  <img src={Carousel2} class="d-block w-100" alt="..."/> 
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                  <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2023/05/world-wealth-report-2023.jpg" class="d-block w-100" alt="..."/>
+                  <img src={Carousel3} class="d-block w-100" alt="..."/>
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Third slide label</h5>
                   <p>Some representative placeholder content for the third slide.</p>
                 </div>
               </div> 
               <div class="carousel-item">
-                <img src="https://prod.ucwe.capgemini.com/wp-content/uploads/2022/11/Capgemin_Inside-Stories_Women-in-rugby_Hero.jpg" class="d-block w-100" alt="..."/>
+                <img src={Carousel4} class="d-block w-100" alt="..."/>
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>Fourth slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
               </div>
             </div>
             <div class="carousel-item">
-                <img src="https://www.capgemini.com/wp-content/uploads/2021/09/Capgemini_Industries_Hospitality-Travel.jpg?w=1000&quality=90" class="d-block w-100" alt="..."/>
+                <img src={Carousel3} class="d-block w-100" alt="..."/>
               <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                 <h5>Fifth slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
