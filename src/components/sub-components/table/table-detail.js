@@ -22,9 +22,9 @@ const TableDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Table section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Table component.</p>
             <div className="detail-content">
                 <ul>

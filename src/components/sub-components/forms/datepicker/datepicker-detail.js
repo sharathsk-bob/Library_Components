@@ -22,9 +22,9 @@ const DatePickerDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Date Picker section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Date Picker component.</p>
             <div className="detail-content">
                 <ul>

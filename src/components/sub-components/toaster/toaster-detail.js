@@ -17,9 +17,9 @@ const ToasterDetail =(props)=>{
             </button>
           </div>
           <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
               Details for the Toaster section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Toaster component.</p>
             <div className="detail-content">
               <ul>

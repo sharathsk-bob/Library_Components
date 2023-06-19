@@ -22,9 +22,9 @@ const CheckBoxDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Check Box/Radio Button section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Check Box/Radio Button component.</p>
             <div className="detail-content">
                 <ul>

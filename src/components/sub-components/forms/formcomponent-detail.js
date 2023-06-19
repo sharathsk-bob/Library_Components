@@ -22,9 +22,9 @@ const FormComponentDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Form Components section are below:
-            </h1>
+            </h1> */}
             {/* <p>Please do follow the given instruction while creating the any of the Form component.</p> */}
             <p>Form Components mainly consist of: </p>
             <div className="detail-content">
