@@ -14,32 +14,32 @@ function CarouselMain(props) {
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
           { CarouselProps.cardCount == 1 ? (
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
+            <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
           ) : CarouselProps.cardCount == 2 ? (
             <>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
             </>
           ) : CarouselProps.cardCount == 3 ? (
             <>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
             </>
           ) : CarouselProps.cardCount == 4 ? (
             <>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 4"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 4"></button>
             </>
           ) : CarouselProps.cardCount == 5 ? (
             <>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 5"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class={`btn-carousel-${CarouselProps.theme} active`} aria-current="true" aria-label="Slide 1"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 2"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 3"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 4"></button>
+              <button tabIndex={2} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" class={`btn-carousel-${CarouselProps.theme}`} aria-label="Slide 5"></button>
             </>
           )
           :("")}  
@@ -169,11 +169,11 @@ function CarouselMain(props) {
             </>  
           ) : 
           (" ")}
-          <button class={`carousel-control-prev carousel-prev-${CarouselProps.theme}`} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <button tabIndex={1} class={`carousel-control-prev carousel-prev-${CarouselProps.theme}`} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class={`carousel-control-next carousel-next-${CarouselProps.theme}`} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <button tabIndex={1} class={`carousel-control-next carousel-next-${CarouselProps.theme}`} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
