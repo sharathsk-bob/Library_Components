@@ -230,10 +230,9 @@ const BreakpointLayoutForm =(props)=>{
 
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
-                <FormField className="modal-content-theme">           
-                    <label htmlFor="num-layouts" aria-label={`Number of Breakpoint Layout Asterik-Required`}>
-                        {`Number of Breakpoint Layout:`}<span className="asterik" >*</span>
-                    </label>
+                <FormField className="modal-content-theme">
+                    <label for="num-layouts" aria-label="Number of Breakpoint Layout Asterik-Required"> 
+                    <p>Number of Breakpoint Layout: <span className="asterik">*</span> </p>             
                     <select
                         id="num-layouts"
                         name="num-layouts"
@@ -246,6 +245,7 @@ const BreakpointLayoutForm =(props)=>{
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select>
+                    </label>
                 </FormField>
                 </div>    
                 <p className="error" aria-atomic="true">{inputErrors.numLayouts}</p>

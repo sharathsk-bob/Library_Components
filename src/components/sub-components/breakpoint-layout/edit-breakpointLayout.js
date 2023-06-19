@@ -243,9 +243,9 @@ const EditBreakpointLayoutModal = (props)=>{
             <div className="input-field-container theme-field size-field">
                 <div className="modal-checkbox">
                 <FormField className="modal-content-theme">           
-                    <label htmlFor="numLayouts" aria-label={`Number of Breakpoint Layout Asterik-Required`}>
-                        {`Number of Breakpoint Layout:`}<span className="asterik" >*</span>
-                    </label>
+                    <label for="num-layouts" aria-label="Number of Breakpoint Layout Asterik-Required">
+                    <p>Number of Breakpoint Layout: <span className="asterik">*</span> </p>   
+                    </label>     
                     <select
                         id="numLayouts"
                         name="numLayouts"

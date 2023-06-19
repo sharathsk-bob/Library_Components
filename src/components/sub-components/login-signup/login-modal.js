@@ -123,7 +123,7 @@ return (
     <div className="modal-content form-modalcontainer">
       <div className="form-header">
         <p>Login Form</p>
-        <button className="close-button" aria-label="Close" onClick={close} >
+        <button className="close-button" aria-label="close create login and signup modal" onClick={close} >
           <img alt="close modal" src={closeIcon}></img>
         </button>
       </div>
@@ -180,7 +180,7 @@ return (
           <p>Would you like to have capital letter validation in password <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+              <label className="modal-label" aria-label="Would you like to have capital letter validation in password Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -221,7 +221,7 @@ return (
           <p>Would you like to have special character validation in password <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+              <label className="modal-label" aria-label="Would you like to have special character validation in password Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -262,7 +262,7 @@ return (
           <p>Would you like to have numeric values validation in password <span className="asterik">*</span> </p>
           <div className="modal-checkbox">
             <FormField className="modal-content-checkbox">
-              <label className="modal-label" aria-label="Would you like to have profile Logo Select yes ">
+              <label className="modal-label" aria-label="Would you like to have numeric values validation in password Select yes ">
                 <input
                   className="modal-input"
                   type="radio"
@@ -303,7 +303,7 @@ return (
                     <FormField className="form-modal__content">
                         <label
                         className="modal__label"
-                        aria-label="Border Width Asterik-Required"
+                        aria-label="Select the minimum characters range Asterik-Required"
                         for="min-range"
                         >
                        Select the minimum characters range: <span className="asterik">*</span> 
@@ -328,7 +328,7 @@ return (
                     <FormField className="form-modal__content">
                         <label
                         className="modal__label"
-                        aria-label="Border Width Asterik-Required"
+                        aria-label="Select the maximum characters range Asterik-Required"
                         for="max-range"
                         >
                        Select the maximum characters range: <span className="asterik">*</span> 
@@ -354,7 +354,7 @@ return (
                   <FormField className="modal-content-theme">
                     <label
                       for="fieldwidth"
-                      aria-label="Select button width value Asterik-Required"
+                      aria-label="Please select the size of the form Asterik-Required"
                     >
                       <p>
                         Please select the size of the form :{" "}
