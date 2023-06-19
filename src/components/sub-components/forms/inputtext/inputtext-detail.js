@@ -21,9 +21,9 @@ const InputTextDetail =(props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the Input Text section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the Input Text component.</p>
             <div className="detail-content">
                 <ul>

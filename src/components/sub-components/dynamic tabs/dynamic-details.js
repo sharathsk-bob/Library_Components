@@ -22,9 +22,9 @@ const DynamicDetail =(props)=>{
         </div>
   
         <div className="modal-container details-section">
-          <h1>
+          {/* <h1>
             Details for the Tab / Panel section are below:
-          </h1>
+          </h1> */}
           <p>Please do follow the given instruction while creating the Tab / Panel component.</p>
           <div className="detail-content">
             <ul>

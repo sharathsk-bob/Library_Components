@@ -22,9 +22,9 @@ const FileSelectDetail = (props)=>{
             </div>
     
         <div className="modal-container details-section">
-            <h1>
+            {/* <h1>
             Details for the File Upload section are below:
-            </h1>
+            </h1> */}
             <p>Please do follow the given instruction while creating the File Upload component.</p>
             <div className="detail-content">
                 <ul>
