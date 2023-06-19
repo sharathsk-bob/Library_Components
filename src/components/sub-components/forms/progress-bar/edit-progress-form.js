@@ -102,7 +102,7 @@ function ProgressEditForm(props) {
     <div class="form-header">
       <p>Progress Bar</p>
       <button className="close-button" aria-label="close modal" onClick={()=>{close();}}>
-        <img src={closeIcon}></img>
+        <img alt="close modal" src={closeIcon}></img>
       </button>
     </div>
     <div className="modal-container card-section">

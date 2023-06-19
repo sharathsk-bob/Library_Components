@@ -124,7 +124,7 @@ const ButtonForm =(props)=>{
                 <div className="form-header">
                 <p>Button</p>
                     <button className="close-button" aria-label="close create button modal" onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
 

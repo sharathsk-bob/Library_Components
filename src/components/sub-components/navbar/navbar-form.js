@@ -183,7 +183,7 @@ function NavbarForm(props) {
                 close();
               }}
             >
-              <img src={closeIcon}></img>
+              <img alt="close modal" src={closeIcon}></img>
             </button>
           </div>
           <div className="modal-container navbar-container">

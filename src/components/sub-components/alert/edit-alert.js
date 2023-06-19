@@ -87,7 +87,7 @@ return (
             <div className="form-header">
             <p>Alert</p>
                 <button className="close-button" aria-label="close edit alert modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
 

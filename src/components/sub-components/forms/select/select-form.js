@@ -142,7 +142,7 @@ const SelectForm = (props) => {
     <div class="form-header">
       <p>Select</p>
       <button className="close-button" aria-label="close modal" onClick={()=>{resetSelect();close();}}>
-        <img src={closeIcon}></img>
+        <img alt="close modal" src={closeIcon}></img>
       </button>
     </div>
     <div className="modal-container card-section">

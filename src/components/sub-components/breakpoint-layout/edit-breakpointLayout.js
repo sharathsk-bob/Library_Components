@@ -234,7 +234,7 @@ const EditBreakpointLayoutModal = (props)=>{
                 <div className="form-header">
                 <p>Breakpoint Layout</p>
                     <button className="close-button" aria-label={`close edit Breakpoint Layout modal`} onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
 

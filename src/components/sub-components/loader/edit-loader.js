@@ -68,7 +68,7 @@ const EditLoaderModal =(props)=>{
             <div className="form-header">
                 <p> Edit Loader</p>
                 <button className="close-button" aria-label="close edit loader modal" onClick={close} >
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
 

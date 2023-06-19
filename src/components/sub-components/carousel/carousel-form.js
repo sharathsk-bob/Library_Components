@@ -85,14 +85,14 @@ const CarouselForm = (props) => {
         <div class="form-header">
           <p>Carousel</p>
           <button className="close-button" aria-label="close modal" onClick={()=>{close();}}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
         <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
     <div className='range-fields'>
       <label>
-        No of Cards:</label>
+        No of Cards: <span className="astrick" >*</span></label>
         <select value={cardCount} onChange={handleCardCountChange}>
           <option value={1}>1</option>
           <option value={2}>2</option>
@@ -104,7 +104,8 @@ const CarouselForm = (props) => {
       </div>
     <div className='range-fields'>
       <label>
-        Do you want an Image?</label>
+        Do you want an Image? <span className="astrick" >*</span>
+        </label>
         <select value={wantImage} onChange={handleWantImageChange}>
           <option value="">-- Select --</option>
           <option value="Yes">Yes</option>
@@ -114,7 +115,8 @@ const CarouselForm = (props) => {
       </div>
       <div className='range-fields'>
       <label>
-        Select theme: </label>
+        Select theme: <span className="astrick" >*</span>
+        </label>
         <select value={theme} onChange={handleThemeChange}>
           <option value="">-- Select --</option>
           <option value="light">Light</option>
@@ -125,8 +127,7 @@ const CarouselForm = (props) => {
         {errors.theme && <span className="error">{errors.theme}</span>}
       </div>
       <div className='range-fields'>
-      <label>
-        Width:</label>
+      <label>Width: <span className="astrick" >*</span></label>
         <select value={width} onChange={handleWidthChange}>
         <option value="">-- Select --</option>
           <option value="50">50%</option>

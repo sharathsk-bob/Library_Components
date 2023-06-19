@@ -17,7 +17,7 @@ const DatePickerDetail = (props)=>{
             <div className="detail-header">
             <p>Date Picker</p>
                 <button className="close-button" aria-label="close date picker details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

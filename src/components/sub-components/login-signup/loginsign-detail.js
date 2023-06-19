@@ -17,7 +17,7 @@ const LoginSignDetail = (props)=>{
             <div className="detail-header">
             <p>Login / Signup</p>
                 <button className="close-button" aria-label="close login and signup details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

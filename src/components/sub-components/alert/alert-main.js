@@ -22,8 +22,8 @@ function Alert(props) {
                         </p>
                         <button className="close-button" aria-label="close alert popup" onClick={close}>
                             { AlertProps?.Choice_Theme == "Normal"?
-                                <img src={closebIcon}></img> :
-                                <img src={closeIcon}></img>
+                                <img alt="close alert popup" src={closebIcon}></img> :
+                                <img alt="close alert popup" src={closeIcon}></img>
                             }
                         </button>
                     </div>

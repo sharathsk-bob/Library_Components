@@ -94,7 +94,7 @@ return (
             <div className="form-header">
             <p>Tooltip</p>
                 <button className="close-button" aria-label="close edit button modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
 

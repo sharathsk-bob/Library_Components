@@ -13,7 +13,7 @@ const ProgressDetail =(props)=>{
           <div className="detail-header">
             <p>Progress Bar</p>
             <button className="close-button" aria-label="close progress bar details modal" onClick={close}>
-              <img src={closeIcon}></img>
+              <img alt="close modal" src={closeIcon}></img>
             </button>
           </div>
     

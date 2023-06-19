@@ -17,7 +17,7 @@ const BreakpointLayoutDetail = (props)=>{
             <div className="detail-header">
             <p>Breakpoint Layout</p>
                 <button className="close-button" aria-label="close Breakpoint Layout details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

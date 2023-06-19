@@ -17,7 +17,7 @@ const RangeDetail = (props)=>{
             <div className="detail-header">
             <p>Range</p>
                 <button className="close-button" aria-label="close range details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

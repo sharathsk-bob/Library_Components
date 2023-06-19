@@ -17,7 +17,7 @@ const CardDetail =(props)=>{
       <div className="detail-header">
           <p>Card</p>
           <button className="close-button" aria-label="close card details modal" onClick={close}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
   

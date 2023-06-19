@@ -14,9 +14,7 @@ import SwitchForm from "../../sub-components/forms/switch-control/switch-form";
 import SwitchDetail from "../../sub-components/forms/switch-control/switch-detail";
 import RangeDetail from "../../sub-components/forms/range/range-detail";
 import RangeForm from "../../sub-components/forms/range/range-form";
-//import RangeDetail from "../../sub-components/forms/range/range-details";
 import SelectForm from "../../sub-components/forms/select/select-form";
-
 import FileSelectDetail from "../../sub-components/forms/file-select/fileselect-detail";
 import SelectModal from "../../sub-components/forms/file-select/file-select-modal";
 import "./modal.scss";

@@ -17,7 +17,7 @@ const TooltipDetail = (props)=>{
                 <div className="detail-header">
                 <p>Tooltip</p>
                     <button className="close-button" aria-label="close tooltip details modal" onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
         

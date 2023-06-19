@@ -105,7 +105,7 @@ const TableForm =(props)=>{
                 <div className="form-header">
                 <p>Table</p>
                     <button className="close-button" aria-label="close create table modal" onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
 

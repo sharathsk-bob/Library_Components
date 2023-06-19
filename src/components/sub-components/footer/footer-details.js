@@ -17,7 +17,7 @@ const FooterDetail =(props)=>{
         <div className="detail-header">
           <p>Footer</p>
           <button className="close-button" aria-label="close footer details modal" onClick={close}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
         <div className="modal-container details-section">

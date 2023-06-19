@@ -89,7 +89,7 @@ const EditTextAreaModal = (props)=>{
                 <div className="form-header">
                 <p>Text Area</p>
                     <button className="close-button" aria-label="close edit text area modal" onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
 

@@ -17,7 +17,7 @@ const LoaderDetail = (props)=>{
             <div className="detail-header">
             <p>Loader</p>
                 <button className="close-button" aria-label="close loader details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

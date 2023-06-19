@@ -17,7 +17,7 @@ const DynamicDetail =(props)=>{
       <div className="detail-header">
           <p>Tab / Panel</p>
           <button className="close-button" aria-label="close tab or panel details modal" onClick={close}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
   

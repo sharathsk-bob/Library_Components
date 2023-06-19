@@ -17,7 +17,7 @@ const AlertDetail = (props)=>{
             <div className="detail-header">
             <p>Alert</p>
                 <button className="close-button" aria-label="close alert details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

@@ -184,7 +184,7 @@ const EditCheckBoxModal = (props)=>{
                 <div className="form-header">
                 <p>{`Selector Type - ${inputs.Choice_SelectionType}`}</p>
                     <button className="close-button" aria-label={`close edit ${inputs.Choice_SelectionType} modal`} onClick={close}>
-                        <img src={closeIcon}></img>
+                        <img alt="close modal" src={closeIcon}></img>
                     </button>
                 </div>
 

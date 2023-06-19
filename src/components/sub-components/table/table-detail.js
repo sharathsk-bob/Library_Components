@@ -17,7 +17,7 @@ const TableDetail = (props)=>{
             <div className="detail-header">
             <p>Table</p>
                 <button className="close-button" aria-label="close table details modal" onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
     

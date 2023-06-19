@@ -107,14 +107,15 @@ const EditDynamicTabs = (props) => {
         <div class="form-header">
           <p>Dynamic Tabs</p>
           <button className="close-button" aria-label="close modal" onClick={()=>{close();}}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
         <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
     <div className='switch-fields'>
   <label htmlFor='numTabs'>
-    Number of Tabs: </label>
+    Number of Tabs: <span className="astrick" >*</span>
+    </label>
     <select  id="numTabs" name="numTabs" value={formValues.numTabs} onChange={handleNumTabsChange}>
       <option value="0">Select</option>
       <option value="1">1</option>
@@ -130,7 +131,8 @@ const EditDynamicTabs = (props) => {
           {/* <h4>Tab {index + 1}</h4> */}
           <div className='switch-fields'>
           <label htmlFor={`tabData[${index}].heading`}>
-            Tab-{index + 1} Heading (15 characters limit): </label>
+            Tab-{index + 1} Heading (15 characters limit): <span className="astrick" >*</span>
+            </label>
             <input
               type="text"
               id={`tabData[${index}].heading`}
@@ -143,7 +145,8 @@ const EditDynamicTabs = (props) => {
           </div>
           <div className='switch-fields'>
           <label htmlFor={`tabData[${index}].description`}>
-            Tab-{index + 1} Description (200 words limit): </label>
+            Tab-{index + 1} Description (200 words limit): <span className="astrick" >*</span>
+            </label>
             <textarea
               maxLength="1200"
               id={`tabData[${index}].description`}
@@ -157,7 +160,7 @@ const EditDynamicTabs = (props) => {
         </div>
       ))}
 <div className='switch-fields'>
-        <label>Theme:</label>
+        <label>Theme: <span className="astrick" >*</span></label>
         <select name="theme" value={formValues.theme} onChange={handleInputChange}>
         <option value="">Select</option>
           <option value="light">Light</option>

@@ -205,7 +205,7 @@ return (
             <div className="form-header">
             <p>{`Selector Type - ${selectionType}`}</p>
                 <button className="close-button" aria-label={`close create ${selectionType} modal`} onClick={close}>
-                    <img src={closeIcon}></img>
+                    <img alt="close modal" src={closeIcon}></img>
                 </button>
             </div>
 

@@ -17,7 +17,7 @@ const NavbarDetail =(props)=>{
         <div className="detail-header">
           <p>Navbar</p>
           <button className="close-button" aria-label="close navbar details modal" onClick={close}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" ssrc={closeIcon}></img>
           </button>
         </div>
   

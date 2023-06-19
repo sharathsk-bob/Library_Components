@@ -84,14 +84,14 @@ const EditCarouselForm = (props) => {
         <div class="form-header">
           <p>Carousel</p>
           <button className="close-button" aria-label="close modal" onClick={()=>{close();}}>
-            <img src={closeIcon}></img>
+            <img alt="close modal" src={closeIcon}></img>
           </button>
         </div>
         <div className="modal-container card-section">
     <form onSubmit={handleSubmit}>
     <div className='range-fields'>
       <label>
-        No of Cards:</label>
+        No of Cards: <span className="astrick" >*</span></label>
         <select name="cardCount" value={formValues.cardCount} onChange={handleChange}>
           <option value={1}>1</option>
           <option value={2}>2</option>
@@ -103,7 +103,7 @@ const EditCarouselForm = (props) => {
       </div>
     <div className='range-fields'>
       <label>
-        Do you want an Image?</label>
+        Do you want an Image? <span className="astrick" >*</span></label>
         <select name="wantImage" value={formValues.wantImage} onChange={handleChange}>
           <option value="">-- Select --</option>
           <option value="Yes">Yes</option>
@@ -113,7 +113,7 @@ const EditCarouselForm = (props) => {
       </div>
       <div className='range-fields'>
       <label>
-        Select theme: </label>
+        Select theme: <span className="astrick" >*</span></label>
         <select name="theme" value={formValues.theme} onChange={handleChange}>
           <option value="">-- Select --</option>
           <option value="light">Light</option>
@@ -125,7 +125,7 @@ const EditCarouselForm = (props) => {
       </div>
       <div className='range-fields'>
       <label>
-        Width:</label>
+        Width: <span className="astrick" >*</span></label>
         <select name="width" value={formValues.width} onChange={handleChange}>
         <option value="">-- Select --</option>
           <option value="50">50%</option>
