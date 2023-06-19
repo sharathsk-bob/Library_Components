@@ -46,7 +46,7 @@ const EditRangeForm = (props) => {
     if (!formValues.maxValue) {
       errors.maxValue = 'maxValue is required.';
     }
-    if(formValues.maxValue<formValues.minValue){
+    if(formValues.maxValue>formValues.minValue){
       errors.maxValue = 'minValue must be less than maxValue';
     }
     if(formValues.maxValue>=10000){

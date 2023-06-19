@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function RangeMain(props) {
   const { myrange }=props;
-  const [value, setValue] = useState(50);
+  const [value, setValue] = useState(myrange.minValue);
   const [showValue, setShowValue] = useState(false);
 
   const handleSliderChange = (e) => {
