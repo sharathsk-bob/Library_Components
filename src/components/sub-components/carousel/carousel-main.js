@@ -65,7 +65,7 @@ function CarouselMain(props) {
               </div>
               </div>
               <div class="carousel-item">
-                  <img src={Carousel2} class="d-block w-100" alt="..."/>
+                  <img src={Carousel5} class="d-block w-100" alt="..."/>
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
@@ -82,7 +82,7 @@ function CarouselMain(props) {
               </div>
               </div>
               <div class="carousel-item">
-                  <img src={Carousel2} class="d-block w-100" alt="..."/>  
+                  <img src={Carousel5} class="d-block w-100" alt="..."/>  
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
@@ -109,7 +109,7 @@ function CarouselMain(props) {
               </div>
               </div>
               <div class="carousel-item">
-                  <img src={Carousel2} class="d-block w-100" alt="..."/> 
+                  <img src={Carousel5} class="d-block w-100" alt="..."/> 
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
@@ -141,7 +141,7 @@ function CarouselMain(props) {
               </div>
               </div>
               <div class="carousel-item">
-                  <img src={Carousel2} class="d-block w-100" alt="..."/> 
+                  <img src={Carousel5} class="d-block w-100" alt="..."/> 
                 <div class={`carousel-caption carousel-${CarouselProps.theme}`}>
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>

@@ -142,7 +142,7 @@ const EditCarouselForm = (props) => {
                   onClick={handleSubmit}
                   aria-label="Submit"
                 >
-                  Submit
+                  Update
                 </Link>
               </div>
         </div>

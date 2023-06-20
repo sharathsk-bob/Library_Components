@@ -159,17 +159,18 @@ function CarouselComponent() {
         <span> Component</span>
       </div>
       <div className="toaster-right">
-        <div className="button-section">
+        <div className="button-section" >
           <Link
             to="/"
             aria-label="back to various component homepage"
             // state={headerData}
             className="link-button"
+            tabIndex={1}
           >
             Back
           </Link>
 
-          <button class="buttons" aria-label="Edit values for Carousel Component" onClick={openEditCarousel} >
+          <button class="buttons" aria-label="Edit values for Carousel Component" onClick={openEditCarousel}tabIndex={1} >
             Edit
           </button>
         </div>
