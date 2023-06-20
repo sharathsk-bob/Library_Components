@@ -36,13 +36,13 @@ const RangeForm = (props) => {
     if (!maxValue) {
       errors.maxValue = 'maxValue is required.';
     }
-    if(maxValue<minValue){
+    if(parseInt(maxValue)<parseInt(minValue)){
       errors.maxValue = 'minValue must be less than maxValue';
     }
-    if(maxValue>=10000){
+    if(parseInt(maxValue)>=10000){
       errors.maxValue = 'maxValue limit is 9999';
     }
-    if(minValue>=9999){
+    if(parseInt(minValue)>=9999){
       errors.minValue = 'minValue limit is 9998';
     }
     if (!theme) {
@@ -59,6 +59,7 @@ const RangeForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationError = validateForm();
+    console.log(maxValue,minValue,parseInt(maxValue)<parseInt(minValue));
     if (Object.keys(validationError).length === 0) {
         displayToaster();
         history("/formcomponents/range", {state: {rangeProps}});

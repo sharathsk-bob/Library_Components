@@ -41,7 +41,7 @@ function RangeMain(props) {
         <div className="value right">{myrange.maxValue}</div>
       </div>
       <div  className='input-label-value'>
-        <label>Value: {value}</label>
+        <label>Value: {showValue? value:myrange.minValue}</label>
       </div>
     </div>
   );
